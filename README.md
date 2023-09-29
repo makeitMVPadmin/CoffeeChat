@@ -1,5 +1,4 @@
-
-# MakeItMVP Launch Academy Starter Repository
+# MakeItMVP Launch Academy Starter Repository for CoffeeChat
 
 Welcome to the MakeItMVP Launch Academy Starter Repository! This repository is designed to provide new junior developers with a structured starting point for their assigned projects. It's built using React and Sass to help you get up and running quickly.
 
@@ -18,14 +17,14 @@ To begin working on your project, follow these steps:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/MakeItMVP/LaunchAcademyStarter.git
+   git clone https://github.com/MakeItMVP/CoffeeChat.git
    ```
 ````
 
 2. Change your working directory to the cloned repository:
 
    ```bash
-   cd LaunchAcademyStarter
+   cd CoffeeChat
    ```
 
 3. Install the project dependencies:
