@@ -1,13 +1,17 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
+import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -54,12 +58,32 @@ const connectionsData = [
 
 
 function App() {
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in. Redirect to a different page or perform actions.
+      } else {
+        // User is signed out.
+      }
+    });
+
+    return () => {
+      // Unsubscribe from the listener when the component unmounts.
+      unsubscribe();
+    };
+  }, []);
+  
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/onboarding" element={<WelcomePage />} />
+      <Route path="/onboarding-page-2" element={<OnboardingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/connections" element={<ConnectionsPage people={connectionsData} />} />
       <Route path="/chat/:id" element={<Chat people={connectionsData} db={db}/>} />
+
     </Routes>
   );
 }

@@ -1,0 +1,35 @@
+.center-vertically {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.swipe-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem; 
+  color: #888; 
+}
+
+.arrow-icon {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  color: #888; 
+}
+
+.swipe-transition {
+  transition: transform 0.5s ease; 
+  transform: translateX(0);
+}
+
+.swipe-transition-exit {
+  transform: translateX(-100%); 
+}
+
+  
+  
+  
+  
+  
