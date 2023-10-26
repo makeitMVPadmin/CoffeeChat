@@ -1,6 +1,22 @@
 import './LoginPage.scss';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const LoginPage = () => {
+
+  const handleGoogleSignIn = () => {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((userCredential) => {
+        // User signed in with Google. You can handle the user data here.
+      })
+      .catch((error) => {
+        // Handle sign-in errors here.
+      });
+  };
+
+  
   return (
     <div class="center-vertically">
       <h2>Welcome to CoffeeChat</h2>
@@ -31,8 +47,12 @@ const LoginPage = () => {
         <br />
         <div class="center-vertically">Or continue with</div>
         <div class="two-column">
-        <button class="narrow-button" type='button'>Google</button>
-        <button class="narrow-button" type='button'>LinkedIn</button>
+        <button class="narrow-button" type="button" onClick={handleGoogleSignIn}>
+        Google
+      </button>
+      <button class="narrow-button" type="button">
+       LinkedIn
+      </button>
         </div>
         <br />
         <div class="center-vertically">
