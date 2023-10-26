@@ -1,13 +1,22 @@
 import "./Navbar.scss";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="navbar">
       <ul>
-        <li><a href="#">Connections</a></li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#">Profile</a></li>
+        <li>
+          <Link to="/connections">Connections</Link>
+        </li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/calendar">Calendar</Link>
+        </li>
+        <li>
+          <Link to="/profile">Profile</Link>
+        </li>
       </ul>
     </div>
   );
