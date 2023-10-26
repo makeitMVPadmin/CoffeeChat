@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -5,6 +6,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,6 +27,23 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 function App() {
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in. Redirect to a different page or perform actions.
+      } else {
+        // User is signed out.
+      }
+    });
+
+    return () => {
+      // Unsubscribe from the listener when the component unmounts.
+      unsubscribe();
+    };
+  }, []);
+  
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
