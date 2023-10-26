@@ -1,0 +1,49 @@
+@import "variables";
+
+// Desktop
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+// Tablet
+@mixin tablet {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: $mobile) {
+    @content;
+  }
+}
+
+// Styles
+@mixin center-vertically {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin swipe-container($duration: $transition-duration) {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  @include swipe-transition($duration);
+}
+
+@mixin swipe-container-div($duration: $transition-duration) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include swipe-transition($duration);
+}
+
+@mixin swipe-transition-exit($duration: $transition-duration) {
+  @include swipe-transition($duration);
+}
+
