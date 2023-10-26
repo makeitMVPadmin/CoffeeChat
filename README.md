@@ -1,82 +1,77 @@
-# MakeItMVP Launch Academy Starter Repository : CoffeeChat
-
-Welcome to the MakeItMVP Launch Academy Starter Repository! This repository is designed to provide new junior developers with a structured starting point for their assigned projects. It's built using React and Sass to help you get up and running quickly.
+# makeitMVP Launch Academy: CoffeeChat
 
 ## Table of Contents
 
+- [Introduction](#introduction)
+- [Features](#features)
 - [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Technologies](#technologies)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Technologies Used](#technologies)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [License](#license)
 
+## Introduction
+
+Coffee Chat is a platform designed to revolutionize the way professionals network and build meaningful connections. This README provides an overview of the project, its features, and instructions on getting started.
+
+## Features
+
+- **Smart Matching Algorithm**: Connects professionals based on industry, interests, skills, and career goals.
+- **In-App Chat**: Enables real-time messaging for easy communication.
+- **Meeting Scheduling**: Allows users to schedule 1-to-1 coffee meetings with their matches.
+- **User Profiles**: Users can customize their profiles to showcase their professional background.
+
 ## Getting Started
 
-To begin working on your project, follow these steps:
+### Prerequisites
 
-1. Clone this repository to your local machine:
+- Node.js and npm installed on your local machine.
+- MongoDB or another database system set up.
+- [Authentication system](#) (e.g., OAuth, email and password).
 
-   ```bash
-   git clone https://github.com/MakeItMVP/CoffeeChat.git
+### Installation
+
+1. Clone the repository:
+
    ```
-````
-
-2. Change your working directory to the cloned repository:
-
-   ```bash
-   cd CoffeeChat
-   ```
-
-3. Install the project dependencies:
-
-   ```bash
-   npm install
+   git clone https://github.com/yourusername/coffee-chat.git
+   cd coffee-chat
    ```
 
-4. Start the development server:
+2. Install dependencies
+ ```npm install```
 
-   ```bash
-   npm start
-   ```
+ 3. Set up your environment variables and configuration for authentication and database. 
 
-5. Open your web browser and navigate to `http://localhost:3000` to see your project running.
+ 4. Run the app: 
+ ```npm start```
 
-Now you're ready to start building your project using the provided structure!
+### Technologies Used
+This project makes use of the following technologies, dependencies and tools:
 
-## Project Structure
+- **React**: JavaScript library for building the user interface.
+- **create-react-app**: A tool to set up a new React application quickly.
+- **Firebase**: A cloud-based platform for backend services including Firestore and OAuth.
+- **Node.js**: Server-side runtime environment.
+- **Express**: Web application framework for Node.js.
+- **SCSS/Sass**: CSS preprocessor for styling.
+- **react-icons**: A library for adding icons to your React application.
+- **dotenv**: A module for loading environment variables from a `.env` file.
 
-The project structure is organized as follows:
+...Work in Progress
 
-```
-├── src/
-│   ├── components/
-│   │   ├── App.js
-│   │   ├── ...
-│   ├── styles/
-│   │   ├── main.scss
-│   │   ├── ...
-│   ├── index.js
-├── public/
-│   ├── index.html
-│   ├── ...
-├── package.json
-├── README.md
-```
+## Usage
+To use the Coffee Chat app, follow the registration and login process. Create your profile, specify your preferences, and start networking with relevant professionals. You can schedule coffee meetings, chat with your connections, and meet new people.
 
-- `src/`: Contains the main source code for your project, including React components and styles.
-- `public/`: Contains static assets and your project's HTML template.
-- `package.json`: Defines project dependencies and scripts.
+## Screenshots
+...Work in Progress
 
-Feel free to customize the project structure to fit your specific project requirements.
-
-## Technologies
-
-This starter repository uses the following technologies:
-
-- React: A JavaScript library for building user interfaces.
-- Sass: A CSS extension language that adds features like variables, nesting, and more.
-
-You can expand upon these technologies as needed for your project.
+## API Documentation
+...Work in Progress
 
 ## Contributing
 
@@ -85,7 +80,3 @@ We welcome contributions from the community. If you have suggestions or improvem
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-```
-
-```
