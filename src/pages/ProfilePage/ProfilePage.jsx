@@ -42,7 +42,24 @@ const ProfilePage = () => {
         Saepe rerum excepturi ipsum neque. Libero nemo maiores illum accusantium
         vel repellendus, iusto itaque quo modi repellat aliquid pariatur autem
         tempore totam voluptate?
-      </p>
+          </p>
+          
+          <div className="profile__tech--container">
+              <div className="profile__tech--row">
+              <p className="profile__tech">Java</p>
+              <p className="profile__tech">C++</p>
+              <p className="profile__tech">HTML5</p>
+              </div>
+
+              <div className="profile__tech--row">
+              <p className="profile__tech">Python</p>
+              <p className="profile__tech">React</p>
+              <p className="profile__tech">CSS</p>
+              </div>
+          </div>
+
+          {/* TODO: Link to calendar scheduling */}
+          <button className="profile__button">Book</button>
     </div>
   );
 };

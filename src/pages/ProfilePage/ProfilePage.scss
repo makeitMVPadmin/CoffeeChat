@@ -1,5 +1,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global";
 
 .profile {
   &__content {
@@ -26,6 +27,28 @@
   }
 
   &__description {
-   width: 20rem;
+    width: 20rem;
+  }
+
+  &__tech {
+    padding: 1rem 2rem;
+    margin: 1rem;
+    background-color: lightgrey;
+    border-radius: 2rem;
+    &--row {
+      display: flex;
+      flex-direction: row;
+    }
+    &--container {
+      padding: 1rem;
+    }
+  }
+
+  &__button{
+    margin: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 1.5rem;
+    padding: .75rem 2rem;
   }
 }
