@@ -6,6 +6,7 @@ import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -81,6 +82,7 @@ function App() {
       <Route path="/onboarding" element={<WelcomePage />} />
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/search" element={<SearchPage />} />
       <Route path="/connections" element={<ConnectionsPage people={connectionsData} />} />
       <Route path="/chat/:id" element={<Chat people={connectionsData} db={db}/>} />
 
