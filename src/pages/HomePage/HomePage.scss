@@ -1,0 +1,52 @@
+.accountBtn {
+    border-radius: 50%;
+    background-color: grey;
+    width: 4rem;
+    height: 4rem;
+    margin: auto;
+    margin-right: 2rem;
+    background-image: url('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-position: center;
+    object-fit: contain;
+}
+
+.WelcomeTitle {
+    padding-left: 2rem;
+}
+
+.homeHeader {
+    display: flex;
+}
+
+
+// --------------------------Carousel Section -------------------------------
+
+
+
+
+// --------------------------Schedule Section -------------------------------
+
+.scheduleDiv {
+    border-radius: 25px;
+    background-color: aliceblue;
+    width: 90%;
+    margin: auto;
+    padding: 0.5rem;
+}
+
+.scheduleList {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.scheduledName {
+    background-color: darkgray;
+    border-radius: 25px;
+    margin-right: 1rem;
+    padding: 0.3rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
