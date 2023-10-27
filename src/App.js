@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Navbar from "./components/Navbar/Navbar";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -76,15 +78,19 @@ function App() {
   }, []);
   
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/onboarding" element={<WelcomePage />} />
-      <Route path="/onboarding-page-2" element={<OnboardingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/connections" element={<ConnectionsPage people={connectionsData} />} />
-      <Route path="/chat/:id" element={<Chat people={connectionsData} db={db}/>} />
-
-    </Routes>
+    <div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/onboarding" element={<WelcomePage />} />
+        <Route path="/onboarding-page-2" element={<OnboardingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/connections" element={<ConnectionsPage people={connectionsData} />} />
+        <Route path="/chat/:id" element={<Chat people={connectionsData} db={db}/>} />
+        <Route path="/profile" element={<ProfilePage/>} />
+  
+      </Routes>
+      <Navbar />
+    </div>
   );
 }
 
