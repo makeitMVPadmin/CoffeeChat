@@ -1,4 +1,4 @@
-@import "variables";
+@use "../partials/variables" as *;
 
 // Desktop
 @mixin desktop {
