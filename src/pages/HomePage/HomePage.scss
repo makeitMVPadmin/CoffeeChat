@@ -7,7 +7,9 @@
     margin-right: 2rem;
     background-image: url('https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600');
     background-position: center;
+    background-size: cover;
     object-fit: contain;
+    text-align: center;
 }
 
 .WelcomeTitle {
@@ -22,7 +24,19 @@
 // --------------------------Carousel Section -------------------------------
 
 
+.carousel{
+    border: 1px solid black;
+    height: 10rem;
+    width: 90%;
+    margin: auto;
+}
+.my-slider {
+    width: fit-content;
+}
 
+.imgCarousel {
+    object-fit: -webkit-fill-available;
+}
 
 // --------------------------Schedule Section -------------------------------
 
@@ -49,4 +63,19 @@
     padding: 0.3rem;
     padding-right: 0.5rem;
     padding-left: 0.5rem;
+}
+
+
+.lowerDiv {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    height: 4rem;
+}
+
+.connections {
+    border-radius: 25px;
+    background-color: aliceblue;
+    width: 32%;
+    text-align: center;
 }
