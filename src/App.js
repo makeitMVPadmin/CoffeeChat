@@ -10,7 +10,7 @@ import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
+import { collection, getFirestore, getDocs, addDoc, deleteDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,6 +31,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
+
+// collection Ref 
+const getUsers = collection(db, 'Users')
+const getMeetings = collection(db, 'Meetings')
+const getEvents = collection(db, 'Events')
+const getChats = collection(db, 'Chats')
+const getMessages = collection(db, 'Messages')
+
+// get collection data
+getDocs(getUsers)
+.then((snapshot)=> {
+  let users = []
+  snapshot.docs.forEach((doc)=> {
+    users.push({...doc.data(), id: doc.id})
+  })
+  console.log(users)
+})
+
+
 
 // Dummy Data for Chat 
 const connectionsData = [

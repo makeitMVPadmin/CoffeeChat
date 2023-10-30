@@ -1,16 +1,14 @@
 import "./HomePage.scss";
 import Navbar from "../../components/Navbar/Navbar";
+import { Carousel } from "../../components/carousel";
 import Slider from 'slider-moon';
 import 'slider-moon/dist/style.css'
 import {
-  SafeAreaView,
+  FlatList,
   ScrollView,
   Text,
   StyleSheet,
   View,
-  ImageBackground,
-  Animated,
-  useWindowDimensions,
 } from 'react-native';
 
 
@@ -20,16 +18,7 @@ import {
 const HomePage = () => {
 
 
-  const items = [
-    {
-      id: '12',
-      img: 'https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    // {
-    //   id: '11',
-    //   img: 'https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=600'
-    // },
-  ]
+
 
 
   return (
@@ -39,30 +28,8 @@ const HomePage = () => {
         <h1 className="WelcomeTitle">Welcome, <br></br> name!</h1>
         <div className="accountBtn"></div>
       </div>
-
-      {/* <Slider
-        slideClass={'my-slider'}
-        infinite={true}
-        
-        animation={'scale'}
-        callback={() => {
-          console.log('here');
-        }}
-      >
-        <div className='slider my-slider'>
-          <ul className='slider-wrapper'>
-          {items.map((item) => (
-          <li key={item.id}>
-            <img src={item.img} />
-          </li>
-        ))}
-          </ul>
-        </div>
-      </Slider> */}
-
-      <div className="carousel">
-        carousel
-      </div>
+      
+      <Carousel/>
 
       <h3 style={{ textAlign: 'center' }} >Schedule</h3>
 
