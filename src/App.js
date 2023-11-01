@@ -86,7 +86,7 @@ function App() {
       <Route path="/search" element={<SearchPage />} />
       <Route path="/connections" element={<ConnectionsPage people={connectionsData} />} />
       <Route path="/chat/:id" element={<Chat people={connectionsData} db={db} />} />
-      <Route path="/scheduling/:id" element={<SchedulingPage />} />
+      <Route path="/scheduling/:id" element={<SchedulingPage people={connectionsData} db={db} />} />
     </Routes>
   );
 }
