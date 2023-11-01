@@ -8,6 +8,7 @@ import "react-calendar/dist/Calendar.css";
 const SchedulingPage = ({ people, db }) => {
   const { id } = useParams();
   const person = people.find((p) => p.id === Number(id));
+    const timePreferences = person.timePreferences;
 
   // State to track selected date, time, and meeting type
   const [selectedDate, setSelectedDate] = useState(null);
@@ -64,25 +65,17 @@ const SchedulingPage = ({ people, db }) => {
         value={selectedDate} // Set the selected date
       />
 
-      <h2>Available Time Slots</h2>
-      <button
-        className={selectedTime === "2:30pm" ? "scheduling__button" : ""}
-        onClick={() => toggleTimeSelection("2:30pm")}
-      >
-        2:30pm
-      </button>
-      <button
-        className={selectedTime === "3:00pm" ? "scheduling__button" : ""}
-        onClick={() => toggleTimeSelection("3:00pm")}
-      >
-        3:00pm
-      </button>
-      <button
-        className={selectedTime === "3:30pm" ? "scheduling__button" : ""}
-        onClick={() => toggleTimeSelection("3:30pm")}
-      >
-        3:30pm
-      </button>
+<h2>Available Time Slots</h2>
+      {timePreferences.map((timeSlot) => (
+        <button
+          key={timeSlot}
+          className={selectedTime === timeSlot ? "selected-button" : ""}
+          onClick={() => toggleTimeSelection(timeSlot)}
+        >
+          {timeSlot}
+        </button>
+      ))}
+
 
       <h2>Select Meeting Type</h2>
       <button
