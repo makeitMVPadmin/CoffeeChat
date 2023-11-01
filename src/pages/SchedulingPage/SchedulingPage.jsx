@@ -2,8 +2,8 @@ import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import "./SchedulingPage.scss";
 import { useParams } from "react-router-dom";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 const SchedulingPage = ({ people, db }) => {
   const { id } = useParams();
@@ -23,12 +23,15 @@ const SchedulingPage = ({ people, db }) => {
         time: selectedTime,
         meetingType: selectedMeetingType,
       };
-  
+
       try {
         // Add the booking data to a Firestore collection
         await addDoc(collection(db, "bookings"), bookingData);
         console.log("Booking saved to Firestore");
-        
+
+        // After booking, clear the selected time and meeting type
+        setSelectedTime(null);
+        setSelectedMeetingType(null);
       } catch (error) {
         console.error("Error saving booking: ", error);
       }
@@ -36,7 +39,18 @@ const SchedulingPage = ({ people, db }) => {
       alert("Please select a date, time, and meeting type.");
     }
   };
-  
+
+  // Function to toggle the selected class for time slots
+  const toggleTimeSelection = (time) => {
+    setSelectedTime(selectedTime === time ? null : time);
+  };
+
+  // Function to toggle the selected class for meeting types
+  const toggleMeetingTypeSelection = (meetingType) => {
+    setSelectedMeetingType(
+      selectedMeetingType === meetingType ? null : meetingType,
+    );
+  };
 
   return (
     <>
@@ -47,18 +61,42 @@ const SchedulingPage = ({ people, db }) => {
       {/* Calendar */}
       <Calendar
         onChange={(date) => setSelectedDate(date)} // Handle date selection
-              value={selectedDate} // Set the selected date
-              className="custom-calendar"
+        value={selectedDate} // Set the selected date
       />
 
       <h2>Available Time Slots</h2>
-      <button onClick={() => setSelectedTime("2:30pm")}>2:30pm</button>
-      <button onClick={() => setSelectedTime("3:00pm")}>3:00pm</button>
-      <button onClick={() => setSelectedTime("3:30pm")}>3:30pm</button>
+      <button
+        className={selectedTime === "2:30pm" ? "scheduling__button" : ""}
+        onClick={() => toggleTimeSelection("2:30pm")}
+      >
+        2:30pm
+      </button>
+      <button
+        className={selectedTime === "3:00pm" ? "scheduling__button" : ""}
+        onClick={() => toggleTimeSelection("3:00pm")}
+      >
+        3:00pm
+      </button>
+      <button
+        className={selectedTime === "3:30pm" ? "scheduling__button" : ""}
+        onClick={() => toggleTimeSelection("3:30pm")}
+      >
+        3:30pm
+      </button>
 
       <h2>Select Meeting Type</h2>
-      <button onClick={() => setSelectedMeetingType("1-on-1")}>1-on-1</button>
-            <button onClick={() => setSelectedMeetingType("Virtual")}>Virtual</button>
+      <button
+        className={selectedMeetingType === "1-on-1" ? "scheduling__button" : ""}
+        onClick={() => toggleMeetingTypeSelection("1-on-1")}
+      >
+        1-on-1
+      </button>
+      <button
+        className={selectedMeetingType === "Virtual" ? "scheduling__button" : ""}
+        onClick={() => toggleMeetingTypeSelection("Virtual")}
+      >
+        Virtual
+      </button>
 
       {/* Complete action  */}
       <button onClick={saveBooking}>Book</button>
