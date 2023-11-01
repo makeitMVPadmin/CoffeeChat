@@ -4,13 +4,16 @@ import "./SchedulingPage.scss";
 import { useParams } from "react-router-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
+import Modal from "react-modal";
+Modal.setAppElement("#root");
 
 const SchedulingPage = ({ people, db }) => {
   const { id } = useParams();
   const person = people.find((p) => p.id === Number(id));
   const timePreferences = person.timePreferences;
-  const [isConfirmationVisible, setConfirmationVisible] = useState(false);
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
   // State to track selected date, time, and meeting type
   const [selectedDate, setSelectedDate] = useState(null);
@@ -41,7 +44,23 @@ const SchedulingPage = ({ people, db }) => {
     } else {
       alert("Please select a date, time, and meeting type.");
     }
-    setConfirmationVisible(true);
+
+    const confirmationMessage = (
+      <div className="confirmation-modal">
+        {/* TODO: Add logged in user's name & meeting type */}
+        <p>
+          Your meeting is confirmed! It is scheduled as an in-person meeting
+        </p>
+        {/* TODO: Add time chosen, name of person booked & date scheduled*/}
+        <h2>4:15PM</h2>
+        <h2>Richard</h2>
+        <h3>Wednesday, October 8th 2023</h3>
+        <p>Get ready to brew some great connections!</p>
+        <button onClick={closeModal}>Close</button>
+      </div>
+    );
+
+    openModal(confirmationMessage);
   };
 
   // Function to toggle the selected class for time slots
@@ -54,6 +73,16 @@ const SchedulingPage = ({ people, db }) => {
     setSelectedMeetingType(
       selectedMeetingType === meetingType ? null : meetingType,
     );
+  };
+
+  const openModal = (content) => {
+    setModalContent(content);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalContent(null);
   };
 
   return (
@@ -72,7 +101,7 @@ const SchedulingPage = ({ people, db }) => {
       {timePreferences.map((timeSlot) => (
         <button
           key={timeSlot}
-          className={selectedTime === timeSlot ? "selected-button" : ""}
+          className={selectedTime === timeSlot ? "scheduling__button" : ""}
           onClick={() => toggleTimeSelection(timeSlot)}
         >
           {timeSlot}
@@ -99,9 +128,13 @@ const SchedulingPage = ({ people, db }) => {
       <button onClick={saveBooking}>Book</button>
 
       {/* After booking, a new page opens up -- Confirmation Page */}
-      {isConfirmationVisible && (
-        <ConfirmationModal onClose={() => setConfirmationVisible(false)} />
-      )}
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Confirmation Modal"
+      >
+        {modalContent}
+      </Modal>
     </>
   );
 };
