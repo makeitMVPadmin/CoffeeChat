@@ -4,11 +4,13 @@ import "./SchedulingPage.scss";
 import { useParams } from "react-router-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
 
 const SchedulingPage = ({ people, db }) => {
   const { id } = useParams();
   const person = people.find((p) => p.id === Number(id));
-    const timePreferences = person.timePreferences;
+  const timePreferences = person.timePreferences;
+  const [isConfirmationVisible, setConfirmationVisible] = useState(false);
 
   // State to track selected date, time, and meeting type
   const [selectedDate, setSelectedDate] = useState(null);
@@ -39,6 +41,7 @@ const SchedulingPage = ({ people, db }) => {
     } else {
       alert("Please select a date, time, and meeting type.");
     }
+    setConfirmationVisible(true);
   };
 
   // Function to toggle the selected class for time slots
@@ -65,7 +68,7 @@ const SchedulingPage = ({ people, db }) => {
         value={selectedDate} // Set the selected date
       />
 
-<h2>Available Time Slots</h2>
+      <h2>Available Time Slots</h2>
       {timePreferences.map((timeSlot) => (
         <button
           key={timeSlot}
@@ -76,7 +79,6 @@ const SchedulingPage = ({ people, db }) => {
         </button>
       ))}
 
-
       <h2>Select Meeting Type</h2>
       <button
         className={selectedMeetingType === "1-on-1" ? "scheduling__button" : ""}
@@ -85,7 +87,9 @@ const SchedulingPage = ({ people, db }) => {
         1-on-1
       </button>
       <button
-        className={selectedMeetingType === "Virtual" ? "scheduling__button" : ""}
+        className={
+          selectedMeetingType === "Virtual" ? "scheduling__button" : ""
+        }
         onClick={() => toggleMeetingTypeSelection("Virtual")}
       >
         Virtual
@@ -95,6 +99,9 @@ const SchedulingPage = ({ people, db }) => {
       <button onClick={saveBooking}>Book</button>
 
       {/* After booking, a new page opens up -- Confirmation Page */}
+      {isConfirmationVisible && (
+        <ConfirmationModal onClose={() => setConfirmationVisible(false)} />
+      )}
     </>
   );
 };
