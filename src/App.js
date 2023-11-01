@@ -13,6 +13,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import serviceAccount from '../src/functions/service-account.json';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,7 +30,13 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
+const app = initializeApp({
+  ...firebaseConfig,
+  credential: serviceAccount,
+  projectId: 'coffee-chat-a47df',
+});
+
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
