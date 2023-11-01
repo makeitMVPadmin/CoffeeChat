@@ -34,27 +34,31 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-// Dummy Data for Chat 
+// Dummy Data for People
 const connectionsData = [
   {
     id: 1,
     name: "John Doe",
     profilePicture: "john.jpg",
+    timePreferences: ["9:00am", "2:30pm", "4:00pm"]
   },
   {
     id: 2,
     name: "Alice Smith",
     profilePicture: "alice.jpg",
+    timePreferences: ["10:00am", "3:30pm", "5:00pm"]
   },
   {
     id: 3,
     name: "Julie Tall",
     profilePicture: "julie.jpg",
+    timePreferences: ["9:30am", "3:00pm", "4:30pm"]
   },
   {
     id: 5,
     name: "George Small",
     profilePicture: "george.jpg",
+    timePreferences: ["7:30am", "5:00pm", "7:30pm"]
   },
 ];
 
@@ -86,7 +90,7 @@ function App() {
       <Route path="/search" element={<SearchPage />} />
       <Route path="/connections" element={<ConnectionsPage people={connectionsData} />} />
       <Route path="/chat/:id" element={<Chat people={connectionsData} db={db} />} />
-      <Route path="/scheduling/:id" element={<SchedulingPage people={connectionsData} db={db} />} />
+      <Route path="/scheduling/:id" element={<SchedulingPage people={connectionsData} db={db}/>} />
     </Routes>
   );
 }
