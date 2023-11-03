@@ -1,5 +1,6 @@
 @use "../partials/variables" as *;
 
+// // Media Queries // //
 // Desktop
 @mixin desktop {
   @media screen and (min-width: $desktop) {
@@ -20,7 +21,7 @@
   }
 }
 
-// Styles
+// // Reuseable Styles // //
 @mixin center-vertically {
   display: flex;
   flex-direction: column;
@@ -47,3 +48,45 @@
   @include swipe-transition($duration);
 }
 
+// // Font Styles // //
+// Desktop Styles
+@mixin desktop-pageheader {
+  font-family: "Corben-Bold", sans-serif;
+  font-size: 3.625rem;
+}
+
+@mixin desktop-subheader {
+  font-family: "Corben-Bold", sans-serif;
+  font-size: 1.875rem;
+}
+
+@mixin desktop-body {
+  font-family: "Gilroy-Light", sans-serif;
+  font-size: 1.5625rem;
+}
+
+@mixin desktop-buttons {
+  font-family: "Gilroy-Light", sans-serif;
+  font-size: 1.6875rem;
+}
+
+// Mobile Styles
+@mixin mobile-pageheader {
+  font-family: "Corben-Bold", sans-serif;
+  font-size: 3rem;
+}
+
+@mixin mobile-subheader {
+  font-family: "Corben-Bold", sans-serif;
+  font-size: 1.6875rem;
+}
+
+@mixin mobile-body {
+  font-family: "Gilroy-Light", sans-serif;
+  font-size: 1.3125rem;
+}
+
+@mixin mobile-buttons {
+  font-family: "Gilroy-Light", sans-serif;
+  font-size: 1.25rem;
+}
