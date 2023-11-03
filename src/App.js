@@ -7,6 +7,7 @@ import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -25,7 +26,7 @@ const firebaseConfig = {
   storageBucket: "coffee-chat-a47df.appspot.com",
   messagingSenderId: "433208987432",
   appId: "1:433208987432:web:130287fea3c4e8d8a18a1d",
-  measurementId: "G-YJ6XZ3QFMH"
+  measurementId: "G-YJ6XZ3QFMH",
 };
 
 // Initialize Firebase
@@ -33,7 +34,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-// Dummy Data for Chat 
+// Dummy Data for Chat
 const connectionsData = [
   {
     id: 1,
@@ -57,7 +58,6 @@ const connectionsData = [
   },
 ];
 
-
 function App() {
   const auth = getAuth();
 
@@ -75,7 +75,7 @@ function App() {
       unsubscribe();
     };
   }, []);
-  
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -83,9 +83,15 @@ function App() {
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/search" element={<SearchPage />} />
-      <Route path="/connections" element={<ConnectionsPage people={connectionsData} />} />
-      <Route path="/chat/:id" element={<Chat people={connectionsData} db={db}/>} />
-
+      <Route
+        path="/connections"
+        element={<ConnectionsPage people={connectionsData} />}
+      />
+      <Route
+        path="/chat/:id"
+        element={<Chat people={connectionsData} db={db} />}
+      />
+      <Route path="*" element={<NotFoundPage/>}/>
     </Routes>
   );
 }
