@@ -21,7 +21,7 @@ const LoginPage = () => {
     const linkedInClientId = '869jbfzkg1ho3l'; // Replace with your actual LinkedIn Client ID
     const linkedInRedirectUri = 'coffee-chat-a47df.firebaseapp.com/linkedin-callback'; // Replace with your Firebase hosting URL
   
-    // Step 1: Redirect to LinkedIn for authorization
+    // Redirect to LinkedIn for authorization
     const authorizationUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${linkedInClientId}&redirect_uri=${linkedInRedirectUri}&state=STATE&scope=r_liteprofile r_emailaddress`;
   
     // Redirect the user to the LinkedIn authorization URL
