@@ -7,6 +7,8 @@ import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Navbar from "./components/Navbar/Navbar";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
@@ -88,6 +90,7 @@ function App() {
         path="/connections"
         element={<ConnectionsPage people={connectionsData} />}
       />
+       <Route path="/profile" element={<ProfilePage/>} />
       <Route
         path="/chat/:id"
         element={<Chat people={connectionsData} db={db} />}
