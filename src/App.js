@@ -11,6 +11,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import LandingPage from "./pages/LandingPage/LandingPage";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -90,12 +91,13 @@ function App() {
         path="/connections"
         element={<ConnectionsPage people={connectionsData} />}
       />
-       <Route path="/profile" element={<ProfilePage/>} />
+      <Route path="/profile" element={<ProfilePage />} />
       <Route
         path="/chat/:id"
         element={<Chat people={connectionsData} db={db} />}
       />
-      <Route path="*" element={<NotFoundPage/>}/>
+      <Route path="/landing-page" element={<LandingPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
