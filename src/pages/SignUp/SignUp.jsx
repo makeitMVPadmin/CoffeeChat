@@ -1,132 +1,101 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { 
-    getFirestore, collection, onSnapshot,
-    addDoc, doc, query, orderBy,serverTimestamp,
-    updateDoc,getDoc
-    } from "firebase/firestore";
-import { View, Text, TextInput, Button, StyleSheet, inputAccessoryViewID } from 'react-native'
+import './SignUp.scss';
+import { createUserWithEmailAndPassword, getAuth, createUser } from "firebase/auth";
+import {
+    collection, onSnapshot,
+    deleteDoc, addDoc, doc, setDoc,
+    updateDoc, getDoc,
+} from "firebase/firestore";
+import { app, db } from "../../App";
 
 
 
 export const SignUp = () => {
 
-    const inputAccessoryViewID = 'aboveKeyboard';
     const Navigate = useNavigate()
     const [firstName, setFirstName] = useState('')
     const [LastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
-
-    const createUser = () => {
-        createUserWithEmailAndPassword( getAuth(), firstName, LastName, email, password)
-            .then((cred) => {
-                console.log('user created', cred.user)
-                // Navigate('/HomePage')
-            })
-            .catch((error) => {
-                console.log('an error has occurred')
-            })
+    const auth = getAuth(app)
+    const userData = {
+        firstName: firstName,
+        lastName: LastName
     }
 
 
 
+    const createNewUser =async (e) => {
+        try {e.preventDefault()
+        const resp = await createUserWithEmailAndPassword(auth, email, password);
+         // Assuming you have a Firestore collection named "users"
+        // await addDoc(collection(db, 'Users'), {
+        // email: resp.user.email,
+        // Add any other user information you want to store in Firestore
+        
+    //   });
+        console.log(resp)
+    }
+        catch (error){
+            console.log('error',  error)
+        }
+    }
+
+
+
+
+
     return (
-        <View>
+        <form
+            className="createUserForm"
+            onSubmit={createNewUser}>
 
-            <Text
-                style={styles.header}
-            >Create Account
-            </Text>
+            <h2 style={{ textAlign: 'center' }}>
+                Create Account
+            </h2>
 
-            <TextInput
-                keyboardType="default"
-                style={styles.inputStyle}
-                onChangeText={setFirstName}
+            <input
+                className="inputStyle"
+                onChange={(e) => setFirstName(e.target.value)}
                 value={firstName}
-                placeholder={'First Name'}
-            />
+                placeholder='First Name'
+                type="text">
+            </input>
 
-            <TextInput
-                keyboardType="default"
-                style={styles.inputStyle}
-                onChangeText={setLastName}
+
+            <input
+                className="inputStyle"
+                onChange={(e) => setLastName(e.target.value)}
                 value={LastName}
-                placeholder={'Last Name'}
-            />
+                placeholder='Last Name'
+                type="text">
+            </input>
 
-            <TextInput
-                keyboardType="default"
-                style={styles.inputStyle}
-                onChangeText={setEmail}
+
+            <input
+                className="inputStyle"
+                onChange={(e) => setEmail(e.target.value)}
                 value={email}
-                placeholder={'email'}
-            />
+                placeholder='email@mail.com'
+                type="email">
+            </input>
 
-            <View style={styles.passwordContainer}>
-                <TextInput
-                    secureTextEntry={true}
-                    keyboardType="default"
-                    style={styles.inputStyle}
-                    onChangeText={setPassword}
-                    value={password}
-                    placeholder={'password'}
-                />
-            </View>
+            <input
+                className="inputStyle"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                placeholder='Password'
+                type="password">
+            </input>
 
-            <View
-                style={styles.buttonContainer}>
-                <Button
-                    style={styles.button}
-                    color='cyan'
-                    onPress={createUser}
-                    title="Create Account"
-                    accessibilityLabel="Create Account"
-                />
-            </View>
+            <div className="buttonContainer">
+                <button onClick={createNewUser} className="createAccoutnBtn">
+                    Create Account
+                </button>
+            </div>
 
-        </View>
+        </form>
     )
 }
-
-const styles = StyleSheet.create({
-    header: {
-        margin: 'auto',
-        marginTop: '1rem',
-        fontSize: '2rem',
-        fontWeight: 'bold'
-    },
-    inputStyle: {
-        padding: 16,
-        marginTop: 30,
-        border: '1px solid black',
-        borderRadius: '25px',
-        width: '80%',
-        marginLeft: 'auto',
-        marginRight: 'auto'
-    },
-    inputStyle2: {
-        padding: 16,
-        marginTop: 30,
-        border: '1px solid black',
-        borderRadius: '25px',
-        marginLeft: 'auto',
-        marginRight: 'auto'
-    },
-    passwordContainer: {
-        width: '80%',
-        margin: 'auto',
-    },
-    buttonContainer: {
-        marginTop: 30,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        borderRadius: '50px',
-        width: '50%',
-        overflow:'hidden'
-    },
-
-})
