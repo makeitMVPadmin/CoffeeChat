@@ -10,13 +10,14 @@ const Hero = () => {
           <div className="hero__container--main">
             <h1 className="hero__title">
               You have <span className="hero__title--highlight">depth</span>,
-              why keep your professional connections superficial?
+              why <br/>keep your professional <br/>connections <br/>superficial?
             </h1>
             <div className="hero__container--cards">
               <img src={cards} alt="" className="hero__cards" />
             </div>
           </div>
           <div className="hero__container--button">
+            {/* TODO: Add in link to email notifications sign up */}
             <button className="hero__button">
               Sign Up for Email Notifications
             </button>
