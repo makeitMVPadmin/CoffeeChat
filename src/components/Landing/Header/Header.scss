@@ -13,6 +13,7 @@
   @include desktop {
     max-width: 80rem;
     margin: auto;
+    @include desktop-body;
   }
 
   &__nav {
@@ -83,11 +84,16 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    &:hover {
+      cursor: pointer;
+      color: $mvp-light-blue;
+      transform: scale(1.1);
+      transition: 0.2s all ease-in-out;
+      opacity: 0.7;
+    }
 
     &--line {
-      width: 100%;
-      transition: 500ms ease-out;
-
+      
       &:nth-child(1) {
         display: flex;
         flex-direction: row;
