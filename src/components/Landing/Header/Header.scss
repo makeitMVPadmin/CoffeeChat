@@ -5,11 +5,133 @@
 .header {
   background-color: $mvp-white;
   width: 100%;
+  @include mobile-body;
+
+  @include tablet {
+    @include desktop-body;
+  }
+  @include desktop {
+    max-width: 80rem;
+    margin: auto;
+  }
 
   &__nav {
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @include desktop {
+      padding: 1.5rem;
+    }
+  }
+
+  &__navlist {
+    display: none;
+    &--link {
+      text-decoration: none;
+      color: $mvp-black;
+      padding:.75rem;
+      &:hover {
+        cursor: pointer;
+        color: $mvp-light-blue;
+        transform: scale(1.1);
+        transition: 0.2s all ease-in-out;
+        opacity: 0.7;
+      }
+    }
+
+    &.active {
+      display: flex;
+      justify-content: center;
+      background-color: $mvp-cream;
+      padding: 1rem;
+      
+      @include tablet {
+        display: none;
+      }
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+      @include tablet {
+        display: flex;
+      }
+      @include desktop {
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__burger {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    &--line {
+      width: 100%;
+      transition: 500ms ease-out;
+
+      &:nth-child(1) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        border-bottom: 0.15rem $mvp-black solid;
+      }
+
+      &:nth-child(2) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        border-bottom: 0.15rem $mvp-black solid;
+      }
+
+      &:nth-child(3) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        border-bottom: 0.15rem $mvp-black solid;
+      }
+    }
+
+    @include desktop {
+      display: none;
+    }
+    @include tablet {
+      display: none;
+    }
   }
 
   &__container {
+    &--menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     &--logo {
       display: flex;
       justify-content: center;
@@ -46,24 +168,11 @@
     }
   }
 
-  &__navlist {
-    color: $mvp-black;
-    padding: .75rem;
-    
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-    }
-    
-        @include desktop {
-            padding: 1.5rem;
-        }
-  }
-
   &__logo {
-    width: 12.5rem;
+    width: 10.9375rem;
+
+    @include tablet {
+      width: 12.5rem;
+    }
   }
 }
