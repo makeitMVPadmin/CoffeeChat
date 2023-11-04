@@ -19,7 +19,7 @@ const LoginPage = () => {
   useEffect(()=>{
     const checkUserAuth = () => {
       auth.onAuthStateChanged((user) => {
-        if (user) {
+        if (user != null) {
           Navigate('/')
         }
       });

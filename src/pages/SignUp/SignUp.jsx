@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './SignUp.scss';
-import { createUserWithEmailAndPassword, getAuth, createUser } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signOut } from "firebase/auth";
 import {
     collection, onSnapshot,
     deleteDoc, addDoc, doc, setDoc,
@@ -27,22 +27,22 @@ export const SignUp = () => {
 
 
 
-    const createNewUser =async (e) => {
-        try {e.preventDefault()
-        const resp = await createUserWithEmailAndPassword(auth, email, password);
-         // Assuming you have a Firestore collection named "users"
-        // await addDoc(collection(db, 'Users'), {
-        // email: resp.user.email,
-        // Add any other user information you want to store in Firestore
-        
-    //   });
-        console.log(resp)
-    }
-        catch (error){
-            console.log('error',  error)
+    const createNewUser = async (e) => {
+        try {
+            e.preventDefault()
+            const resp = await createUserWithEmailAndPassword(auth, email, password);
+            // Assuming you have a Firestore collection named "users"
+            // await addDoc(collection(db, 'Users'), {
+            // email: resp.user.email,
+            // Add any other user information you want to store in Firestore
+
+            //   });
+            console.log(resp)
+        }
+        catch (error) {
+            console.log('error', error)
         }
     }
-
 
 
 
@@ -97,5 +97,7 @@ export const SignUp = () => {
             </div>
 
         </form>
+
+
     )
 }
