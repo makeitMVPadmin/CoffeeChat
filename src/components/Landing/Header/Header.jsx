@@ -16,6 +16,22 @@ const Header = () => {
     setToggled(false);
   };
 
+
+  const navLinks = [
+    { to: "#About", text: "About" },
+    { to: "#FAQs", text: "FAQs" },
+    { to: "#Privacy", text: "Privacy" },
+    { to: "Contact", text: "Contact" },
+  ];
+
+  const desktopNavLinks = [
+    { to: "#About", text: "About" },
+    { to: "#FAQs", text: "FAQs" },
+    { to: "#Privacy", text: "Privacy" },
+    { to: "Contact", text: "Contact" },
+  ];
+
+
   return (
       <header className="header">
         <nav className="header__nav">
@@ -35,40 +51,39 @@ const Header = () => {
             </div>
           </div>
           <ul className={`header__navlist ${toggled ? "active" : ""}`}>
-            <div className="header__container--list">
-              <Link className="header__navlist--link" to="#About" onClick={closeMenu}>
-                <li className="header__navlist--item">About</li>
+          <div className="header__container--list">
+            {navLinks.map((link, index) => (
+              <Link
+                key={index}
+                className="header__navlist--link"
+                to={link.to}
+                onClick={closeMenu}
+              >
+                <li className="header__navlist--item">{link.text}</li>
               </Link>
-              <Link className="header__navlist--link" to="#FAQs" onClick={closeMenu}>
-                <li className="header__navlist--item">FAQs</li>
+            ))}
+            <li className="header__navlist--search">
+              <img src="#" alt="search icon" />
+            </li>
+          </div>
+        </ul>
+
+        <ul className="header__navlist--desktop">
+          <div className="header__container--list">
+            {desktopNavLinks.map((link, index) => (
+              <Link
+                key={index}
+                className="header__navlist--link"
+                to={link.to}
+              >
+                <li className="header__navlist--item">{link.text}</li>
               </Link>
-              <Link className="header__navlist--link" to="#Privacy" onClick={closeMenu}>
-                <li className="header__navlist--item">Privacy</li>
-              </Link>
-              <Link className="header__navlist--link" to="Contact" onClick={closeMenu}>
-                <li className="header__navlist--item">Contact</li>
-              </Link>
-              <li className="header__navlist--search"><img src="#" alt="search icon" /></li>
-            </div>
-          </ul>
-          
-          <ul className="header__navlist--desktop">
-            <div className="header__container--list">
-              <Link className="header__navlist--link" to="#About">
-                <li className="header__navlist--item">About</li>
-              </Link>
-              <Link className="header__navlist--link" to="#FAQs">
-                <li className="header__navlist--item">FAQs</li>
-              </Link>
-              <Link className="header__navlist--link" to="#Privacy">
-                <li className="header__navlist--item">Privacy</li>
-              </Link>
-              <Link className="header__navlist--link" to="Contact">
-                <li className="header__navlist--item">Contact</li>
-              </Link>
-              <li className="header__navlist--search"><img src="#" alt="search icon" /></li>
-            </div>
-          </ul>
+            ))} 
+            <li className="header__navlist--search">
+              <img src="#" alt="search icon" />
+            </li>
+          </div>
+        </ul>
         </nav>
       </header>
   );
