@@ -52,7 +52,7 @@ export const SignUp = () => {
             className="createUserForm"
             onSubmit={createNewUser}>
 
-            <h2 style={{ textAlign: 'center' }}>
+            <h2 className="signUpHeader">
                 Create Account
             </h2>
 
@@ -92,7 +92,7 @@ export const SignUp = () => {
 
             <div className="buttonContainer">
                 <button onClick={createNewUser} className="createAccoutnBtn">
-                    Create Account
+                    Sign Up
                 </button>
             </div>
 

@@ -1,0 +1,108 @@
+.accountBtn {
+    border-radius: 50%;
+    background-color: grey;
+    width: 4rem;
+    height: 4rem;
+    margin: auto;
+    margin-right: 2rem;
+    background-image: url('../../images/blankUserImg.png');
+    background-position: center;
+    background-size: cover;
+    object-fit: contain;
+    text-align: center;
+}
+
+.WelcomeTitle {
+    padding-left: 2rem;
+}
+
+.upcomingEventTitle{
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.homeHeader {
+    display: flex;
+}
+
+
+// --------------------------Carousel Section -------------------------------
+
+
+.carouselItem{
+    border: 1px solid green;
+    border-radius: 15px;
+    width: 90%;
+    margin: auto;
+    overflow: visible;
+    height: 10rem;
+}
+
+.carouselDetail{
+    position: absolute;
+    right: 9%;
+    color: white;
+    z-index: 1;
+    text-align: center;
+    width: 80%;
+}
+
+.imgCarousel {
+    position: relative;
+    height: 10rem;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+.eventTimer {
+    z-index: 1;
+    border-radius: 10px;
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    position: absolute;
+    bottom: -12%;
+    right: 25%;
+}
+
+// --------------------------Schedule Section -------------------------------
+
+.scheduleDiv {
+    border-radius: 25px;
+    background-color: aliceblue;
+    width: 90%;
+    margin: auto;
+    padding: 0.5rem;
+}
+
+.scheduleList {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.scheduledName {
+    background-color: darkgray;
+    border-radius: 25px;
+    margin-right: 1rem;
+    padding: 0.3rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+
+.lowerDiv {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    height: 4rem;
+}
+
+.connections {
+    border-radius: 25px;
+    background-color: aliceblue;
+    width: 32%;
+    text-align: center;
+}
