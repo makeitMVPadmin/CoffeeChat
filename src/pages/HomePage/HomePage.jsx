@@ -18,11 +18,6 @@ const auth = getAuth(app)
   return (
     <div className="home">
       <h1 className="home__title"> Welcome !</h1>
-      <div className="buttonContainer">
-<button onClick={logout} className="logoutBtn">
-    logout
-</button>
-</div>
       <Navbar />
     </div>
   );
