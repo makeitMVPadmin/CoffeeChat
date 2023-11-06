@@ -1,31 +1,36 @@
-import React from "react";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
-import "./WelcomePage.scss";
+import React from 'react';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import LogoMark from '../../assets/images/Logomark.png';
+import { useNavigate } from 'react-router-dom';
+import './WelcomePage.scss';
 
 const WelcomePage = () => {
   const navigate = useNavigate();
 
   const handleSwipeToOnboarding = () => {
     document
-      .getElementById("welcome-page")
-      .classList.add("swipe-transition-exit");
+      .getElementById('onboarding-page')
+      .classList.add('swipe-transition-exit');
     setTimeout(() => {
-      navigate("/onboarding-page-2");
+      navigate('/onboarding-page-2');
     }, 500);
   };
 
   return (
-    <div id="welcome-page" className="center-vertically swipe-transition">
-      <h1>Welcome</h1>
-      <img src="#" alt="welcome group" />
-      <h2>Your Journey, Our Connection</h2>
-      <h3>Welcome to CoffeeChat!</h3>
+    <div
+      id='onboarding-page'
+      className='center-vertically swipe-transition onboarding'
+    >
+      <img src='#' alt='Onboarding background' />
+      <br />
+      <img src={LogoMark} alt='CoffeeChat logo' />
+      <h3>CoffeeChat</h3>
 
       {/* Swipe Arrow */}
-      <div className="swipe-arrow" onClick={handleSwipeToOnboarding}>
-        <span>Swipe to continue</span>
-        <BsFillArrowRightCircleFill className="arrow-icon" />
+      <div className='swipe-arrow' onClick={handleSwipeToOnboarding}>
+        <span className='underline'>
+          Join Now <AiOutlineArrowRight className='arrow-icon' />{' '}
+        </span>
       </div>
     </div>
   );
