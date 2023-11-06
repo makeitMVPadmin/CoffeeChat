@@ -18,8 +18,8 @@ const LoginPage = () => {
 
   const handleLinkedInSignIn = () => {
     // Define your LinkedIn OAuth 2.0 parameters
-    const linkedInClientId = '869jbfzkg1ho3l'; // Replace with your actual LinkedIn Client ID
-    const linkedInRedirectUri = 'coffee-chat-a47df.firebaseapp.com/linkedin-callback'; // Replace with your Firebase hosting URL
+    const linkedInClientId = process.env.REACT_APP_LINKEDIN_CLIENT_ID; 
+    const linkedInRedirectUri = process.env.REACT_APP_LINKEDIN_REDIRECT_URI;
   
     // Redirect to LinkedIn for authorization
     const authorizationUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${linkedInClientId}&redirect_uri=${linkedInRedirectUri}&state=STATE&scope=r_liteprofile r_emailaddress`;
