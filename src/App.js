@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import { SignUp } from "./pages/SignUp/SignUp";
 import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
@@ -34,9 +35,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
+export const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app);
+export const db = getFirestore(app);
 
 // Dummy Data for Chat
 const connectionsData = [
@@ -86,6 +87,7 @@ function App() {
       <Route path="/onboarding" element={<WelcomePage />} />
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignUp/>}/>
       <Route path="/search" element={<SearchPage />} />
       <Route
         path="/connections"
