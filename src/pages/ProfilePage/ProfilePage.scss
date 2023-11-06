@@ -1,0 +1,54 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global";
+
+.profile {
+  &__content {
+    @include center-vertically;
+  }
+
+  &__card {
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+    width: 20rem;
+    &--container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem;
+    }
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0.5rem;
+  }
+
+  &__description {
+    width: 20rem;
+  }
+
+  &__tech {
+    padding: 1rem 2rem;
+    margin: 1rem;
+    background-color: lightgrey;
+    border-radius: 2rem;
+    &--row {
+      display: flex;
+      flex-direction: row;
+    }
+    &--container {
+      padding: 1rem;
+    }
+  }
+
+  &__button{
+    margin: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 1.5rem;
+    padding: .75rem 2rem;
+  }
+}
