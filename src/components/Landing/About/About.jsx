@@ -29,15 +29,16 @@ const About = () => {
           </h2>
         </div>
 
-        {/* <div className="about__container--background">
+          
+        <div className="about__container--content">
+       <div className="about__container--background">
           <img
             className="about__background"
             src={backgroundDesign}
             alt="Background design"
           />
-        </div> */}
+          </div> 
 
-        <div className="about__container--content">
           <div className="about__container--points">
             <div className="about__container--main">
               <h2 className="about__title">Strengthen Your Network</h2>
@@ -62,13 +63,13 @@ const About = () => {
             </div>
           </div>
 
-          {/* <div className="about__container--image">
+          <div className="about__container--image">
             <img
               className="about__image"
               src={phoneMockup}
               alt="Hand holding phone"
             />
-          </div> */}
+          </div>
         </div>
       </section>
     </>
