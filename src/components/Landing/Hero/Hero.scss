@@ -30,12 +30,17 @@
       @include tablet {
         padding: 1.5rem;
       }
+
     }
     &--main {
         z-index:1;
       display: flex;
       flex-direction: row;
       align-items: center;
+      @include desktop {
+        max-width: 80rem;
+        margin: auto;
+      }
     }
     &--cards {
       display: none;
