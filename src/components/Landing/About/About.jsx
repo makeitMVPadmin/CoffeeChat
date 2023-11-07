@@ -29,44 +29,46 @@ const About = () => {
           </h2>
         </div>
 
-        <div className="about__container--background">
+        {/* <div className="about__container--background">
           <img
             className="about__background"
             src={backgroundDesign}
             alt="Background design"
           />
-        </div>
+        </div> */}
 
         <div className="about__container--content">
-          <div className="about__container--main">
-            <h2 className="about__title">Strengthen Your Network</h2>
-            <p className="about__description">
-              Form deeper connections through face-to-face interactions.
-            </p>
+          <div className="about__container--points">
+            <div className="about__container--main">
+              <h2 className="about__title">Strengthen Your Network</h2>
+              <p className="about__description">
+                Form deeper connections through face-to-face interactions.
+              </p>
+            </div>
+
+            <div className="about__container--main">
+              <h2 className="about__title">Diversify Your Connections</h2>
+              <p className="about__description">
+                Meet professionals outside of your immediate circle.
+              </p>
+            </div>
+
+            <div className="about__container--main">
+              <h2 className="about__title">Growth Opportunities</h2>
+              <p className="about__description">
+                Whether it's a job referral, partnership, or mentorship, the
+                possibilities are endless.
+              </p>
+            </div>
           </div>
 
-          <div className="about__container--main">
-            <h2 className="about__title">Diversify Your Connections</h2>
-            <p className="about__description">
-              Meet professionals outside of your immediate circle.
-            </p>
-          </div>
-
-          <div className="about__container--main">
-            <h2 className="about__title">Growth Opportunities</h2>
-            <p className="about__description">
-              Whether it's a job referral, partnership, or mentorship, the
-              possibilities are endless.
-            </p>
-          </div>
-
-          <div className="about__container--image">
+          {/* <div className="about__container--image">
             <img
               className="about__image"
               src={phoneMockup}
               alt="Hand holding phone"
             />
-          </div>
+          </div> */}
         </div>
       </section>
     </>

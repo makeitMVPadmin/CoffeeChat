@@ -3,13 +3,13 @@
 @use "../../../styles/partials/global" as *;
 
 .hero {
-  width: 100vw;
-  height: 45rem;
+  width: 100%;
+  height: 100%;
   color: $mvp-black;
 
   @include desktop {
     max-width: 100vw;
-    height: 60rem;
+    height: auto;
     margin: auto;
   }
 

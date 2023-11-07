@@ -3,17 +3,19 @@
 @use "../../../styles/partials/global" as *;
 
 .about {
-  width: 100vw;
-  height: 45rem;
+  width: 100%;
+  height:100%;
   color: $mvp-black;
 
   @include desktop {
-    max-width: 100vw;
-    height: 60rem;
+    max-width: 80rem;
+    height: auto;
     margin: auto;
   }
 
   &__container {
+
+
     &--content {
     //   z-index: 2;
       display: flex;
@@ -27,6 +29,11 @@
       }
     }
 
+    &__points {
+        display: flex;
+        flex-direction: column;
+    }
+
     &--image {
       display: none;
 
@@ -38,8 +45,16 @@
     &--main {
     //   z-index: 1;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
+    }
+  }
+
+  &__info {
+    padding: 1rem;
+
+    @include desktop {
+     padding: 1.5rem;
     }
   }
   &__image {
