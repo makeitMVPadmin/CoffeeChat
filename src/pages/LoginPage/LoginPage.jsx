@@ -1,9 +1,9 @@
 import './LoginPage.scss';
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, getIdToken, } from "firebase/auth";
-import { collection } from 'firebase/firestore';
 import { db, app } from '../../App';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 
 const LoginPage = () => {
 
@@ -16,7 +16,7 @@ const LoginPage = () => {
 
 
 
-  useEffect(()=>{
+  useEffect(() => {
     const checkUserAuth = () => {
       auth.onAuthStateChanged((user) => {
         if (user != null) {
@@ -26,7 +26,7 @@ const LoginPage = () => {
     };
 
     checkUserAuth();
-  },[])
+  }, [])
 
 
 
@@ -58,47 +58,60 @@ const LoginPage = () => {
 
   return (
     <div class="center-vertically">
-      <h2>Welcome to CoffeeChat</h2>
-      <form onSubmit={signIn}>
-        <label>
-          Email:
-          <br />
-          <input type='email' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <br />
-        <br />
-        <label>
-          Password:
-          <br />
-          <input type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <br />
-        <label>
-          <input type='checkbox' /> Remember me?
-        </label>
-        <br />
-        <br />
-        <button type='submit' onClick={signIn}>Login</button>
-        <br />
-        <br />
-        <a class="center-vertically" href='needToFill'>Forgot Password?</a>
-        <br />
-        <div class="center-vertically">Or continue with</div>
-        <div class="two-column">
-          <button class="narrow-button" type="button" >
-            Google
-          </button>
-          <button class="narrow-button" type="button">
-            LinkedIn
-          </button>
+      <div></div>
+      <h2 className='loginH2'>Welcome Back!</h2>
+
+      <form className='loginForm' onSubmit={signIn}>
+
+        <input
+          className='inputLogin'
+          type='email'
+          placeholder='Enter your email'
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <input
+          className='inputLogin'
+          type='password'
+          placeholder='Password'
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <div className='checkBoxLoginDiv'>
+          <input className='checkBoxLogin' type='checkbox' />
+          <p>Remember me?</p>
         </div>
-        <br />
-        <div class="center-vertically">
-          <a href='signup'>Don't have an account?</a>
-          <a href='/signup'>Sign Up</a>
-        </div>
+
       </form>
+
+      <button 
+      className='loginBtn'
+      type='submit' 
+      onClick={signIn}>
+        Login
+      </button>
+
+      <a className="center-vertically" href='needToFill'>Forgot Password?</a>
+
+      <div className="continueWith"><p>Or continue with</p></div>
+
+      <div className="altBtns">
+        <div className='border'>
+          <button className='loginBtn' type="button" >
+          Google
+        </button>
+        </div>
+        <div className='border'>
+        <button className="loginBtn" type="button">
+          LinkedIn
+        </button>
+        </div>
+      </div>
+
+      
+        <p className='continueWith'>Don't have an account?</p>
+        <a href='/signup'>Sign Up</a>
+
     </div>
   );
 };

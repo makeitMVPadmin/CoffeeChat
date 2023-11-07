@@ -1,34 +1,59 @@
-.center-vertically {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.loginH2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-family: 'Corben-bold', sans-serif;
+  font-weight: 600;
 }
 
-input[type='email'],
-input[type='password'],
-button[type='submit'],
-button[type='button'] {
+.loginForm {
+  margin: auto;
+  width: 80%;
+}
+
+.inputLogin {
+  padding: 1rem;
+  padding-bottom: 0%;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  position: relative;
+  font-family: 'Corben', serif;
+  font-size: large;
+}
+
+.checkBoxLoginDiv {
+  display: flex;
+  margin-bottom: 2rem;
+
+}
+
+.checkBoxLogin {
+  margin-right: 0.5rem;
+}
+
+.loginBtn {
+  margin-bottom: 0.5rem;
+  background-color: black;
+  border-radius: 20px;
+  width: 9rem;
+  color: white;
+  font-family: 'Corben', serif;
+  font-size: large;
+  padding: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0.1;
+}
+
+.continueWith {
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  font-size: medium;
+}
+
+.altBtns {
+  justify-content: space-evenly;
+  display: flex;
   width: 100%;
 }
 
-.two-column {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.narrow-button {
-    margin: 0.2rem 0.3rem;
-}
-
-@media (max-width: 600px) {
-    form {
-      width: 90%;
-    }
-}  
-  
-  
-  
-  
-  

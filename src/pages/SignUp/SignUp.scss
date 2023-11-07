@@ -11,6 +11,7 @@
 
 .inputStyle {
         padding: 1rem;
+        padding-bottom: 0%;
         margin-bottom: 1rem;
         border: none;
         border-bottom: 1px solid black;
@@ -28,8 +29,10 @@
 .createAccoutnBtn {
     background-color: black;
     border-radius: 20px;
-    width: 7rem;
+    width: 9rem;
     color: white;
     font-family: 'Corben', serif;
     font-size: large;
+    padding: 0.5rem;
+
 }
