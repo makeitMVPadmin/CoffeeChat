@@ -17,29 +17,35 @@ const Partners = () => {
           />
         </div>
 
-        <div className="partners__container--info">
-          <img
-            src={phoneMockup}
-            alt="Phone holding mockup"
-            className="partners__mockup"
-          />
+        <div className="partners__container">
+          <div className="partners__container--mockup">
+            <img
+              src={phoneMockup}
+              alt="Phone holding mockup"
+              className="partners__mockup"
+            />
+          </div>
 
-          <h3 className="partners__description">
-            <span className="partners__highlight">CoffeeChat</span> leverages AI
-            into finding you a perfect professional match, no more connections
-            that leads nowhere
-          </h3>
+          <div className="partners__container--info">
+            <h3 className="partners__description">
+              <span className="partners__highlight">CoffeeChat</span> leverages
+              AI into finding you a perfect professional match, no more
+              connections that leads nowhere
+            </h3>
 
-          <img
-            src={lastingImage}
-            alt="two women connecting"
-            className="partners__image"
-          />
-          <img
-            src={professionalImage}
-            alt="two people collaborating"
-            className="partners__image"
-          />
+            <div className="partners__container--images">
+              <img
+                src={lastingImage}
+                alt="two women connecting"
+                className="partners__image--lasting"
+              />
+              <img
+                src={professionalImage}
+                alt="two people collaborating"
+                className="partners__image"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </>
