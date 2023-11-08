@@ -1,6 +1,6 @@
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
-import home from '../../assets/icons/navbar/home.svg'
+import homeicon from '../../assets/icons/navbar/homeicon.svg'
 import chat from '../../assets/icons/navbar/chat.svg'
 import calendar from '../../assets/icons/navbar/calendar.svg'
 import user from '../../assets/icons/navbar/user.svg'
@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className="navbar">
 
       <div>
-        <div><Link to="/"><img className="navIcons" src={home} /></Link></div>
+        <div><Link to="/"><img className="navIcons" src={homeicon} /></Link></div>
         <Link to="/" className="navLink">Home</Link>
       </div>
 
