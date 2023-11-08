@@ -41,21 +41,21 @@ const About = () => {
 
           <div className="about__container--points">
             <div className="about__container--main">
-              <h2 className="about__title">Strengthen Your Network</h2>
+              <h2 className="about__title"><span className="about__highlight--four">Strengthen</span> Your Network</h2>
               <p className="about__description">
                 Form deeper connections through face-to-face interactions.
               </p>
             </div>
 
             <div className="about__container--main">
-              <h2 className="about__title">Diversify Your Connections</h2>
+              <h2 className="about__title"><span className="about__highlight--five">Diversify</span> Your Connections</h2>
               <p className="about__description">
                 Meet professionals outside of your immediate circle.
               </p>
             </div>
 
             <div className="about__container--main">
-              <h2 className="about__title">Growth Opportunities</h2>
+              <h2 className="about__title"><span className="about__highlight--six">Growth</span> Opportunities</h2>
               <p className="about__description">
                 Whether it's a job referral, partnership, or mentorship, the
                 possibilities are endless.

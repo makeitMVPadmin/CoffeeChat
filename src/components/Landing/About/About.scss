@@ -110,6 +110,39 @@
         z-index: -1;
       }
     }
+    &--four {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 12rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-light-blue;
+        z-index: -1;
+      }
+    }
+    &--five {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 9.5rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-yellow;
+        z-index: -1;
+      }
+    }
+    &--six {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 7.5rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-red;
+        z-index: -1;
+      }
+    }
   
     @include tablet {
       &--one {
@@ -144,6 +177,40 @@
           background-color: $mvp-yellow;
           z-index: -1;
         }
+      }
+    }
+
+    &--four {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 13.5rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-light-blue;
+        z-index: -1;
+      }
+    }
+    &--five {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 10rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-yellow;
+        z-index: -1;
+      }
+    }
+    &--six {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 8.5rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-red;
+        z-index: -1;
       }
     }
 
