@@ -75,6 +75,79 @@
       padding: 1.5rem;
     }
   }
+  // TODO: Highlight only works on desktop - need to fix
+  &__highlight {
+    &--one {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 12rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-red;
+        z-index: -1;
+      }
+    }
+    &--two {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 17.5rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-light-blue;
+        z-index: -1;
+      }
+    }
+    &--three {
+      &:before {
+        content: "";
+        position: absolute;
+        width: 6rem;
+        height: 1%;
+        margin-top: 1.7rem;
+        background-color: $mvp-yellow;
+        z-index: -1;
+      }
+    }
+  
+    @include tablet {
+      &--one {
+        &:before {
+          content: "";
+          position: absolute;
+          width: 12.7rem;
+          height: 1%;
+          margin-top: 1.7rem;
+          background-color: $mvp-red;
+          z-index: -1;
+        }
+      }
+      &--two {
+        &:before {
+          content: "";
+          position: absolute;
+          width: 19.5rem;
+          height: 1%;
+          margin-top: 1.7rem;
+          background-color: $mvp-light-blue;
+          z-index: -1;
+        }
+      }
+      &--three {
+        &:before {
+          content: "";
+          position: absolute;
+          width: 7rem;
+          height: 1%;
+          margin-top: 1.7rem;
+          background-color: $mvp-yellow;
+          z-index: -1;
+        }
+      }
+    }
+
+  }
 
   &__title {
     @include mobile-subheader;

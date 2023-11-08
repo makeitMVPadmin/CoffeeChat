@@ -8,14 +8,14 @@ const About = () => {
       <section className="about">
         <div className="about__container--info">
           <h2 className="about__info">
-            <span className="about__info--highlight">Coffee Chat</span> is here
+            <span className="about__highlight--one">Coffee Chat</span> is here
             to change the game.
           </h2>
         </div>
 
         <div className="about__container--info">
           <h2 className="about__info">
-            Our <span className="about__info--highlight">smart matching</span>{" "}
+            Our <span className="about__highlight--two">smart matching</span>{" "}
             algorithm pairs you with relevant professionals in your area for
             casual meet-ups.
           </h2>
@@ -24,7 +24,7 @@ const About = () => {
         <div className="about__container--info">
           <h2 className="about__info">
             It's time to network with{" "}
-            <span className="about__info--highlight">depth, </span>over a cup of
+            <span className="about__highlight--three">depth, </span>over a cup of
             coffee, and take your career to the next level.
           </h2>
         </div>
