@@ -8,6 +8,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Corben&display=swap');
+      </style>
     </BrowserRouter>
   </React.StrictMode>
 );

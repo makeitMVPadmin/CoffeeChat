@@ -3,13 +3,17 @@ import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import { SignUp } from "./pages/SignUp/SignUp";
 import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Navbar from "./components/Navbar/Navbar";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import SchedulingPage from "./pages/SchedulingPage/SchedulingPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import LandingPage from "./pages/LandingPage/LandingPage";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -32,9 +36,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
+export const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app);
+export const db = getFirestore(app);
 
 // Dummy Data for People
 const connectionsData = [
@@ -88,17 +92,20 @@ function App() {
       <Route path="/onboarding" element={<WelcomePage />} />
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignUp/>}/>
       <Route path="/search" element={<SearchPage />} />
       <Route
         path="/connections"
         element={<ConnectionsPage people={connectionsData} />}
       />
+      <Route path="/profile" element={<ProfilePage />} />
       <Route
         path="/chat/:id"
         element={<Chat people={connectionsData} db={db} />}
       />
       <Route path="/scheduling/:id" element={<SchedulingPage people={connectionsData} db={db}/>} />
-      <Route path="*" element={<NotFoundPage/>}/>
+      <Route path="/landing-page" element={<LandingPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
