@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import { SignUp } from "./pages/SignUp/SignUp";
 import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
@@ -93,6 +94,7 @@ function App() {
       <Route path="/onboarding" element={<WelcomePage />} />
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignUp/>}/>
       <Route path="/search" element={<SearchPage />} />
       <Route
         path="/connections"

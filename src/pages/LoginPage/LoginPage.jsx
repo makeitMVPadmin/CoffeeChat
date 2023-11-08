@@ -1,21 +1,59 @@
 import './LoginPage.scss';
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, getIdToken, } from "firebase/auth";
+import { collection } from 'firebase/firestore';
+import { db, app } from '../../App';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 
-  const handleGoogleSignIn = () => {
-    const auth = getAuth();
-    const provider = new GoogleAuthProvider();
 
-    signInWithPopup(auth, provider)
-      .then((userCredential) => {
-        // User signed in with Google. You can handle the user data here.
+  const auth = getAuth(app);
+  const Navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const provider = new GoogleAuthProvider();
+
+
+
+  useEffect(()=>{
+    const checkUserAuth = () => {
+      auth.onAuthStateChanged((user) => {
+        if (user != null) {
+          Navigate('/')
+        }
+      });
+    };
+
+    checkUserAuth();
+  },[])
+
+
+
+  // const handleGoogleSignIn = () => {
+
+
+  //   signInWithPopup(auth, provider)
+  //     .then((userCredential) => {
+  //       // User signed in with Google. You can handle the user data here.
+  //     })
+  //     .catch((error) => {
+  //       // Handle sign-in errors here.
+  //     });
+  // };
+
+  const signIn = (e) => {
+    e.preventDefault()
+    signInWithEmailAndPassword(auth, email, password)
+      .then((cred) => {
+        console.log('signedIn', cred.user)
       })
       .catch((error) => {
-        // Handle sign-in errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
       });
-  };
 
+<<<<<<< HEAD
   const handleLinkedInSignIn = () => {
     // Define your LinkedIn OAuth 2.0 parameters
     const linkedInClientId = process.env.REACT_APP_LINKEDIN_CLIENT_ID; 
@@ -29,21 +67,26 @@ const LoginPage = () => {
   };
   
   
+=======
+  }
+
+
+>>>>>>> develop
   return (
     <div className="center-vertically">
       <h2>Welcome to CoffeeChat</h2>
-      <form >
+      <form onSubmit={signIn}>
         <label>
           Email:
           <br />
-          <input type='email' placeholder='Enter your email' />
+          <input type='email' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
         </label>
         <br />
         <br />
         <label>
           Password:
           <br />
-          <input type='password' />
+          <input type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br />
         <br />
@@ -52,7 +95,7 @@ const LoginPage = () => {
         </label>
         <br />
         <br />
-        <button type='submit'>Login</button>
+        <button type='submit' onClick={signIn}>Login</button>
         <br />
         <br />
         <a className="center-vertically" href='needToFill'>Forgot Password?</a>
@@ -67,9 +110,9 @@ const LoginPage = () => {
           </button>
         </div>
         <br />
-        <div className="center-vertically">
-        <a href='needToFill'>Don't have an account?</a>
-        <a href='needToFill'>Sign Up</a>
+        <div class="center-vertically">
+          <a href='signup'>Don't have an account?</a>
+          <a href='/signup'>Sign Up</a>
         </div>
       </form>
     </div>
