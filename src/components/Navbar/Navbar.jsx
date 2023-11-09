@@ -11,22 +11,22 @@ const Navbar = () => {
     <div className="navbar">
 
       <div>
-        <div><Link to="/"><img className="navIcons" src={homeicon} /></Link></div>
+        <div><Link to="/"><img className="navIcons" src={homeicon} alt="Home icon"/></Link></div>
         <Link to="/" className="navLink">Home</Link>
       </div>
 
       <div>
-        <div><Link to="/"><img className="navIcons" src={chat} /></Link></div>
+        <div><Link to="/"><img className="navIcons" src={chat} alt="Chat Icon" /></Link></div>
         <Link to="/connections" className="navLink">Connections</Link>
       </div>
 
       <div>
-        <div><Link to="/"><img className="navIcons" src={calendar} /></Link></div>
+        <div><Link to="/"><img className="navIcons" src={calendar} alt="Calender Icon" /></Link></div>
         <Link to="/calendar" className="navLink">Calendar</Link>
       </div>
 
       <div>
-        <div><Link to="/"><img className="navIcons" src={user} /></Link></div>
+        <div><Link to="/"><img className="navIcons" src={user} alt="User Icon"/></Link></div>
         <Link to="/profile" className="navLink">Profile</Link>
       </div>
 
