@@ -53,8 +53,7 @@ export const SignUp = () => {
     return (
 
         <div className="centerForm">
-        <img className='logoMark' src={Logomark}></img>
-        <p className="coffeeChat">CoffeeChat</p>
+        <img className='logoMark' src={logo}></img>
 
         <h2 className="signUpHeader">Create Account</h2>
 

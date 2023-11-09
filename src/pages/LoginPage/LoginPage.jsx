@@ -4,7 +4,6 @@ import { db, app } from '../../App';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo/logo.png'
-import Logomark from '../../assets/images/Logomark.png'
 import google from '../../assets/icons/links/google.svg'
 import linkedin from '../../assets/icons/links/linkedin.svg'
 import linkedintext from '../../assets/icons/links/linkedintext.png'
@@ -38,17 +37,17 @@ const LoginPage = () => {
 
 
 
-  // const handleGoogleSignIn = () => {
+  const GoogleSignIn = () => {
 
 
-  //   signInWithPopup(auth, provider)
-  //     .then((userCredential) => {
-  //       // User signed in with Google. You can handle the user data here.
-  //     })
-  //     .catch((error) => {
-  //       // Handle sign-in errors here.
-  //     });
-  // };
+    signInWithPopup(auth, provider)
+      .then((userCredential) => {
+        // User signed in with Google. You can handle the user data here.
+      })
+      .catch((error) => {
+        // Handle sign-in errors here.
+      });
+  };
 
   const signIn = (e) => {
     e.preventDefault()
@@ -67,8 +66,7 @@ const LoginPage = () => {
   return (
     <div className="centerForm">
       
-        <img className='logoMark' src={Logomark}></img>
-        <p className='coffeeChat'>CoffeeChat</p>
+      <img className='logoMark' src={logo}></img>
       
       <h2 className='loginH2'>Welcome Back!</h2>
 
@@ -108,7 +106,7 @@ const LoginPage = () => {
 
       <div className="altBtns">
         <div className='border'>
-          <button className='loginBtn' type="button" >
+          <button className='loginBtn' type="button" onClick={GoogleSignIn} >
           <img src={google} className='linkSvg'/>
           <img src={googletext} className='linkText'/>
         </button>
@@ -125,8 +123,8 @@ const LoginPage = () => {
         <p className='continueWith'>Don't have an account?</p>
         <a style={{zIndex:'1'}} href='/signup'>Sign Up</a>
 
-        <div className='pinkBlob'></div>
-        <div className='pinkBlob2'></div>
+        <div className='background'></div>
+        {/* <div className='pinkBlob2'></div> */}
 
     </div>
   );
