@@ -1,22 +1,30 @@
 .navbar {
-  // position: fixed;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   margin-bottom: auto;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: lightgrey;
-}
-
-ul {
-  padding: 0;
+  height: 3.5rem;
+  background: var(--007, #FFF9F4);
+  color: rgba(51, 51, 51, 0.47);
   text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Gilroy-light, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1rem;
+  /* 123.077% */
 }
 
-li {
-  display: inline;
-  margin: 10px;
+.navIcons {
+  margin: auto;
+  color: rgba(0, 0, 0, 0.37);
 }
 
 a {
   text-decoration: none;
+  color:rgba(0, 0, 0, 0.37);;
 }

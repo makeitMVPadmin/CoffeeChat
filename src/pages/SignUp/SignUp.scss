@@ -1,18 +1,24 @@
+.signUpHeader {
+    font-family: 'Corben', serif;
+    text-align: center;
+}
+
 .createUserForm {
     margin: auto;
     margin-top: 2rem;
     width: 80%;
-    border: solid green 1px;
 }
 
 .inputStyle {
         padding: 1rem;
         margin-bottom: 1rem;
-        border: 1px solid black;
-        border-radius: 10px;
+        border: none;
+        border-bottom: 1px solid black;
         width: 89%;
         position: relative;
+        font-family: 'Corben', serif;
 }
+
 
 .buttonContainer {
     display: flex;
@@ -20,7 +26,10 @@
 }
 
 .createAccoutnBtn {
-    background-color: aqua;
-    border-radius: 10px;
-    padding: 0.5rem;
+    background-color: black;
+    border-radius: 20px;
+    width: 7rem;
+    color: white;
+    font-family: 'Corben', serif;
+    font-size: large;
 }
