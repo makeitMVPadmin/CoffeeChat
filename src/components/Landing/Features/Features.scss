@@ -1,0 +1,51 @@
+@use "../../../styles/partials/global" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.features {
+    width: 100vw;
+    height: 45rem;
+    width: 100%;
+    height: 100%;
+  
+    @include desktop {
+      max-width: 100vw;
+      height: 60rem;
+      height: auto;
+      margin: auto;
+    }
+
+  &__box {
+    background-color: $mvp-light-blue;border-radius: 5rem;
+  }
+
+  &__title {
+    color: $mvp-yellow;
+    @include mobile-pageheader;
+    @include tablet {
+        @include desktop-pageheader;
+    }
+  }
+
+  &__line {
+    color: $mvp-white;
+    width: 15rem;
+  }
+
+  &__subtitle {
+    color: $mvp-yellow;
+    @include mobile-subheader;
+    @include tablet {
+        @include desktop-subheader;
+    }
+  }
+
+  &__description {
+    color: $mvp-white;
+
+    @include mobile-body;
+    @include tablet {
+        @include desktop-body;
+    }
+  }
+}
