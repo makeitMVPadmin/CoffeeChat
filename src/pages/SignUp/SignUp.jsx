@@ -23,45 +23,48 @@ export const SignUp = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const auth = getAuth(app)
-    const userData = {
-        firstName: firstName,
-        lastName: LastName
-    }
 
 
 
-    const createNewUser = async (e) => {
-        try {
-            e.preventDefault()
-            const resp = await createUserWithEmailAndPassword(auth, email, password);
-            // // Assuming you have a Firestore collection named "users"
-            // await addDoc(collection(db, 'Users'), {
-            // email: resp.user.email,
-            // // Add any other user information you want to store in Firestore
-
-            //   });
+    const createNewUser = (e) =>{
+        e.preventDefault()
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((resp)=> {
             console.log(resp)
-        }
-        catch (error) {
-            console.log('error', error)
-        }
+            //document id is their uid
+             setDoc(doc(db, "user", resp.user.uid), {
+                username: userName,
+                email: email,
+                connections: 0,
+                Appointments: 0,
+                Chats: 0,
+                Location: '',
+                Industry: '',
+                Mentee: null,
+                Mentor: null,
+                // DateCreated:      
+             })
+        })
+        .catch((err)=>{
+            console.log(err, 'error')
+        })
+        
     }
-
 
 
 
     return (
 
         <div className="centerForm">
-        <img className='logoMark' src={logo}></img>
+            <img className='logoMark' src={logo}></img>
 
-        <h2 className="signUpHeader">Create Account</h2>
+            <h2 className="signUpHeader">Create Account</h2>
 
-        <form
-            className="createUserForm"
-            onSubmit={createNewUser}>
+            <form
+                className="createUserForm"
+                onSubmit={createNewUser}>
 
-            {/* <input
+                {/* <input
                 className="inputStyle"
                 onChange={(e) => setFirstName(e.target.value)}
                 value={firstName}
@@ -70,40 +73,40 @@ export const SignUp = () => {
             </input> */}
 
 
-            <input
-                className="inputStyle"
-                onChange={(e) => setUserName(e.target.value)}
-                value={userName}
-                placeholder='UserName'
-                type="text">
-            </input>
+                <input
+                    className="inputStyle"
+                    onChange={(e) => setUserName(e.target.value)}
+                    value={userName}
+                    placeholder='UserName'
+                    type="text">
+                </input>
 
 
-            <input
-                className="inputStyle"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                placeholder='email@mail.com'
-                type="email">
-            </input>
+                <input
+                    className="inputStyle"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    placeholder='email@mail.com'
+                    type="email">
+                </input>
 
-            <input
-                className="inputStyle"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                placeholder='Create Password'
-                type="password">
-            </input>
+                <input
+                    className="inputStyle"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    placeholder='Create Password'
+                    type="password">
+                </input>
 
-            <div className="buttonContainer">
-                <button onClick={createNewUser} className="createAccoutnBtn">
-                    Sign Up
-                </button>
-            </div>
+                <div className="buttonContainer">
+                    <button onClick={createNewUser} className="createAccoutnBtn">
+                        Sign Up
+                    </button>
+                </div>
 
-        </form>
-        <div className="greenBlob"></div>
-        <div className="greenBlob2"></div>
+            </form>
+            <div className="greenBlob"></div>
+            <div className="greenBlob2"></div>
 
 
         </div>
