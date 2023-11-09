@@ -3,14 +3,11 @@
 @use "../../../styles/partials/mixins" as *;
 
 .features {
-  //   width: 100vw;
-  //   height: 45rem;
   width: 100%;
   height: 100%;
 
   @include desktop {
-    max-width: 100vw;
-    height: 60rem;
+    max-width: 80rem;
     height: auto;
     margin: auto;
   }
@@ -24,7 +21,7 @@
 
     @include desktop {
       padding: 1.5rem;
-      width: 80rem;
+      width: 60rem;
       height: 40rem;
     }
   }
@@ -73,16 +70,13 @@
   &__column {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
 
-    @include tablet {
-      padding: 1.5rem;
-    }
   }
 
   &__row {
     display: flex;
     flex-direction: row;
+    
   }
 
   &__container {
