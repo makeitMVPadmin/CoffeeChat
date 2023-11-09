@@ -3,40 +3,62 @@
 @use "../../../styles/partials/mixins" as *;
 
 .features {
-    width: 100vw;
-    height: 45rem;
-    width: 100%;
-    height: 100%;
-  
-    @include desktop {
-      max-width: 100vw;
-      height: 60rem;
-      height: auto;
-      margin: auto;
-    }
+  //   width: 100vw;
+  //   height: 45rem;
+  width: 100%;
+  height: 100%;
+
+  @include desktop {
+    max-width: 100vw;
+    height: 60rem;
+    height: auto;
+    margin: auto;
+  }
 
   &__box {
-    background-color: $mvp-light-blue;border-radius: 5rem;
+    background-color: $mvp-light-blue;
+    border-radius: 0 5rem 5rem 0;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+
+    @include desktop {
+      padding: 1.5rem;
+      width: 80rem;
+      height: 40rem;
+    }
   }
 
   &__title {
+    display: flex;
+    justify-content: flex-end;
     color: $mvp-yellow;
+    padding: 1rem;
+    position: relative;
     @include mobile-pageheader;
     @include tablet {
-        @include desktop-pageheader;
+      @include desktop-pageheader;
+      padding: 1.5rem;
     }
-  }
-
-  &__line {
-    color: $mvp-white;
-    width: 15rem;
+    &:before{
+        content: "";
+        width: 20rem;
+        height: .25rem;
+        position: absolute;
+        margin-top: 6rem;
+        background-color: $mvp-white;
+        @include tablet{
+            width: 35rem;
+          
+        }
+    }
   }
 
   &__subtitle {
     color: $mvp-yellow;
     @include mobile-subheader;
     @include tablet {
-        @include desktop-subheader;
+      @include desktop-subheader;
     }
   }
 
@@ -45,7 +67,31 @@
 
     @include mobile-body;
     @include tablet {
-        @include desktop-body;
+      @include desktop-body;
     }
   }
+  &__column {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    @include tablet {
+      padding: 1.5rem;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__container {
+    padding: 1rem;
+
+    @include tablet {
+      padding: 1.5rem;
+    }
+  }
+
+
 }
