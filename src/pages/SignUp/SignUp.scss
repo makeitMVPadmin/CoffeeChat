@@ -44,33 +44,18 @@
     margin-top: 5rem;
 }
 
-.background {
-    background: url('../../assets/images/network.png'), rgb(178, 203, 246) 50% / cover no-repeat;
-    width: 40.2315rem;
-    height: 40.82738rem;
-    transform: rotate(37deg) translateY(-9rem);
-    flex-shrink: 0;
-    color: #E7F0FF;
+.backgroundSignup {
+    background: linear-gradient(transparent,#aec7f4) ;
     border-radius: 100%;
-}
-
-.background2 {
-    background: url('../../assets/images/network.png'), rgb(178, 203, 246) 50% / cover no-repeat;
-    width: 40.2315rem;
-    height: 40.82738rem;
-    transform: translateY(-68rem) translateX(20rem);
-    flex-shrink: 0;
-    color: #E7F0FF;
-    border-radius: 100%;
-}
-
-.greenBlob {
-    background: url('../../assets/background/green.png');
-    width: -webkit-fill-available;
+    width: 36rem;
+    height: 36rem;
     position: absolute;
-    bottom: 0;
-    height: 19rem;
-}
+    overflow: hidden;
+    top: 8rem;
+    rotate: -10deg;
+  }
+
+
 
 @media (max-height: 780px) {
     .greenBlob {
@@ -79,10 +64,3 @@
     }
   }
 
-.greenBlob2 {
-    background: url('../../assets/background/green2.png');
-    width: -webkit-fill-available;
-    height: 21rem;
-    position: absolute;
-    top: 0;
-}

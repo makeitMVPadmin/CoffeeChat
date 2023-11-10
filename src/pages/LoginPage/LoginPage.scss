@@ -4,6 +4,7 @@
   align-items: center;
   height: 100vh;
   background: var(--007, #FFF9F4);
+  contain: strict;
 }
 
 @media (max-height: 780px) {
@@ -12,21 +13,14 @@
   }
 }
 
-// .background {
-//   background: url('../../assets/images/network.png'), lightgray 50% / cover no-repeat;
-//   width: 40.2315rem;
-//   height: 96.82738rem;
-//   transform: rotate(-34.346deg);
-//   flex-shrink: 0;
-// }
 
 .logoMark {
   margin-top: 3rem;
-  height: 4.8rem;
+  height: 8rem;
   z-index: 1;
 }
 
-.coffeeChat{
+.coffeeChat {
   z-index: 1;
 }
 
@@ -103,23 +97,7 @@
 
 .linkText {
   // border: solid green;
-  
-}
 
-.pinkBlob {
-  background: url('../../assets/background/pink.png');
-  position: absolute;
-  top: -2rem;
-  height: 13rem;
-  width:-webkit-fill-available;
-}
-
-.pinkBlob2 {
-  background: url('../../assets/background/pink2.png');
-  position: absolute;
-  bottom: 5rem;
-  height: 35rem;
-  width:-webkit-fill-available;
 }
 
 @media (max-height: 780px) {
@@ -127,4 +105,25 @@
     position: absolute;
     bottom: -5rem;
   }
+}
+
+.backgroundLogin {
+  background: #f3d365;
+  border-radius: 100%;
+  width: 28rem;
+  height: 28rem;
+  position: absolute;
+  overflow: hidden;
+  top: 14rem;
+  left: -148px;
+}
+
+.backgroundLogin2 {
+  background-image: linear-gradient(#F2D058, white);
+  border-radius: 100%;
+  width: 34rem;
+  height: 34rem;
+  position: absolute;
+  bottom: -89px;
+  left: -65px;
 }

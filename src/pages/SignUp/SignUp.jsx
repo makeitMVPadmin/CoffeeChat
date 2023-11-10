@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from '../../assets/logo/logo.png'
-import Logomark from '../../assets/images/Logomark.png'
+import FinalLogo from '../../assets/logo/FinalLogo.png'
 import './SignUp.scss';
 import { createUserWithEmailAndPassword, getAuth, signOut } from "firebase/auth";
 import {
@@ -53,7 +52,7 @@ export const SignUp = () => {
     return (
 
         <div className="centerForm">
-        <img className='logoMark' src={logo}></img>
+        <img className='logoMark' src={FinalLogo}></img>
 
         <h2 className="signUpHeader">Create Account</h2>
 
@@ -102,8 +101,8 @@ export const SignUp = () => {
             </div>
 
         </form>
-        <div className="greenBlob"></div>
-        <div className="greenBlob2"></div>
+
+        <div className="backgroundSignup"></div>
 
 
         </div>
