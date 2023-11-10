@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FinalLogo from '../../assets/logo/FinalLogo.png'
 import './SignUp.scss';
 import { createUserWithEmailAndPassword, getAuth, signOut } from "firebase/auth";
 import {
@@ -17,6 +18,7 @@ export const SignUp = () => {
     const Navigate = useNavigate()
     const [firstName, setFirstName] = useState('')
     const [LastName, setLastName] = useState('')
+    const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const auth = getAuth(app)
@@ -31,10 +33,10 @@ export const SignUp = () => {
         try {
             e.preventDefault()
             const resp = await createUserWithEmailAndPassword(auth, email, password);
-            // Assuming you have a Firestore collection named "users"
+            // // Assuming you have a Firestore collection named "users"
             // await addDoc(collection(db, 'Users'), {
             // email: resp.user.email,
-            // Add any other user information you want to store in Firestore
+            // // Add any other user information you want to store in Firestore
 
             //   });
             console.log(resp)
@@ -48,28 +50,30 @@ export const SignUp = () => {
 
 
     return (
+
+        <div className="centerForm">
+        <img className='logoMark' src={FinalLogo}></img>
+
+        <h2 className="signUpHeader">Create Account</h2>
+
         <form
             className="createUserForm"
             onSubmit={createNewUser}>
 
-            <h2 className="signUpHeader">
-                Create Account
-            </h2>
-
-            <input
+            {/* <input
                 className="inputStyle"
                 onChange={(e) => setFirstName(e.target.value)}
                 value={firstName}
                 placeholder='First Name'
                 type="text">
-            </input>
+            </input> */}
 
 
             <input
                 className="inputStyle"
-                onChange={(e) => setLastName(e.target.value)}
-                value={LastName}
-                placeholder='Last Name'
+                onChange={(e) => setUserName(e.target.value)}
+                value={userName}
+                placeholder='UserName'
                 type="text">
             </input>
 
@@ -86,7 +90,7 @@ export const SignUp = () => {
                 className="inputStyle"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
-                placeholder='Password'
+                placeholder='Create Password'
                 type="password">
             </input>
 
@@ -97,6 +101,11 @@ export const SignUp = () => {
             </div>
 
         </form>
+
+        <div className="backgroundSignup"></div>
+
+
+        </div>
 
 
     )
