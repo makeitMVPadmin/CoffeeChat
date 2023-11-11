@@ -2,7 +2,7 @@ import './LoginPage.scss';
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, getIdToken, } from "firebase/auth";
 import { db, app } from '../../App';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo/logo.png'
 import google from '../../assets/icons/links/google.svg'
 import linkedin from '../../assets/icons/links/linkedin.svg'
@@ -48,12 +48,15 @@ const LoginPage = () => {
         // Handle sign-in errors here.
       });
   };
+  
 
   const signIn = (e) => {
     e.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
       .then((cred) => {
         console.log('signedIn', cred.user)
+        const userData = cred.data
+        sessionStorage.setItem('userData', JSON.stringify(userData))
       })
       .catch((error) => {
         const errorCode = error.code;

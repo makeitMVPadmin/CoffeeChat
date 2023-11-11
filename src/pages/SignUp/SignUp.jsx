@@ -45,6 +45,17 @@ export const SignUp = () => {
                 // DateCreated:      
              })
         })
+        .then(()=> {
+            const checkUserAuth = () => {
+                auth.onAuthStateChanged((user) => {
+                  if (user != null) {
+                    Navigate('/')
+                  }
+                });
+              };
+          
+              checkUserAuth();
+        })
         .catch((err)=>{
             console.log(err, 'error')
         })

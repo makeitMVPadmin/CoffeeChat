@@ -1,19 +1,43 @@
 import "./HomePage.scss";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import Navbar from "../../components/Navbar/Navbar";
-import { app } from "../../App";
+import { app, db } from "../../App";
 import { getAuth, signOut } from "firebase/auth";
+import { collection, doc, getDoc } from "@firebase/firestore";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const HomePage = () => {
 
   const auth = getAuth(app)
+  const Navigate = useNavigate()
+  const [userName, setUserName] = useState('')
 
 
-  const eventDate = () => {
-    const date = new Date()
-    return date.getDay()
-  }
+  useEffect (() =>{
+    const checkUserAuth = () => {
+          auth.onAuthStateChanged((user) => {
+            if (user != null) {
+              const userRef = doc(db, 'user',user.uid)
+              getDoc(userRef)
+              .then((doc)=>{
+                console.log('doc',doc.data().username)
+                setUserName(doc.data().username)
+              })
+            }
+
+          });
+        };
+
+        checkUserAuth();
+
+  },[])
+
+    
+
+  
+
 
 
   const logout = () => {
@@ -23,6 +47,11 @@ const HomePage = () => {
       console.log('error', error)
     });
   }
+
+
+
+
+
   return (
     <div className="home">
       <div className="buttonContainer">
@@ -32,7 +61,7 @@ const HomePage = () => {
       </div>
 
       <div className="homeHeader">
-        <h1 className="WelcomeTitle">Welcome, <br></br> name!</h1>
+        <h1 className="WelcomeTitle">Welcome, <br></br> ${userName}!</h1>
         <div className="accountBtn"></div>
       </div>
 
@@ -87,7 +116,7 @@ const HomePage = () => {
 
       </div>
 
-   
+
     </div >
   );
 };
