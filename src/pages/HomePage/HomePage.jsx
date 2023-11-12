@@ -26,7 +26,9 @@ const HomePage = () => {
                 setUserName(doc.data().username)
               })
             }
-
+            else{
+              Navigate('/login')
+            }
           });
         };
 

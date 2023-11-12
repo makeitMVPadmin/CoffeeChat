@@ -1,0 +1,93 @@
+.editProfileBody {
+    height: 100vh;
+}
+
+.picDiv {
+    width: 7.5rem;
+    height: 7.5rem;
+    justify-content: center;
+    border: solid red;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.editPic {
+    width: 7.5rem;
+    height: 7.5rem;
+    background-color: grey;
+    border-radius: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.editProfileForm {
+    width: 23rem;
+    height: 34rem;
+    flex-shrink: 0;
+    background-color: grey;
+    border-radius: 1.9375rem;
+    background: #F7F7F7;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    padding: 1.5rem;
+    z-index: 1;
+}
+
+.inputDivs {
+    position: relative;
+}
+
+.editLabels {
+    position: absolute;
+    top: 0.3rem;
+    left: 1rem;
+}
+
+.inputEdit {
+    margin: auto;
+    border-radius: 1.25rem;
+    background: #FFF;
+    border: none;
+    width: 20.1875rem;
+    height: 4.9375rem;
+    flex-shrink: 0;
+    margin-bottom: 2rem;
+}
+
+.smallerInputs{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.inputEdit2 {
+    border-radius: 1.25rem;
+    background: #FFF;
+    border: none;
+    width: 9.625rem;
+    height: 4.9375rem;
+    flex-shrink: 0;
+}
+
+
+.btnDiv {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.editBtn {
+    margin: auto;
+    color: white;
+    background-color: black;
+    border-radius: 1.89325rem;
+}
+
+.orangeBackGround {
+    background-color: #F2D051;
+    height: 15rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}

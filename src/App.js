@@ -4,12 +4,12 @@ import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { SignUp } from "./pages/SignUp/SignUp";
+import { EditProfile } from "./pages/EditProfile/EditProfile";
 import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import Navbar from "./components/Navbar/Navbar";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -88,6 +88,7 @@ function App() {
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/EditProfile" element={<EditProfile/>}/>
       <Route path="/search" element={<SearchPage />} />
       <Route
         path="/connections"
