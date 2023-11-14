@@ -87,7 +87,7 @@ const HomePage = () => {
 
       </div>
 
-   
+      <Navbar/>
     </div >
   );
 };

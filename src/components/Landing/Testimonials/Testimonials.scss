@@ -1,0 +1,69 @@
+@use "../../../styles/partials/global" as *;
+@use "../../../styles/partials/variables" as *;
+@use "../../../styles/partials/mixins" as *;
+
+.testimonials {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include desktop {
+    max-width: 80rem;
+    height: auto;
+    margin: auto;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__carousel {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+width: 80rem;
+}
+
+&__item {
+  width: 30rem; 
+  height: 10rem; 
+  margin-right: 1rem; 
+
+  &.preview {
+    opacity: 0.5;
+  }
+
+  @include desktop {
+    width: 60rem; 
+    height: 20rem; 
+    margin-right: 2rem; 
+  }
+}
+ &__buttons {
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
+ }
+
+ &__dot {
+   width: 0.1rem;
+   height: 0.1rem;
+   border-radius: 50%;
+   background-color: #ccc;
+   border: none;
+   cursor: pointer;
+   transition: background-color 0.3s;
+
+   &.active {
+     background-color: $mvp-red;
+   }
+
+   &:hover {
+     background-color: #aaaaaa;
+   }
+ }
+}
