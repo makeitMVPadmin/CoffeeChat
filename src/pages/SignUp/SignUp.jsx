@@ -17,9 +17,7 @@ import { app, db } from "../../App";
 export const SignUp = () => {
 
     const Navigate = useNavigate()
-    const [firstName, setFirstName] = useState('')
-    const [LastName, setLastName] = useState('')
-    const [userName, setUserName] = useState('')
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const auth = getAuth(app)
@@ -33,7 +31,7 @@ export const SignUp = () => {
             console.log(resp)
             //document id is their uid
              setDoc(doc(db, "user", resp.user.uid), {
-                username: userName,
+                fullName: name,
                 email: email,
                 connections: 0,
                 Appointments: 0,
@@ -75,20 +73,12 @@ export const SignUp = () => {
                 className="createUserForm"
                 onSubmit={createNewUser}>
 
-                {/* <input
-                className="inputStyle"
-                onChange={(e) => setFirstName(e.target.value)}
-                value={firstName}
-                placeholder='First Name'
-                type="text">
-            </input> */}
-
 
                 <input
                     className="inputStyle"
-                    onChange={(e) => setUserName(e.target.value)}
-                    value={userName}
-                    placeholder='UserName'
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
+                    placeholder='Full Name'
                     type="text">
                 </input>
 

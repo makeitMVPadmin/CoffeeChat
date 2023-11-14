@@ -6,18 +6,21 @@
     width: 7.5rem;
     height: 7.5rem;
     justify-content: center;
-    border: solid red;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 0.8rem;
+    margin-top: 1.5rem;
+    position: relative;
+    contain: strict;
+    border-radius: 50%;
+    background-color: lightgrey;
 }
 
 .editPic {
-    width: 7.5rem;
-    height: 7.5rem;
-    background-color: grey;
-    border-radius: 100%;
-    margin-right: auto;
-    margin-left: auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .editProfileForm {
@@ -41,9 +44,13 @@
     position: absolute;
     top: 0.3rem;
     left: 1rem;
+    font-family: 'Gilroy-bold', sans-serif;
+    font-weight: 700;
+    color: #686868;
 }
 
 .inputEdit {
+    padding: 1.5rem 1rem 1rem;
     margin: auto;
     border-radius: 1.25rem;
     background: #FFF;
@@ -52,9 +59,11 @@
     height: 4.9375rem;
     flex-shrink: 0;
     margin-bottom: 2rem;
+    font-family: 'Gilroy', system-ui;
+    font-size: large;
 }
 
-.smallerInputs{
+.smallerInputs {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
@@ -67,6 +76,8 @@
     width: 9.625rem;
     height: 4.9375rem;
     flex-shrink: 0;
+    font-family: 'Gilroy', system-ui;
+    font-size: large;
 }
 
 
@@ -81,13 +92,32 @@
     color: white;
     background-color: black;
     border-radius: 1.89325rem;
+    font-family: Gilroy-bold, sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 600;
+    padding: 0.8rem;
 }
 
-.orangeBackGround {
-    background-color: #F2D051;
-    height: 15rem;
-    width: 100%;
+.backgroundEditProfile {
+    background: #f3d365;
+    border-radius: 100%;
+    width: 28rem;
+    height: 28rem;
     position: absolute;
-    bottom: 0;
+    overflow: hidden;
+    top: 14rem;
+    left: -148px;
     z-index: -1;
-}
+  }
+  
+  .backgroundEditProfile2 {
+    background-image: linear-gradient(#F2D058, white);
+    border-radius: 100%;
+    width: 34rem;
+    height: 34rem;
+    position: absolute;
+    bottom: -89px;
+    left: -65px;
+    z-index: -1;
+  }
