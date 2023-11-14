@@ -1,8 +1,8 @@
 import Header from "../../components/Landing/Header/Header";
 import Hero from "../../components/Landing/Hero/Hero";
-// import About from "../../components/Landing/About/About";
-// import Partners from "../../components/Landing/Partners/Partners";
-// import Features from "../../components/Landing/Features/Features";
+import About from "../../components/Landing/About/About";
+import Features from "../../components/Landing/Features/Features";
+import Partners from "../../components/Landing/Partners/Partners";
 // import Testimonials from "../../components/Landing/Testimonials/Testimonials";
 import Newsletter from "../../components/Landing/Newsletter/Newsletter";
 
@@ -11,9 +11,9 @@ const LandingPage = () => {
       <>
       <Header />
       <Hero />
-      {/* <About /> */}
-      {/* <Partners /> */}
-      {/* <Features /> */}
+      <About />
+      <Partners />
+      <Features />
       {/* <Testimonials /> */}
       <Newsletter />
       </>
