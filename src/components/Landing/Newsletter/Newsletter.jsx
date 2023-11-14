@@ -1,6 +1,12 @@
 import "./Newsletter.scss";
 
 const Newsletter = () => {
+
+    const handleSubscribe = (e) => {
+        e.preventDefault();
+    // TODO: ADD SUBSCRIBE LOGIC HERE
+        console.log("Subscribe button clicked!");
+      };
   return (
     <section className="newsletter">
       <div className="newsletter__box">
@@ -24,7 +30,7 @@ const Newsletter = () => {
             placeholder="email address"
             required
                   />
-          <button type="submit" className="newsletter__button">
+          <button type="submit" className="newsletter__button" onClick={handleSubscribe}>
             Subscribe
           </button>
         </form>
