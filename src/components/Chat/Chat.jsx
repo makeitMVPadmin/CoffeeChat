@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {
   collection,
@@ -103,7 +104,11 @@ const Chat = ({ people, db }) => {
         </p>
         <div>Reviews</div>
         <div>Verified</div>
-        <button>Connect</button>
+
+        <Link to={`/scheduling/${person.id}`}>
+        <button>Schedule a meeting</button>
+        </Link>
+        
       </div>
     </>
   );
