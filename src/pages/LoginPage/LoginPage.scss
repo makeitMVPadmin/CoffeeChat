@@ -1,34 +1,129 @@
-.center-vertically {
+.centerForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  height: 100vh;
+  background: var(--007, #FFF9F4);
+  contain: strict;
 }
 
-input[type='email'],
-input[type='password'],
-button[type='submit'],
-button[type='button'] {
+@media (max-height: 780px) {
+  .centerForm {
+    height: 120vh;
+  }
+}
+
+
+.logoMark {
+  margin-top: 3rem;
+  height: 8rem;
+  z-index: 1;
+}
+
+.coffeeChat {
+  z-index: 1;
+}
+
+.loginH2 {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  font-family: 'Gilroy-bold', sans-serif;
+  font-size: xx-large;
+  z-index: 1;
+}
+
+.loginForm {
+  width: 80%;
+  z-index: 1;
+}
+
+.inputLogin {
+  background-color: transparent;
+  padding: 1rem;
+  padding-bottom: 0%;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 1px solid black;
   width: 100%;
+  position: relative;
+  font-family: 'Gilroy-light', sans-serif;
+  font-weight: 100;
+  font-size: x-large;
 }
 
-.two-column {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.checkBoxLoginDiv {
+  display: flex;
+  margin-bottom: 5rem;
 }
 
-.narrow-button {
-    margin: 0.2rem 0.3rem;
+.checkBoxLogin {
+  margin-right: 0.5rem;
 }
 
-@media (max-width: 600px) {
-    form {
-      width: 90%;
-    }
-}  
-  
-  
-  
-  
-  
+.loginBtn {
+  margin-bottom: 0.5rem;
+  background-color: black;
+  border-radius: 20px;
+  width: 9rem;
+  color: white;
+  font-family: 'Gilroy-light', sans-serif;
+  font-weight: 100;
+  font-size: x-large;
+  padding: 0.5rem;
+  text-align: -webkit-center;
+  position: relative;
+  z-index: 1;
+}
+
+.continueWith {
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  font-size: medium;
+  z-index: 1;
+}
+
+.altBtns {
+  justify-content: space-evenly;
+  display: flex;
+  width: 100%;
+  z-index: 1;
+}
+
+.linkSvg {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 0.5rem;
+}
+
+.linkText {
+  // border: solid green;
+
+}
+
+@media (max-height: 780px) {
+  .pinkBlob2 {
+    position: absolute;
+    bottom: -5rem;
+  }
+}
+
+.backgroundLogin {
+  background: #f3d365;
+  border-radius: 100%;
+  width: 28rem;
+  height: 28rem;
+  position: absolute;
+  overflow: hidden;
+  top: 14rem;
+  left: -148px;
+}
+
+.backgroundLogin2 {
+  background-image: linear-gradient(#F2D058, white);
+  border-radius: 100%;
+  width: 34rem;
+  height: 34rem;
+  position: absolute;
+  bottom: -89px;
+  left: -65px;
+}
