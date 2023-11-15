@@ -12,7 +12,7 @@ const HomePage = () => {
 
   const auth = getAuth(app)
   const Navigate = useNavigate()
-  const [userName, setUserName] = useState('')
+  const [fullName, setFullName] = useState('')
 
 
   useEffect (() =>{
@@ -22,8 +22,8 @@ const HomePage = () => {
               const userRef = doc(db, 'user',user.uid)
               getDoc(userRef)
               .then((doc)=>{
-                console.log('doc',doc.data().username)
-                setUserName(doc.data().username)
+                console.log('doc',doc.data())
+                setFullName(doc.data().FullName)
               })
             }
             else{
@@ -63,8 +63,8 @@ const HomePage = () => {
       </div>
 
       <div className="homeHeader">
-        <h1 className="WelcomeTitle">Welcome, <br></br> ${userName}!</h1>
-        <div className="accountBtn"></div>
+        <h1 className="WelcomeTitle">Welcome, <br></br> ${fullName}!</h1>
+        <div className="accountBtn" onClick={()=> Navigate('/editProfile')}></div>
       </div>
 
       <h4 className="upcomingEventTitle">Upcoming Events</h4>

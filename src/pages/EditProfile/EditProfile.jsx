@@ -4,7 +4,8 @@ import { useNavigate } from "react-router";
 import Navbar from "../../components/Navbar/Navbar";
 import { app, db } from "../../App";
 import { getAuth } from "firebase/auth";
-import { collection, doc, getDoc } from "@firebase/firestore";
+import { updateDoc, doc, getDoc } from "@firebase/firestore";
+import { async } from "@firebase/util";
 
 
 
@@ -13,7 +14,7 @@ export const EditProfile = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [postal, setPostal] = useState('')
-    const [phoneNum, setPhoneNum] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
     const [field, setField] = useState('')
     const Navigate = useNavigate()
     const auth = getAuth(app)
@@ -27,13 +28,14 @@ export const EditProfile = () => {
                     const userRef = doc(db, 'user', user.uid)
                     getDoc(userRef)
                         .then((doc) => {
-                            console.log('doc', doc.data().username)
-                            setName(doc.data().username)
+                            console.log('doc', doc.data())
+                            setName(doc.data().FullName)
                             setEmail(doc.data().email)
                             setPostal(doc.data().postal)
-                            setPhoneNum(doc.data().phoneNumber)
+                            setPhoneNumber(doc.data().phoneNumber)
                             setField(doc.data().field)
                         })
+                        
                 }
                 else {
                     Navigate('/login')
@@ -47,40 +49,32 @@ export const EditProfile = () => {
 
 
 
-    // const updateProfile = (e) =>{
-    //     e.preventDefault()
-    //     .then((resp)=> {
-    //         console.log(resp)
-    //         //document id is their uid
-    //          setDoc(doc(db, "user", resp.user.uid), {
-    //             fullName: name,
-    //             email: email,
-    //             connections: 0,
-    //             Appointments: 0,
-    //             Chats: 0,
-    //             Location: '',
-    //             Industry: '',
-    //             Mentee: null,
-    //             Mentor: null,
-    //             // DateCreated:      
-    //          })
-    //     })
-    //     .then(()=> {
-    //         const checkUserAuth = () => {
-    //             auth.onAuthStateChanged((user) => {
-    //               if (user != null) {
-    //                 Navigate('/')
-    //               }
-    //             });
-    //           };
-          
-    //           checkUserAuth();
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err, 'error')
-    //     })
-        
-    // }
+    const updateProfile = (e) => {
+        e.preventDefault()
+        auth.onAuthStateChanged((user) => {
+            if (user != null) {
+                const userId = doc(db, 'user', user.uid)
+                updateDoc(userId, {
+                    FullName: name,
+                    email: email,
+                    postal: postal,
+                    PhoneNumber: phoneNumber,
+                    field: field,
+                })
+                .then(()=>{
+                    alert('Profile Updated')
+                })
+                .then(()=>{
+                    Navigate('/')
+                })
+                    
+            }
+            else {
+                Navigate('/login')
+            }
+        });
+    };
+    
 
 
 
@@ -97,6 +91,7 @@ export const EditProfile = () => {
 
             <form
                 className="editProfileForm"
+                onSubmit={updateProfile}
             >
                 <div className="inputDivs">
                     <span className="editLabels">Full Name</span>
@@ -134,8 +129,8 @@ export const EditProfile = () => {
                         <span className="editLabels">Phone Number</span>
                         <input
                             type="number"
-                            value={phoneNum}
-                            onChange={(e) => setPhoneNum(e.target.value)}
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
                             className="inputEdit2">
                         </input>
                     </div>
@@ -153,7 +148,7 @@ export const EditProfile = () => {
                 </div>
 
                 <div className="btnDiv">
-                    <button className="editBtn">Create Profile</button>
+                    <button className="editBtn" onClick={updateProfile}>Edit Profile</button>
                 </div>
 
 
