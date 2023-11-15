@@ -1,108 +1,184 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 .accountBtn {
-    border-radius: 50%;
-    background-color: grey;
-    width: 4rem;
-    height: 4rem;
-    margin: auto;
-    margin-right: 2rem;
-    background-image: url('../../images/blankUserImg.png');
-    background-position: center;
-    background-size: cover;
-    object-fit: contain;
-    text-align: center;
+  border-radius: 50%;
+  background-color: grey;
+  width: 4rem;
+  height: 4rem;
+  margin: auto;
+  margin-right: 2rem;
+  background-image: url("../../images/blankUserImg.png");
+  background-position: center;
+  background-size: cover;
+  object-fit: contain;
+  text-align: center;
+  @include tablet {
+    margin-left: 5%;
+    width: 10vw;
+    height: 10vw;
+  }
+  @include desktop {
+    margin-left: 5%;
+    width: 7vw;
+    height: 7vw;
+  }
 }
 
 .WelcomeTitle {
-    padding-left: 2rem;
+  padding-left: 1.2rem;
+  font-size: 1.5rem;
+  @include tablet {
+    padding-left: 2.5rem;
+    font-size: 1.9rem;
+  }
+  @include desktop {
+    padding-left: 5%;
+  }
 }
 
-.upcomingEventTitle{
-    text-align: center;
-    margin-bottom: 0.5rem;
+.upcomingEventTitle {
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .homeHeader {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10%;
+  @include desktop {
+    justify-content: flex-start;
+    margin-bottom: 5%;
+  }
 }
-
 
 // --------------------------Carousel Section -------------------------------
 
-
-.carouselItem{
-    border: 1px solid green;
-    border-radius: 15px;
-    width: 90%;
-    margin: auto;
-    overflow: visible;
-    height: 10rem;
+.carouselItem {
+  border: 1px solid green;
+  border-radius: 15px;
+  width: 90%;
+  margin: auto;
+  overflow: visible;
+  height: 10rem;
 }
 
-.carouselDetail{
-    position: absolute;
-    right: 9%;
-    color: white;
-    z-index: 1;
-    text-align: center;
-    width: 80%;
+.carouselDetail {
+  position: absolute;
+  right: 9%;
+  color: white;
+  z-index: 1;
+  text-align: center;
+  width: 80%;
 }
 
 .imgCarousel {
-    position: relative;
-    height: 10rem;
-    border-radius: 15px;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  height: 10rem;
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
 }
 
 .eventTimer {
-    z-index: 1;
-    border-radius: 10px;
-    padding: 0.5rem;
-    background-color: whitesmoke;
-    position: absolute;
-    bottom: -12%;
-    right: 25%;
+  z-index: 1;
+  border-radius: 10px;
+  padding: 0.5rem;
+  background-color: whitesmoke;
+  position: absolute;
+  bottom: -12%;
+  right: 25%;
 }
 
 // --------------------------Schedule Section -------------------------------
 
 .scheduleDiv {
+  border-radius: 25px;
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  height: 60%;
+  margin-top: 5%;
+  border: 3px solid black;
+  overflow: auto;
+  @include tablet {
+    margin-top: 2%;
+  }
+  @include desktop {
     border-radius: 25px;
-    background-color: aliceblue;
-    width: 90%;
-    margin: auto;
+
+    width: 71%;
+    margin: 5%;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
     padding: 0.5rem;
+    height: 50%;
+    margin-top: 3%;
+    border: 3px solid black;
+    overflow: auto;
+  }
 }
 
 .scheduleList {
-    display: flex;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
+  display: flex;
+  border-radius: 1.25rem;
+  background-color: $mvp-gray;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
 
+  width: 100%;
+  @include tablet {
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+}
+.scheduleTitle {
+  text-align: left;
+  padding-left: 1.2rem;
+  @include tablet {
+    padding-left: 2.5rem;
+    font-size: 1.5rem;
+  }
+  @include desktop {
+    padding-left: 5%;
+  }
+}
 .scheduledName {
-    background-color: darkgray;
-    border-radius: 25px;
-    margin-right: 1rem;
-    padding: 0.3rem;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+  background-color: #ff9393;
+  border-radius: 25px;
+  border: 2px solid black;
+  margin-right: 1rem;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 0.7rem;
+  width: 50%;
+  @include tablet {
+    width: 25%;
+  }
 }
-
 
 .lowerDiv {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 3rem;
-    height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  height: 4rem;
 }
 
 .connections {
-    border-radius: 25px;
-    background-color: aliceblue;
-    width: 32%;
-    text-align: center;
+  border-radius: 25px;
+  background-color: aliceblue;
+  width: 32%;
+  text-align: center;
+}
+
+.home {
+  background-color: $mvp-cream;
+  height: 100vh;
+  padding-top: 20%;
+  @include tablet {
+    padding-top: 5%;
+  }
 }
