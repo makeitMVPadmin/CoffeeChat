@@ -1,0 +1,1 @@
+.center-vertically{display:flex;flex-direction:column;justify-content:center;align-items:center}input[type=email],input[type=password],button[type=submit],button[type=button]{width:100%}.two-column{display:flex;justify-content:space-between;align-items:center}.narrow-button{margin:.2rem .3rem}@media(max-width: 600px){form{width:90%}}

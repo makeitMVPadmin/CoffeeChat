@@ -4,6 +4,10 @@ import Navbar from '../../components/Navbar/Navbar';
 import BackgroundTab from '../../components/Tabs/BackgroundTab';
 import MentorshipTab from '../../components/Tabs/MentorshipTab';
 import InterestsTab from '../../components/Tabs/InterestsTab';
+import interests from '../../assets/icons/search/interests.svg';
+import background from '../../assets/icons/search/background.svg';
+import mentorship from '../../assets/icons/search/mentorship.svg';
+import searchHeader from '../../assets/icons/search/search_header.png';
 
 const SearchPage = () => {
   const [activeTab, setActiveTab] = useState('backgroundtab');
@@ -20,28 +24,82 @@ const SearchPage = () => {
   };
 
   return (
+    <div>
+      <div className='searchHeader__content'>
+        <div className='searchHeader__content--container'>
+          <div className='searchHeader__content--row'>
+            <h1>
+              {' '}
+              Your next 
+              <br />connection{' '}
+            </h1>
+            <img src={searchHeader} alt='' />
+          </div>
+        </div>
+      </div>
     <div className='tabs'>
-      <h1 className=''> Your next connection </h1>
 
       {/* Tab nav */}
       <ul className='nav'>
         <li
-          className={activeTab === 'backgroundtab' ? 'active' : ''}
+          className={
+            activeTab === 'backgroundtab'
+              ? 'active backgroundtab'
+              : 'backgroundtab'
+          }
           onClick={handleBackgroundTab}
         >
-          Background
+          {activeTab === 'backgroundtab' ? (
+            <p>
+              Background
+              <img
+                className='navIcons'
+                src={background}
+                alt='Background Icon'
+              />
+            </p>
+          ) : (
+            <img className='navIcons' src={background} alt='Background Icon' />
+          )}
         </li>
         <li
-          className={activeTab === 'mentorshiptab' ? 'active' : ''}
+          className={
+            activeTab === 'mentorshiptab'
+              ? 'active mentorshiptab'
+              : 'mentorshiptab'
+          }
           onClick={handleMentorshipTab}
         >
-          Mentorship
+          {activeTab === 'mentorshiptab' ? (
+            <p>
+              {' '}
+              Mentorship{' '}
+              <img
+                className='navIcons'
+                src={mentorship}
+                alt='Mentorship Icon'
+              />
+            </p>
+          ) : (
+            <img className='navIcons' src={mentorship} alt='Mentorship Icon' />
+          )}
         </li>
         <li
-          className={activeTab === 'intereststab' ? 'active' : ''}
+          className={
+            activeTab === 'intereststab'
+              ? 'active intereststab'
+              : 'intereststab'
+          }
           onClick={handleInterestsTab}
         >
-          Interests
+          {activeTab === 'intereststab' ? (
+            <p>
+              Interests{' '}
+              <img className='navIcons' src={interests} alt='Interests Icon' />{' '}
+            </p>
+          ) : (
+            <img className='navIcons' src={interests} alt='Interests Icon' />
+          )}
         </li>
       </ul>
 
@@ -54,7 +112,9 @@ const SearchPage = () => {
 
       <Navbar />
     </div>
-  );
+
+    </div>  
+    );
 };
 
 export default SearchPage;
