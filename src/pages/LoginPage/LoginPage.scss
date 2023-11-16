@@ -1,9 +1,10 @@
+@use "../../styles/partials/mixins" as *;
 .centerForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background: var(--007, #FFF9F4);
+  background: var(--007, #fff9f4);
   contain: strict;
 }
 
@@ -12,7 +13,6 @@
     height: 120vh;
   }
 }
-
 
 .logoMark {
   margin-top: 3rem;
@@ -27,7 +27,7 @@
 .loginH2 {
   margin-top: 2rem;
   margin-bottom: 3rem;
-  font-family: 'Gilroy-bold', sans-serif;
+  font-family: "Gilroy-bold", sans-serif;
   font-size: xx-large;
   z-index: 1;
 }
@@ -46,7 +46,7 @@
   border-bottom: 1px solid black;
   width: 100%;
   position: relative;
-  font-family: 'Gilroy-light', sans-serif;
+  font-family: "Gilroy-light", sans-serif;
   font-weight: 100;
   font-size: x-large;
 }
@@ -66,7 +66,7 @@
   border-radius: 20px;
   width: 9rem;
   color: white;
-  font-family: 'Gilroy-light', sans-serif;
+  font-family: "Gilroy-light", sans-serif;
   font-weight: 100;
   font-size: x-large;
   padding: 0.5rem;
@@ -97,7 +97,6 @@
 
 .linkText {
   // border: solid green;
-
 }
 
 @media (max-height: 780px) {
@@ -119,7 +118,7 @@
 }
 
 .backgroundLogin2 {
-  background-image: linear-gradient(#F2D058, white);
+  background-image: linear-gradient(#f2d058, white);
   border-radius: 100%;
   width: 34rem;
   height: 34rem;

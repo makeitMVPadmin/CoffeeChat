@@ -1,37 +1,53 @@
-import React from 'react';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import LogoMark from '../../assets/images/Logomark.png';
-import { useNavigate } from 'react-router-dom';
-import './WelcomePage.scss';
+import React from "react";
+
+import LogoMark from "../../assets/logo/Final_logo.svg";
+import { useNavigate } from "react-router-dom";
+import "./WelcomePage.scss";
 
 const WelcomePage = () => {
   const navigate = useNavigate();
-
   const handleSwipeToOnboarding = () => {
     document
-      .getElementById('onboarding-page')
-      .classList.add('swipe-transition-exit');
+      .getElementById("onboarding-page")
+      .classList.add("swipe-transition-exit");
     setTimeout(() => {
-      navigate('/onboarding-page-2');
+      navigate("/login");
     }, 500);
   };
 
   return (
-    <div
-      id='onboarding-page'
-      className='center-vertically swipe-transition onboarding'
-    >
-      <img src='#' alt='Onboarding background' />
-      <br />
-      <img src={LogoMark} alt='CoffeeChat logo' />
-      <h3>CoffeeChat</h3>
-
-      {/* Swipe Arrow */}
-      <div className='swipe-arrow' onClick={handleSwipeToOnboarding}>
-        <span className='underline'>
-          Join Now <AiOutlineArrowRight className='arrow-icon' />{' '}
-        </span>
+    <div id="onboarding-page" className="swipe-transition onboarding">
+      {" "}
+      <div className="onboarding__logo-2-cont">
+        {" "}
+        <img
+          src={LogoMark}
+          className="onboarding__logo-2"
+          alt="CoffeeChat logo"
+        />
+        <h3 className="onboarding__logo-2-text">CoffeeChat</h3>
       </div>
+      <h2 className="onboarding__heading-desktop">
+        You have{" "}
+        <span className="onboarding__heading-desktop--color-change">depth</span>
+        , why keep your professional connections superficial?
+      </h2>
+      <img src={LogoMark} className="onboarding__logo" alt="CoffeeChat logo" />
+      <h3 className="onboarding__logo-text">CoffeeChat</h3>
+      <h2 className="onboarding__heading-2">
+        Let's get you{" "}
+        <span className="onboarding__heading-2--color-change">connected</span>{" "}
+        today!
+      </h2>
+      {/* Swipe Arrow */}
+      <div className="onboarding__button" onClick={handleSwipeToOnboarding}>
+        <p>Join Now</p>
+      </div>
+      <h2 className=" desktopOnly onboarding__heading-2">
+        Let's get you{" "}
+        <span className="onboarding__heading-2--color-change">connected</span>{" "}
+        today!
+      </h2>
     </div>
   );
 };

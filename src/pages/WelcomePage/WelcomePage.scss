@@ -1,3 +1,5 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 .center-vertically {
   display: flex;
   flex-direction: column;
@@ -6,42 +8,142 @@
 }
 
 .onboarding {
-  background-image: url('../../assets/images/network.png');
-  background-size: cover; 
+  background-image: url("../../assets/background/CoffeeChatOnboardingBackground.png");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 23%;
+  @include tablet {
+    background-image: url("../../assets/background/OnboardingBackgroundTablet.png");
+  }
+  @include desktop {
+    background-image: url("../../assets/background/onboardingbackgrounddesktop.png");
+    background-size: cover;
+    background-position: 139px 55%;
+    background-repeat: no-repeat;
+    padding-bottom: 0;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-left: 5%;
+  }
+  &__button {
+    width: 35%;
+    height: 6%;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    @include desktop {
+      margin: 0;
+    }
+  }
+  &__heading-desktop {
+    display: none;
+    @include tablet {
+      display: none;
+    }
+    @include desktop {
+      display: unset;
+      font-size: 2.3rem;
+      width: 60%;
+    }
+    &--color-change {
+      color: $mvp-yellow;
+    }
+  }
+  &__logo {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    width: 40%;
+    @include tablet {
+      width: 22%;
+    }
+    @include desktop {
+      width: 10%;
+      display: none;
+    }
+    &-text {
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+  &__logo-2 {
+    display: none;
+    @include tablet {
+      display: none;
+    }
+    @include desktop {
+      width: 50%;
+      display: unset;
+    }
+    &-cont {
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    &-text {
+      display: none;
+      @include desktop {
+        display: unset;
+      }
+    }
+  }
+  &__heading-2 {
+    font-size: 1.1rem;
+    width: 86%;
+    margin: 0.5rem;
+    @include tablet {
+      width: 44%;
+    }
+    @include desktop {
+      display: none;
+    }
+    &--color-change {
+      color: $mvp-red;
+    }
+  }
 }
 
 .swipe-arrow {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem; 
-  color: rgb(205, 160, 89); 
+  margin-top: 1rem;
+  color: rgb(205, 160, 89);
 }
 
 .underline {
   border-bottom: 2px solid;
-  border-bottom-color: black
+  border-bottom-color: black;
 }
 
 .arrow-icon {
   font-size: 1rem;
   margin-top: 0.5rem;
   margin-left: 2rem;
-  color: black; 
+  color: black;
   text-decoration: underline;
 }
 
 .swipe-transition {
-  transition: transform 0.5s ease; 
+  transition: transform 0.5s ease;
   transform: translateX(0);
 }
 
 .swipe-transition-exit {
-  transform: translateX(-100%); 
+  transform: translateX(-100%);
 }
-
-  
-  
-  
-  
-  
+.desktopOnly {
+  display: none;
+  @include desktop {
+    display: unset;
+  }
+}
