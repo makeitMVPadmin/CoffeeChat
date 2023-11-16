@@ -26,13 +26,14 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDTDShSWIh1FCcfrOTjP6JCPkg0UlEpNyI",
-  authDomain: "coffee-chat-a47df.firebaseapp.com",
-  projectId: "coffee-chat-a47df",
-  storageBucket: "coffee-chat-a47df.appspot.com",
-  messagingSenderId: "433208987432",
-  appId: "1:433208987432:web:130287fea3c4e8d8a18a1d",
-  measurementId: "G-YJ6XZ3QFMH",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
@@ -46,25 +47,25 @@ const connectionsData = [
     id: 1,
     name: "John Doe",
     profilePicture: "john.jpg",
-    timePreferences: ["9:00am", "2:30pm", "4:00pm"]
+    timePreferences: ["9:00am", "2:30pm", "4:00pm"],
   },
   {
     id: 2,
     name: "Alice Smith",
     profilePicture: "alice.jpg",
-    timePreferences: ["10:00am", "3:30pm", "5:00pm"]
+    timePreferences: ["10:00am", "3:30pm", "5:00pm"],
   },
   {
     id: 3,
     name: "Julie Tall",
     profilePicture: "julie.jpg",
-    timePreferences: ["9:30am", "3:00pm", "4:30pm"]
+    timePreferences: ["9:30am", "3:00pm", "4:30pm"],
   },
   {
     id: 5,
     name: "George Small",
     profilePicture: "george.jpg",
-    timePreferences: ["7:30am", "5:00pm", "7:30pm"]
+    timePreferences: ["7:30am", "5:00pm", "7:30pm"],
   },
 ];
 
@@ -92,7 +93,7 @@ function App() {
       <Route path="/onboarding" element={<WelcomePage />} />
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/signup" element={<SignUp />} />
       <Route path="/search" element={<SearchPage />} />
       <Route
         path="/connections"
@@ -103,7 +104,10 @@ function App() {
         path="/chat/:id"
         element={<Chat people={connectionsData} db={db} />}
       />
-      <Route path="/scheduling/:id" element={<SchedulingPage people={connectionsData} db={db}/>} />
+      <Route
+        path="/scheduling/:id"
+        element={<SchedulingPage people={connectionsData} db={db} />}
+      />
       <Route path="/landing-page" element={<LandingPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

@@ -25,11 +25,11 @@ const HomePage = () => {
   };
   return (
     <div className="home">
-      {/* <div className="buttonContainer">
+      <div className="buttonContainer">
         <button onClick={logout} className="logoutBtn">
           logout
         </button>
-      </div> */}
+      </div>
 
       <div className="homeHeader">
         <h1 className="WelcomeTitle">

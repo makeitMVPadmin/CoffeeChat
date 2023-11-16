@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   getIdToken,
 } from "firebase/auth";
+import { updateUserInFirestore } from "../../firebasestore";
 import { db, app } from "../../App";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -34,27 +35,61 @@ const LoginPage = () => {
     checkUserAuth();
   }, []);
 
-  const GoogleSignIn = () => {
-    signInWithPopup(auth, provider)
-      .then((userCredential) => {
-        // User signed in with Google. You can handle the user data here.
-      })
-      .catch((error) => {
-        // Handle sign-in errors here.
-      });
-  };
+  // const GoogleSignIn = () => {
+  //   signInWithPopup(auth, provider)
+  //     .then((userCredential) => {
+  //       // User signed in with Google. You can handle the user data here.
 
-  const signIn = (e) => {
-    e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((cred) => {
-        console.log("signedIn", cred.user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+  //     })
+  //     .catch((error) => {
+  //       // Handle sign-in errors here.
+  //     });
+  // };
+  const GoogleSignIn = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      // Sign in with Google and get user credentials
+      const result = await signInWithPopup(auth, provider);
+      const { user } = result;
+      // Extract additional information
+      const { email, photoURL, displayName } = user;
+      // Update or create user in Firestore with additional information
+      await updateUserInFirestore(user, {
+        email,
+        photoURL,
+        userName: displayName,
       });
+    } catch (error) {
+      // Handle the error or display an error message to the user.
+      console.error("Google sign-in error:", error);
+    }
   };
+  const signIn = async (email, password) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const { user } = userCredential;
+      // Update user in Firestore on sign-in (if needed)
+      await updateUserInFirestore(user);
+    } catch (error) {
+      // Handle the error or display an error message to the user.
+      console.error("Sign-in error:", error);
+    }
+  };
+  // const signIn = (e) => {
+  //   e.preventDefault();
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((cred) => {
+  //       console.log("signedIn", cred.user);
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //     });
+  // };
 
   return (
     <div className="centerForm">
