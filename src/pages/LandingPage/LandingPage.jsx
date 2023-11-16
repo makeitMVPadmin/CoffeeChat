@@ -12,9 +12,9 @@ const LandingPage = () => {
       <>
       <Header />
       <Hero />
-      <About />
+      <About id="About"/>
       <Partners />
-      <Features />
+      <Features id="FAQs"/>
       {/* <Testimonials /> */}
       <Newsletter />
       <Footer />
