@@ -4,16 +4,20 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background: var(--007, #fff9f4);
-  contain: strict;
-}
 
-@media (max-height: 780px) {
-  .centerForm {
-    height: 120vh;
+  contain: strict;
+  @include tablet {
+    justify-content: center;
   }
 }
-
+.login {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-size: cover;
+  width: 100%;
+  background-image: url("../../assets/background/yellowbackgroundlogin.png");
+}
 .logoMark {
   margin-top: 3rem;
   height: 8rem;
@@ -25,16 +29,26 @@
 }
 
 .loginH2 {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  font-family: "Gilroy-bold", sans-serif;
-  font-size: xx-large;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: "Corben-Bold", sans-serif;
+  font-size: 1.3rem;
   z-index: 1;
+  @include desktop {
+    margin-bottom: 2rem;
+  }
 }
 
 .loginForm {
   width: 80%;
   z-index: 1;
+  height: 25%;
+  @include tablet {
+    width: 50%;
+  }
+  @include desktop {
+    width: 35%;
+  }
 }
 
 .inputLogin {
@@ -53,7 +67,10 @@
 
 .checkBoxLoginDiv {
   display: flex;
-  margin-bottom: 5rem;
+
+  @include desktop {
+    margin-bottom: 2rem;
+  }
 }
 
 .checkBoxLogin {
@@ -76,7 +93,7 @@
 }
 
 .continueWith {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 0.6rem;
   font-size: medium;
   z-index: 1;
@@ -87,6 +104,16 @@
   display: flex;
   width: 100%;
   z-index: 1;
+  @include tablet {
+    justify-content: center;
+    display: flex;
+    gap: 5%;
+  }
+  @include desktop {
+    justify-content: center;
+    display: flex;
+    gap: 5%;
+  }
 }
 
 .linkSvg {
@@ -104,25 +131,4 @@
     position: absolute;
     bottom: -5rem;
   }
-}
-
-.backgroundLogin {
-  background: #f3d365;
-  border-radius: 100%;
-  width: 28rem;
-  height: 28rem;
-  position: absolute;
-  overflow: hidden;
-  top: 14rem;
-  left: -148px;
-}
-
-.backgroundLogin2 {
-  background-image: linear-gradient(#f2d058, white);
-  border-radius: 100%;
-  width: 34rem;
-  height: 34rem;
-  position: absolute;
-  bottom: -89px;
-  left: -65px;
 }
