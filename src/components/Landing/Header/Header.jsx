@@ -61,9 +61,7 @@ const Header = () => {
                 <li className="header__navlist--item">{link.text}</li>
               </Link>
             ))}
-            <li className="header__navlist--search">
               <img src={searchIcon} alt="search icon" />
-            </li>
           </div>
         </ul>
 
@@ -78,9 +76,7 @@ const Header = () => {
                 <li className="header__navlist--item">{link.text}</li>
               </Link>
             ))} 
-            <li className="header__navlist--search">
-              <img src={searchIcon} alt="search icon" />
-            </li>
+              <img className="header__navlist--search" src={searchIcon} alt="search icon" />
           </div>
         </ul>
         </nav>
