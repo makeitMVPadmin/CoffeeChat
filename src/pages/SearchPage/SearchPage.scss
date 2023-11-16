@@ -1,0 +1,92 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchHeader {
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.5rem;
+    &--row {
+      display: flex;
+      flex-direction: row;
+    }
+    &--container {
+      padding: 0.5rem;
+    }
+    h1 {
+      justify-content: left;
+      margin: auto;
+      padding: 1rem;
+    }
+    img {
+      padding: 1rem;
+      //max-width: 75%;
+    }
+  }
+ 
+    
+  }
+
+
+// .container {
+//   max-width: 40rem; // Set your desired max width for both navbar and content
+//   margin: 0 auto; // Center the container
+// }
+
+.nav {
+  font-size: 1.3rem;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; // Hide overflow to round off the folder edges
+}
+
+.nav li {
+  font-weight: bold;
+  position: relative;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  margin: auto;
+  background-color: #f1f1f1; // Set a default background color for the tab
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Set background colors for each tab */
+.nav .backgroundtab {
+  background-color: $mvp-yellow;
+  padding: 1rem;
+}
+
+.nav .mentorshiptab {
+  background-color: $mvp-light-blue;
+  padding: 1rem;
+}
+
+.nav .intereststab {
+  color: $mvp-cream;
+  padding: 1rem;
+  background-color: $mvp-black;
+}
+
+.navIcons {
+  margin: 0.2rem;
+  margin-bottom: -0.4rem;
+  max-width: 1.5rem;
+}
+
+.outlet {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #f1f1f1; // Match the background color
+  border-radius: 0 0 10px 10px; // Adjust border-radius for folder shape
+}
