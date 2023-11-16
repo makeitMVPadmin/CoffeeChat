@@ -1,5 +1,6 @@
 .editProfileBody {
-    height: 100vh;
+    height: 120vh;
+    contain: strict;
 }
 
 .picDiv {
@@ -25,7 +26,6 @@
 
 .editProfileForm {
     width: 23rem;
-    height: 34rem;
     flex-shrink: 0;
     background-color: grey;
     border-radius: 1.9375rem;
@@ -70,12 +70,28 @@
 }
 
 .inputEdit2 {
+    padding: 1.5rem 1rem 1rem;
+
     border-radius: 1.25rem;
     background: #FFF;
     border: none;
     width: 9.625rem;
     height: 4.9375rem;
     flex-shrink: 0;
+    font-family: 'Gilroy', system-ui;
+    font-size: large;
+}
+
+.bioInput {
+    padding: 1.5rem 1rem 1rem;
+    margin: auto;
+    border-radius: 1.25rem;
+    background: #FFF;
+    border: none;
+    width: 20.1875rem;
+    height: 7rem;
+    flex-shrink: 0;
+    margin-bottom: 2rem;
     font-family: 'Gilroy', system-ui;
     font-size: large;
 }
@@ -106,7 +122,7 @@
     height: 28rem;
     position: absolute;
     overflow: hidden;
-    top: 14rem;
+    top: 19rem;
     left: -148px;
     z-index: -1;
   }
@@ -121,3 +137,22 @@
     left: -65px;
     z-index: -1;
   }
+
+.uploadImgDiv {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.imgUpload {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    background-color: aliceblue;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin: auto;
+    
+}

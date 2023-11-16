@@ -1,21 +1,25 @@
 import "./EditProfile.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import Navbar from "../../components/Navbar/Navbar";
 import { app, db } from "../../App";
 import { getAuth } from "firebase/auth";
 import { updateDoc, doc, getDoc } from "@firebase/firestore";
-import { async } from "@firebase/util";
-
+import {getStorage, ref, uploadBytes} from "firebase/storage";
+import blankUserImg from '../../assets/images/blankUserImg.png'
 
 
 
 export const EditProfile = () => {
+    const [loading, setLoading] = useState(null)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [postal, setPostal] = useState('')
+    const [state, setState] = useState('')
+    const [city, setCity] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [field, setField] = useState('')
+    const [bio, setBio] = useState('')
+    const [ProfileImg, setProfileImg] = useState(blankUserImg)
     const Navigate = useNavigate()
     const auth = getAuth(app)
 
@@ -30,16 +34,19 @@ export const EditProfile = () => {
                         .then((doc) => {
                             console.log('doc', doc.data())
                             setName(doc.data().FullName)
-                            setEmail(doc.data().email)
-                            setPostal(doc.data().postal)
-                            setPhoneNumber(doc.data().phoneNumber)
-                            setField(doc.data().field)
+                            setEmail(doc.data().Email)
+                            setCity(doc.data().City)
+                            setState(doc.data().State)
+                            setPhoneNumber(doc.data().PhoneNumber)
+                            setField(doc.data().Field)
+                            setBio(doc.data().Bio)
                         })
-                        
+
                 }
                 else {
                     Navigate('/login')
                 }
+                
             });
         };
 
@@ -56,26 +63,87 @@ export const EditProfile = () => {
                 const userId = doc(db, 'user', user.uid)
                 updateDoc(userId, {
                     FullName: name,
-                    email: email,
-                    postal: postal,
+                    Email: email,
+                    City: city,
+                    State: state,
                     PhoneNumber: phoneNumber,
-                    field: field,
+                    Field: field,
+                    Bio: bio
                 })
-                .then(()=>{
-                    alert('Profile Updated')
-                })
-                .then(()=>{
-                    Navigate('/')
-                })
-                    
+
+                    .then(() => {
+                        Navigate('/')
+                    })
+
             }
             else {
                 Navigate('/login')
             }
         });
     };
-    
 
+
+
+    // const UploadImage = () => {
+    //     const storage = getStorage();
+    //     const uploadImg = (event) => {
+    //         const file = event.target.files[0];
+    //         auth.onAuthStateChanged((user) => {
+    //             if (user) {
+    //                 const fileRef = ref(storage, `${user.uid}.png`);
+    //                 setLoading(true);
+    //                 const uploadTask = uploadBytes(fileRef, file);
+    //                 uploadTask.then((snapshot) => {
+    //                     setLoading(false);
+    //                     setProfileImg(snapshot);
+    //                 }).catch((error) => {
+    //                     console.error('Error uploading image:', error);
+    //                     setLoading(false);
+    //                 });
+    //             }
+    //         });
+    //     };
+    // }
+
+
+    // const uploadImg = (file, setLoading) => {
+    //     auth.onAuthStateChanged((user) =>{
+    //         const fileRef = ref(storage, user.uid + '.png')
+
+    //         setLoading(true)
+
+    //         const snapshot = uploadBytes(fileRef, file)
+
+    //         setLoading(false)
+    //         setProfileImg(snapshot)
+    //         console.log(fileRef)
+    //         console.log(snapshot)
+    //     })
+
+        
+    // }
+
+
+    // const uploadImg = (event) => {
+    //     const file = event.target.files[0];
+
+    //     auth.onAuthStateChanged((user) => {
+    //       if (user) {
+    //         const fileRef = ref(storage, `${user.uid}.png`);
+    //         const storage = getStorage();
+            
+    //         setLoading(true);
+    //         const uploadTask = uploadBytes(fileRef, file);
+    //         uploadTask.then((snapshot) => {
+    //           setLoading(false);
+    //           setProfileImg(snapshot);
+    //         }).catch((error) => {
+    //           console.error('Error uploading image:', error);
+    //           setLoading(false);
+    //         });
+    //       }
+    //     });
+    //   };
 
 
 
@@ -84,12 +152,18 @@ export const EditProfile = () => {
         <div className="editProfileBody">
 
             <div className='picDiv'>
-                <img className="editPic" alt="user-avatar-img" src=""></img>
+                <img className="editPic" alt="user-avatar-img" src={ProfileImg}></img>
             </div>
 
-            <p style={{textAlign:'center', marginBottom:'1.5rem'}}>Choose Your Avatar</p>
+            <div className="uploadImgDiv">
+                <label for="file-upload" className="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i>Upload Profile Image
+                </label>
+                <input id="file-upload" type="file"   className="imgUpload" />
+            </div>
 
             <form
+                action="/action_page.php"
                 className="editProfileForm"
                 onSubmit={updateProfile}
             >
@@ -97,7 +171,8 @@ export const EditProfile = () => {
                     <span className="editLabels">Full Name</span>
                     <input
                         type="text"
-                        value={name}
+                        defaultValue={name}
+                        maxLength='20'
                         onChange={(e) => setName(e.target.value)}
                         className="inputEdit">
                     </input>
@@ -107,44 +182,72 @@ export const EditProfile = () => {
                     <span className="editLabels">Email</span>
                     <input
                         type="email"
-                        value={email}
+                        maxLength='25'
+                        defaultValue={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="inputEdit">
                     </input>
                 </div>
 
-
                 <div className="smallerInputs">
                     <div className="inputDivs">
-                        <span className="editLabels">Postal Code</span>
+                        <span className="editLabels">City</span>
                         <input
-                            type="number"
-                            value={postal}
-                            onChange={(e) => setPostal(e.target.value)}
+                            type="text"
+                            maxLength='20'
+                            defaultValue={city}
+                            onChange={(e) => setCity(e.target.value)}
                             className="inputEdit2">
                         </input>
                     </div>
 
                     <div className="inputDivs">
-                        <span className="editLabels">Phone Number</span>
+                        <span className="editLabels">State</span>
                         <input
-                            type="number"
-                            value={phoneNumber}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            type="text"
+                            maxLength='2'
+                            defaultValue={state}
+                            onChange={(e) => setState(e.target.value)}
                             className="inputEdit2">
                         </input>
                     </div>
 
+                </div>
+
+
+                <div className="inputDivs">
+                    <span className="editLabels">Phone Number</span>
+                    <input
+                        type="tel"
+                        maxLength='12'
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        placeholder="000-000-0000"
+                        defaultValue={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        className="inputEdit">
+                    </input>
                 </div>
 
                 <div className="inputDivs">
                     <span className="editLabels">Field & Level</span>
                     <input
                         type="text"
-                        value={field}
+                        maxLength='20'
+                        defaultValue={field}
                         onChange={(e) => setField(e.target.value)}
                         className="inputEdit">
                     </input>
+                </div>
+
+                <div className="inputDivs">
+                    <span className="editLabels">Bio</span>
+                    <textarea
+                        type="text"
+                        maxLength='200'
+                        defaultValue={bio}
+                        onChange={(e) => setBio(e.target.value)}
+                        className="bioInput">
+                    </textarea>
                 </div>
 
                 <div className="btnDiv">

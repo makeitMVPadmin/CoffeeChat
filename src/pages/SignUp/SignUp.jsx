@@ -4,12 +4,8 @@ import { useNavigate } from "react-router-dom";
 import logo from '../../assets/logo/logo.png'
 import Logomark from '../../assets/images/Logomark.png'
 import './SignUp.scss';
-import { createUserWithEmailAndPassword, getAuth, signOut } from "firebase/auth";
-import {
-    collection, onSnapshot,
-    deleteDoc, addDoc, doc, setDoc,
-    updateDoc, getDoc,
-} from "firebase/firestore";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { doc, setDoc} from "firebase/firestore";
 import { app, db } from "../../App";
 
 
@@ -31,23 +27,22 @@ export const SignUp = () => {
             console.log(resp)
             //document id is their uid
              setDoc(doc(db, "user", resp.user.uid), {
-                fullName: name,
-                email: email,
-                connections: 0,
+                FullName: name,
+                Email: email,
+                Connections: 0,
                 Appointments: 0,
                 Chats: 0,
                 Location: '',
                 Industry: '',
                 Mentee: null,
                 Mentor: null,
-                // DateCreated:      
              })
         })
         .then(()=> {
             const checkUserAuth = () => {
                 auth.onAuthStateChanged((user) => {
                   if (user != null) {
-                    Navigate('/')
+                    Navigate('/editProfile')
                   }
                 });
               };
