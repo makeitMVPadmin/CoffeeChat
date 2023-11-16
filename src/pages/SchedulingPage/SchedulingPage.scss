@@ -1,0 +1,9 @@
+@use "../../styles/partials/global" as *;
+
+.scheduling {
+
+    &__button{
+        background-color: #007bff;
+        color: #fff;
+    }
+}

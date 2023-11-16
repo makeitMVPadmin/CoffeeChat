@@ -1,0 +1,42 @@
+import "./Newsletter.scss";
+
+const Newsletter = () => {
+
+    const handleSubscribe = (e) => {
+        e.preventDefault();
+    // TODO: ADD SUBSCRIBE LOGIC HERE
+        console.log("Subscribe button clicked!");
+      };
+  return (
+    <section className="newsletter">
+      <div className="newsletter__box">
+        <div className="newsletter__container--title">
+          <h3 className="newsletter__title">
+            Stay tuned for our product launch!
+          </h3>
+        </div>
+        <div className="newsletter__column">
+          <div className="newsletter__container">
+            <p className="newsletter__description">
+              Join our ongoing discussion on career development and be the first
+              to use CoffeeChat
+            </p>
+          </div>
+        </div>
+        <form className="newsletter__form">
+          <input
+            type="email"
+            className="newsletter__input"
+            placeholder="email address"
+            required
+                  />
+          <button type="submit" className="newsletter__button" onClick={handleSubscribe}>
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+export default Newsletter;

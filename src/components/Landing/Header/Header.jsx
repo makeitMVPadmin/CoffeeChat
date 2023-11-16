@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import coffeechatLogo from "../../../assets/logo/logo.png";
-// TODO: Add search icon
-// import searchIcon from "";
+import searchIcon from "../../../assets/icons/landing/search.png";
 
 const Header = () => {
   const [toggled, setToggled] = useState(false);
@@ -63,7 +62,7 @@ const Header = () => {
               </Link>
             ))}
             <li className="header__navlist--search">
-              <img src="#" alt="search icon" />
+              <img src={searchIcon} alt="search icon" />
             </li>
           </div>
         </ul>
@@ -80,7 +79,7 @@ const Header = () => {
               </Link>
             ))} 
             <li className="header__navlist--search">
-              <img src="#" alt="search icon" />
+              <img src={searchIcon} alt="search icon" />
             </li>
           </div>
         </ul>
