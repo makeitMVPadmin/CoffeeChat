@@ -2,10 +2,11 @@ import "./HomePage.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import { app } from "../../App";
 import { getAuth, signOut } from "firebase/auth";
-import { Carousel } from "react-responsive-carousel";
+import { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const HomePage = () => {
+  const [Scheduled, setScheduled] = useState(false);
   const auth = getAuth(app);
 
   const eventDate = () => {
@@ -75,17 +76,20 @@ const HomePage = () => {
 
       <div className="scheduleDiv">
         <h4 className="ScheduleDivTitle">Upcoming Sessions</h4>
-        <div className="scheduleList">
-          <p className="scheduledNone">No Meets Scheduled</p>
-        </div>
-        {/* <div className="scheduleList">
-          <div className="accountBtn"></div>
-          <div>
-            {" "}
-            <p className="scheduledName">Richard Yin</p>
-            <p className="scheduledName">October 17 4:30pm (virtual)</p>
+        {Scheduled ? (
+          <div className="scheduleList">
+            <div className="accountBtn"></div>
+            <div>
+              {" "}
+              <p className="scheduledName">Richard Yin</p>
+              <p className="scheduledName">October 17 4:30pm (virtual)</p>
+            </div>
           </div>
-        </div> */}
+        ) : (
+          <div className="scheduleList">
+            <p className="scheduledNone">No Meets Scheduled</p>
+          </div>
+        )}
       </div>
 
       <Navbar />
