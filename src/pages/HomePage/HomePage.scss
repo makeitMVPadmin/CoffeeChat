@@ -98,8 +98,8 @@
   width: 90%;
   margin: auto;
   box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
-  padding: 0.5rem;
-  height: 60%;
+  padding: 1rem 1rem;
+
   margin-top: 5%;
   border: 3px solid black;
   overflow: auto;
@@ -108,7 +108,6 @@
   }
   @include desktop {
     border-radius: 25px;
-
     width: 71%;
     margin: 5%;
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
@@ -124,8 +123,6 @@
   display: flex;
   border-radius: 1.25rem;
   background-color: $mvp-gray;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   padding: 0.7rem;
 
   width: 100%;
@@ -147,16 +144,16 @@
   }
 }
 .scheduledName {
-  background-color: #ff9393;
-  border-radius: 25px;
-  border: 2px solid black;
-  margin-right: 1rem;
+  //   background-color: #ff9393;
+  //   border-radius: 25px;
+  //   border: 2px solid black;
+  //   margin-right: 1rem;
   font-size: 0.7rem;
   text-align: center;
   padding: 0.7rem;
-  width: 50%;
+  //   width: 50%;
   @include tablet {
-    width: 25%;
+    // width: 25%;
   }
 }
 
@@ -177,8 +174,11 @@
 .home {
   background-color: $mvp-cream;
   height: 100vh;
-  padding-top: 20%;
+  padding-top: 15%;
   @include tablet {
     padding-top: 5%;
   }
+}
+.ScheduleDivTitle {
+  margin-bottom: 1rem;
 }

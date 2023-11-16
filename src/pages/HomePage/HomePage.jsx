@@ -74,23 +74,18 @@ const HomePage = () => {
       <h3 className="scheduleTitle">Schedule</h3>
 
       <div className="scheduleDiv">
+        <h4 className="ScheduleDivTitle">Upcoming Sessions</h4>
         <div className="scheduleList">
-          <p className="scheduledName">Richard Yin</p>
-          <p>October 17 4:30pm (virtual)</p>
+          <p className="scheduledNone">No Meets Scheduled</p>
         </div>
-
-        <div className="scheduleList">
-          <p className="scheduledName">Richard Yin</p>
-          <p>October 17 4:30pm (virtual)</p>
-        </div>
-        <div className="scheduleList">
-          <p className="scheduledName">Richard Yin</p>
-          <p>October 17 4:30pm (virtual)</p>
-        </div>
-        <div className="scheduleList">
-          <p className="scheduledName">Richard Yin</p>
-          <p>October 17 4:30pm (virtual)</p>
-        </div>
+        {/* <div className="scheduleList">
+          <div className="accountBtn"></div>
+          <div>
+            {" "}
+            <p className="scheduledName">Richard Yin</p>
+            <p className="scheduledName">October 17 4:30pm (virtual)</p>
+          </div>
+        </div> */}
       </div>
 
       <Navbar />
