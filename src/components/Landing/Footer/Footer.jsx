@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Footer.scss";
-import coffeechatLogo from "../../../assets/logo/logo.png";
+import coffeechatLogo from "../../../assets/logo/FinalLogo.png";
 
 const Footer = () => {
   const navLinks = [

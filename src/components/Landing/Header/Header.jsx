@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
-import coffeechatLogo from "../../../assets/logo/logo.png";
+import coffeechatLogo from "../../../assets/logo/FinalLogo.png";
 import searchIcon from "../../../assets/icons/landing/search.png";
 
 const Header = () => {
