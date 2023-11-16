@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { app, db } from "../../App";
 import { getAuth } from "firebase/auth";
 import { updateDoc, doc, getDoc } from "@firebase/firestore";
-import {getStorage, ref, uploadBytes} from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import blankUserImg from '../../assets/images/blankUserImg.png'
 
 
@@ -46,7 +46,7 @@ export const EditProfile = () => {
                 else {
                     Navigate('/login')
                 }
-                
+
             });
         };
 
@@ -68,7 +68,8 @@ export const EditProfile = () => {
                     State: state,
                     PhoneNumber: phoneNumber,
                     Field: field,
-                    Bio: bio
+                    Bio: bio,
+                    ProfileImg: ProfileImg,
                 })
 
                     .then(() => {
@@ -84,66 +85,22 @@ export const EditProfile = () => {
 
 
 
-    // const UploadImage = () => {
-    //     const storage = getStorage();
-    //     const uploadImg = (event) => {
-    //         const file = event.target.files[0];
-    //         auth.onAuthStateChanged((user) => {
-    //             if (user) {
-    //                 const fileRef = ref(storage, `${user.uid}.png`);
-    //                 setLoading(true);
-    //                 const uploadTask = uploadBytes(fileRef, file);
-    //                 uploadTask.then((snapshot) => {
-    //                     setLoading(false);
-    //                     setProfileImg(snapshot);
-    //                 }).catch((error) => {
-    //                     console.error('Error uploading image:', error);
-    //                     setLoading(false);
-    //                 });
-    //             }
-    //         });
-    //     };
-    // }
+    const UploadImage = () => {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                const storage = getStorage();
+                const fileRef = ref(storage, `${user.uid}.png`);
+                const metadata = { contentType: "image/png" };
 
-
-    // const uploadImg = (file, setLoading) => {
-    //     auth.onAuthStateChanged((user) =>{
-    //         const fileRef = ref(storage, user.uid + '.png')
-
-    //         setLoading(true)
-
-    //         const snapshot = uploadBytes(fileRef, file)
-
-    //         setLoading(false)
-    //         setProfileImg(snapshot)
-    //         console.log(fileRef)
-    //         console.log(snapshot)
-    //     })
-
-        
-    // }
-
-
-    // const uploadImg = (event) => {
-    //     const file = event.target.files[0];
-
-    //     auth.onAuthStateChanged((user) => {
-    //       if (user) {
-    //         const fileRef = ref(storage, `${user.uid}.png`);
-    //         const storage = getStorage();
-            
-    //         setLoading(true);
-    //         const uploadTask = uploadBytes(fileRef, file);
-    //         uploadTask.then((snapshot) => {
-    //           setLoading(false);
-    //           setProfileImg(snapshot);
-    //         }).catch((error) => {
-    //           console.error('Error uploading image:', error);
-    //           setLoading(false);
-    //         });
-    //       }
-    //     });
-    //   };
+                uploadBytes(fileRef, ProfileImg, metadata).then((snapshot) => {
+                    console.log("Uploaded a blob or file!");
+                    getDownloadURL(fileRef).then((url) => {
+                        setProfileImg(url);
+                    });
+                });
+            }
+        })
+    }
 
 
 
@@ -152,14 +109,22 @@ export const EditProfile = () => {
         <div className="editProfileBody">
 
             <div className='picDiv'>
-                <img className="editPic" alt="user-avatar-img" src={ProfileImg}></img>
+                <img
+                    className="editPic"
+                    alt="user-avatar-img"
+                    src={ProfileImg}>
+                </img>
             </div>
 
             <div className="uploadImgDiv">
                 <label for="file-upload" className="custom-file-upload">
                     <i class="fa fa-cloud-upload"></i>Upload Profile Image
                 </label>
-                <input id="file-upload" type="file"   className="imgUpload" />
+                <input
+                    id="file-upload"
+                    type="file"
+                    onChange={UploadImage}
+                    className="imgUpload" />
             </div>
 
             <form
