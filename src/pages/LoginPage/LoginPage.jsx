@@ -6,10 +6,12 @@ import {
   signInWithPopup,
   getIdToken,
 } from "firebase/auth";
+import { updateUserInFirestore } from "../../firebasestore";
+
 import { db, app } from "../../App";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FinalLogo from "../../assets/logo/FinalLogo.png";
+import FinalLogo from "../../assets/logo/Final_logo.svg";
 import google from "../../assets/icons/links/google.svg";
 import linkedin from "../../assets/icons/links/linkedin.svg";
 import linkedintext from "../../assets/icons/links/linkedintext.png";
@@ -34,14 +36,26 @@ const LoginPage = () => {
     checkUserAuth();
   }, []);
 
-  const GoogleSignIn = () => {
-    signInWithPopup(auth, provider)
-      .then((userCredential) => {
-        // User signed in with Google. You can handle the user data here.
-      })
-      .catch((error) => {
-        // Handle sign-in errors here.
+  const GoogleSignIn = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      // Sign in with Google and get user credentials
+      const result = await signInWithPopup(auth, provider);
+      const { user } = result;
+      // Extract additional information
+      const { email, photoURL, displayName } = user;
+      // Update or create user in Firestore with additional information
+      await updateUserInFirestore(user, {
+        email,
+        photoURL,
+        userName: displayName,
+      }).then(() => {
+        Navigate("/home");
       });
+    } catch (error) {
+      // Handle the error or display an error message to the user.
+      console.error("Google sign-in error:", error);
+    }
   };
 
   const signIn = (e) => {
@@ -49,6 +63,7 @@ const LoginPage = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((cred) => {
         console.log("signedIn", cred.user);
+        Navigate("/home");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -60,7 +75,7 @@ const LoginPage = () => {
     <section className="login">
       <div className="centerForm">
         <img className="logoMark" src={FinalLogo}></img>
-
+        <h2 className="loginTitle">CoffeeChat</h2>
         <h2 className="loginH2">Welcome Back!</h2>
 
         <form className="loginForm" onSubmit={signIn}>
@@ -88,9 +103,7 @@ const LoginPage = () => {
           Login
         </button>
 
-        <a style={{ zIndex: "1" }} href="needToFill">
-          Forgot Password?
-        </a>
+        {/* <a href="#">Forgot Password?</a> */}
 
         <div className="continueWith">
           <p>Or continue with</p>
@@ -103,18 +116,10 @@ const LoginPage = () => {
               <img src={googletext} className="linkText" />
             </button>
           </div>
-          <div className="border">
-            <button className="loginBtn" type="button">
-              <img src={linkedin} className="linkSvg" />
-              <img src={linkedintext} className="linkText" />
-            </button>
-          </div>
         </div>
 
         <p className="continueWith">Don't have an account?</p>
-        <a style={{ zIndex: "1" }} href="/signup">
-          Sign Up
-        </a>
+        <a href="/signup">Sign Up</a>
 
         <div className="backgroundLogin"></div>
         <div className="backgroundLogin2"></div>
