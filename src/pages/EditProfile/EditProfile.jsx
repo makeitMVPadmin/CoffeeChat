@@ -19,7 +19,7 @@ export const EditProfile = () => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [field, setField] = useState('')
     const [bio, setBio] = useState('')
-    const [ProfileImg, setProfileImg] = useState(blankUserImg)
+    const [ProfileImg, setProfileImg] = useState('')
     const Navigate = useNavigate()
     const auth = getAuth(app)
 
@@ -88,20 +88,18 @@ export const EditProfile = () => {
     const UploadImage = () => {
         auth.onAuthStateChanged((user) => {
             if (user) {
-                const storage = getStorage();
-                const fileRef = ref(storage, `${user.uid}.png`);
-                const metadata = { contentType: "image/png" };
+                const storage = getStorage(app);
+                const fileRef = ref(storage, `${user.uid}/${ProfileImg}`);
 
-                uploadBytes(fileRef, ProfileImg, metadata).then((snapshot) => {
+                uploadBytes(fileRef, ProfileImg).then((snapshot) => {
                     console.log("Uploaded a blob or file!");
-                    getDownloadURL(fileRef).then((url) => {
-                        setProfileImg(url);
+                    getDownloadURL(snapshot.ref).then((url) => {
+                        console.log('url',url)
                     });
                 });
             }
         })
     }
-
 
 
 
@@ -123,7 +121,8 @@ export const EditProfile = () => {
                 <input
                     id="file-upload"
                     type="file"
-                    onChange={UploadImage}
+                    onClick={UploadImage}
+                    onChange={(e)=> {setProfileImg(e.target.value)}}
                     className="imgUpload" />
             </div>
 
