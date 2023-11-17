@@ -1,7 +1,7 @@
 import React from "react";
 
 import LogoMark from "../../assets/logo/Final_logo.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./WelcomePage.scss";
 
 const WelcomePage = () => {
@@ -20,11 +20,10 @@ const WelcomePage = () => {
       {" "}
       <div className="onboarding__logo-2-cont">
         {" "}
-        <img
-          src={LogoMark}
-          className="onboarding__logo-2"
-          alt="CoffeeChat logo"
-        />
+        <Link className="onboarding__logo-2" to={"/"}>
+          {" "}
+          <img src={LogoMark} alt="CoffeeChat logo" />
+        </Link>
         <h3 className="onboarding__logo-2-text">CoffeeChat</h3>
       </div>
       <h2 className="onboarding__heading-desktop">

@@ -54,7 +54,10 @@ export const SignUp = () => {
   return (
     <section className="signup">
       <div className="centerForm">
-        <img className="logoMark" src={FinalLogo}></img>
+        <Link to={"/"}>
+          {" "}
+          <img className="logoMark" src={FinalLogo}></img>
+        </Link>
         <h2 className="signupTitle">CoffeeChat</h2>
         <h2 className="signUpHeader">Create Account</h2>
 

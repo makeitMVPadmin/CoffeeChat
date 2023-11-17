@@ -10,7 +10,7 @@ import { updateUserInFirestore } from "../../firebasestore";
 
 import { db, app } from "../../App";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import FinalLogo from "../../assets/logo/Final_logo.svg";
 import google from "../../assets/icons/links/google.svg";
 import linkedin from "../../assets/icons/links/linkedin.svg";
@@ -74,7 +74,10 @@ const LoginPage = () => {
   return (
     <section className="login">
       <div className="centerForm">
-        <img className="logoMark" src={FinalLogo}></img>
+        <Link to={"/"}>
+          {" "}
+          <img className="logoMark" src={FinalLogo}></img>
+        </Link>
         <h2 className="loginTitle">CoffeeChat</h2>
         <h2 className="loginH2">Welcome Back!</h2>
 
