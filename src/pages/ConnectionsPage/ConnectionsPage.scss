@@ -1,0 +1,39 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global" as *;
+
+
+.connections {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 3rem;
+    }
+
+    &--blue {
+        color: $mvp-dark-blue;
+    }
+
+    &--red {
+        color: $mvp-red;
+    }
+
+    &__image img {
+        max-width: 90%;
+        padding: 2rem;
+    }
+
+    &__box {
+        height: 20vh;
+        padding: 20px;
+        border-radius: 15px;
+        color: grey; /* Set your desired text color */
+        background-color: $mvp-white;
+        border: solid;
+        border-color: grey;
+}
+
+
+}

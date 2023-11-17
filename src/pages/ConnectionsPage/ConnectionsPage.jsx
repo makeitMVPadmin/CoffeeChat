@@ -1,11 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './ConnectionsPage.scss';
+import logo from '../../assets/logo/FinalLogo.png';
+import Navbar from '../../components/Navbar/Navbar';
 
 const ConnectionsPage = ({ people }) => {
   return (
-    <div>
-      <h1>Connections</h1>
-      <ul>
+    <div className='connections__container'>
+      <h3 className='connections--blue'>
+        Let's get you
+        <span className='connections--red'> connected!</span>
+      </h3>
+      <div className='connections__image'>
+        <img className='connections__image-img' src={logo} alt='' />
+      </div>
+
+      <div className='connections__box'>
+        <p>Finding your best three matches...</p>
+      </div>
+
+      {/* <ul>
         {people.map((person) => (
           <li key={person.id}>
             <Link to={`/chat/${person.id}`}>
@@ -14,7 +28,9 @@ const ConnectionsPage = ({ people }) => {
             </Link>
           </li>
         ))}
-      </ul>
+      </ul> */}
+
+<Navbar/>
     </div>
   );
 };
