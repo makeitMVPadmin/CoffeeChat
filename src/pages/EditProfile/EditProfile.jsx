@@ -40,6 +40,7 @@ export const EditProfile = () => {
                             setPhoneNumber(doc.data().PhoneNumber)
                             setField(doc.data().Field)
                             setBio(doc.data().Bio)
+                            setProfileImg(doc.data().ProfileImg)
                         })
 
                 }
@@ -94,6 +95,7 @@ export const EditProfile = () => {
                 uploadBytes(fileRef, ProfileImg).then((snapshot) => {
                     console.log("Uploaded a blob or file!");
                     getDownloadURL(snapshot.ref).then((url) => {
+                        setProfileImg(url)
                         console.log('url',url)
                     });
                 });
