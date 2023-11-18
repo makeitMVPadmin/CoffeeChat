@@ -18,7 +18,7 @@
     height: 10vw;
   }
   @include desktop {
-    margin-left: 5%;
+    margin-left: 50%;
     width: 7vw;
     height: 7vw;
   }
@@ -166,7 +166,10 @@
 .home {
   background-color: white;
   height: 100vh;
-
+  background-image: url(../../assets/images/HomeBackground.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding-top: 15%;
   @include tablet {
     padding-top: 16%;
