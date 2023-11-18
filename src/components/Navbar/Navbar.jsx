@@ -9,7 +9,9 @@ import logo from "../../assets/logo/Final_logo.svg";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <img className="logo" src={logo} />
+      <Link className="logo" to="/home">
+        <img className="logo" src={logo} />
+      </Link>
       <NavLink
         to="/home"
         className={(navData) =>
