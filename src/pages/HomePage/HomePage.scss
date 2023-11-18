@@ -1,108 +1,219 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 .accountBtn {
-    border-radius: 50%;
-    background-color: grey;
-    width: 4rem;
-    height: 4rem;
-    margin: auto;
-    margin-right: 2rem;
-    background-image: url('../../images/blankUserImg.png');
-    background-position: center;
-    background-size: cover;
-    object-fit: contain;
-    text-align: center;
+  border-radius: 50%;
+
+  width: 5rem;
+  height: 5rem;
+  margin: auto;
+  margin-right: 2rem;
+
+  background-position: center;
+  background-size: cover;
+
+  text-align: center;
+  @include tablet {
+    margin-left: 5%;
+    width: 10vw;
+    height: 10vw;
+  }
+  @include desktop {
+    margin-left: 50%;
+    width: 7vw;
+    height: 7vw;
+  }
 }
 
 .WelcomeTitle {
-    padding-left: 2rem;
+  padding-left: 1.2rem;
+  font-size: 1.5rem;
+  @include tablet {
+    padding-left: 2.5rem;
+    font-size: 1.9rem;
+  }
+  @include desktop {
+    padding-left: 5%;
+  }
 }
 
-.upcomingEventTitle{
-    text-align: center;
-    margin-bottom: 0.5rem;
+.upcomingEventTitle {
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .homeHeader {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10%;
+  @include tablet {
+    justify-content: flex-start;
+    margin-bottom: 5%;
+  }
+  @include desktop {
+    justify-content: flex-start;
+    margin-bottom: 3%;
+  }
 }
-
-
-// --------------------------Carousel Section -------------------------------
-
-
-.carouselItem{
-    border: 1px solid green;
-    border-radius: 15px;
-    width: 90%;
-    margin: auto;
-    overflow: visible;
-    height: 10rem;
-}
-
-.carouselDetail{
-    position: absolute;
-    right: 9%;
-    color: white;
-    z-index: 1;
-    text-align: center;
-    width: 80%;
-}
-
-.imgCarousel {
-    position: relative;
-    height: 10rem;
-    border-radius: 15px;
-    width: 100%;
-    height: 100%;
-}
-
-.eventTimer {
-    z-index: 1;
-    border-radius: 10px;
-    padding: 0.5rem;
-    background-color: whitesmoke;
-    position: absolute;
-    bottom: -12%;
-    right: 25%;
-}
-
-// --------------------------Schedule Section -------------------------------
 
 .scheduleDiv {
+  border-radius: 25px;
+  background-color: #f7f7f7;
+  width: 90%;
+  margin: auto;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+  padding: 1rem 1rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  margin-top: 5%;
+  border: 3px solid black;
+  overflow: auto;
+  @include tablet {
+    margin: 0px;
+    margin-top: 5%;
+    margin-left: 2.5rem;
+
+    width: 70%;
+  }
+  @include desktop {
     border-radius: 25px;
-    background-color: aliceblue;
-    width: 90%;
-    margin: auto;
+    width: 55%;
+    margin: 2% 5% 2% 5%;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
     padding: 0.5rem;
-}
+    height: 45%;
 
+    border: 3px solid black;
+    overflow: auto;
+  }
+}
+.scheduledItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2%;
+  width: 100%;
+  align-items: center;
+}
 .scheduleList {
-    display: flex;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  display: flex;
+  border-radius: 1.25rem;
+  background-color: white;
+  box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.1);
+  padding: 0.7rem;
+  margin: 5% 0%;
+  width: 100%;
+  @include tablet {
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
 }
-
+.scheduleTitle {
+  text-align: left;
+  padding-left: 7%;
+  @include tablet {
+    padding-left: 2.5rem;
+    font-size: 1.5rem;
+  }
+  @include desktop {
+    padding-left: 6%;
+  }
+}
 .scheduledName {
-    background-color: darkgray;
-    border-radius: 25px;
-    margin-right: 1rem;
-    padding: 0.3rem;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+  //   background-color: #ff9393;
+  //   border-radius: 25px;
+  //   border: 2px solid black;
+  //   margin-right: 1rem;
+  font-size: 0.7rem;
+  color: black;
+  text-align: center;
+  // padding: 0.7rem;
+  //   width: 50%;
+  @include tablet {
+    // width: 25%;
+    font-size: 0.9rem;
+  }
 }
-
+.scheduledNameOnly {
+  background-color: #ff9393;
+  border-radius: 25px;
+  border: 2px solid black;
+  margin-right: 1rem;
+  color: black;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 0.7rem;
+  width: 30%;
+  @include tablet {
+    width: 25%;
+    font-size: 1.1rem;
+  }
+}
 
 .lowerDiv {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 3rem;
-    height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  height: 4rem;
 }
 
 .connections {
-    border-radius: 25px;
-    background-color: aliceblue;
-    width: 32%;
-    text-align: center;
+  border-radius: 25px;
+  background-color: aliceblue;
+  width: 32%;
+  text-align: center;
+}
+
+.home {
+  background-color: white;
+  height: 100vh;
+  background-image: url(../../assets/images/HomeBackgroundTablet.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-top: 15%;
+  @include tablet {
+    padding-top: 16%;
+    background-image: url(../../assets/images/HomeBackgroundTablet.svg);
+  }
+  @include desktop {
+    padding-top: 5%;
+    background-image: url(../../assets/images/HomeBackground.svg);
+  }
+}
+.ScheduleDivTitle {
+  margin-bottom: 1rem;
+}
+.scheduledInfo {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  overflow: hidden;
+  max-width: 118px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  @include tablet {
+    max-width: 200px;
+  }
+  @include desktop {
+    max-width: 300px;
+  }
+}
+.scheduleList:hover {
+  background: rgb(233, 233, 233);
+}
+.scheduledNextConnection {
+  margin-left: 7%;
+  margin-top: 5%;
+  font-size: 1rem;
+  width: 50%;
+  @include tablet {
+    margin-left: 6%;
+    font-size: 1.5rem;
+  }
+  @include tablet {
+    margin-left: 6%;
+    font-size: 1.5rem;
+  }
 }
