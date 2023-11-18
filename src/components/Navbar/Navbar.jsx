@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import homeicon from '../../assets/icons/navbar/homeicon.svg'
 import chat from '../../assets/icons/navbar/chat.svg'
 import calendar from '../../assets/icons/navbar/calendar.svg'
-import user from '../../assets/icons/navbar/user.svg'
+import user from '../../assets/icons/navbar/User.svg'
 
 
 const Navbar = () => {
