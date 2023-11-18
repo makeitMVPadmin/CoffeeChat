@@ -1,0 +1,99 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/global' as *;
+
+.connect {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    //flex-direction: column;
+    //justify-content: center;
+    //align-items: center;
+    margin: 3rem;
+  }
+
+  &__header {
+    padding-left: 1rem;
+  }
+
+  &__image img {
+    padding: 0rem 0.7rem;
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0.2rem;
+  }
+
+  &__column {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+  &__outer-box {
+    height: 70%;
+    padding: 10px 30px; // top right bottom left
+    border-radius: 20px;
+    border: solid;
+    border-color: grey;
+
+    &__inner-box {
+      height: 70%;
+      padding: 10px 30px 10px 30px;
+      border-radius: 20px;
+      color: grey; /* Set your desired text color */
+      border: solid;
+      border-color: grey;
+
+      &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 1rem;
+        color: $mvp-black;
+
+        &__skill {
+          padding: 0.5rem 1rem;
+          margin-left: 1rem;
+          background-color: $mvp-light-blue;
+          border-radius: 2rem;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  &__button {
+    margin: 1rem;
+    background-color: $mvp-black;
+    color: white;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    &--row {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+      }
+      &--container {
+        padding-top: 1rem;
+      }
+  }
+
+  //   &--blue {
+      //     color: $mvp-dark-blue;
+      //   }
+      
+      //   &--red {
+          //     color: $mvp-red;
+          //   }
+          
+          //   &__image img {
+              //     max-width: 90%;
+              //     padding: 2rem;
+              //   }
+}

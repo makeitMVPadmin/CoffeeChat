@@ -10,6 +10,7 @@ import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
+import ConnectionOption from "./components/ConnectionOption/ConnectionOption";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import SchedulingPage from "./pages/SchedulingPage/SchedulingPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -97,6 +98,10 @@ function App() {
       <Route
         path="/connections"
         element={<ConnectionsPage people={connectionsData} />}
+      />
+      <Route
+        path="/connection-option"
+        element={<ConnectionOption />}
       />
       <Route path="/profile" element={<ProfilePage />} />
       <Route
