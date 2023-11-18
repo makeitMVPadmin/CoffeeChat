@@ -1,3 +1,4 @@
+@use "../../styles/partials/mixins" as *;
 .navbar {
   position: fixed;
   display: flex;
@@ -8,23 +9,84 @@
   left: 0;
   width: 100%;
   height: 3.5rem;
-  background: var(--007, #FFF9F4);
-  color: rgba(51, 51, 51, 0.47);
+  background: white;
+  color: black;
   text-align: center;
-  font-feature-settings: 'clig' off, 'liga' off;
+  font-feature-settings: "clig" off, "liga" off;
   font-family: Gilroy-light, sans-serif;
   font-size: 0.8125rem;
   font-weight: 700;
   line-height: 1rem;
   /* 123.077% */
+  @include tablet {
+    height: 7%;
+    background: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+  @include desktop {
+    top: 0;
+    height: 10%;
+    background: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+}
+.logo {
+  display: none;
+  @include desktop {
+    display: unset;
+    height: 80%;
+  }
 }
 
 .navIcons {
   margin: auto;
-  color: rgba(0, 0, 0, 0.37);
+  color: black;
+  margin: 0.2rem;
+  margin-bottom: 0rem;
+  max-width: 1.2rem;
+  @include tablet {
+    width: 2rem;
+    max-width: unset;
+  }
+  @include desktop {
+    display: none;
+  }
 }
 
 a {
   text-decoration: none;
-  color:rgba(0, 0, 0, 0.37);;
+  color: black;
+}
+.navLinks {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @include tablet {
+    font-size: 1.2rem;
+  }
+  @include desktop {
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+}
+.navLinksActive {
+  width: 26%;
+  height: 70%;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #0099ff6b;
+  @include tablet {
+    height: 80%;
+    width: 17%;
+    font-size: 1.2rem;
+  }
+  @include desktop {
+    width: 9%;
+    height: 50%;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
 }

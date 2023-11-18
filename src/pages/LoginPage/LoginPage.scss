@@ -1,23 +1,31 @@
+@use "../../styles/partials/mixins" as *;
 .centerForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background: var(--007, #FFF9F4);
-  contain: strict;
-}
 
-@media (max-height: 780px) {
-  .centerForm {
-    height: 120vh;
+  contain: strict;
+  @include tablet {
+    justify-content: center;
   }
 }
-
-
+.login {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-size: cover;
+  width: 100%;
+  background-image: url("../../assets/background/yellowbackgroundlogin.png");
+  @include desktop {
+    background-image: url("../../assets/background/LoginDesktopBackground.png");
+  }
+}
 .logoMark {
   margin-top: 3rem;
   height: 8rem;
   z-index: 1;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .coffeeChat {
@@ -25,35 +33,48 @@
 }
 
 .loginH2 {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  font-family: 'Gilroy-bold', sans-serif;
-  font-size: xx-large;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: "Corben-Bold", sans-serif;
+  font-size: 1.3rem;
   z-index: 1;
+  @include desktop {
+    margin-bottom: 2rem;
+  }
 }
 
 .loginForm {
   width: 80%;
   z-index: 1;
+  height: 20%;
+  @include tablet {
+    width: 50%;
+  }
+  @include desktop {
+    width: 25%;
+  }
 }
 
 .inputLogin {
-  background-color: transparent;
   padding: 1rem;
   padding-bottom: 0%;
+  background-color: transparent;
   margin-bottom: 1rem;
   border: none;
   border-bottom: 1px solid black;
   width: 100%;
   position: relative;
-  font-family: 'Gilroy-light', sans-serif;
+  font-family: "Gilroy-light", sans-serif;
   font-weight: 100;
   font-size: x-large;
 }
 
 .checkBoxLoginDiv {
   display: flex;
-  margin-bottom: 5rem;
+
+  @include desktop {
+    margin-bottom: 2rem;
+  }
 }
 
 .checkBoxLogin {
@@ -61,22 +82,31 @@
 }
 
 .loginBtn {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0rem;
   background-color: black;
   border-radius: 20px;
-  width: 9rem;
+  width: 45vw;
   color: white;
-  font-family: 'Gilroy-light', sans-serif;
+  font-family: "Gilroy-light", sans-serif;
   font-weight: 100;
   font-size: x-large;
   padding: 0.5rem;
   text-align: -webkit-center;
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include tablet {
+    width: 25vw;
+  }
+  @include desktop {
+    width: 25vw;
+  }
 }
 
 .continueWith {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 0.6rem;
   font-size: medium;
   z-index: 1;
@@ -87,6 +117,16 @@
   display: flex;
   width: 100%;
   z-index: 1;
+  @include tablet {
+    justify-content: center;
+    display: flex;
+    gap: 5%;
+  }
+  @include desktop {
+    justify-content: center;
+    display: flex;
+    gap: 5%;
+  }
 }
 
 .linkSvg {
@@ -97,7 +137,6 @@
 
 .linkText {
   // border: solid green;
-
 }
 
 @media (max-height: 780px) {
@@ -106,24 +145,6 @@
     bottom: -5rem;
   }
 }
-
-.backgroundLogin {
-  background: #f3d365;
-  border-radius: 100%;
-  width: 28rem;
-  height: 28rem;
-  position: absolute;
-  overflow: hidden;
-  top: 14rem;
-  left: -148px;
-}
-
-.backgroundLogin2 {
-  background-image: linear-gradient(#F2D058, white);
-  border-radius: 100%;
-  width: 34rem;
-  height: 34rem;
-  position: absolute;
-  bottom: -89px;
-  left: -65px;
+.loginTitle {
+  margin-bottom: 3%;
 }

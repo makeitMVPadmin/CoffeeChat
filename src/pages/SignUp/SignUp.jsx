@@ -1,66 +1,68 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import FinalLogo from '../../assets/logo/FinalLogo.png'
-import './SignUp.scss';
-import { createUserWithEmailAndPassword, getAuth, signOut } from "firebase/auth";
+import { useNavigate, Link } from "react-router-dom";
+import FinalLogo from "../../assets/logo/Final_logo.svg";
+import "./SignUp.scss";
+import { updateUserInFirestore } from "../../firebasestore";
 import {
-    collection, onSnapshot,
-    deleteDoc, addDoc, doc, setDoc,
-    updateDoc, getDoc,
+  createUserWithEmailAndPassword,
+  getAuth,
+  signOut,
+} from "firebase/auth";
+import {
+  collection,
+  onSnapshot,
+  deleteDoc,
+  addDoc,
+  doc,
+  setDoc,
+  updateDoc,
+  getDoc,
 } from "firebase/firestore";
 import { app, db } from "../../App";
 
-
-
 export const SignUp = () => {
+  const Navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const auth = getAuth(app);
+  const userData = {
+    firstName: firstName,
+    lastName: LastName,
+  };
 
-    const Navigate = useNavigate()
-    const [firstName, setFirstName] = useState('')
-    const [LastName, setLastName] = useState('')
-    const [userName, setUserName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const auth = getAuth(app)
-    const userData = {
-        firstName: firstName,
-        lastName: LastName
+  const createNewUser = async (e) => {
+    try {
+      e.preventDefault();
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const { user } = userCredential;
+      console.log("User object:", user);
+      await updateUserInFirestore(user, { email, displayName }).then(() => {
+        Navigate("/home");
+      });
+    } catch (error) {
+      console.log("error", error);
     }
-
-
-
-    const createNewUser = async (e) => {
-        try {
-            e.preventDefault()
-            const resp = await createUserWithEmailAndPassword(auth, email, password);
-            // // Assuming you have a Firestore collection named "users"
-            // await addDoc(collection(db, 'Users'), {
-            // email: resp.user.email,
-            // // Add any other user information you want to store in Firestore
-
-            //   });
-            console.log(resp)
-        }
-        catch (error) {
-            console.log('error', error)
-        }
-    }
-
-
-
-
-    return (
-
-        <div className="centerForm">
-        <img className='logoMark' src={FinalLogo}></img>
-
+  };
+  return (
+    <section className="signup">
+      <div className="centerForm">
+        <Link to={"/"}>
+          {" "}
+          <img className="logoMark" src={FinalLogo}></img>
+        </Link>
+        <h2 className="signupTitle">CoffeeChat</h2>
         <h2 className="signUpHeader">Create Account</h2>
 
-        <form
-            className="createUserForm"
-            onSubmit={createNewUser}>
-
-            {/* <input
+        <form className="createUserForm" onSubmit={createNewUser}>
+          {/* <input
                 className="inputStyle"
                 onChange={(e) => setFirstName(e.target.value)}
                 value={firstName}
@@ -68,45 +70,42 @@ export const SignUp = () => {
                 type="text">
             </input> */}
 
+          <input
+            className="inputStyle"
+            onChange={(e) => setDisplayName(e.target.value)}
+            value={displayName}
+            placeholder="UserName"
+            type="text"
+          ></input>
 
-            <input
-                className="inputStyle"
-                onChange={(e) => setUserName(e.target.value)}
-                value={userName}
-                placeholder='UserName'
-                type="text">
-            </input>
+          <input
+            className="inputStyle"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            placeholder="Email"
+            type="email"
+          ></input>
 
+          <input
+            className="inputStyle"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            placeholder="Create Password"
+            type="password"
+          ></input>
 
-            <input
-                className="inputStyle"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                placeholder='email@mail.com'
-                type="email">
-            </input>
-
-            <input
-                className="inputStyle"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                placeholder='Create Password'
-                type="password">
-            </input>
-
-            <div className="buttonContainer">
-                <button onClick={createNewUser} className="createAccoutnBtn">
-                    Sign Up
-                </button>
-            </div>
-
+          <div className="buttonContainer">
+            <button onClick={createNewUser} className="createAccoutnBtn">
+              Sign Up
+            </button>
+          </div>
         </form>
-
+        <p className="signup__tologin">Don't have an account?</p>
+        <Link className="signup__tologin" to={"/login"}>
+          Log in
+        </Link>
         <div className="backgroundSignup"></div>
-
-
-        </div>
-
-
-    )
-}
+      </div>
+    </section>
+  );
+};
