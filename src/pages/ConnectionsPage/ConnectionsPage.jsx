@@ -103,6 +103,9 @@ const ConnectionsPage = ({ people }) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
+  const isOptionSelected = (filterType, option) => {
+    return filters[filterType].includes(option);
+  };
 
   useEffect(() => {
     console.log(filters);
@@ -127,13 +130,17 @@ const ConnectionsPage = ({ people }) => {
             <p className="connections__titles">Expertise</p>
             <div className="connections__options">
               <p
-                className="connections__option-1"
+                className={`connections__option-1 ${
+                  isOptionSelected("expertise", "Design") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("expertise", ["Design"])}
               >
                 Design
               </p>
               <p
-                className="connections__option-1"
+                className={`connections__option-1 ${
+                  filters.expertise.includes("Product") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("expertise", ["Product"])}
               >
                 Product
@@ -145,13 +152,17 @@ const ConnectionsPage = ({ people }) => {
             <p className="connections__titles">Discipline</p>
             <div className="connections__options">
               <p
-                className="connections__option-2"
+                className={`connections__option-2 ${
+                  filters.discipline.includes("UIDesign") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("discipline", ["UIDesign"])}
               >
                 UI Design
               </p>
               <p
-                className="connections__option-2"
+                className={`connections__option-2 ${
+                  filters.discipline.includes("ProductDesign") ? "selected" : ""
+                }`}
                 onClick={() =>
                   handleFilterChange("discipline", ["ProductDesign"])
                 }
@@ -159,31 +170,41 @@ const ConnectionsPage = ({ people }) => {
                 Product Design
               </p>
               <p
-                className="connections__option-2"
+                className={`connections__option-2 ${
+                  filters.discipline.includes("Operations") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("discipline", ["Operations"])}
               >
                 Operations
               </p>
               <p
-                className="connections__option-2"
+                className={`connections__option-2 ${
+                  filters.discipline.includes("Sales") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("discipline", ["Sales"])}
               >
                 Sales
               </p>
               <p
-                className="connections__option-2"
+                className={`connections__option-2 ${
+                  filters.discipline.includes("Marketing") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("discipline", ["Marketing"])}
               >
                 Marketing
               </p>
               <p
-                className="connections__option-2"
+                className={`connections__option-2 ${
+                  filters.discipline.includes("Strategy") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("discipline", ["Strategy"])}
               >
                 Strategy
               </p>
               <p
-                className="connections__option-2"
+                className={`connections__option-2 ${
+                  filters.discipline.includes("Engineering") ? "selected" : ""
+                }`}
                 onClick={() =>
                   handleFilterChange("discipline", ["Engineering"])
                 }
@@ -198,19 +219,25 @@ const ConnectionsPage = ({ people }) => {
             <p className="connections__titles">Industry</p>
             <div className="connections__options">
               <p
-                className="connections__option-3"
+                className={`connections__option-3 ${
+                  filters.industry.includes("Tech") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("industry", ["Tech"])}
               >
                 Tech
               </p>
               <p
-                className="connections__option-3"
+                className={`connections__option-3 ${
+                  filters.industry.includes("Healthcare") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("industry", ["Healthcare"])}
               >
                 Healthcare
               </p>
               <p
-                className="connections__option-3"
+                className={`connections__option-3 ${
+                  filters.industry.includes("Finance") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("industry", ["Finance"])}
               >
                 Finance
@@ -223,32 +250,40 @@ const ConnectionsPage = ({ people }) => {
             <p className="connections__titles">Experience</p>
             <div className="connections__options">
               <p
-                className="connections__option-4"
+                className={`connections__option-4 ${
+                  filters.experience.includes("0-2") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("experience", ["0-2"])}
               >
                 0-2
               </p>
               <p
-                className="connections__option-4"
+                className={`connections__option-4 ${
+                  filters.experience.includes("2-4") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("experience", ["2-4"])}
               >
                 2-4
               </p>
               <p
-                className="connections__option-4"
+                className={`connections__option-4 ${
+                  filters.experience.includes("5+") ? "selected" : ""
+                }`}
                 onClick={() => handleFilterChange("experience", ["5+"])}
               >
                 5+
               </p>
             </div>
           </div>
-          <div>
-            {" "}
-            <button onClick={handleNextPage}>Next</button>
-            <button onClick={handleClearFilters}>Clear Filters</button>
-          </div>
         </div>
-
+        <div className="connections__button-container">
+          <button className="connections__button" onClick={handleNextPage}>
+            Next
+          </button>
+          <button className="connections__button" onClick={handleClearFilters}>
+            Clear Filters
+          </button>
+        </div>
         {/* <ul>
         {people.map((person) => (
           <li key={person.id}>
