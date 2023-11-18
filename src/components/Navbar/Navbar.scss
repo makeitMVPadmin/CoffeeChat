@@ -41,6 +41,9 @@
 .navIcons {
   margin: auto;
   color: black;
+  margin: 0.2rem;
+  margin-bottom: 0rem;
+  max-width: 1.2rem;
   @include tablet {
     width: 2rem;
     max-width: unset;
@@ -55,7 +58,7 @@ a {
   color: black;
 }
 .navLinks {
-  height: 100%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -69,6 +72,7 @@ a {
 }
 .navLinksActive {
   width: 26%;
+  height: 70%;
   border-radius: 50px;
   display: flex;
   flex-direction: column;
