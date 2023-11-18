@@ -102,7 +102,7 @@ const HomePage = () => {
                     <p className="scheduledNameOnly">{meeting.Name}</p>
                     <div className="scheduledInfo">
                       {" "}
-                      <p className="scheduledName">
+                      <p className="scheduledName UrlAddress">
                         {meeting.Address || meeting.URL}
                       </p>
                       <p className="scheduledName">{meeting.Date}</p>{" "}

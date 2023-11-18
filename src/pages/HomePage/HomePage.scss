@@ -2,12 +2,10 @@
 @use "../../styles/partials/mixins" as *;
 .accountBtn {
   border-radius: 50%;
-
   width: 5rem;
   height: 5rem;
   margin: auto;
   margin-right: 2rem;
-
   background-position: center;
   background-size: cover;
 
@@ -65,24 +63,27 @@
   padding: 1rem 1rem;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   margin-top: 5%;
-  border: 3px solid black;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  justify-content: space-evenly;
   overflow: auto;
   @include tablet {
     margin: 0px;
     margin-top: 5%;
     margin-left: 2.5rem;
-
     width: 70%;
+    gap: 15px;
   }
   @include desktop {
     border-radius: 25px;
     width: 55%;
+    gap: 0px;
     margin: 2% 5% 2% 5%;
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
     padding: 0.5rem;
     height: 45%;
 
-    border: 3px solid black;
     overflow: auto;
   }
 }
@@ -99,7 +100,7 @@
   background-color: white;
   box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.1);
   padding: 0.7rem;
-  margin: 5% 0%;
+
   width: 100%;
   @include tablet {
     align-items: center;
@@ -176,7 +177,7 @@
     background-image: url(../../assets/images/HomeBackgroundTablet.svg);
   }
   @include desktop {
-    padding-top: 5%;
+    padding-top: 9%;
     background-image: url(../../assets/images/HomeBackground.svg);
   }
 }
@@ -184,20 +185,30 @@
   margin-bottom: 1rem;
 }
 .scheduledInfo {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  flex-shrink: 1;
-  overflow: hidden;
-  max-width: 118px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 50%;
+
   @include tablet {
-    max-width: 200px;
+    max-width: 50%;
+    display: flex;
+    white-space: nowrap;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    align-content: center;
+    gap: 10px;
   }
   @include desktop {
-    max-width: 300px;
+    max-width: 50%;
+    display: flex;
+    white-space: nowrap;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    align-content: center;
+    gap: 20px;
   }
 }
 .scheduleList:hover {
@@ -216,4 +227,11 @@
     margin-left: 6%;
     font-size: 1.5rem;
   }
+}
+.UrlAddress {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  overflow: hidden;
+  max-width: 118px;
 }
