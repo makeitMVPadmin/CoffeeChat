@@ -2,38 +2,135 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/global" as *;
 
-
 .connections {
-    &__container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 3rem;
-    }
+  width: 100%;
+  height: 135vh;
+  background-image: url("../../assets/background/ConnectionsMobileBackground.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  &__container {
+    display: flex;
+    height: 85%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 2rem;
+  }
 
-    &--blue {
-        color: $mvp-dark-blue;
-    }
+  &--blue {
+    color: #0954b0;
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
 
-    &--red {
-        color: $mvp-red;
-    }
+  &--red {
+    color: $mvp-red;
+    margin-left: 50%;
+  }
 
-    &__image img {
-        max-width: 90%;
-        padding: 2rem;
+  &__image {
+    width: 100%;
+    height: 40%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/images/ConnectionsBaseAnimation.svg");
+    position: relative;
+    &-img-1 {
+      width: 40%;
+      position: absolute;
+      right: 30%;
+      top: 35%;
+      animation: circle 6s linear infinite;
     }
+    &-img-2 {
+      width: 40%;
+      position: absolute;
+      right: 30%;
+      top: 35%;
+      animation: circle-2 6s linear infinite;
+      animation-delay: -3s;
+    }
+  }
 
-    &__box {
-        height: 20vh;
-        padding: 20px;
-        border-radius: 15px;
-        color: grey; /* Set your desired text color */
-        background-color: $mvp-white;
-        border: solid;
-        border-color: grey;
+  &__box {
+    padding: 20px;
+    height: 50%;
+    border-radius: 15px;
+    color: grey; /* Set your desired text color */
+    background-color: $mvp-white;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &__filters {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__titles {
+    color: $mvp-red;
+    margin: 0.3rem 0rem;
+  }
+  &__option-2 {
+    background-color: rgba(0, 153, 255, 0.4);
+
+    padding: 0.3rem 0.4rem;
+    border-radius: 50px;
+    color: black;
+    font-size: 0.7rem;
+  }
+  &__option-1 {
+    background: rgba(9, 84, 176, 0.5);
+    padding: 0.3rem 0.4rem;
+    border-radius: 50px;
+    color: black;
+    font-size: 0.7rem;
+  }
+  &__option-3 {
+    padding: 0.3rem 0.4rem;
+    border-radius: 50px;
+    color: black;
+    background: rgba(255, 112, 112, 0.5);
+    font-size: 0.7rem;
+  }
+  &__option-4 {
+    padding: 0.3rem 0.4rem;
+    border-radius: 50px;
+    color: black;
+    background: rgba(255, 210, 47, 0.5);
+
+    font-size: 0.7rem;
+  }
+  &__options {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
 }
-
-
+@keyframes circle {
+  0% {
+    transform: rotate(0deg) translate(-100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(-100px) rotate(-360deg);
+  }
+}
+@keyframes circle-2 {
+  0% {
+    transform: rotate(0deg) translate(-100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(-100px) rotate(-360deg);
+  }
 }
