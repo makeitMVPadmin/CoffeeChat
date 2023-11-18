@@ -79,6 +79,7 @@ const HomePage = () => {
           <img
             src={userInfo.profilePhoto || userPhoto}
             className="accountBtn"
+            referrerpolicy="no-referrer"
           ></img>
         </Link>
       </div>
