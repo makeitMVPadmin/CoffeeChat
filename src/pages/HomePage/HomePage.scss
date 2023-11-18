@@ -166,16 +166,18 @@
 .home {
   background-color: white;
   height: 100vh;
-  background-image: url(../../assets/images/HomeBackground.svg);
+  background-image: url(../../assets/images/HomeBackgroundTablet.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   padding-top: 15%;
   @include tablet {
     padding-top: 16%;
+    background-image: url(../../assets/images/HomeBackgroundTablet.svg);
   }
   @include desktop {
     padding-top: 5%;
+    background-image: url(../../assets/images/HomeBackground.svg);
   }
 }
 .ScheduleDivTitle {
