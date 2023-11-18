@@ -73,9 +73,9 @@ const HomePage = () => {
 
       <div className="homeHeader">
         <h1 className="WelcomeTitle">
-          Welcome, <br></br> {userInfo.fullName}!
+          Welcome, <br></br> {userInfo.fullName || userInfo.displayName}!
         </h1>
-        <Link to={"/profile"} className="accountBtn">
+        <Link to={"/profile"}>
           <img
             src={userInfo.profilePhoto || userPhoto}
             className="accountBtn"

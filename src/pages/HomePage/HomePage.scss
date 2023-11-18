@@ -2,15 +2,15 @@
 @use "../../styles/partials/mixins" as *;
 .accountBtn {
   border-radius: 50%;
-  background-color: grey;
+
   width: 5rem;
   height: 5rem;
   margin: auto;
   margin-right: 2rem;
-  background-image: url("../../images/blankUserImg.png");
+
   background-position: center;
   background-size: cover;
-  object-fit: contain;
+
   text-align: center;
   @include tablet {
     margin-left: 5%;
