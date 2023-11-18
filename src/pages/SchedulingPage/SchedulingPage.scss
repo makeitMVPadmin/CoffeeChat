@@ -1,8 +1,80 @@
-@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.schedule {
+    padding: 1rem;
+    background-color: $mvp-cream;
+    font-family: 'Gilroy-ExtraBold';
+
+    &__header {
+        display: flex;
+        align-items: center;
+        padding-bottom: 1rem;
+
+        &-title {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__calendar {
+        border-radius: 13px;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        &--align {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__subheading {
+        font-size: 1.3rem;
+        padding: 1rem 0;
+    }
+
+    &__time {
+
+        &-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &-button {
+            @include mobile-calendar-buttons;
+            border: $mvp-light-blue 2px solid;
+            font-family: 'Gilroy-ExtraBold';
+
+            &--active {
+                @include mobile-calendar-buttons;
+                background-color: $mvp-light-blue;
+                font-family: 'Gilroy-ExtraBold';
+            }
+        }
+    }
+
+    &__type {
+        &-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        &-button {
+            @include mobile-calendar-buttons;
+            border: $mvp-yellow 2px solid;
+            font-family: 'Gilroy-ExtraBold';
+            width: 8rem;
+
+            &--active {
+                @include mobile-calendar-buttons;
+                background-color: $mvp-light-blue;
+                font-family: 'Gilroy-ExtraBold';
+            }
+        }
+    }
+}
 
 .scheduling {
-
-    &__button{
+    &__button {
         background-color: #007bff;
         color: #fff;
     }

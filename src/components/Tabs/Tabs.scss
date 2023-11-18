@@ -1,0 +1,87 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/global';
+
+.tab {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+  &__darkblue {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem 1rem 0;
+    background-color: $mvp-dark-blue;
+    border-radius: 2rem;
+    &--row {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    &--container {
+      padding: 1rem;
+    }
+  }
+  &__lightblue {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem 1rem 0;
+    background-color: $mvp-light-blue;
+    border-radius: 2rem;
+    &--row {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    &--container {
+      padding: 1rem;
+    }
+  }
+  &__red {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem 1rem 0;
+    background-color: $mvp-red;
+    border-radius: 2rem;
+    &--row {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    &--container {
+      padding: 1rem;
+    }
+  }
+  &__yellow {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem 1rem 0;
+    background-color: $mvp-yellow;
+    border-radius: 2rem;
+    &--row {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    &--container {
+      padding: 1rem;
+    }
+  }
+  &__button {
+    margin: 1rem;
+    background-color: $mvp-black;
+    color: white;
+    border-radius: 1.5rem;
+    padding: 0.75rem 2rem;
+    &--row {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+      }
+      &--container {
+        padding: 1rem;
+      }
+  }
+}
+
+.mentorshipStatus {
+    text-decoration: underline;
+    text-decoration-color: $mvp-yellow; // Set the color of the underline
+  }

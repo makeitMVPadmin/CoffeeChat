@@ -90,3 +90,9 @@
   font-family: "Gilroy-Light", sans-serif;
   font-size: 1.25rem;
 }
+
+@mixin mobile-calendar-buttons {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  background-color: $mvp-white;
+}
