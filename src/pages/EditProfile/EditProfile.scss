@@ -97,19 +97,20 @@
 }
 
 
-.btnDiv {
+.btnProfileDiv {
     width: auto;
     display: flex;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 
-.editBtn {
+.editProfileBtn {
     margin: auto;
     color: white;
     background-color: black;
     border-radius: 1.89325rem;
     font-family: Gilroy-bold, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 600;
     padding: 0.8rem;

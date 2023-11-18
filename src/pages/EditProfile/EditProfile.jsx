@@ -5,13 +5,14 @@ import Navbar from "../../components/Navbar/Navbar";
 import { app, db } from "../../App";
 import { getAuth } from "firebase/auth";
 import { updateDoc, doc, getDoc } from "@firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import blankUserImg from '../../assets/images/blankUserImg.png'
 
 
 
 export const EditProfile = () => {
-    const [loading, setLoading] = useState(null)
+    const [file, setFile] = useState(null);
+    const [url, setURL] = useState("");
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [state, setState] = useState('')
@@ -86,21 +87,82 @@ export const EditProfile = () => {
 
 
 
-    const UploadImage = () => {
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                const storage = getStorage(app);
-                const fileRef = ref(storage, `${user.uid}/${ProfileImg}`);
+    // const UploadImage = (e) => {
+    //     auth.onAuthStateChanged((user) => {
+    //         if (user) {
+    //             const storage = getStorage(app);
+    //             const fileRef = ref(storage, `${user.uid}/${ProfileImg.name}`);
+    //             const file = e.target.files[0]
 
-                uploadBytes(fileRef, ProfileImg).then((snapshot) => {
-                    console.log("Uploaded a blob or file!");
-                    getDownloadURL(snapshot.ref).then((url) => {
-                        setProfileImg(url)
-                        console.log('url',url)
-                    });
+
+
+    //             uploadBytes(fileRef,File, ProfileImg).then((snapshot) => {
+    //                 console.log("Uploaded a blob or file!");
+    //                 getDownloadURL(snapshot.ref).then((url) => {
+    //                     setProfileImg(url)
+    //                     console.log('url',url)
+    //                 });
+    //             });
+    //         }
+    //     })
+    // }
+
+
+
+    const UploadImage = () => {
+        const storage = getStorage(app)
+
+        // Create the file metadata
+        /** @type {any} */
+        const metadata = {
+            contentType: 'image/png'
+        };
+
+        // Upload file and metadata to the object 'images/mountains.jpg'
+        const storageRef = ref(storage, 'images/' + file);
+        const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                    case 'paused':
+                        console.log('Upload is paused');
+                        break;
+                    case 'running':
+                        console.log('Upload is running');
+                        break;
+                }
+            },
+            (error) => {
+                // A full list of error codes is available at
+                // https://firebase.google.com/docs/storage/web/handle-errors
+                switch (error.code) {
+                    case 'storage/unauthorized':
+                        // User doesn't have permission to access the object
+                        break;
+                    case 'storage/canceled':
+                        // User canceled the upload
+                        break;
+
+                    // ...
+
+                    case 'storage/unknown':
+                        // Unknown error occurred, inspect error.serverResponse
+                        break;
+                }
+            },
+            () => {
+                // Upload completed successfully, now we can get the download URL
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log('File available at', downloadURL);
+                    setProfileImg(downloadURL)
                 });
             }
-        })
+        );
     }
 
 
@@ -123,8 +185,9 @@ export const EditProfile = () => {
                 <input
                     id="file-upload"
                     type="file"
+                    accept="image/png,image/jpeg"
                     onClick={UploadImage}
-                    onChange={(e)=> {setProfileImg(e.target.value)}}
+                    onChange={(e) => setProfileImg(e.target.files[0])}
                     className="imgUpload" />
             </div>
 
