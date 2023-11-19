@@ -78,12 +78,11 @@ const ProfilePage = () => {
   return (
 
 
-
     <div className="profile__content">
 
-    <div className="logoutBtn" onClick={()=>Navigate('/logout')}>
-      <img src={logoutRounded} alt="logoutButton" className="logoutImg"/>
-    </div>
+      <div className="logoutBtn" onClick={() => Navigate('/logout')}>
+        <img src={logoutRounded} alt="logoutButton" className="logoutImg" />
+      </div>
 
 
       <div className='picDiv'>
@@ -95,60 +94,53 @@ const ProfilePage = () => {
       </div>
 
       <h1 className="profileName">{name}</h1>
+      <p className="profile__location">{city}, {state}</p>
 
       <div className="btnProfileDiv">
         <button className="editProfileBtn" onClick={() => Navigate('/EditProfile')}>Edit Profile</button>
       </div>
-      {/* <p className="profile__reviews">25 Reviews</p>
-      <p className="profile__location">{city}, {state}</p> */}
 
-      <div className="profile__card">
-        <div className="profile__card--container">
-          <img className="profile__icon" src={bag} alt="work icon" />
-          <p className="profile__role">{field}</p>
+
+      <div className="profile__backGroundLower">
+
+        <div className="profile__card">
+          <div className="profile__card--container">
+            <img className="profile__icon" src={bag} alt="work icon" />
+            <p className="profile__role">{field}</p>
+          </div>
+          <div className="profile__card--container">
+            <img className="profile__icon" src={badge} alt="work icon" />
+            <p className="profile__seniority">Senior Level - 4 years</p>
+          </div>
+          <div className="profile__card--container">
+            <img className="profile__icon" src={mentorHand} alt="work icon" />
+            <p className="prolfile__sessions">30 Mentor Sessions</p>
+          </div>
+          <div className="profile__card--container">
+            <img className="profile__icon" src="#" alt="work icon" />
+            <a className="profile__linkedin" href="www.linkedin.com">
+              LinkedIn.com/RichYin
+            </a>
+          </div>
         </div>
-        <div className="profile__card--container">
-          <img className="profile__icon" src={badge} alt="work icon" />
-          <p className="profile__seniority">Senior Level - 4 years</p>
+
+        <div className="profile__description">
+          <div className="profile__tech--container">
+            <div className="profile__tech--row">
+              <p>Expertise</p>
+              {/* {skills.map(())} */}
+              <p className="profile__tech">Java</p>
+              <p className="profile__tech">C++</p>
+              <p className="profile__tech">HTML5</p>
+            </div>
+          </div>
+          <p className="profile_bio"> {bio}</p>
         </div>
-        <div className="profile__card--container">
-          <img className="profile__icon" src={mentorHand} alt="work icon" />
-          <p className="prolfile__sessions">30 Mentor Sessions</p>
-        </div>
-        <div className="profile__card--container">
-          <img className="profile__icon" src="#" alt="work icon" />
-          <a className="profile__linkedin" href="www.linkedin.com">
-            LinkedIn.com/RichYin
-          </a>
-        </div>
+
       </div>
 
-      <div className="profile__description">
-
-        <div className="profile__tech--container">
-          
-        <div className="profile__tech--row">
-          <p>Expertise</p>
-          <p className="profile__tech">Java</p>
-          <p className="profile__tech">C++</p>
-          <p className="profile__tech">HTML5</p>
-        </div>
-
-        {/* <div className="profile__tech--row">
-          <p className="profile__tech">Python</p>
-          <p className="profile__tech">React</p>
-          <p className="profile__tech">CSS</p>
-        </div> */}
-      </div>
-
-          
-        
-        <p className="profile_bio"> {bio}</p>
-      </div>
-
-      
-      {/* TODO: Link to calendar scheduling */}
-      <button className="profile__button">Book</button>
+      <div className="profile__backGroundCircle"></div>
+      <Navbar/>
     </div>
   );
 };

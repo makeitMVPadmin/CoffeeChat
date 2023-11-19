@@ -19,6 +19,7 @@ export const EditProfile = () => {
     const [city, setCity] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [field, setField] = useState('')
+    const [skills, setSkills] = useState([])
     const [bio, setBio] = useState('')
     const [ProfileImg, setProfileImg] = useState('')
     const Navigate = useNavigate()
@@ -268,11 +269,22 @@ export const EditProfile = () => {
                     </input>
                 </div>
 
+                {/* <div className="inputDivs">
+                    <span className="editLabels">Skills</span>
+                    <input
+                        type="text"
+                        maxLength='20'
+                        defaultValue={skills}
+                        onChange={(e) => setSkills(e.target.value)}
+                        className="inputEdit">
+                    </input>
+                </div>                 */}
+
                 <div className="inputDivs">
                     <span className="editLabels">Bio</span>
                     <textarea
                         type="text"
-                        maxLength='200'
+                        maxLength='300'
                         defaultValue={bio}
                         onChange={(e) => setBio(e.target.value)}
                         className="bioInput">
