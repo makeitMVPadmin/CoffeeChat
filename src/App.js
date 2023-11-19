@@ -102,6 +102,7 @@ function App() {
             element={<ConnectionsPage people={connectionsData} />}
           />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/EditProfile" element={<EditProfile/>}/>
           <Route
             path="/chat/:id"
             element={<Chat people={connectionsData} db={db} />}

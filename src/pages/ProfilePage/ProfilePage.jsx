@@ -74,7 +74,7 @@ const ProfilePage = () => {
 
     <div className="profile__content">
 
-      <div className="logoutBtn" onClick={() => Navigate('/logout')}>
+      <div className="logoutBtn" onClick={logout}>
         <img src={logoutRounded} alt="logoutButton" className="logoutImg" />
       </div>
 
