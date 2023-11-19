@@ -4,12 +4,11 @@
 
 .about {
   width: 100%;
-  height: 100%;
+  height: auto;
   color: $mvp-black;
 
   @include desktop {
     max-width: 80rem;
-    height: auto;
     margin: auto;
   }
 
