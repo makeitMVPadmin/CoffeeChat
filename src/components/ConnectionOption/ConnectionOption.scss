@@ -1,6 +1,6 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/global' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global" as *;
 
 .connect {
   &__container {
@@ -10,6 +10,9 @@
     //justify-content: center;
     //align-items: center;
     margin: 3rem;
+    @include desktop {
+      margin-top: 8rem;
+    }
   }
 
   &__header {
@@ -61,13 +64,10 @@
           background-color: $mvp-light-blue;
           border-radius: 2rem;
         }
-        
       }
-      
     }
-    
   }
-  
+
   &__button {
     margin: 1rem;
     background-color: $mvp-black;
@@ -75,25 +75,25 @@
     border-radius: 1.5rem;
     padding: 0.5rem 1rem;
     &--row {
-        display: flex;
-        flex-direction: row;
-        justify-content: right;
-      }
-      &--container {
-        padding-top: 1rem;
-      }
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+    }
+    &--container {
+      padding-top: 1rem;
+    }
   }
 
   //   &--blue {
-      //     color: $mvp-dark-blue;
-      //   }
-      
-      //   &--red {
-          //     color: $mvp-red;
-          //   }
-          
-          //   &__image img {
-              //     max-width: 90%;
-              //     padding: 2rem;
-              //   }
+  //     color: $mvp-dark-blue;
+  //   }
+
+  //   &--red {
+  //     color: $mvp-red;
+  //   }
+
+  //   &__image img {
+  //     max-width: 90%;
+  //     padding: 2rem;
+  //   }
 }
