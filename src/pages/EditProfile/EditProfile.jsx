@@ -35,14 +35,14 @@ export const EditProfile = () => {
                     getDoc(userRef)
                         .then((doc) => {
                             console.log('doc', doc.data())
-                            setName(doc.data().FullName)
-                            setEmail(doc.data().Email)
-                            setCity(doc.data().City)
-                            setState(doc.data().State)
-                            setPhoneNumber(doc.data().PhoneNumber)
-                            setField(doc.data().Field)
-                            setBio(doc.data().Bio)
-                            setProfileImg(doc.data().ProfileImg)
+                            // setName(doc.data().FullName)
+                            // setEmail(doc.data().Email)
+                            // setCity(doc.data().City)
+                            // setState(doc.data().State)
+                            // setPhoneNumber(doc.data().PhoneNumber)
+                            // setField(doc.data().Field)
+                            // setBio(doc.data().Bio)
+                            // setProfileImg(doc.data().ProfileImg)
                         })
 
                 }
