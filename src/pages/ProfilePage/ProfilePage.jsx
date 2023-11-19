@@ -124,23 +124,29 @@ const ProfilePage = () => {
       </div>
 
       <div className="profile__description">
-        <p>{bio}</p>
-      </div>
 
-      <div className="profile__tech--container">
+        <div className="profile__tech--container">
+          
         <div className="profile__tech--row">
+          <p>Expertise</p>
           <p className="profile__tech">Java</p>
           <p className="profile__tech">C++</p>
           <p className="profile__tech">HTML5</p>
         </div>
 
-        <div className="profile__tech--row">
+        {/* <div className="profile__tech--row">
           <p className="profile__tech">Python</p>
           <p className="profile__tech">React</p>
           <p className="profile__tech">CSS</p>
-        </div>
+        </div> */}
       </div>
 
+          
+        
+        <p className="profile_bio"> {bio}</p>
+      </div>
+
+      
       {/* TODO: Link to calendar scheduling */}
       <button className="profile__button">Book</button>
     </div>
