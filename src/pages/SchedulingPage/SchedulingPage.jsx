@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import "./SchedulingPage.scss";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 import Modal from "react-modal";
+import bgShape from "../../assets/background/bg-accent-shapes-calendar-pg.png";
 import backArrow from "../../assets/icons/wayfinding/back-arrow.svg";
 import placeMarker from "../../assets/icons/extras/Place Marker.svg";
+import virtualMeeting from "../../assets/icons/extras/virtual-meeting.png";
+import confirmCalendar from "../../assets/icons/calendar/confirm_calender.png";
 Modal.setAppElement("#root");
 
 const SchedulingPage = ({ people, db }) => {
@@ -21,21 +23,63 @@ const SchedulingPage = ({ people, db }) => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
     const [selectedMeetingType, setSelectedMeetingType] = useState(null);
+    const [meetingLocation, setMeetingLocation] = useState("");
+
+    const navigate = useNavigate();
+
+    //Navigates back one step in history
+    const handleBackClick = () => {
+        navigate(-1);
+    };
 
     // Function to handle booking
+
     const saveBooking = async () => {
-        if (selectedDate && selectedTime && selectedMeetingType) {
+        if (!selectedDate) {
+            alert("Please select a date.");
+        } else if (!selectedTime) {
+            alert("Please select a time.");
+        } else if (!selectedMeetingType) {
+            alert("Please select a meeting type.");
+        } else if (!meetingLocation) {
+            alert("Please enter where you will be meeting.");
+        } else {
             // Define the data to be saved in Firestore
             const bookingData = {
-                date: selectedDate,
-                time: selectedTime,
-                meetingType: selectedMeetingType,
+                Date: selectedDate,
+                Time: selectedTime,
+                MeetingType: selectedMeetingType,
             };
+
+            if (selectedMeetingType === "in person") {
+                bookingData["Address"] = meetingLocation;
+            } else if (selectedMeetingType === "virtual") {
+                bookingData["URL"] = meetingLocation;
+            }
 
             try {
                 // Add the booking data to a Firestore collection
                 await addDoc(collection(db, "bookings"), bookingData);
                 console.log("Booking saved to Firestore");
+
+                const confirmationMessage = (
+                  <div className="schedule-modal-container">
+                        {/* TODO: Add logged in user's name & meeting type */}
+                      <img className="schedule-modal-container__icon " src={confirmCalendar} />
+                        <p className="schedule-modal-container__confirm-msg">
+                            Your {selectedMeetingType} meeting with {person.name} at {meetingLocation} has been confirmed.
+                        </p>
+                        <h3 className="schedule-modal-container__time">
+                          {selectedDate && selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+                          </h3>
+                        <h3 className="schedule-modal-container__time">{`at ${selectedTime && selectedTime.toString()}`}</h3>
+
+                        <p className="schedule-modal-container__confirm-msg">Get ready to brew some great connections!</p>
+                        <button className="schedule-modal-container__button" onClick={closeModal}>Close</button>
+                    </div>
+                );
+
+                openModal(confirmationMessage);
 
                 // After booking, clear the selected time and meeting type
                 setSelectedTime(null);
@@ -43,27 +87,7 @@ const SchedulingPage = ({ people, db }) => {
             } catch (error) {
                 console.error("Error saving booking: ", error);
             }
-        } else {
-            alert("Please select a date, time, and meeting type.");
         }
-
-        const confirmationMessage = (
-            <div className="confirmation-modal">
-                {/* TODO: Add logged in user's name & meeting type */}
-                <p>
-                    Your meeting is confirmed! It is scheduled as an in-person
-                    meeting
-                </p>
-                {/* TODO: Add time chosen, name of person booked & date scheduled*/}
-                <h2>4:15PM</h2>
-                <h2>Richard</h2>
-                <h3>Wednesday, October 8th 2023</h3>
-                <p>Get ready to brew some great connections!</p>
-                <button onClick={closeModal}>Close</button>
-            </div>
-        );
-
-        openModal(confirmationMessage);
     };
 
     // Function to toggle the selected class for time slots
@@ -78,6 +102,10 @@ const SchedulingPage = ({ people, db }) => {
         );
     };
 
+    const handleMeetingLocation = (e) => {
+        setMeetingLocation(e.target.value);
+    };
+
     const openModal = (content) => {
         setModalContent(content);
         setModalOpen(true);
@@ -90,69 +118,131 @@ const SchedulingPage = ({ people, db }) => {
 
     return (
         <section className="schedule">
-            <div className="schedule__header">
-                <img className="schedule__header-backarrow" src={backArrow} />
-                <h1 className="schedule__header-title">
-                    Connect with {person.name}
-                </h1>
-            </div>
-            {/* Calendar */}
-            <div className="schedule__calendar--align">
-                <Calendar
-                    className="schedule__calendar"
-                    onChange={(date) => setSelectedDate(date)} // Handle date selection
-                    value={selectedDate} // Set the selected date
-                />
-            </div>
-            <p className="schedule__subheading">Available Time Slots</p>
-            <div className="schedule__time-buttons">
-                {timePreferences.map((timeSlot) => (
+            <Link>
+                <img className="schedule__bg-shape" src={bgShape} />
+            </Link>
+            <div className="schedule__container">
+                <div className="schedule__header">
+                    <img
+                        className="schedule__header-backarrow"
+                        src={backArrow}
+                        onClick={handleBackClick}
+                    />
+                    <h1 className="schedule__header-title">
+                        Connect with {person.name}
+                    </h1>
+                </div>
+                {/* Calendar */}
+                <div className="schedule__calendar--align">
+                    <Calendar
+                        className="schedule__calendar"
+                        calendarType="US"
+                        prev2Label={null}
+                        next2Label={null}
+                        onChange={(date) => setSelectedDate(date)} // Handle date selection
+                        value={selectedDate} // Set the selected date
+                    />
+                </div>
+                <p className="schedule__subheading">Available Time Slots</p>
+                <div className="schedule__time-buttons">
+                    {timePreferences.map((timeSlot) => (
+                        <button
+                            key={timeSlot}
+                            className={
+                                selectedTime === timeSlot
+                                    ? "schedule__time-button--active"
+                                    : "schedule__time-button"
+                            }
+                            onClick={() => toggleTimeSelection(timeSlot)}
+                        >
+                            {timeSlot}
+                        </button>
+                    ))}
+                </div>
+                <p className="schedule__subheading">Select Meeting Type</p>
+                <div className="schedule__type-buttons">
                     <button
-                        key={timeSlot}
                         className={
-                            selectedTime === timeSlot
-                                ? "schedule__time-button--active"
-                                : "schedule__time-button"
+                            selectedMeetingType === "in person"
+                                ? "schedule__type-button--active"
+                                : "schedule__type-button"
                         }
-                        onClick={() => toggleTimeSelection(timeSlot)}
+                        onClick={() => toggleMeetingTypeSelection("in person")}
                     >
-                        {timeSlot}
+                        In Person
                     </button>
-                ))}
-            </div>
-            <p className="schedule__subheading">Select Meeting Type</p>
-            <div className="schedule__type-buttons">
-                <button
-                    className={
-                        selectedMeetingType === "In Person"
-                            ? "schedule__type-button--active"
-                            : "schedule__type-button"
-                    }
-                    onClick={() => toggleMeetingTypeSelection("1-on-1")}
-                >
-                    In Person
-                </button>
-                <button
-                    className={
-                        selectedMeetingType === "Virtual"
-                            ? "schedule__type-button--active"
-                            : "schedule__type-button"
-                    }
-                    onClick={() => toggleMeetingTypeSelection("Virtual")}
-                >
-                    Virtual
-                </button>
-            </div>
-            <img src={placeMarker} />
-            <p>Select Location</p>
+                    <button
+                        className={
+                            selectedMeetingType === "virtual"
+                                ? "schedule__type-button--active"
+                                : "schedule__type-button"
+                        }
+                        onClick={() => toggleMeetingTypeSelection("virtual")}
+                    >
+                        Virtual
+                    </button>
+                </div>
+                {selectedMeetingType === "in person" ? (
+                    <div className="schedule__location">
+                        <div className="schedule__location-heading">
+                            <img
+                                className="schedule__location-heading-icon"
+                                src={placeMarker}
+                            />
+                            <p className="schedule__location-heading-subtitle">
+                                Enter Meeting Location
+                            </p>
+                        </div>
+                        <textarea
+                            className="schedule__location-input"
+                            placeholder="Enter the location of where you will be meeting."
+                            value={meetingLocation}
+                            onChange={handleMeetingLocation}
+                        ></textarea>
+                    </div>
+                ) : selectedMeetingType === "virtual" ? (
+                    <div className="schedule__location">
+                        <div className="schedule__location-heading">
+                            <img
+                                className="schedule__location-heading-icon"
+                                src={virtualMeeting}
+                            />
+                            <p className="schedule__location-heading-subtitle">
+                                Enter URL for Virtual Meeting
+                            </p>
+                        </div>
+                        <textarea
+                            className="schedule__location-input"
+                            placeholder="Enter the URL address of where your virtual meeting will be."
+                            value={meetingLocation}
+                            onChange={handleMeetingLocation}
+                        ></textarea>
+                    </div>
+                ) : (
+                    <div></div>
+                )}
 
-            {/* Complete action  */}
-            <button onClick={saveBooking}>Book</button>
+                {/* Complete action  */}
+                <div className="schedule__book">
+                    <button
+                        className="schedule__book-button"
+                        onClick={saveBooking}
+                    >
+                        Book
+                    </button>
+                </div>
+            </div>
             {/* After booking, a new page opens up -- Confirmation Page */}
             <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
                 contentLabel="Confirmation Modal"
+                className="schedule-modal"
+                style={{
+                  overlay: {
+                      zIndex: 1000, // Sets the Modal infront of page
+                  }
+              }}
             >
                 {modalContent}
             </Modal>
