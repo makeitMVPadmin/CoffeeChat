@@ -6,8 +6,6 @@ import { app, db } from "../../App";
 import { getAuth, signOut } from "firebase/auth";
 import userPhoto from "../../assets/images/NoUserPhoto.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { db } from "../../App";
-import { useState, useEffect } from "react";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 const HomePage = () => {
