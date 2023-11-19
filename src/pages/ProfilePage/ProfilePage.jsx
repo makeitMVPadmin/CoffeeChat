@@ -1,5 +1,5 @@
 import "./ProfilePage.scss";
-
+import Navbar from "../../components/Navbar/Navbar";
 const ProfilePage = () => {
   return (
     <div className="profile__content">
@@ -14,15 +14,15 @@ const ProfilePage = () => {
           <p className="profile__role">Software Engineer</p>
         </div>
         <div className="profile__card--container">
-          <img  className="profile__icon" src="#" alt="work icon" />
+          <img className="profile__icon" src="#" alt="work icon" />
           <p className="profile__seniority">Senior Level - 4 years</p>
         </div>
         <div className="profile__card--container">
-          <img  className="profile__icon" src="#" alt="work icon" />
+          <img className="profile__icon" src="#" alt="work icon" />
           <p className="prolfile__sessions">30 Mentor Sessions</p>
         </div>
         <div className="profile__card--container">
-          <img  className="profile__icon" src="#" alt="work icon" />
+          <img className="profile__icon" src="#" alt="work icon" />
           <a className="profile__linkedin" href="www.linkedin.com">
             LinkedIn.com/RichYin
           </a>
@@ -42,24 +42,25 @@ const ProfilePage = () => {
         Saepe rerum excepturi ipsum neque. Libero nemo maiores illum accusantium
         vel repellendus, iusto itaque quo modi repellat aliquid pariatur autem
         tempore totam voluptate?
-          </p>
-          
-          <div className="profile__tech--container">
-              <div className="profile__tech--row">
-              <p className="profile__tech">Java</p>
-              <p className="profile__tech">C++</p>
-              <p className="profile__tech">HTML5</p>
-              </div>
+      </p>
 
-              <div className="profile__tech--row">
-              <p className="profile__tech">Python</p>
-              <p className="profile__tech">React</p>
-              <p className="profile__tech">CSS</p>
-              </div>
-          </div>
+      <div className="profile__tech--container">
+        <div className="profile__tech--row">
+          <p className="profile__tech">Java</p>
+          <p className="profile__tech">C++</p>
+          <p className="profile__tech">HTML5</p>
+        </div>
 
-          {/* TODO: Link to calendar scheduling */}
-          <button className="profile__button">Book</button>
+        <div className="profile__tech--row">
+          <p className="profile__tech">Python</p>
+          <p className="profile__tech">React</p>
+          <p className="profile__tech">CSS</p>
+        </div>
+      </div>
+
+      {/* TODO: Link to calendar scheduling */}
+      <button className="profile__button">Book</button>
+      <Navbar />
     </div>
   );
 };
