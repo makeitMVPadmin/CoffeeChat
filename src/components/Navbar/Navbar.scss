@@ -1,22 +1,92 @@
+@use "../../styles/partials/mixins" as *;
 .navbar {
-  // position: fixed;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   margin-bottom: auto;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: lightgrey;
-}
-
-ul {
-  padding: 0;
+  height: 3.5rem;
+  background: white;
+  color: black;
   text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Gilroy-light, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1rem;
+  /* 123.077% */
+  @include tablet {
+    height: 7%;
+    background: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+  @include desktop {
+    top: 0;
+    height: 10%;
+    background: white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+}
+.logo {
+  display: none;
+  @include desktop {
+    display: unset;
+    height: 80%;
+  }
 }
 
-li {
-  display: inline;
-  margin: 10px;
+.navIcons {
+  margin: auto;
+  color: black;
+  margin: 0.2rem;
+  margin-bottom: 0rem;
+  max-width: 1.2rem;
+  @include tablet {
+    width: 2rem;
+    max-width: unset;
+  }
+  @include desktop {
+    display: none;
+  }
 }
 
 a {
   text-decoration: none;
+  color: black;
+}
+.navLinks {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @include tablet {
+    font-size: 1.2rem;
+  }
+  @include desktop {
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+}
+.navLinksActive {
+  width: 26%;
+  height: 70%;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #0099ff6b;
+  @include tablet {
+    height: 80%;
+    width: 17%;
+    font-size: 1.2rem;
+  }
+  @include desktop {
+    width: 9%;
+    height: 50%;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
 }

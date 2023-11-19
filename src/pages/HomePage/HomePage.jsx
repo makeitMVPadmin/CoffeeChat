@@ -4,122 +4,127 @@ import { useNavigate } from "react-router";
 import Navbar from "../../components/Navbar/Navbar";
 import { app, db } from "../../App";
 import { getAuth, signOut } from "firebase/auth";
-import { collection, doc, getDoc } from "@firebase/firestore";
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
+import userPhoto from "../../assets/images/NoUserPhoto.png";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { db } from "../../App";
+import { useState, useEffect } from "react";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { Link } from "react-router-dom";
 const HomePage = () => {
+  const auth = getAuth(app);
+  const [meetings, setMeetings] = useState(false);
+  const [userInfo, setUserInfo] = useState(false);
+  const eventDate = () => {
+    const date = new Date();
+    return date.getDay();
+  };
 
-  const auth = getAuth(app)
-  const Navigate = useNavigate()
-  const [fullName, setFullName] = useState('')
+  useEffect(() => {
+    const getUserMeetings = async () => {
+      const user = auth.currentUser;
 
+      if (user) {
+        const uid = user.uid;
+        try {
+          const userDocRef = doc(collection(db, "Users"), uid);
+          const userDocSnapshot = await getDoc(userDocRef);
 
-  useEffect (() =>{
-    const checkUserAuth = () => {
-          auth.onAuthStateChanged((user) => {
-            if (user != null) {
-              const userRef = doc(db, 'user',user.uid)
-              getDoc(userRef)
-              .then((doc)=>{
-                console.log('doc',doc.data())
-                setFullName(doc.data().FullName)
-              })
+          if (userDocSnapshot.exists()) {
+            const userData = userDocSnapshot.data();
+            setUserInfo(userData);
+            const meetingsCollectionRef = collection(userDocRef, "Meetings");
+            const meetingsQuerySnapshot = await getDocs(meetingsCollectionRef);
+
+            if (!meetingsQuerySnapshot.empty) {
+              const meetingsData = [];
+              meetingsQuerySnapshot.forEach((meetingDoc) => {
+                const meetingData = meetingDoc.data();
+                meetingsData.push(meetingData);
+              });
+              setMeetings(meetingsData);
             }
-            else{
-              Navigate('/login')
-            }
-          });
-        };
+          } else {
+            console.log("User document does not exist");
+          }
+        } catch (error) {
+          console.error("Error getting user meetings:", error.message);
+        }
+      } else {
+        console.log("No user is currently logged in");
+      }
+    };
 
-        checkUserAuth();
-
-  },[])
-
-    
-
-  
-
-
-
+    getUserMeetings();
+  }, [auth]);
   const logout = () => {
-    signOut(auth).then(() => {
-      console.log('logged out')
-    }).catch((error) => {
-      console.log('error', error)
-    });
-  }
-
-
-
-
-
+    signOut(auth)
+      .then(() => {
+        console.log("logged out");
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
   return (
     <div className="home">
-      <div className="buttonContainer">
+      {/* <div className="buttonContainer">
         <button onClick={logout} className="logoutBtn">
           logout
         </button>
-      </div>
+      </div> */}
 
       <div className="homeHeader">
-        <h1 className="WelcomeTitle">Welcome, <br></br> ${fullName}!</h1>
-        <div className="accountBtn" onClick={()=> Navigate('/editProfile')}></div>
+        <h1 className="WelcomeTitle">
+          Welcome, <br></br> {userInfo.fullName || userInfo.displayName}!
+        </h1>
+        <Link to={"/profile"}>
+          <img
+            src={userInfo.profilePhoto || userPhoto}
+            className="accountBtn"
+            referrerpolicy="no-referrer"
+          ></img>
+        </Link>
       </div>
 
-      <h4 className="upcomingEventTitle">Upcoming Events</h4>
-
-
-      <Carousel
-        showStatus={false}
-        showThumbs={false}
-        centerMode={true}
-        showArrows={false}
-        centerSlidePercentage={80}
-        infiniteLoop
-        // autoPlay
-        autoFocus
-        showIndicators={false}
-
-      //this will be mapped 
-      >
-        <div className="carouselItem">
-          <div className="carouselDetail">
-            <h3>event title</h3>
-            <p>lorem ipsum asdfe asdfeadsf asdfasdjf</p>
-          </div>
-          <div className="eventTimer">day hour min sec</div>
-          <img className="imgCarousel" src="https://images.pexels.com/photos/15104206/pexels-photo-15104206/free-photo-of-a-siberian-husky-lying-on-the-floor.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Slide 1" />
-        </div>
-
-        <div className="carouselItem">
-          <img className="imgCarousel" src="https://images.pexels.com/photos/15104206/pexels-photo-15104206/free-photo-of-a-siberian-husky-lying-on-the-floor.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Slide 2" />
-        </div>
-
-        <div className="carouselItem">
-          <img className="imgCarousel" src="https://images.pexels.com/photos/15104206/pexels-photo-15104206/free-photo-of-a-siberian-husky-lying-on-the-floor.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Slide 3" />
-        </div>
-      </Carousel>
-
-
-
-      <h3 style={{ textAlign: 'center' }} >Schedule</h3>
+      <h3 className="scheduleTitle">Schedule</h3>
 
       <div className="scheduleDiv">
-        <div className="scheduleList">
-          <div className="scheduledName">Richard Yin</div>
-          <div>October 17 4:30pm (virtual)</div>
-        </div>
-
-        <div className="scheduleList">
-          <div className="scheduledName">Richard Yin</div>
-          <div>October 17 4:30pm (virtual)</div>
-        </div>
-
+        {meetings.length > 0 ? (
+          <>
+            {meetings.map((meeting, index) => (
+              <a
+                href={
+                  meeting.Address
+                    ? `https://maps.google.com/?q=${meeting.Address}`
+                    : meeting.URL
+                }
+              >
+                <div className="scheduleList">
+                  <div key={index} className="scheduledItem">
+                    <p className="scheduledNameOnly">{meeting.Name}</p>
+                    <div className="scheduledInfo">
+                      {" "}
+                      <p className="scheduledName UrlAddress">
+                        {meeting.Address || meeting.URL}
+                      </p>
+                      <p className="scheduledName">{meeting.Date}</p>{" "}
+                      <p className="scheduledName">{meeting.Time}</p>
+                      <p className="scheduledName">{meeting.MeetingType}</p>
+                    </div>
+                  </div>{" "}
+                </div>
+              </a>
+            ))}
+          </>
+        ) : (
+          <div className="scheduleList">
+            <p className="scheduledNone">No Meets Scheduled</p>
+          </div>
+        )}
       </div>
-
-
-    </div >
+      <h2 className="scheduledNextConnection"> Find Your Next Connection...</h2>
+      <Navbar />
+    </div>
   );
 };
 

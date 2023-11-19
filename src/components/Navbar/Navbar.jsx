@@ -1,23 +1,64 @@
 import "./Navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import homeicon from "../../assets/icons/navbar/homeicon.svg";
+import chat from "../../assets/icons/navbar/chat.svg";
+import calendar from "../../assets/icons/navbar/calendar.svg";
+import user from "../../assets/icons/navbar/User.svg";
+import logo from "../../assets/logo/Final_logo.svg";
 
 const Navbar = () => {
   return (
     <div className="navbar">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/connections">Connections</Link>
-        </li>
-        <li>
-          <Link to="/calendar">Calendar</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-      </ul>
+      <Link className="logo" to="/home">
+        <img className="logo" src={logo} />
+      </Link>
+      <NavLink
+        to="/home"
+        className={(navData) =>
+          navData.isActive ? "navLinksActive" : "navLinks"
+        }
+      >
+        <div>
+          <Link to="/home">
+            <img className="navIcons" src={homeicon} alt="Home icon" />
+          </Link>
+        </div>
+        <Link to="/home" className="navLink">
+          Home
+        </Link>
+      </NavLink>
+
+      <NavLink
+        to="/connections"
+        className={(navData) =>
+          navData.isActive ? "navLinksActive" : "navLinks"
+        }
+      >
+        <div>
+          <Link to="/connections">
+            <img className="navIcons" src={chat} alt="Chat Icon" />
+          </Link>
+        </div>
+        <Link to="/connections" className="navLink">
+          Connect
+        </Link>
+      </NavLink>
+
+      <NavLink
+        to="/profile"
+        className={(navData) =>
+          navData.isActive ? "navLinksActive" : "navLinks"
+        }
+      >
+        <div>
+          <Link to="/profile">
+            <img className="navIcons" src={user} alt="User Icon" />
+          </Link>
+        </div>
+        <Link to="/profile" className="navLink">
+          Profile
+        </Link>
+      </NavLink>
     </div>
   );
 };

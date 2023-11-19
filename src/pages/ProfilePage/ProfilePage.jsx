@@ -18,7 +18,7 @@ import mentorHand from '../../assets/icons/profile/mentorHand.svg'
 
 
 
-
+import Navbar from "../../components/Navbar/Navbar";
 const ProfilePage = () => {
 
   const [name, setName] = useState('')

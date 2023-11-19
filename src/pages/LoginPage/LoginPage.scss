@@ -1,65 +1,80 @@
+@use "../../styles/partials/mixins" as *;
 .centerForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background: var(--007, #FFF9F4);
-}
 
-@media (max-height: 780px) {
-  .centerForm {
-    height: 120vh;
+  contain: strict;
+  @include tablet {
+    justify-content: center;
   }
 }
-
-// .background {
-//   background: url('../../assets/images/network.png'), lightgray 50% / cover no-repeat;
-//   width: 40.2315rem;
-//   height: 96.82738rem;
-//   transform: rotate(-34.346deg);
-//   flex-shrink: 0;
-// }
-
+.login {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-size: cover;
+  width: 100%;
+  background-image: url("../../assets/background/yellowbackgroundlogin.png");
+  @include desktop {
+    background-image: url("../../assets/background/LoginDesktopBackground.png");
+  }
+}
 .logoMark {
   margin-top: 3rem;
-  height: 4.8rem;
+  height: 8rem;
   z-index: 1;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.coffeeChat{
+.coffeeChat {
   z-index: 1;
 }
 
 .loginH2 {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  font-family: 'Gilroy-bold', sans-serif;
-  font-size: xx-large;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: "Corben-Bold", sans-serif;
+  font-size: 1.3rem;
   z-index: 1;
+  @include desktop {
+    margin-bottom: 2rem;
+  }
 }
 
 .loginForm {
   width: 80%;
   z-index: 1;
+  height: 20%;
+  @include tablet {
+    width: 50%;
+  }
+  @include desktop {
+    width: 25%;
+  }
 }
 
 .inputLogin {
-  background-color: transparent;
   padding: 1rem;
   padding-bottom: 0%;
+  background-color: transparent;
   margin-bottom: 1rem;
   border: none;
   border-bottom: 1px solid black;
   width: 100%;
   position: relative;
-  font-family: 'Gilroy-light', sans-serif;
+  font-family: "Gilroy-light", sans-serif;
   font-weight: 100;
   font-size: x-large;
 }
 
 .checkBoxLoginDiv {
   display: flex;
-  margin-bottom: 5rem;
+
+  @include desktop {
+    margin-bottom: 2rem;
+  }
 }
 
 .checkBoxLogin {
@@ -67,22 +82,31 @@
 }
 
 .loginBtn {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0rem;
   background-color: black;
   border-radius: 20px;
-  width: 9rem;
+  width: 45vw;
   color: white;
-  font-family: 'Gilroy-light', sans-serif;
+  font-family: "Gilroy-light", sans-serif;
   font-weight: 100;
   font-size: x-large;
   padding: 0.5rem;
   text-align: -webkit-center;
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include tablet {
+    width: 25vw;
+  }
+  @include desktop {
+    width: 25vw;
+  }
 }
 
 .continueWith {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 0.6rem;
   font-size: medium;
   z-index: 1;
@@ -93,6 +117,16 @@
   display: flex;
   width: 100%;
   z-index: 1;
+  @include tablet {
+    justify-content: center;
+    display: flex;
+    gap: 5%;
+  }
+  @include desktop {
+    justify-content: center;
+    display: flex;
+    gap: 5%;
+  }
 }
 
 .linkSvg {
@@ -103,23 +137,6 @@
 
 .linkText {
   // border: solid green;
-  
-}
-
-.pinkBlob {
-  background: url('../../assets/background/pink.png');
-  position: absolute;
-  top: -2rem;
-  height: 13rem;
-  width:-webkit-fill-available;
-}
-
-.pinkBlob2 {
-  background: url('../../assets/background/pink2.png');
-  position: absolute;
-  bottom: 5rem;
-  height: 35rem;
-  width:-webkit-fill-available;
 }
 
 @media (max-height: 780px) {
@@ -127,4 +144,7 @@
     position: absolute;
     bottom: -5rem;
   }
+}
+.loginTitle {
+  margin-bottom: 3%;
 }
