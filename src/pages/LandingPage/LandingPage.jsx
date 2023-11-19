@@ -5,17 +5,19 @@ import Features from "../../components/Landing/Features/Features";
 import Partners from "../../components/Landing/Partners/Partners";
 import Testimonials from "../../components/Landing/Testimonials/Testimonials";
 import Newsletter from "../../components/Landing/Newsletter/Newsletter";
+import Footer from "../../components/Landing/Footer/Footer";
 
 const LandingPage = () => {
   return (
       <>
       <Header />
       <Hero />
-      <About />
+      <About id="About"/>
       <Partners />
-      <Features />
+      <Features id="FAQs"/>
       <Testimonials />
       <Newsletter />
+      <Footer />
       </>
   );
 };
