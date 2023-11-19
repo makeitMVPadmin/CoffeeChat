@@ -10,6 +10,7 @@ import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
+import ConnectionsNext from "./pages/ConnectionsNext/ConnectionsNext";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import SchedulingPage from "./pages/SchedulingPage/SchedulingPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -101,6 +102,7 @@ function App() {
             path="/connections"
             element={<ConnectionsPage people={connectionsData} />}
           />
+          <Route path="/connections-next" element={<ConnectionsNext />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route
             path="/chat/:id"
