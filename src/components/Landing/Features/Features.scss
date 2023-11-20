@@ -4,13 +4,14 @@
 
 .features {
   width: 100%;
-  height: 100%;
+ height: auto;
+ padding-bottom: 1.5rem;
 
   @include desktop {
-    max-width: 80rem;
-    height: auto;
-    margin: auto;
-  }
+      max-width: 80rem;
+      margin: auto;
+      padding-bottom: 2rem;
+    }
 
   &__box {
     background-color: $mvp-light-blue;
