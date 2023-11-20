@@ -1,9 +1,352 @@
-@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
-.scheduling {
+.schedule {
+    position: relative;
+    padding: 1rem;
+    font-family: "Gilroy-ExtraBold";
+    background-color: $mvp-cream;
+    min-height: 100vh;
 
-    &__button{
-        background-color: #007bff;
-        color: #fff;
+    &__bg-shape {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40rem;
+    }
+
+    &__container {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        padding-bottom: 1rem;
+
+        &-backarrow {
+            cursor: pointer;
+        }
+
+        &-title {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__calendar {
+        border-radius: 13px;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        &--align {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__subheading {
+        font-size: 1.3rem;
+        padding: 1rem 0;
+    }
+
+    &__time {
+        &-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+        }
+
+        &-button {
+            @include mobile-calendar-buttons;
+            border: $mvp-lighter-blue 2px solid;
+            font-family: "Gilroy-ExtraBold";
+            width: 30%;
+            min-width: 6rem;
+
+            &--active {
+                @include mobile-calendar-buttons;
+                background-color: $mvp-lighter-blue;
+                font-family: "Gilroy-ExtraBold";
+                width: 30%;
+                min-width: 6rem;
+            }
+        }
+    }
+
+    &__type {
+        &-buttons {
+            display: flex;
+            justify-content: space-around;
+            padding-bottom: 1rem;
+        }
+
+        &-button {
+            @include mobile-calendar-buttons;
+            border: $mvp-yellow 2px solid;
+            font-family: "Gilroy-ExtraBold";
+            width: 35%;
+            min-width: 8rem;
+
+            &--active {
+                @include mobile-calendar-buttons;
+                background-color: $mvp-yellow;
+                font-family: "Gilroy-ExtraBold";
+                width: 35%;
+                min-width: 8rem;
+            }
+        }
+    }
+
+    &__location {
+        padding-bottom: 1rem;
+
+        &-heading {
+            display: flex;
+            align-items: center;
+            padding-bottom: 1rem;
+
+            &-icon {
+                width: 2rem;
+                margin-right: 1rem;
+            }
+
+            &-subtitle {
+                font-size: 1.3rem;
+            }
+        }
+
+        &-input {
+            font-family: "Gilroy-Light";
+            resize: none;
+            border: $mvp-red solid 2px;
+            width: 100%;
+            min-height: 4rem;
+            border-radius: 18px;
+            padding: 0.75rem;
+        }
+    }
+
+    &__book {
+        display: flex;
+        justify-content: center;
+
+        &-button {
+            border: none;
+            border-radius: 50px;
+            padding: 0.75rem;
+            font-family: "Gilroy-ExtraBold";
+            font-size: 1.2rem;
+            background-color: $mvp-dark-blue;
+            color: $mvp-white;
+            width: 50%;
+
+            &:active {
+                background-color: #074a9c;
+            }
+        }
+    }
+
+    &-modal {
+        display: flex;
+        padding: 1rem;
+        background-color: $mvp-cream;
+        min-height: 100vh;
+
+        &-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            max-height: 60vh;
+
+            &__icon {
+                width: 6rem;
+            }
+
+            &__confirm-msg {
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            &__button {
+                border: none;
+                border-radius: 50px;
+                padding: 0.75rem;
+                font-family: "Gilroy-ExtraBold";
+                font-size: 1.2rem;
+                background-color: $mvp-dark-blue;
+                color: $mvp-white;
+                width: 50%;
+    
+                &:active {
+                    background-color: #074a9c;
+                }
+            }
+        }
     }
 }
+
+.react-calendar {
+    width: 25rem;
+    max-width: 100%;
+    background: white;
+    border: 1px solid $mvp-lighter-blue;
+    font-family: "Gilroy-Light";
+    line-height: 1.125em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 10%);
+}
+
+.react-calendar--doubleView {
+    width: 700px;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+}
+
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+    width: 50%;
+    margin: 0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+}
+
+.react-calendar button:enabled:hover {
+    cursor: pointer;
+}
+
+.react-calendar__navigation {
+    padding: 0 1rem;
+    display: flex;
+    height: 2rem;
+    margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+    font-family: "Gilroy-ExtraBold";
+    padding: 0.5rem 1rem;
+    min-width: 1rem;
+    background: none;
+}
+
+.react-calendar__navigation button:disabled {
+    background-color: #f0f0f0;
+}
+
+// .react-calendar__navigation button:enabled:hover,
+// .react-calendar__navigation button:enabled:focus {
+//     background-color: #e6e6e6;
+// }
+
+.react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font: inherit;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    color: grey;
+    padding: 0.5em;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: $mvp-black;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+    color: #757575;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+    max-width: 100%;
+    padding: 10px 6.6667px;
+    background: none;
+    text-align: center;
+    line-height: 16px;
+    font: inherit;
+    font-size: 0.833em;
+}
+
+.react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background: $mvp-lighter-blue-hover;
+    border-radius: 5px;
+}
+
+.react-calendar__tile--now {
+    background: $mvp-cream;
+    border-radius: 5px;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+    background: $mvp-lighter-blue-hover;
+}
+
+.react-calendar__tile--hasActive {
+    background: #76baff;
+    border-radius: 5px;
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+    background: $mvp-lighter-blue;
+    border-radius: 5px;
+}
+
+.react-calendar__tile--active {
+    background: $mvp-lighter-blue;
+    border-radius: 5px;
+    color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background: $mvp-lighter-blue;
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #e6e6e6;
+}
+
+// .confirmation-modal {
+//     padding: 2rem;
+// }
