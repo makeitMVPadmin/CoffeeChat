@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { getCurrentUserId } from "../../utils";
+import { doc, addDoc, collection } from "firebase/firestore";
 import "./SchedulingPage.scss";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
@@ -58,24 +59,56 @@ const SchedulingPage = ({ people, db }) => {
             }
 
             try {
-                // Add the booking data to a Firestore collection
-                await addDoc(collection(db, "bookings"), bookingData);
+                //Creates instance of current user to update their collections and add the meeting
+                const userId = await getCurrentUserId();
+
+                // Reference to the user's document in Firestore
+                const userDocRef = doc(db, "Users", userId);
+
+                // Add the booking data to a subcollection named "bookings"
+                const bookingsCollectionRef = collection(
+                    userDocRef,
+                    "Meetings"
+                );
+
+                // Add the booking data to the "bookings" subcollection
+                await addDoc(bookingsCollectionRef, bookingData);
+
                 console.log("Booking saved to Firestore");
 
                 const confirmationMessage = (
-                  <div className="schedule-modal-container">
+                    <div className="schedule-modal-container">
                         {/* TODO: Add logged in user's name & meeting type */}
-                      <img className="schedule-modal-container__icon " src={confirmCalendar} />
+                        <img
+                            className="schedule-modal-container__icon "
+                            src={confirmCalendar}
+                        />
                         <p className="schedule-modal-container__confirm-msg">
-                            Your {selectedMeetingType} meeting with {person.name} at {meetingLocation} has been confirmed.
+                            Your {selectedMeetingType} meeting with{" "}
+                            {person.name} at {meetingLocation} has been
+                            confirmed.
                         </p>
                         <h3 className="schedule-modal-container__time">
-                          {selectedDate && selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
-                          </h3>
-                        <h3 className="schedule-modal-container__time">{`at ${selectedTime && selectedTime.toString()}`}</h3>
+                            {selectedDate &&
+                                selectedDate.toLocaleDateString("en-US", {
+                                    weekday: "long",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                        </h3>
+                        <h3 className="schedule-modal-container__time">{`at ${
+                            selectedTime && selectedTime.toString()
+                        }`}</h3>
 
-                        <p className="schedule-modal-container__confirm-msg">Get ready to brew some great connections!</p>
-                        <button className="schedule-modal-container__button" onClick={closeModal}>Close</button>
+                        <p className="schedule-modal-container__confirm-msg">
+                            Get ready to brew some great connections!
+                        </p>
+                        <button
+                            className="schedule-modal-container__button"
+                            onClick={closeModal}
+                        >
+                            Close
+                        </button>
                     </div>
                 );
 
@@ -114,6 +147,7 @@ const SchedulingPage = ({ people, db }) => {
     const closeModal = () => {
         setModalOpen(false);
         setModalContent(null);
+        // navigate("/home");
     };
 
     return (
@@ -239,10 +273,10 @@ const SchedulingPage = ({ people, db }) => {
                 contentLabel="Confirmation Modal"
                 className="schedule-modal"
                 style={{
-                  overlay: {
-                      zIndex: 1000, // Sets the Modal infront of page
-                  }
-              }}
+                    overlay: {
+                        zIndex: 1000, // Sets the Modal infront of page
+                    },
+                }}
             >
                 {modalContent}
             </Modal>
