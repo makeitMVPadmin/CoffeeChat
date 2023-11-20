@@ -47,7 +47,8 @@ const SchedulingPage = ({ people, db }) => {
         } else {
             // Define the data to be saved in Firestore
             const bookingData = {
-                Date: selectedDate,
+                Name: person.name,
+                Date: selectedDate.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' }),
                 Time: selectedTime,
                 MeetingType: selectedMeetingType,
             };
@@ -82,6 +83,7 @@ const SchedulingPage = ({ people, db }) => {
                         <img
                             className="schedule-modal-container__icon "
                             src={confirmCalendar}
+                            alt="Calendar Confirmation Icon"
                         />
                         <p className="schedule-modal-container__confirm-msg">
                             Your {selectedMeetingType} meeting with{" "}
@@ -96,9 +98,8 @@ const SchedulingPage = ({ people, db }) => {
                                     day: "numeric",
                                 })}
                         </h3>
-                        <h3 className="schedule-modal-container__time">{`at ${
-                            selectedTime && selectedTime.toString()
-                        }`}</h3>
+                        <h3 className="schedule-modal-container__time">{`at ${selectedTime && selectedTime.toString()
+                            }`}</h3>
 
                         <p className="schedule-modal-container__confirm-msg">
                             Get ready to brew some great connections!

@@ -80,6 +80,7 @@ const HomePage = () => {
             src={userInfo.profilePhoto || userPhoto}
             className="accountBtn"
             referrerpolicy="no-referrer"
+            alt="profile avatar"
           ></img>
         </Link>
       </div>
@@ -105,11 +106,11 @@ const HomePage = () => {
                       <p className="scheduledName UrlAddress">
                         {meeting.Address || meeting.URL}
                       </p>
-                      <p className="scheduledName">{meeting.Date}</p>{" "}
+                      <p className="scheduledName">{meeting.Date}</p>
                       <p className="scheduledName">{meeting.Time}</p>
                       <p className="scheduledName">{meeting.MeetingType}</p>
                     </div>
-                  </div>{" "}
+                  </div>
                 </div>
               </a>
             ))}
