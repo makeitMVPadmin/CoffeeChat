@@ -21,7 +21,7 @@ export const EditProfile = () => {
     const [field, setField] = useState('')
     const [skills, setSkills] = useState([])
     const [bio, setBio] = useState('')
-    const [ProfileImg, setProfileImg] = useState('')
+    const [ProfileImg, setProfileImg] = useState(null)
     const Navigate = useNavigate()
     const auth = getAuth(app)
 
@@ -35,13 +35,13 @@ export const EditProfile = () => {
                     getDoc(userRef)
                         .then((doc) => {
                             console.log('doc', doc.data())
-                            // setName(doc.data().FullName)
-                            // setEmail(doc.data().Email)
-                            // setCity(doc.data().City)
-                            // setState(doc.data().State)
-                            // setPhoneNumber(doc.data().PhoneNumber)
-                            // setField(doc.data().Field)
-                            // setBio(doc.data().Bio)
+                            setName(doc.data().FullName)
+                            setEmail(doc.data().Email)
+                            setCity(doc.data().City)
+                            setState(doc.data().State)
+                            setPhoneNumber(doc.data().PhoneNumber)
+                            setField(doc.data().Field)
+                            setBio(doc.data().Bio)
                             // setProfileImg(doc.data().ProfileImg)
                         })
 
@@ -72,11 +72,11 @@ export const EditProfile = () => {
                     PhoneNumber: phoneNumber,
                     Field: field,
                     Bio: bio,
-                    ProfileImg: ProfileImg,
+                    // ProfileImg: ProfileImg,
                 })
 
                     .then(() => {
-                        Navigate('/')
+                        Navigate('/profile')
                     })
 
             }
