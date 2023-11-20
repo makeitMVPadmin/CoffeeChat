@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
-import coffeechatLogo from "../../../assets/logo/logo.png";
+import coffeechatLogo from "../../../assets/logo/FinalLogo.png";
 import searchIcon from "../../../assets/icons/landing/search.png";
 
 const Header = () => {
@@ -61,9 +61,7 @@ const Header = () => {
                 <li className="header__navlist--item">{link.text}</li>
               </Link>
             ))}
-            <li className="header__navlist--search">
               <img src={searchIcon} alt="search icon" />
-            </li>
           </div>
         </ul>
 
@@ -78,9 +76,7 @@ const Header = () => {
                 <li className="header__navlist--item">{link.text}</li>
               </Link>
             ))} 
-            <li className="header__navlist--search">
-              <img src={searchIcon} alt="search icon" />
-            </li>
+              <img className="header__navlist--search" src={searchIcon} alt="search icon" />
           </div>
         </ul>
         </nav>
