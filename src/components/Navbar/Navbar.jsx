@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import homeicon from "../../assets/icons/navbar/homeicon.svg";
 import chat from "../../assets/icons/navbar/chat.svg";
 import calendar from "../../assets/icons/navbar/calendar.svg";
-import user from "../../assets/icons/navbar/User.svg";
+import user from "../../assets/icons/navbar/user.svg";
 import logo from "../../assets/logo/Final_logo.svg";
 
 const Navbar = () => {
