@@ -147,7 +147,7 @@ const SchedulingPage = ({ people, db }) => {
     const closeModal = () => {
         setModalOpen(false);
         setModalContent(null);
-        // navigate("/home");
+        navigate("/home");
     };
 
     return (
