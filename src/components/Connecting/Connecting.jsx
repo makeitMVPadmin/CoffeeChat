@@ -5,6 +5,7 @@ import guy from "../../assets/images/YellowGuyAnimation.png";
 import girl from "../../assets/images/PinkGirlAnimation.png";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
+import backArrow from "../../assets/icons/wayfinding/Arrow left.svg"
 
 const Connecting = ({
   handleClearFilters,
@@ -17,14 +18,15 @@ const Connecting = ({
     <>
       <div className="connections__container">
         <div className="connections__top">
+          <img className="connections__back-arrow" src={backArrow} alt='Back arrow'/>
           <h3 className="connections--blue">
             Let's get you
             <span className="connections--red"> connected!</span>
           </h3>
-          <div className="connections__image">
+          {/* <div className="connections__image">
             <img className="connections__image-img-1" src={girl} alt="" />
             <img className="connections__image-img-2" src={guy} alt="" />
-          </div>
+          </div> */} {/* This should be for a loading screen */}
         </div>
         <div className="connections__cont-box">
           <div className="connections__box">
