@@ -19,7 +19,8 @@
   &__top {
     display: flex;
     width: 100%;
-    height: 40%;
+    // height: 40%;
+    height: 23%;
     flex-direction: column;
     // align-items: center;
     // justify-content: flex-start;
@@ -190,8 +191,10 @@
     }
   }
   &__box {
-    padding: 20px;
-    height: 76%;
+    // padding: 20px;
+    padding: 0 20px 20px;
+    // height: 76%;
+    height: 95%;
 
     border-radius: 15px;
     color: grey; /* Set your desired text color */
@@ -216,7 +219,8 @@
   }
   &__titles {
     color: $mvp-red;
-    font-size: 0.8rem;
+    // font-size: 0.8rem;
+    font-size: 1.4rem;
     margin: 0.3rem 0rem;
     @include tablet {
       font-size: 1.5rem;
