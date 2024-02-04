@@ -158,7 +158,7 @@ const Connecting = ({
 
             <div className="connections__filters">
               {" "}
-              <p className="connections__titles">Experience</p>
+              <p className="connections__titles">Experience (years)</p>
               <div className="connections__options">
                 <p
                   className={`connections__option-4 ${
