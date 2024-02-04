@@ -98,7 +98,6 @@ function App() {
           />
           <Route path="/connections-next" element={<ConnectionsNext />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/EditProfile" element={<EditProfile/>}/>
           <Route
             path="/chat/:id"
             element={<Chat people={connectionsData} db={db} />}
