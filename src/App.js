@@ -2,9 +2,8 @@ import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import { SignUp } from "./pages/SignUp/SignUp";
-import { EditProfile } from "./pages/EditProfile/EditProfile";
+// import LoginPage from "./pages/LoginPage/LoginPage";
+// import { SignUp } from "./pages/SignUp/SignUp";
 import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
@@ -75,28 +74,22 @@ function App() {
   const auth = getAuth();
 
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-      setLoading(false);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+  const [loading, setLoading] = useState(false);
+  
+
   if (loading) {
     return null;
   }
+
+  
   return (
     <Routes>
       <Route path="/" element={<Navigate replace to="/onboarding" />} />
       <Route path="/onboarding" element={<WelcomePage />} />
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignUp />} />
-      {user ? (
-        <>
+
+      {/* {user ? (
+        <> */}
           <Route path="/home" element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route
@@ -114,10 +107,10 @@ function App() {
             path="/scheduling/:id"
             element={<SchedulingPage people={connectionsData} db={db} />}
           />
-        </>
+        {/* </>
       ) : (
         <Route path="*" element={<Navigate to="/login" />} />
-      )}
+      )} */}
       <Route path="/landing-page" element={<LandingPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
