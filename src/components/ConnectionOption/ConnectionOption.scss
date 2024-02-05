@@ -5,17 +5,35 @@
 .connect {
   &__container {
     display: flex;
-    flex-wrap: wrap;
-    //flex-direction: column;
-    //justify-content: center;
-    //align-items: center;
-    margin: 3rem;
+    // flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    // width: 100%;
+    width: 90%;
+    // margin: 3rem;
+    margin: 2.5rem 1rem;
     @include desktop {
       margin-top: 8rem;
     }
   }
 
+  &__back-arrow {
+    display: flex;
+  }
+
   &__header {
+    margin-top: -1.563rem;
+    margin-bottom: 0.938rem;
+  }
+
+  &__profile-pic {
+    background-color: #d3d3d3;
+    border-radius: 100%;
+    height: 9.25rem;
+    width: 9.25rem;
+  }
+
+  &__profile-name {
     padding-left: 1rem;
   }
 
@@ -37,7 +55,8 @@
   }
   &__outer-box {
     height: 70%;
-    padding: 10px 30px; // top right bottom left
+    width: 100%;
+    // padding: 10px 30px; // top right bottom left
     border-radius: 20px;
     border: solid;
     border-color: grey;
@@ -83,17 +102,5 @@
       padding-top: 1rem;
     }
   }
-
-  //   &--blue {
-  //     color: $mvp-dark-blue;
-  //   }
-
-  //   &--red {
-  //     color: $mvp-red;
-  //   }
-
-  //   &__image img {
-  //     max-width: 90%;
-  //     padding: 2rem;
-  //   }
 }
+
