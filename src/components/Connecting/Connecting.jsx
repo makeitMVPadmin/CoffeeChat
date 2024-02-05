@@ -18,7 +18,7 @@ const Connecting = ({
     <>
       <div className="connections__container">
         <div className="connections__top">
-          <Link to="/home" relative="path" className="connections__back-arrow">
+          <Link to="/home" relative="path" className="connections__back-arrow"> {/* This triggers an app crash, needs troubleshooting */}
             <FaArrowLeft size={35}/>
           </Link>
           <h3 className="connections--blue">
