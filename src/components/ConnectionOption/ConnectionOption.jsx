@@ -11,10 +11,14 @@ import githubLogo from '../../assets/icons/connection/github logo.svg';
 import linkedinLogo from '../../assets/icons/connection/linkedin logo.svg';
 import profilePicture from '../../assets/icons/connection/Teacher.svg';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const ConnectionOption = () => {
   return (
     <div className='connect__container'>
+      <Link to="/home" relative="path" className="connect__back-arrow"> {/* This triggers an app crash, needs troubleshooting */}
+          <FaArrowLeftLong size={35}/>
+      </Link>
       <div className='connect__row'>
         <img src={profilePicture} alt='Connection Profile' />
       </div>
