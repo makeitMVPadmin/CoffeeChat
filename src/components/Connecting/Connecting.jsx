@@ -189,14 +189,15 @@ const Connecting = ({
           </div>
           <div className="connections__button-container">
             <button className="connections__button" onClick={handleNextPage}>
-              Next
+              {/* Next */}
+              Connect Me
             </button>
-            <button
+            {/* <button
               className="connections__button"
               onClick={handleClearFilters}
             >
               Clear Filters
-            </button>
+            </button> */}
           </div>
         </div>
         {/* <ul>
