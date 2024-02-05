@@ -78,10 +78,13 @@
     margin-left: 50%;
   }
   &__button {
-    width: 40%;
+    // width: 40%;
+    width: 50%;
     color: white;
     background-color: black;
-    font-size: 0.8rem;
+    // font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: 700;
     padding: 0.6rem 0.4rem;
     margin: 1rem 0.5rem;
     border-radius: 50px;
@@ -229,7 +232,8 @@
     padding: 0.3rem 0.4rem;
     border-radius: 50px;
     color: black;
-    font-size: 0.6rem;
+    // font-size: 0.6rem;
+    font-size: 0.7rem;
     @include tablet {
       font-size: 1.1rem;
     }
@@ -239,7 +243,8 @@
     padding: 0.3rem 0.4rem;
     border-radius: 50px;
     color: black;
-    font-size: 0.6rem;
+    // font-size: 0.6rem;
+    font-size: 0.7rem;
     display: flex;
     align-items: center;
     @include tablet {
@@ -251,7 +256,8 @@
     border-radius: 50px;
     color: black;
     background: rgba(255, 112, 112, 0.5);
-    font-size: 0.6rem;
+    // font-size: 0.6rem;
+    font-size: 0.7rem;
     display: flex;
     align-items: center;
     @include tablet {
@@ -265,7 +271,8 @@
     background: rgba(255, 210, 47, 0.5);
     display: flex;
     align-items: center;
-    font-size: 0.6rem;
+    // font-size: 0.6rem;
+    font-size: 0.7rem;
     @include tablet {
       font-size: 1.1rem;
     }
