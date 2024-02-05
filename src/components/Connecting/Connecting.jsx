@@ -5,7 +5,7 @@ import guy from "../../assets/images/YellowGuyAnimation.png";
 import girl from "../../assets/images/PinkGirlAnimation.png";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
-import backArrow from "../../assets/icons/wayfinding/Arrow left.svg"
+import { FaArrowLeft } from "react-icons/fa6";
 
 const Connecting = ({
   handleClearFilters,
@@ -18,7 +18,7 @@ const Connecting = ({
     <>
       <div className="connections__container">
         <div className="connections__top">
-          <img className="connections__back-arrow" src={backArrow} alt='Back arrow'/>
+          <FaArrowLeft size={35}/>
           <h3 className="connections--blue">
             Let's get you
             <span className="connections--red"> connected!</span>
