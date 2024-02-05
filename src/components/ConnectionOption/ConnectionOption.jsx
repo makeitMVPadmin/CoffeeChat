@@ -19,12 +19,13 @@ const ConnectionOption = () => {
       <Link to="/home" relative="path" className="connect__back-arrow"> {/* This triggers an app crash, needs troubleshooting */}
           <FaArrowLeftLong size={35}/>
       </Link>
+      <h2 className='connect__header'>Connections</h2>
       <div className='connect__row'>
-        <img src={profilePicture} alt='Connection Profile' />
+        <img className='connect__profile-pic' src={profilePicture} alt='Connection Profile' />
       </div>
 
       <div className='connect__row'>
-        <h3 className='connect__header'>Raj Dev</h3>
+        <h3 className='connect__profile-name'>Raj Dev</h3>
       </div>
 
       <div className='connect__row'>
@@ -100,7 +101,7 @@ const ConnectionOption = () => {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
 
-          <div className='connect__button--container'>
+          {/* <div className='connect__button--container'>
             <div className='connect__button--row'>
               <Link to='/scheduling/1'>
                 <div className='connect__button'>
@@ -113,7 +114,7 @@ const ConnectionOption = () => {
                 </div>
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <Navbar />
