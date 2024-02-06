@@ -72,6 +72,8 @@
     border-radius: 20px;
     border: solid;
     border-color: grey;
+    display: flex;
+    flex-direction: column;
 
     &__inner-box {
       height: 70%;
@@ -95,6 +97,10 @@
           background-color: $mvp-light-blue;
           border-radius: 2rem;
         }
+      }
+
+      &__bio {
+        text-align: left;
       }
     }
   }
