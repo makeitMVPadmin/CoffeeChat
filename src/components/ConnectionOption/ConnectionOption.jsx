@@ -36,7 +36,7 @@ const ConnectionOption = () => {
           <p>Portland, OR</p>
         </div>
         <div className='connect__column'>
-          <img src={reviews} alt='Reviews icon' />
+          <img className='connect__reviews-icon' src={reviews} alt='Reviews icon' />
         </div>
       </div>
 
@@ -46,7 +46,7 @@ const ConnectionOption = () => {
             <div className='connect__image'>
               <img src={bag} alt='Job Icon' />
             </div>
-            <p>Software Engineer</p>
+            <p className='connect__info'>Software Engineer</p>
           </div>
           <div className='connect__column'>
             <a href='https://www.linkedin.com'>
@@ -60,7 +60,7 @@ const ConnectionOption = () => {
             <div className='connect__image'>
               <img src={cv} alt='Experience Icon' />
             </div>
-            <p>Mid Level - 2 years</p>
+            <p className='connect__info'>Mid Level - 2 years</p>
           </div>
           <div className='connect__column'>
             <a href='https://www.github.com'>
@@ -74,7 +74,7 @@ const ConnectionOption = () => {
             <div className='connect__image'>
               <img src={mentor} alt='Sessions Icon' />
             </div>
-            <p>20 Mentored Sessions</p>
+            <p className='connect__info'>20 Mentored Sessions</p>
           </div>
         </div>
 
