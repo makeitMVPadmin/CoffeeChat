@@ -40,7 +40,7 @@
     font-size: 2rem;
   }
 
-  &__image img {
+  &__location-image {
     padding: 0rem 0.7rem;
   }
 
@@ -74,33 +74,48 @@
     border-color: grey;
     display: flex;
     flex-direction: column;
+    text-align: left;
 
     &__inner-box {
       height: 70%;
-      padding: 10px 30px 10px 30px;
+      // padding: 10px 30px 10px 30px;
+      padding: 15px;
       border-radius: 20px;
       color: grey; /* Set your desired text color */
-      border: solid;
-      border-color: grey;
+      // border: solid;
+      // border-color: grey;
 
       &__header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 0.5rem;
-        padding: 0.5rem 1rem;
         color: $mvp-black;
-
-        &__skill {
-          padding: 0.5rem 1rem;
-          margin-left: 1rem;
-          background-color: $mvp-light-blue;
-          border-radius: 2rem;
-        }
+        margin-bottom: 0.3rem;
       }
 
       &__bio {
-        text-align: left;
+        line-height: 1.5rem;
+      }
+
+      &__expertise {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // margin-bottom: 0.5rem;
+        margin-left: -50px;
+        padding: 0.5rem 1rem;
+        color: $mvp-black;
+        font-size: small;
+
+        &__header {
+          margin-right: 25px;
+        }
+
+        &__skill {
+          // padding: 0.5rem 1rem;
+          padding: 0.2rem 0.5rem;
+          // margin-left: 1rem;
+          margin-left: 0.5rem;
+          background-color: $mvp-light-blue;
+          border-radius: 2rem;
+        }
       }
     }
   }
