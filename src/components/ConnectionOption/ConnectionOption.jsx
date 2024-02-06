@@ -30,7 +30,7 @@ const ConnectionOption = () => {
 
       <div className='connect__row'>
         <div className='connect__column'>
-          <div className='connect__image'>
+          <div className='connect__location-image'>
             <img src={placemarker} alt='Location Icon' />
           </div>
           <p>Portland, OR</p>
@@ -41,80 +41,60 @@ const ConnectionOption = () => {
       </div>
 
       <div className='connect__outer-box'>
-        <div className='connect__row'>
-          <div className='connect__column'>
-            <div className='connect__image'>
-              <img src={bag} alt='Job Icon' />
-            </div>
-            <p className='connect__info'>Software Engineer</p>
-          </div>
-          <div className='connect__column'>
-            <a href='https://www.linkedin.com'>
-              <img src={linkedinLogo} alt='LinkedIn Logo' />
-            </a>
-          </div>
-        </div>
-
-        <div className='connect__row'>
-          <div className='connect__column'>
-            <div className='connect__image'>
-              <img src={cv} alt='Experience Icon' />
-            </div>
-            <p className='connect__info'>Mid Level - 2 years</p>
-          </div>
-          <div className='connect__column'>
-            <a href='https://www.github.com'>
-              <img src={githubLogo} alt='GitHub' />
-            </a>
-          </div>
-        </div>
-
-        <div className='connect__row'>
-          <div className='connect__column'>
-            <div className='connect__image'>
-              <img src={mentor} alt='Sessions Icon' />
-            </div>
-            <p className='connect__info'>20 Mentored Sessions</p>
-          </div>
-        </div>
-
         <div className='connect__outer-box__inner-box'>
-          <p className='connect__outer-box__inner-box__header'>
-            EXPERTISE{' '}
-            <span className='connect__outer-box__inner-box__header__skill'>
-              Java
-            </span>{' '}
-            <span className='connect__outer-box__inner-box__header__skill'>
-              C++
-            </span>{' '}
-            <span className='connect__outer-box__inner-box__header__skill'>
-              HTML5
-            </span>
-          </p>
-          <p>
+          <h4 className='connect__outer-box__inner-box__header'>About Me</h4>
+          <p className='connect__outer-box__inner-box__bio'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            aliquip ex ea commodo consequat.
           </p>
-
-          {/* <div className='connect__button--container'>
-            <div className='connect__button--row'>
-              <Link to='/scheduling/1'>
-                <div className='connect__button'>
-                  <p>
-                    Connect{' '}
-                    <span>
-                      <FaArrowRightLong />
-                    </span>{' '}
-                  </p>
-                </div>
-              </Link>
+          <div className='connect__outer-box__inner-box__expertise'>
+            <p className='connect__outer-box__inner-box__expertise__header' >EXPERTISE</p>
+            <div className='connect__outer-box__inner-box__expertise__skill'>
+              <p>Java</p>
             </div>
-          </div> */}
+            <div className='connect__outer-box__inner-box__expertise__skill'>
+              <p>C++</p>
+            </div>
+            <div className='connect__outer-box__inner-box__expertise__skill'>
+              <p>HTML5</p>
+            </div>
+          </div>
+          <div className='connect__row'>
+            <div className='connect__column'>
+              <div className='connect__image'>
+                <img src={bag} alt='Job Icon' />
+              </div>
+              <p className='connect__info'>Software Engineer</p>
+            </div>
+            <div className='connect__column'>
+              <a href='https://www.linkedin.com'>
+                <img src={linkedinLogo} alt='LinkedIn Logo' />
+              </a>
+            </div>
+          </div>
+          <div className='connect__row'>
+            <div className='connect__column'>
+              <div className='connect__image'>
+                <img src={cv} alt='Experience Icon' />
+              </div>
+              <p className='connect__info'>Mid Level - 2 years</p>
+            </div>
+            <div className='connect__column'>
+              <a href='https://www.github.com'>
+                <img src={githubLogo} alt='GitHub' />
+              </a>
+            </div>
+          </div>
+          <div className='connect__row'>
+            <div className='connect__column'>
+              <div className='connect__image'>
+                <img src={mentor} alt='Sessions Icon' />
+              </div>
+              <p className='connect__info'>20 Mentored Sessions</p>
+            </div>
+          </div>
         </div>
       </div>
       <Navbar />
