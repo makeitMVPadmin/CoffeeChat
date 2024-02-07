@@ -92,20 +92,23 @@
 
       &__bio {
         line-height: 1.5rem;
+        margin-bottom: 0.3rem;
       }
 
       &__expertise {
         display: flex;
-        justify-content: center;
+        // justify-content: center;
         align-items: center;
         // margin-bottom: 0.5rem;
-        margin-left: -50px;
+        margin-left: -1rem;
         padding: 0.5rem 1rem;
+        margin-bottom: 0.3rem;
         color: $mvp-black;
         font-size: small;
 
         &__header {
-          margin-right: 25px;
+          margin-right: 1rem;
+
         }
 
         &__skill {
@@ -118,6 +121,15 @@
         }
       }
     }
+  }
+
+  &__image {
+    margin-right: 0.5rem;
+    margin-left: -0.5rem;
+  }
+
+  &__logo {
+    margin-left: 6.5rem;
   }
 
   &__button {
