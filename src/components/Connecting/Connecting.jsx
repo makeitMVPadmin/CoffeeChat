@@ -28,7 +28,7 @@ const Connecting = ({
           {/* <div className="connections__image">
             <img className="connections__image-img-1" src={girl} alt="" />
             <img className="connections__image-img-2" src={guy} alt="" />
-          </div> */} {/* This should be for a loading screen */}
+          </div> */} {/* This should be used for a loading screen component */}
         </div>
         <div className="connections__cont-box">
           <div className="connections__box">
