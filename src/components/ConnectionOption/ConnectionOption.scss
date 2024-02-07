@@ -133,7 +133,7 @@
   }
 
   &__button {
-    margin: 1rem;
+    // margin: 1rem;
     background-color: $mvp-black;
     color: white;
     border-radius: 1.5rem;
@@ -141,10 +141,11 @@
     &--row {
       display: flex;
       flex-direction: row;
-      justify-content: right;
+      justify-content: space-evenly;
     }
     &--container {
-      padding-top: 1rem;
+      // padding-top: 1rem;
+      padding-top: 0.5rem;
     }
   }
 }
