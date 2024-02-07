@@ -70,7 +70,7 @@ const ConnectionOption = () => {
             </div>
             <div className='connect__column'>
               <a href='https://www.linkedin.com'>
-                <img src={linkedinLogo} alt='LinkedIn Logo' />
+                <img className='connect__logo' src={linkedinLogo} alt='LinkedIn Logo' />
               </a>
             </div>
           </div>
@@ -83,7 +83,7 @@ const ConnectionOption = () => {
             </div>
             <div className='connect__column'>
               <a href='https://www.github.com'>
-                <img src={githubLogo} alt='GitHub' />
+                <img className='connect__logo' src={githubLogo} alt='GitHub' />
               </a>
             </div>
           </div>
