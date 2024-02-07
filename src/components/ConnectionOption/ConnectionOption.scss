@@ -138,14 +138,19 @@
     color: white;
     border-radius: 1.5rem;
     padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
     &--row {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: space-around;
     }
     &--container {
       // padding-top: 1rem;
       padding-top: 0.5rem;
+    }
+    &__text {
+      margin-right: 0.5rem;
     }
   }
 }
