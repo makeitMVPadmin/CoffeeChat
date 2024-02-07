@@ -23,11 +23,9 @@ const ConnectionOption = () => {
       <div className='connect__row'>
         <img className='connect__profile-pic' src={profilePicture} alt='Connection Profile' />
       </div>
-
       <div className='connect__row'>
         <h3 className='connect__profile-name'>Raj Dev</h3>
       </div>
-
       <div className='connect__row'>
         <div className='connect__column'>
           <div className='connect__location-image'>
@@ -39,7 +37,6 @@ const ConnectionOption = () => {
           <img className='connect__reviews-icon' src={reviews} alt='Reviews icon' />
         </div>
       </div>
-
       <div className='connect__outer-box'>
         <div className='connect__outer-box__inner-box'>
           <h4 className='connect__outer-box__inner-box__header'>About Me</h4>
