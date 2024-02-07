@@ -10,8 +10,9 @@ import mentor from '../../assets/icons/connection/fi-rr-hand-holding-heart.svg';
 import githubLogo from '../../assets/icons/connection/github logo.svg';
 import linkedinLogo from '../../assets/icons/connection/linkedin logo.svg';
 import profilePicture from '../../assets/icons/connection/Teacher.svg';
-import { FaArrowRightLong } from 'react-icons/fa6';
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { HiOutlineChatBubbleLeftRight, HiOutlineCalendarDays } from "react-icons/hi2";
+
 
 const ConnectionOption = () => {
   return (
@@ -90,6 +91,26 @@ const ConnectionOption = () => {
                 <img src={mentor} alt='Sessions Icon' />
               </div>
               <p className='connect__info'>20 Mentored Sessions</p>
+            </div>
+          </div>
+          <div className='connect__button--container'>
+            <div className='connect__button--row'>
+              <Link to='/chat/1'>
+                <div className='connect__button'>
+                  <p className='connect__button__text'>
+                    Chat
+                  </p>
+                  <HiOutlineChatBubbleLeftRight size={25}/>
+                </div>
+              </Link>
+              <Link to='/scheduling/1'>
+                <div className='connect__button'>
+                  <p className='connect__button__text'>
+                    Meet
+                  </p>
+                  <HiOutlineCalendarDays size={25}/>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
