@@ -5,13 +5,9 @@
 .connect {
   &__container {
     display: flex;
-    // flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-    // width: 100%;
     width: 90%;
-    // margin: 3rem;
-    // margin: 2.5rem 1rem;
     margin: 2.5rem 0rem 4rem;
     @include desktop {
       margin-top: 8rem;
@@ -37,7 +33,6 @@
   }
 
   &__profile-name {
-    // padding-left: 1rem;
     font-size: 2rem;
   }
 
@@ -69,7 +64,6 @@
   &__outer-box {
     height: 70%;
     width: 100%;
-    // padding: 10px 30px; // top right bottom left
     border-radius: 20px;
     border: solid;
     border-color: grey;
@@ -79,12 +73,9 @@
 
     &__inner-box {
       height: 70%;
-      // padding: 10px 30px 10px 30px;
       padding: 15px;
       border-radius: 20px;
       color: grey; /* Set your desired text color */
-      // border: solid;
-      // border-color: grey;
 
       &__header {
         color: $mvp-black;
@@ -98,9 +89,7 @@
 
       &__expertise {
         display: flex;
-        // justify-content: center;
         align-items: center;
-        // margin-bottom: 0.5rem;
         margin-left: -1rem;
         padding: 0.5rem 1rem;
         margin-bottom: 0.3rem;
@@ -113,9 +102,7 @@
         }
 
         &__skill {
-          // padding: 0.5rem 1rem;
           padding: 0.2rem 0.5rem;
-          // margin-left: 1rem;
           margin-left: 0.5rem;
           background-color: $mvp-light-blue;
           border-radius: 2rem;
@@ -134,7 +121,6 @@
   }
 
   &__button {
-    // margin: 1rem;
     background-color: $mvp-black;
     color: white;
     border-radius: 1.5rem;
@@ -147,7 +133,6 @@
       justify-content: space-around;
     }
     &--container {
-      // padding-top: 1rem;
       padding-top: 0.5rem;
     }
     &__text {
