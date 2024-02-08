@@ -5,10 +5,13 @@
 .connections {
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow-y: auto;
   @include tablet {
     height: 100vh;
   }
