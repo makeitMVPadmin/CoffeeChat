@@ -17,6 +17,8 @@ const HomePage = () => {
     return date.getDay();
   };
 
+
+  
   useEffect(() => {
     const getUserMeetings = async () => {
       const user = auth.currentUser;
@@ -54,6 +56,8 @@ const HomePage = () => {
 
     getUserMeetings();
   }, [auth]);
+
+
   const logout = () => {
     signOut(auth)
       .then(() => {
@@ -63,6 +67,8 @@ const HomePage = () => {
         console.log("error", error);
       });
   };
+
+
   return (
     <div className="home">
       {/* <div className="buttonContainer">
