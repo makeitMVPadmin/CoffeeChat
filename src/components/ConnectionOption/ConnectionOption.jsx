@@ -17,7 +17,7 @@ import { HiOutlineChatBubbleLeftRight, HiOutlineCalendarDays } from "react-icons
 const ConnectionOption = () => {
   return (
     <div className='connect__container'>
-      <Link to="/home" relative="path" className="connect__back-arrow"> {/* This triggers an app crash, needs troubleshooting */}
+      <Link to="/home" relative="path" className="connect__back-arrow">
           <FaArrowLeftLong size={35}/>
       </Link>
       <h2 className='connect__header'>Connections</h2>
