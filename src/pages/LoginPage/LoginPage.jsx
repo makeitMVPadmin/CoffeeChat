@@ -10,7 +10,7 @@ import { updateUserInFirestore } from "../../firebasestore";
 
 import { db, app } from "../../App";
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { json, useNavigate, Link } from "react-router-dom";
 import FinalLogo from "../../assets/logo/Final_logo.svg";
 import google from "../../assets/icons/links/google.svg";
 import linkedin from "../../assets/icons/links/linkedin.svg";
@@ -57,6 +57,7 @@ const LoginPage = () => {
       console.error("Google sign-in error:", error);
     }
   };
+  
 
   const signIn = (e) => {
     e.preventDefault();
@@ -64,6 +65,8 @@ const LoginPage = () => {
       .then((cred) => {
         console.log("signedIn", cred.user);
         Navigate("/home");
+        const userData = cred.data
+        sessionStorage.setItem('userData', JSON.stringify(userData))
       })
       .catch((error) => {
         const errorCode = error.code;

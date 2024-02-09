@@ -23,34 +23,59 @@ import { app, db } from "../../App";
 
 export const SignUp = () => {
   const Navigate = useNavigate();
-  const [firstName, setFirstName] = useState("");
-  const [LastName, setLastName] = useState("");
+  const [name, setName] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const auth = getAuth(app);
-  const userData = {
-    firstName: firstName,
-    lastName: LastName,
-  };
+  
 
-  const createNewUser = async (e) => {
-    try {
-      e.preventDefault();
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const { user } = userCredential;
-      console.log("User object:", user);
-      await updateUserInFirestore(user, { email, displayName }).then(() => {
-        Navigate("/home");
-      });
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
+
+
+  const createNewUser = (e) =>{
+    e.preventDefault()
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((resp)=> {
+        console.log(resp)
+        //document id is their uid
+         setDoc(doc(db, "user", resp.user.uid), {
+            FullName: name,
+            Email: email,
+            City:'',
+            State:'',
+            PhoneNumber:'',
+            Field:'',
+            Bio:'',
+            ProfileImg:'',
+            Connections: 0,
+            Appointments: 0,
+            Chats: 0,
+            Location: '',
+            PhoneNumber:'',
+            Field:'',
+            Mentee: null,
+            Mentor: null,
+         })
+    })
+    .then(()=> {
+        const checkUserAuth = () => {
+            auth.onAuthStateChanged((user) => {
+              if (user != null) {
+                Navigate('/editProfile')
+              }
+            });
+          };
+      
+          checkUserAuth();
+    })
+    .catch((err)=>{
+        console.log(err, 'error')
+    })
+    
+}
+
+
+
   return (
     <section className="signup">
       <div className="centerForm">
@@ -62,19 +87,12 @@ export const SignUp = () => {
         <h2 className="signUpHeader">Create Account</h2>
 
         <form className="createUserForm" onSubmit={createNewUser}>
-          {/* <input
-                className="inputStyle"
-                onChange={(e) => setFirstName(e.target.value)}
-                value={firstName}
-                placeholder='First Name'
-                type="text">
-            </input> */}
 
           <input
             className="inputStyle"
-            onChange={(e) => setDisplayName(e.target.value)}
-            value={displayName}
-            placeholder="UserName"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            placeholder="Full Name"
             type="text"
           ></input>
 
