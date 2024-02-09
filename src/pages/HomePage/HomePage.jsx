@@ -1,21 +1,21 @@
 import "./HomePage.scss";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import Navbar from "../../components/Navbar/Navbar";
-import { app } from "../../App";
+import { app, db } from "../../App";
 import { getAuth, signOut } from "firebase/auth";
 import userPhoto from "../../assets/images/NoUserPhoto.png";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { db } from "../../App";
-import { useState, useEffect } from "react";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
+
+
+
 const HomePage = () => {
   const auth = getAuth(app);
   const [meetings, setMeetings] = useState(false);
   const [userInfo, setUserInfo] = useState(false);
-  const eventDate = () => {
-    const date = new Date();
-    return date.getDay();
-  };
+
+
 
 
   
@@ -79,7 +79,7 @@ const HomePage = () => {
 
       <div className="homeHeader">
         <h1 className="WelcomeTitle">
-          Welcome, <br></br> {userInfo.fullName || userInfo.displayName}!
+          Hello, <br></br> Alexander {userInfo.fullName || userInfo.displayName}
         </h1>
         <Link to={"/profile"}>
           <img
@@ -90,9 +90,8 @@ const HomePage = () => {
         </Link>
       </div>
 
-      <h3 className="scheduleTitle">Schedule</h3>
-
-      <div className="scheduleDiv">
+      <div className="homeSection">
+        <h3 className="homeSubHeader">Upcoming Meetings</h3>
         {meetings.length > 0 ? (
           <>
             {meetings.map((meeting, index) => (
@@ -121,12 +120,53 @@ const HomePage = () => {
             ))}
           </>
         ) : (
-          <div className="scheduleList">
+          <div className="homeList">
             <p className="scheduledNone">No Meets Scheduled</p>
           </div>
         )}
       </div>
-      <h2 className="scheduledNextConnection"> Find Your Next Connection...</h2>
+
+      <div className="homeSection">
+        <h3 className="homeSubHeader">Chat Inbox</h3>
+        {meetings.length > 0 ? (
+          <>
+            {meetings.map((meeting, index) => (
+              <a
+                href={
+                  meeting.Address
+                    ? `https://maps.google.com/?q=${meeting.Address}`
+                    : meeting.URL
+                }
+              >
+                <div className="scheduleList">
+                  <div key={index} className="scheduledItem">
+                    <p className="scheduledNameOnly">{meeting.Name}</p>
+                    <div className="scheduledInfo">
+                      {" "}
+                      <p className="scheduledName UrlAddress">
+                        {meeting.Address || meeting.URL}
+                      </p>
+                      <p className="scheduledName">{meeting.Date}</p>{" "}
+                      <p className="scheduledName">{meeting.Time}</p>
+                      <p className="scheduledName">{meeting.MeetingType}</p>
+                    </div>
+                  </div>{" "}
+                </div>
+              </a>
+            ))}
+          </>
+        ) : (
+          <div className="homeList">
+            <p className="scheduledNone">No Unread Messages</p>
+          </div>
+        )}
+      </div>
+
+      <div>
+        <button className="connectionsBtn">Find Connections</button>
+      </div>
+
+
       <Navbar />
     </div>
   );
