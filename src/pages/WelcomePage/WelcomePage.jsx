@@ -27,9 +27,7 @@ const WelcomePage = () => {
         <h3 className="onboarding__logo-2-text">CoffeeChat</h3>
       </div>
       <h2 className="onboarding__heading-desktop">
-        You have{" "}
-        <span className="onboarding__heading-desktop--color-change">depth</span>
-        , why keep your professional connections superficial?
+        You have depth, why keep your professional connections superficial?
       </h2>
       <img src={LogoMark} className="onboarding__logo" alt="CoffeeChat logo" />
       <h3 className="onboarding__logo-text">CoffeeChat</h3>
