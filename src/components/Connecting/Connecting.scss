@@ -93,7 +93,7 @@
     font-weight: 700;
     padding: 0.6rem 0.4rem;
     margin: 1rem 0.5rem;
-    border-radius: 50px;
+    // border-radius: 50px;
     @include tablet {
       width: 29%;
       color: white;
@@ -233,7 +233,7 @@
     display: flex;
     align-items: center;
     padding: 0.3rem 0.4rem;
-    border-radius: 50px;
+    // border-radius: 50px;
     color: black;
     font-size: 0.8rem;
     @include tablet {
@@ -243,7 +243,7 @@
   &__option-1 {
     background: rgba(9, 84, 176, 0.5);
     padding: 0.3rem 0.4rem;
-    border-radius: 50px;
+    // border-radius: 50px;
     color: black;
     font-size: 0.8rem;
     display: flex;
@@ -254,7 +254,7 @@
   }
   &__option-3 {
     padding: 0.3rem 0.4rem;
-    border-radius: 50px;
+    // border-radius: 50px;
     color: black;
     background: rgba(255, 112, 112, 0.5);
     font-size: 0.8rem;
@@ -266,7 +266,7 @@
   }
   &__option-4 {
     padding: 0.3rem 1.4rem;
-    border-radius: 50px;
+    // border-radius: 50px;
     color: black;
     background: rgba(255, 210, 47, 0.5);
     display: flex;
