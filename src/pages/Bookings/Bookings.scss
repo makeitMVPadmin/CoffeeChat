@@ -1,7 +1,10 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 @use "../../styles/partials/global" as *;
 
-.upcoming {
-    color: #000;
+@mixin calender-subtitles {
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Corben-bold;
@@ -10,4 +13,93 @@
     font-weight: 700;
     line-height: 2.5rem;
     letter-spacing: 0.03125rem;
+    width: 11.9375rem;
+    height: 3.0625rem;
+    flex-shrink: 0;
+}
+
+.backArrow {
+    position: absolute;
+}
+
+.calendarTitle {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.calenderMenu {
+    display: flex;
+    margin-bottom: 0.8rem;
+    padding-left: 1.6rem;
+    width: -webkit-fill-available;
+}
+
+.upcoming {
+    @include calender-subtitles();
+}
+
+.bookingNumber{
+    background-color: #000;
+    color: white;
+    border-radius: 50%;
+    display: inline-block;
+    width: 20%;
+    height: 80%;
+}
+
+.history {
+    @include calender-subtitles();
+}
+
+
+.upcomingBooking {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    padding-left: 1.8rem;
+    border-radius: 0.3125rem;
+    border: 3px solid #000;
+    background: #FFF;
+    box-shadow: 4px 4px 0px 0px #000;
+    width: 22.25rem;
+    height: 6.5rem;
+}
+
+
+.bookedUser {
+    display: flex;
+    height: 0.86331rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1rem;
+}
+
+.userRole {
+    text-align: left;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+.bookingSchedule {
+    display: flex;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1.5625rem;
+    letter-spacing: 0.0625rem;
+}
+
+.bookingTime {
+    margin-left: 1.5rem;
+}
+
+.clock {
+    align-items: baseline;
 }

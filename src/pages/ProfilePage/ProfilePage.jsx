@@ -7,7 +7,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { updateDoc, doc, getDoc } from "@firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import logoutRounded from '../../assets/icons/extras/logoutRounded.png'
-import bag from '../../assets/icons/profile/bag.svg'
+import bag from '../../assets/icons/profile/Bag.svg'
 import badge from '../../assets/icons/profile/badge.png'
 import mentorHand from '../../assets/icons/profile/mentorHand.svg'
 
