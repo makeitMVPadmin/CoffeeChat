@@ -88,7 +88,7 @@ const SchedulingPage = ({ people, db }) => {
   return (
     <>
       <h1>Connect with {person.name}</h1>
-      <p>Pick a date</p>
+      <p className="schedulingHeaders">Pick a date</p>
       <hr />
 
       {/* Calendar */}
@@ -97,35 +97,39 @@ const SchedulingPage = ({ people, db }) => {
         value={selectedDate} // Set the selected date
       />
 
-      <h2>Available Time Slots</h2>
-      {timePreferences.map((timeSlot) => (
+      <h2 className="schedulingHeaders">Available Time Slots</h2>
+      <div className="flexButtons">
+        {timePreferences.map((timeSlot) => (
+          <button
+            key={timeSlot}
+            className={selectedTime === timeSlot ? "selectedButton" : "schedulingButton"}
+            onClick={() => toggleTimeSelection(timeSlot)}
+          >
+            {timeSlot}
+          </button>
+        ))}
+      </div>
+
+      <h2 className="schedulingHeaders">Select Meeting Types</h2>
+      <div className="flexButtons">
         <button
-          key={timeSlot}
-          className={selectedTime === timeSlot ? "scheduling__button" : ""}
-          onClick={() => toggleTimeSelection(timeSlot)}
-        >
-          {timeSlot}
+          className={selectedMeetingType === "1-on-1" ? "selectedButton" : "schedulingButton"}
+          onClick={() => toggleMeetingTypeSelection("1-on-1")}>
+          1-on-1
         </button>
-      ))}
-
-      <h2>Select Meeting Type</h2>
-      <button
-        className={selectedMeetingType === "1-on-1" ? "scheduling__button" : ""}
-        onClick={() => toggleMeetingTypeSelection("1-on-1")}
-      >
-        1-on-1
-      </button>
-      <button
-        className={
-          selectedMeetingType === "Virtual" ? "scheduling__button" : ""
-        }
-        onClick={() => toggleMeetingTypeSelection("Virtual")}
-      >
-        Virtual
-      </button>
-
+        <button
+          className={
+            selectedMeetingType === "Virtual" ? "selectedButton" : "schedulingButton"
+          }
+          onClick={() => toggleMeetingTypeSelection("Virtual")}>
+          Virtual
+        </button>
+      </div>
+      <br/>
       {/* Complete action  */}
-      <button onClick={saveBooking}>Book</button>
+      <button 
+      className="bookingButton"
+      onClick={saveBooking}>Book</button>
 
       {/* After booking, a new page opens up -- Confirmation Page */}
       <Modal
