@@ -12,28 +12,45 @@ import { useEffect, useState } from "react";
 export const Bookings = () => {
 
   const { yourBooking, setYourBooking } = useState([])
+  const [activeButton, setActiveButton] = useState(null);
   const nav = useNavigate()
 
+  const handleButtonClick = (buttonId) => {
+    setActiveButton(buttonId);
+  };
 
 
 
   return (
     <>
-      <Link>
-        <img className="backArrow" src={Left} alt="backArrow" onClick={nav(-1)}/>
-      </Link>
+      <img className="backArrow" src={Left} alt="backArrow" onClick={()=>nav(-1)} />
       <h1 className="calendarTitle">Calendar</h1>
       
 
 
       <div className="calenderMenu">
-        <div className="upcoming">
+        <div className="upcoming"
+         onClick={() => handleButtonClick(1)}
+         style={{ fontFamily: activeButton === 1 ? 'Corben-bold' : 'Corben' }}>
           Upcoming {yourBooking > 0 ?
             (<span className="bookingNumber">bookingNumber value</span>)
             :
             (<p className="bookingNumber">0</p>)
           }
-          <div className="upcomingBooking">
+        </div>
+
+        <div className="history" 
+        onClick={()=>handleButtonClick(2)}
+        style={{ fontFamily: activeButton === 2 ? 'Corben-bold' : 'Corben' }}>
+          History 
+        </div>
+      </div>
+
+   
+
+      {activeButton === 1 && (
+        <div className="bookings">
+            {/* upcoming mapping list */}
             <p className="bookedUser">Raj Dev</p>
             <p className="userRole">software Engineer</p>
             <div className="bookingSchedule">
@@ -42,13 +59,27 @@ export const Bookings = () => {
                 Sun, Oct 08 </p>
               <p className="bookingTime">
                 <img src={clock} alt="clock" className="clock"/> 
-                2.30 PM</p>
+                3.30 PM</p>
             </div>
           </div>
-        </div>
+      )}
+      
 
-        <div className="history">History</div>
-      </div>
+      {activeButton === 2 && (
+        <div className="bookings">
+            {/* History mapping list */}
+            <p className="bookedUser">History Dev</p>
+            <p className="userRole">software Engineer</p>
+            <div className="bookingSchedule">
+              <p className="bookingDate">
+                <img src={calendarCheck} alt="calendarCheck" className="calendarCheck"/> 
+                Sun, Oct 08 </p>
+              <p className="bookingTime">
+                <img src={clock} alt="clock" className="clock"/> 
+                8:30 PM</p>
+            </div>
+          </div>
+      )}
     </>
   )
 }
