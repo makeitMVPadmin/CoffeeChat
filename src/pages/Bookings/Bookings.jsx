@@ -5,6 +5,7 @@ import Left from "../../assets/icons/calendar/Left.png"
 import calendarCheck from "../../assets/icons/calendar/calendarCheck.svg"
 import clock from "../../assets/icons/calendar/clock.svg"
 import { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
 
 
 
@@ -12,7 +13,7 @@ import { useEffect, useState } from "react";
 export const Bookings = () => {
 
   const { yourBooking, setYourBooking } = useState([])
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState(1);
   const nav = useNavigate()
 
   const handleButtonClick = (buttonId) => {
@@ -80,6 +81,7 @@ export const Bookings = () => {
             </div>
           </div>
       )}
+      <Navbar/>
     </>
   )
 }
