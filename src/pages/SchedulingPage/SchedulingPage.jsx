@@ -87,7 +87,7 @@ const SchedulingPage = ({ people, db }) => {
 
   return (
     <>
-      <h1>Connect with {person.name}</h1>
+      <h1>Pick a time</h1>
       <p className="schedulingHeaders">Pick a date</p>
       <hr />
 
