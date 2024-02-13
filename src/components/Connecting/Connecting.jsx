@@ -5,6 +5,7 @@ import guy from "../../assets/images/YellowGuyAnimation.png";
 import girl from "../../assets/images/PinkGirlAnimation.png";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const Connecting = ({
   handleClearFilters,
@@ -17,14 +18,17 @@ const Connecting = ({
     <>
       <div className="connections__container">
         <div className="connections__top">
+          <Link to="/home" relative="path" className="connections__back-arrow">
+            <FaArrowLeftLong size={35}/>
+          </Link>
           <h3 className="connections--blue">
             Let's get you
             <span className="connections--red"> connected!</span>
           </h3>
-          <div className="connections__image">
+          {/* <div className="connections__image">
             <img className="connections__image-img-1" src={girl} alt="" />
             <img className="connections__image-img-2" src={guy} alt="" />
-          </div>
+          </div> */} {/* This should be used for a loading screen component */}
         </div>
         <div className="connections__cont-box">
           <div className="connections__box">
@@ -156,7 +160,7 @@ const Connecting = ({
 
             <div className="connections__filters">
               {" "}
-              <p className="connections__titles">Experience</p>
+              <p className="connections__titles">Experience (years)</p>
               <div className="connections__options">
                 <p
                   className={`connections__option-4 ${
@@ -187,7 +191,8 @@ const Connecting = ({
           </div>
           <div className="connections__button-container">
             <button className="connections__button" onClick={handleNextPage}>
-              Next
+              {/* Next */}
+              Connect Me
             </button>
             <button
               className="connections__button"
