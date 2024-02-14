@@ -23,7 +23,7 @@ export const Bookings = () => {
 
 
   return (
-    <>
+    <div className="bookingsBody">
       <img className="backArrow" src={Left} alt="backArrow" onClick={()=>nav(-1)} />
       <h1 className="calendarTitle">Calendar</h1>
       
@@ -82,6 +82,6 @@ export const Bookings = () => {
           </div>
       )}
       <Navbar/>
-    </>
+    </div>
   )
 }

@@ -35,6 +35,23 @@
 }
 
 
+//galaxy fold
+@media screen and (max-width: 300px) {
+    
+    .bookingsBody {
+      height: 120vh;
+      width: max-content;
+    }
+  }
+  
+  //Iphone SE
+  @media screen and (max-height: 700px) {
+      
+    .bookingsBody {
+      padding-top: 4%;
+    }
+  }
+
 .backArrow {
     position: absolute;
 }
