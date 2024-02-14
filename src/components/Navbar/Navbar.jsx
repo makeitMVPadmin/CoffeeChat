@@ -57,7 +57,7 @@ const Navbar = () => {
           </Link>
         </div>
         <Link to="/bookings" className="navLink">
-          Connect
+          Calendar
         </Link>
       </NavLink>
 
