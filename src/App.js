@@ -1,22 +1,22 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.scss";
-import HomePage from "./pages/HomePage/HomePage";
-// import LoginPage from "./pages/LoginPage/LoginPage";
-// import { SignUp } from "./pages/SignUp/SignUp";
-import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
+import HomePage from "./routes/HomePage/HomePage";
+// import LoginPage from "./routes/LoginPage/LoginPage";
+// import { SignUp } from "./routes/SignUp/SignUp";
+import ConnectionsPage from "./routes/ConnectionsPage/ConnectionsPage";
 import Chat from "./components/Chat/Chat";
-import WelcomePage from "./pages/WelcomePage/WelcomePage";
-import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import WelcomePage from "./routes/WelcomePage/WelcomePage";
+import OnboardingPage from "./routes/OnboardingPage/OnboardingPage";
+import ProfilePage from "./routes/ProfilePage/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
-import ConnectionsNext from "./pages/ConnectionsNext/ConnectionsNext";
-import SearchPage from "./pages/SearchPage/SearchPage";
-import SchedulingPage from "./pages/SchedulingPage/SchedulingPage";
-import { Bookings } from "./pages/Bookings/Bookings";
-import { Booked } from "./pages/Booked/Booked";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import LandingPage from "./pages/LandingPage/LandingPage";
+import ConnectionsNext from "./routes/ConnectionsNext/ConnectionsNext";
+import SearchPage from "./routes/SearchPage/SearchPage";
+import SchedulingPage from "./routes/SchedulingPage/SchedulingPage";
+import { Bookings } from "./routes/Bookings/Bookings";
+import { Booked } from "./routes/Booked/Booked";
+import NotFoundPage from "./routes/NotFoundPage/NotFoundPage";
+import LandingPage from "./routes/LandingPage/LandingPage";
 import { useState } from "react";
 
 // Import the functions you need from the SDKs you need
