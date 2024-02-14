@@ -5,6 +5,7 @@ import chat from "../../assets/icons/navbar/chat.svg";
 import calendar from "../../assets/icons/navbar/calendar.svg";
 import user from "../../assets/icons/navbar/User.svg";
 import logo from "../../assets/logo/Final_logo.svg";
+import Calendar02 from "../../assets/icons/calendar/calendar02.svg"
 
 const Navbar = () => {
   return (
@@ -41,6 +42,22 @@ const Navbar = () => {
         </div>
         <Link to="/connections" className="navLink">
           Connect
+        </Link>
+      </NavLink>
+
+      <NavLink
+        to="/bookings"
+        className={(navData) =>
+          navData.isActive ? "navLinksActive" : "navLinks"
+        }
+      >
+        <div>
+          <Link to="/bookings">
+            <img className="navIcons" src={Calendar02} alt="Calendar Icon" />
+          </Link>
+        </div>
+        <Link to="/bookings" className="navLink">
+          Calendar
         </Link>
       </NavLink>
 

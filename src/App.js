@@ -13,6 +13,8 @@ import ProfilePage from "./routes/ProfilePage/ProfilePage";
 import ConnectionsNext from "./routes/ConnectionsNext/ConnectionsNext";
 import SearchPage from "./routes/SearchPage/SearchPage";
 import SchedulingPage from "./routes/SchedulingPage/SchedulingPage";
+import { Bookings } from "./routes/Bookings/Bookings";
+import { Booked } from "./routes/Booked/Booked";
 import NotFoundPage from "./routes/NotFoundPage/NotFoundPage";
 import LandingPage from "./routes/LandingPage/LandingPage";
 import ChatPage from "./routes/ChatPage/ChatPage"
@@ -101,14 +103,19 @@ function App() {
           <Route path="/connections-next" element={<ConnectionsNext />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/chat" element={<ChatPage />} />
-          {/* <Route
-            path="/chat/:id"
-            element={<Chat people={connectionsData} db={db} />}
-            /> */}
+          <Route path="/bookings" element={<Bookings/>}/>
+          <Route path="/Booked" element={<Booked/>}/>
+          <Route path="/SchedulingPage" element={<SchedulingPage/>}/>
           <Route
             path="/scheduling/:id"
             element={<SchedulingPage people={connectionsData} db={db} />}
           />
+          {/* <Route
+            path="/chat/:id"
+            element={<Chat people={connectionsData} db={db} />}
+          />
+          
+          
         {/* </>
       ) : (
         <Route path="*" element={<Navigate to="/login" />} />
