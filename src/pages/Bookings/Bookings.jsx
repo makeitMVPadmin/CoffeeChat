@@ -52,7 +52,7 @@ export const Bookings = () => {
       {activeButton === 1 && (
         <div className="bookings">
             {/* upcoming mapping list */}
-            <p className="bookedUser">Raj Dev</p>
+            <p className="bookingsUser">Raj Dev</p>
             <p className="userRole">software Engineer</p>
             <div className="bookingSchedule">
               <p className="bookingDate">
@@ -69,7 +69,7 @@ export const Bookings = () => {
       {activeButton === 2 && (
         <div className="bookings">
             {/* History mapping list */}
-            <p className="bookedUser">History Dev</p>
+            <p className="bookingsUser">History Dev</p>
             <p className="userRole">software Engineer</p>
             <div className="bookingSchedule">
               <p className="bookingDate">

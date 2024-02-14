@@ -4,11 +4,16 @@ import "./SchedulingPage.scss";
 import { useParams } from "react-router-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import Left from "../../assets/icons/calendar/Left.png"
+import calendarCheck from "../../assets/icons/calendar/calendarCheck.svg"
+import clock from "../../assets/icons/calendar/clock.svg"
+import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 Modal.setAppElement("#root");
 
 const SchedulingPage = ({ people, db }) => {
   const { id } = useParams();
+  const nav = useNavigate()
   const person = people.find((p) => p.id === Number(id));
   const timePreferences = person.timePreferences;
 
@@ -38,6 +43,7 @@ const SchedulingPage = ({ people, db }) => {
         // After booking, clear the selected time and meeting type
         setSelectedTime(null);
         setSelectedMeetingType(null);
+        nav('/booked')
       } catch (error) {
         console.error("Error saving booking: ", error);
       }
@@ -45,28 +51,43 @@ const SchedulingPage = ({ people, db }) => {
       alert("Please select a date, time, and meeting type.");
     }
 
-    const confirmationMessage = (
-      <div className="confirmation-modal">
-        {/* TODO: Add logged in user's name & meeting type */}
-        <p>
-          Your meeting is confirmed! It is scheduled as an in-person meeting
-        </p>
-        {/* TODO: Add time chosen, name of person booked & date scheduled*/}
-        <h2>4:15PM</h2>
-        <h2>Richard</h2>
-        <h3>Wednesday, October 8th 2023</h3>
-        <p>Get ready to brew some great connections!</p>
-        <button onClick={closeModal}>Close</button>
-      </div>
-    );
+    // const confirmationMessage = (
+    //   <div className="confirmation-modal">
+    //     {/* TODO: Add logged in user's name & meeting type */}
+    //     <img className="backArrow" src={Left} alt="backArrow" />
+    //     <h1 className="calendarTitle">Calendar</h1>
 
-    openModal(confirmationMessage);
+    //     <div className="bookings">
+    //         <p className="bookedUser">Raj Dev</p>
+    //         <p className="userRole">software Engineer</p>
+    //         <div className="bookingSchedule">
+    //           <p className="bookingDate">
+    //             <img src={calendarCheck} alt="calendarCheck" className="calendarCheck"/> 
+    //             Sun, Oct 08 </p>
+    //           <p className="bookingTime">
+    //             <img src={clock} alt="clock" className="clock"/> 
+    //             3.30 PM</p>
+    //         </div>
+    //       </div>
+
+    //     <p>
+    //       Get ready ot brew some great connections!
+    //     </p>
+    //     {/* TODO: Add time chosen, name of person booked & date scheduled*/}
+        
+    //     <button onClick={closeModal}>Close</button>
+    //   </div>
+    // );
+
+    // openModal(confirmationMessage);
   };
+
 
   // Function to toggle the selected class for time slots
   const toggleTimeSelection = (time) => {
     setSelectedTime(selectedTime === time ? null : time);
   };
+
 
   // Function to toggle the selected class for meeting types
   const toggleMeetingTypeSelection = (meetingType) => {
@@ -75,15 +96,18 @@ const SchedulingPage = ({ people, db }) => {
     );
   };
 
+
   const openModal = (content) => {
     setModalContent(content);
     setModalOpen(true);
   };
 
+
   const closeModal = () => {
     setModalOpen(false);
     setModalContent(null);
   };
+
 
   return (
     <>

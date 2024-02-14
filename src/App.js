@@ -14,6 +14,7 @@ import ConnectionsNext from "./pages/ConnectionsNext/ConnectionsNext";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import SchedulingPage from "./pages/SchedulingPage/SchedulingPage";
 import { Bookings } from "./pages/Bookings/Bookings";
+import { Booked } from "./pages/Booked/Booked";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import { useState } from "react";
@@ -104,6 +105,7 @@ function App() {
             element={<Chat people={connectionsData} db={db} />}
           />
           <Route path="/bookings" element={<Bookings/>}/>
+          <Route path="/Booked" element={<Booked/>}/>
           <Route path="/SchedulingPage" element={<SchedulingPage/>}/>
           <Route
             path="/scheduling/:id"
