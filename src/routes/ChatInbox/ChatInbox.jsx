@@ -1,20 +1,16 @@
-//page where the chat feature will live
-
 import React from "react"; 
-import Chat from "../../components/ChatFeature/Chat/Chat"
+import Sidebar from "../../components/ChatFeature/Sidebar/Sidebar"
 import Navbar from "../../components/Navbar/Navbar"
 
-const ChatPage = () => {
+
+const ChatInbox = () => {
     return(
         <div className="home">
             <div className="container">
-                <Chat />
+                <Sidebar />
                 <Navbar />
             </div>
         </div>
     )
 }
-export default ChatPage
-
-
-
+export default ChatInbox

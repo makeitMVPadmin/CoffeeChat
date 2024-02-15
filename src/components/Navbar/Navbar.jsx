@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import homeicon from "../../assets/icons/navbar/homeicon.svg";
 import chat from "../../assets/icons/navbar/chat.svg";
 import calendar from "../../assets/icons/navbar/calendar.svg";
-import user from "../../assets/icons/navbar/User.svg";
+import connect from "../../assets/icons/connection/connect.png";
 import logo from "../../assets/logo/Final_logo.svg";
 import Calendar02 from "../../assets/icons/calendar/calendar02.svg"
 
@@ -11,8 +11,10 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <Link className="logo" to="/home">
-        <img className="logo" src={logo} />
+        <img className="logo" src={logo} alt="logo"/>
       </Link>
+
+      {/* home icon on navbar */}
       <NavLink
         to="/home"
         className={(navData) =>
@@ -29,6 +31,8 @@ const Navbar = () => {
         </Link>
       </NavLink>
 
+
+        {/* connection icon */}
       <NavLink
         to="/connections"
         className={(navData) =>
@@ -37,7 +41,7 @@ const Navbar = () => {
       >
         <div>
           <Link to="/connections">
-            <img className="navIcons" src={chat} alt="Chat Icon" />
+            <img className="navIcons" src={connect} alt="connectionIcon" />
           </Link>
         </div>
         <Link to="/connections" className="navLink">
@@ -45,6 +49,24 @@ const Navbar = () => {
         </Link>
       </NavLink>
 
+      {/* chat icon */}
+      <NavLink
+        to="/inbox"
+        className={(navData) =>
+          navData.isActive ? "navLinksActive" : "navLinks"
+        }
+      >
+        <div>
+          <Link to="/inbox">
+            <img className="navIcons" src={chat} alt="Chat Icon" />
+          </Link>
+        </div>
+        <Link to="/inbox" className="navLink">
+          Chat
+        </Link>
+      </NavLink>
+
+      {/* calendar icon */}
       <NavLink
         to="/bookings"
         className={(navData) =>
@@ -61,21 +83,6 @@ const Navbar = () => {
         </Link>
       </NavLink>
 
-      <NavLink
-        to="/profile"
-        className={(navData) =>
-          navData.isActive ? "navLinksActive" : "navLinks"
-        }
-      >
-        <div>
-          <Link to="/profile">
-            <img className="navIcons" src={user} alt="User Icon" />
-          </Link>
-        </div>
-        <Link to="/profile" className="navLink">
-          Profile
-        </Link>
-      </NavLink>
     </div>
   );
 };

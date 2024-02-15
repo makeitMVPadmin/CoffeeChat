@@ -18,6 +18,7 @@ import { Booked } from "./routes/Booked/Booked";
 import NotFoundPage from "./routes/NotFoundPage/NotFoundPage";
 import LandingPage from "./routes/LandingPage/LandingPage";
 import ChatPage from "./routes/ChatPage/ChatPage"
+import ChatInbox from "./routes/ChatInbox/ChatInbox"
 import { useState } from "react";
 
 
@@ -26,6 +27,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -103,6 +105,7 @@ function App() {
           <Route path="/connections-next" element={<ConnectionsNext />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/inbox" element={<ChatInbox />} />
           <Route path="/bookings" element={<Bookings/>}/>
           <Route path="/Booked" element={<Booked/>}/>
           <Route path="/SchedulingPage" element={<SchedulingPage/>}/>
