@@ -20,6 +20,7 @@ import LandingPage from "./routes/LandingPage/LandingPage";
 import ChatPage from "./routes/ChatPage/ChatPage"
 import ChatInbox from "./routes/ChatInbox/ChatInbox"
 import { useState } from "react";
+import connectionsData from "./data/connectionsData";
 
 
 // Import the functions you need from the SDKs you need
@@ -47,34 +48,6 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const db = getFirestore(app);
-
-// Dummy Data for People
-const connectionsData = [
-  {
-    id: 1,
-    name: "John Doe",
-    profilePicture: "john.jpg",
-    timePreferences: ["9:00am", "2:30pm", "4:00pm"],
-  },
-  {
-    id: 2,
-    name: "Alice Smith",
-    profilePicture: "alice.jpg",
-    timePreferences: ["10:00am", "3:30pm", "5:00pm"],
-  },
-  {
-    id: 3,
-    name: "Julie Tall",
-    profilePicture: "julie.jpg",
-    timePreferences: ["9:30am", "3:00pm", "4:30pm"],
-  },
-  {
-    id: 5,
-    name: "George Small",
-    profilePicture: "george.jpg",
-    timePreferences: ["7:30am", "5:00pm", "7:30pm"],
-  },
-];
 
 function App() {
   const auth = getAuth();
