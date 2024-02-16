@@ -10,6 +10,7 @@ import backArrow from "../../assets/icons/wayfinding/back-arrow.svg";
 import placeMarker from "../../assets/icons/extras/Place Marker.svg";
 import virtualMeeting from "../../assets/icons/extras/virtual-meeting.png";
 import confirmCalendar from "../../assets/icons/calendar/confirm_calender.png";
+import Navbar from "../../components/Navbar/Navbar";
 Modal.setAppElement("#root");
 
 const SchedulingPage = ({ people, db }) => {

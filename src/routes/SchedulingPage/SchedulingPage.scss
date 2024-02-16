@@ -151,16 +151,22 @@
 
     &-modal {
         display: flex;
-        padding: 1rem;
         background-color: $mvp-cream;
         min-height: 100vh;
+        color: white;
 
         &-container {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            max-height: 60vh;
+            max-height: 90vh;
+            background-image: url(../../assets/images/blueWave.svg);
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: contain;
+            padding-top: 15%;
+            background-size: 100% 75%;
 
             &__icon {
                 width: 6rem;
@@ -180,7 +186,7 @@
                 background-color: $mvp-dark-blue;
                 color: $mvp-white;
                 width: 50%;
-    
+
                 &:active {
                     background-color: #074a9c;
                 }
@@ -208,7 +214,7 @@
     margin: -0.5em;
 }
 
-.react-calendar--doubleView .react-calendar__viewContainer > * {
+.react-calendar--doubleView .react-calendar__viewContainer>* {
     width: 50%;
     margin: 0.5em;
 }
