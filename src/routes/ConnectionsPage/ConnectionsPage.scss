@@ -4,64 +4,34 @@
 
 .connections {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 135vh;
+
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  overflow-y: auto;
-  @include tablet {
-    height: 100vh;
-  }
+  overflow: hidden;
   @include desktop {
-    height: 135vh;
     background-image: none;
-  }
-  &__top {
-    display: flex;
-    width: 100%;
-    height: 23%;
-    flex-direction: column;
-    justify-content: center;
-    @include tablet {
-      height: 63%;
-    }
-    @include desktop {
-      height: 100%;
-
-      width: 50%;
-    }
   }
   &__container {
     display: flex;
     height: 85%;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 10px;
+    justify-content: center;
     align-items: center;
     margin: 2rem 2rem 0rem 2rem;
     @include tablet {
       height: 91%;
-      justify-content: center;
     }
     @include desktop {
       margin: 8rem 2rem 0rem 2rem;
-      justify-content: center;
-      height: 60%;
-      flex-direction: row;
     }
-  }
-
-  &__back-arrow {
-    display: flex;
   }
 
   &--blue {
     color: #0954b0;
     width: 87%;
-    font-size: 1.6rem;
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,19 +48,13 @@
 
   &--red {
     color: $mvp-red;
-    margin-left: 40%;
+    margin-left: 50%;
   }
-
-  &__button-container {
-    margin-top: 0.5rem;
-  }
-
   &__button {
-    width: 50%;
+    width: 40%;
     color: white;
     background-color: black;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 0.8rem;
     padding: 0.6rem 0.4rem;
     margin: 1rem 0.5rem;
     // border-radius: 50px;
@@ -102,7 +66,7 @@
       padding: 1rem 0.4rem;
     }
     @include desktop {
-      width: 23%;
+      width: 13%;
     }
     &-container {
       display: flex;
@@ -115,34 +79,27 @@
   }
   &__image {
     width: 86%;
-    height: 67%;
+    height: 32%;
     background-position: center;
     background-size: contain;
-    margin: 0rem;
+    margin: 2rem;
     background-repeat: no-repeat;
     background-image: url("../../assets/images/ConnectionsBaseAnimation.svg");
     position: relative;
-
     @include tablet {
-      height: 57%;
-      margin: 2rem;
+      height: 27%;
       width: 47%;
       max-width: 360px;
     }
     @include desktop {
-      height: 55%;
-      margin: 2rem;
-      margin: 0;
+      width: 30%;
+      max-width: 330px;
     }
-
     &-img-1 {
-      width: 22%;
-
-      right: 40%;
-      top: 35%;
-
+      width: 31%;
       position: absolute;
-
+      right: 30%;
+      top: 35%;
       animation: circle 6s linear infinite;
       @include tablet {
         width: 29%;
@@ -159,14 +116,11 @@
     }
 
     &-img-2 {
-      width: 22%;
-
-      right: 40%;
-      top: 35%;
-
+      width: 31%;
       position: absolute;
-
-      animation: circle 6s linear infinite;
+      right: 30%;
+      top: 35%;
+      animation: circle-2 6s linear infinite;
       animation-delay: -3s;
       @include tablet {
         width: 29%;
@@ -177,27 +131,15 @@
       @include desktop {
         width: 24%;
         right: 38%;
-
         max-width: 84px;
         top: 41%;
       }
     }
   }
-  &__cont-box {
-    height: 62%;
-    @include tablet {
-      width: 100%;
-      height: 100%;
-    }
-    @include desktop {
-      height: 100%;
-      width: 50%;
-    }
-  }
-  &__box {
-    padding: 0 20px 20px;
-    height: 95%;
 
+  &__box {
+    padding: 20px;
+    height: 50%;
     border-radius: 15px;
     color: grey; /* Set your desired text color */
     background-color: $mvp-white;
@@ -207,10 +149,6 @@
     justify-content: space-around;
     @include tablet {
       padding: 2rem 3rem;
-      height: 71%;
-    }
-    @include desktop {
-      height: 80%;
     }
   }
   &__filters {
@@ -221,7 +159,6 @@
   }
   &__titles {
     color: $mvp-red;
-    font-size: 1.3rem;
     margin: 0.3rem 0rem;
     @include tablet {
       font-size: 1.5rem;
@@ -235,7 +172,7 @@
     padding: 0.3rem 0.4rem;
     // border-radius: 50px;
     color: black;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     @include tablet {
       font-size: 1.1rem;
     }
@@ -245,7 +182,7 @@
     padding: 0.3rem 0.4rem;
     // border-radius: 50px;
     color: black;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     display: flex;
     align-items: center;
     @include tablet {
@@ -257,7 +194,7 @@
     // border-radius: 50px;
     color: black;
     background: rgba(255, 112, 112, 0.5);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     display: flex;
     align-items: center;
     @include tablet {
@@ -271,7 +208,7 @@
     background: rgba(255, 210, 47, 0.5);
     display: flex;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     @include tablet {
       font-size: 1.1rem;
     }
@@ -281,42 +218,25 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 6px;
+    gap: 10px;
   }
 }
 @keyframes circle {
   0% {
-    transform: rotate(0deg) translate(-50px) rotate(0deg);
+    transform: rotate(0deg) translate(-100px) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg) translate(-50px) rotate(-360deg);
+    transform: rotate(360deg) translate(-100px) rotate(-360deg);
   }
 }
 @keyframes circle-2 {
   0% {
-    transform: rotate(0deg) translate(-80px) rotate(0deg);
+    transform: rotate(0deg) translate(-100px) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg) translate(-80px) rotate(-360deg);
+    transform: rotate(360deg) translate(-100px) rotate(-360deg);
   }
 }
 .selected {
   border: 2px solid black;
-}
-
-@keyframes circle-desktop {
-  0% {
-    transform: rotate(0deg) translate(-100px) rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg) translate(-100px) rotate(-360deg);
-  }
-}
-@keyframes circle-2-desktop {
-  0% {
-    transform: rotate(0deg) translate(-100px) rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg) translate(-100px) rotate(-360deg);
-  }
 }

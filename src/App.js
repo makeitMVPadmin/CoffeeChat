@@ -1,27 +1,33 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.scss";
-import HomePage from "./pages/HomePage/HomePage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import { SignUp } from "./pages/SignUp/SignUp";
-import ConnectionsPage from "./pages/ConnectionsPage/ConnectionsPage";
-import Chat from "./components/Chat/Chat";
-import WelcomePage from "./pages/WelcomePage/WelcomePage";
-import OnboardingPage from "./pages/OnboardingPage/OnboardingPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import Navbar from "./components/Navbar/Navbar";
-import ConnectionsNext from "./pages/ConnectionsNext/ConnectionsNext";
-import SearchPage from "./pages/SearchPage/SearchPage";
-import SchedulingPage from "./pages/SchedulingPage/SchedulingPage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import LandingPage from "./pages/LandingPage/LandingPage";
+import HomePage from "./routes/HomePage/HomePage";
+// import LoginPage from "./routes/LoginPage/LoginPage";
+// import { SignUp } from "./routes/SignUp/SignUp";
+import ConnectionsPage from "./routes/ConnectionsPage/ConnectionsPage";
+// import Chat from "./components/ChatRoom/ChatRoom";
+import WelcomePage from "./routes/WelcomePage/WelcomePage";
+import OnboardingPage from "./routes/OnboardingPage/OnboardingPage";
+import ProfilePage from "./routes/ProfilePage/ProfilePage";
+// import Navbar from "./components/Navbar/Navbar";
+import ConnectionsNext from "./routes/ConnectionsNext/ConnectionsNext";
+import SearchPage from "./routes/SearchPage/SearchPage";
+import SchedulingPage from "./routes/SchedulingPage/SchedulingPage";
+import { Bookings } from "./routes/Bookings/Bookings";
+import { Booked } from "./routes/Booked/Booked";
+import NotFoundPage from "./routes/NotFoundPage/NotFoundPage";
+import LandingPage from "./routes/LandingPage/LandingPage";
+import ChatPage from "./routes/ChatPage/ChatPage"
+import ChatInbox from "./routes/ChatInbox/ChatInbox"
 import { useState } from "react";
+
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -74,28 +80,22 @@ function App() {
   const auth = getAuth();
 
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-      setLoading(false);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
+  const [loading, setLoading] = useState(false);
+  
+
   if (loading) {
     return null;
   }
+
+  
   return (
     <Routes>
       <Route path="/" element={<Navigate replace to="/onboarding" />} />
       <Route path="/onboarding" element={<WelcomePage />} />
       <Route path="/onboarding-page-2" element={<OnboardingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignUp />} />
-      {user ? (
-        <>
+
+      {/* {user ? (
+        <> */}
           <Route path="/home" element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route
@@ -104,18 +104,25 @@ function App() {
           />
           <Route path="/connections-next" element={<ConnectionsNext />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route
-            path="/chat/:id"
-            element={<Chat people={connectionsData} db={db} />}
-          />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/inbox" element={<ChatInbox />} />
+          <Route path="/bookings" element={<Bookings/>}/>
+          <Route path="/Booked" element={<Booked/>}/>
+          <Route path="/SchedulingPage" element={<SchedulingPage/>}/>
           <Route
             path="/scheduling/:id"
             element={<SchedulingPage people={connectionsData} db={db} />}
           />
-        </>
+          {/* <Route
+            path="/chat/:id"
+            element={<Chat people={connectionsData} db={db} />}
+          />
+          
+          
+        {/* </>
       ) : (
         <Route path="*" element={<Navigate to="/login" />} />
-      )}
+      )} */}
       <Route path="/landing-page" element={<LandingPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
