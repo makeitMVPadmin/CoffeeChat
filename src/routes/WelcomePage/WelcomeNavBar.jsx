@@ -21,10 +21,20 @@ function WelcomeNavBar() {
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                     <FaTimes />
                 </button>
+                
             </nav>
+            <div className="sign">
+            <button className="sign-btn">
+                    Sign In
+            </button>
+            <button className="sign-btn">
+                    Sign Up
+            </button>
+            </div>
             <button className="nav-btn" onClick={showNavbar}>
                     <FaBars />
                 </button>
+            
         </header>
     );
 }
