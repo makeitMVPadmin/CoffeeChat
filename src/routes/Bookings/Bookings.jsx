@@ -24,6 +24,7 @@ export const Bookings = () => {
 
   return (
     <div className="bookingsBody">
+      <div className="blueBackground"></div>
       <img className="backArrow" src={Left} alt="backArrow" onClick={()=>nav(-1)} />
       <h1 className="calendarTitle">Calendar</h1>
       
@@ -36,7 +37,7 @@ export const Bookings = () => {
           Upcoming {yourBooking > 0 ?
             (<span className="bookingNumber">bookingNumber value</span>)
             :
-            (<p className="bookingNumber">0</p>)
+            (<p className="bookingNumber">1</p>)
           }
         </div>
 

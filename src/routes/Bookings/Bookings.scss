@@ -34,23 +34,37 @@
     flex-shrink: 0;
 }
 
+.bookingsBody {
+    background-color: #FFF9F4;
+    height: 100vh;
+    background-image: url(../../assets/images/blueWave.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    padding-top: 15%;
+    background-size: 100% 85%;
+}
+
 
 //galaxy fold
 @media screen and (max-width: 300px) {
-    
+
     .bookingsBody {
-      height: 120vh;
-      width: max-content;
+        height: 138vh;
+        width: max-content;
     }
-  }
-  
-  //Iphone SE
-  @media screen and (max-height: 700px) {
-      
+}
+
+//Iphone SE
+@media screen and (max-height: 700px) {
+
     .bookingsBody {
-      padding-top: 4%;
+        padding-top: 4%;
+        width: max-content;
+        height: 105vh;
+        background-size: 100% 80%;
     }
-  }
+}
 
 .backArrow {
     position: absolute;
@@ -72,8 +86,8 @@
     @include calender-subtitles();
 }
 
-.bookingNumber{
-    background-color: #000;
+.bookingNumber {
+    background-color: #0954B0;
     color: white;
     border-radius: 50%;
     display: inline-block;

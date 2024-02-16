@@ -59,22 +59,22 @@ const SchedulingPage = ({ people, db }) => {
             }
 
             try {
-                //Creates instance of current user to update their collections and add the meeting
-                const userId = await getCurrentUserId();
+            //     //Creates instance of current user to update their collections and add the meeting
+            //     const userId = await getCurrentUserId();
 
-                // Reference to the user's document in Firestore
-                const userDocRef = doc(db, "Users", userId);
+            //     // Reference to the user's document in Firestore
+            //     const userDocRef = doc(db, "Users", userId);
 
-                // Add the booking data to a subcollection named "bookings"
-                const bookingsCollectionRef = collection(
-                    userDocRef,
-                    "Meetings"
-                );
+            //     // Add the booking data to a subcollection named "bookings"
+            //     const bookingsCollectionRef = collection(
+            //         userDocRef,
+            //         "Meetings"
+            //     );
 
-                // Add the booking data to the "bookings" subcollection
-                await addDoc(bookingsCollectionRef, bookingData);
+            //     // Add the booking data to the "bookings" subcollection
+            //     await addDoc(bookingsCollectionRef, bookingData);
 
-                console.log("Booking saved to Firestore");
+            //     console.log("Booking saved to Firestore");
 
                 const confirmationMessage = (
                     <div className="schedule-modal-container">
@@ -147,7 +147,7 @@ const SchedulingPage = ({ people, db }) => {
     const closeModal = () => {
         setModalOpen(false);
         setModalContent(null);
-        // navigate("/home");
+        navigate("/home");
     };
 
     return (

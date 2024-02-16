@@ -139,12 +139,12 @@
             padding: 0.75rem;
             font-family: "Gilroy-ExtraBold";
             font-size: 1.2rem;
-            background-color: $mvp-dark-blue;
+            background-color: black;
             color: $mvp-white;
             width: 50%;
 
             &:active {
-                background-color: #074a9c;
+                background-color: blue;
             }
         }
     }
