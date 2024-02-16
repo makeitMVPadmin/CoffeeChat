@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.scss";
 import HomePage from "./routes/HomePage/HomePage";
-
 // import LoginPage from "./routes/LoginPage/LoginPage";
 // import { SignUp } from "./routes/SignUp/SignUp";
 import ConnectionsPage from "./routes/ConnectionsPage/ConnectionsPage";
