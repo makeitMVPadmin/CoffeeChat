@@ -194,12 +194,12 @@ const Connecting = ({
               {/* Next */}
               Connect Me
             </button>
-            <button
+            {/* <button
               className="connections__button"
               onClick={handleClearFilters}
             >
               Clear Filters
-            </button>
+            </button> */}
           </div>
         </div>
         {/* <ul>
