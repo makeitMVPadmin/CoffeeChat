@@ -21,9 +21,9 @@ const Connecting = ({
           <Link to="/home" relative="path" className="connections__back-arrow">
             <FaArrowLeftLong size={35}/>
           </Link>
-          <h3 className="connections--blue">
+          <h3 className="connections--upper">
             Let's get you
-            <span className="connections--red"> connected!</span>
+            <span className="connections--lower"> connected!</span>
           </h3>
           {/* <div className="connections__image">
             <img className="connections__image-img-1" src={girl} alt="" />
