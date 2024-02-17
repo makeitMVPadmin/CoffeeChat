@@ -6,6 +6,7 @@ import girl from "../../assets/images/PinkGirlAnimation.png";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import spiralArrow from "../../assets/icons/connection/spiral_arrow.svg"
 
 const Connecting = ({
   handleClearFilters,
