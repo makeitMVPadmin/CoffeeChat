@@ -10,6 +10,11 @@ const Sidebar = () => {
             <SidebarHeader />
             <Search />
             <Chats />
+            <Chats />
+            <Chats />
+            <Chats />
+            <Chats />
+            
         </div>
     )
 }

@@ -1,4 +1,6 @@
 import React from "react"
+import { IoMdSearch } from "react-icons/io";
+import "../Search/Search.scss"
 
 const Search = () => {
     return (
@@ -6,14 +8,15 @@ const Search = () => {
             <div className="searchForm">
                 <input 
                 type="text"
-                placeholder="Search" />
+                placeholder= "Search chats"
+                className="searchInput" />
+                <IoMdSearch size={25}className="searchIcon"/>
             </div>
-            <div className="userchat">
-            <img src="#" alt="username" />
-            <div className="userchatInfo">
-                <span>Jane</span>
+            <div className="messagesInfo">
+                <span className="messagesText">Messages</span>
+                <span className="requestsText">0 Requests</span>
             </div>
-            </div>
+            
         </div>
         
     )

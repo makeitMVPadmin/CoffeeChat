@@ -1,0 +1,41 @@
+
+
+
+.userChat{
+    // border-bottom: 1px solid #0954b0;
+    border-top: 1px solid #0954b0;
+    padding:10px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px; 
+    cursor: pointer;
+    
+    .userImg{
+        height: 72px;
+        width: 72px;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+
+    .userChatInfo{
+        margin-right: 4px;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: "Gilroy-ExtraBold";
+        color: black;
+        
+        p{
+            font-size: 14px;
+            color: grey;
+            font-family: "Gilroy-ExtraBold";
+        }
+    }
+
+    .dateTime{
+        font-size: 14px;
+        font-family: "Gilroy-ExtraBold";
+        color: grey;
+    }
+        
+}

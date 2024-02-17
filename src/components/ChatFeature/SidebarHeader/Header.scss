@@ -1,31 +1,24 @@
-.sidebar {
-    background-color: #f5f5dc;
-    width: 80%;
-}
-
-.sidebarList {
+.headerContainer{
     display: flex;
-    flex-direction: row;
-}
+    align-content: center;
+    
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: flex-start;
+        margin-left: 10px;
+        margin-right: 10px;
 
-.textSide {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1rem;
-}
+        .backArrow{
+        }
 
-.chatName {
-    font-size: 1.5rem;
-}
+        .inboxText{
+            font-size: 16px;
+            
+        }
 
-.chatContent {
-    font-size: 1rem;
-}
+        }
+       
+    }
 
-.chatDate {
-    align-self: center;
-}
-
-hr {
-    color: gray;
-}
