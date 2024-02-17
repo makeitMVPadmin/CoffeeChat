@@ -59,8 +59,7 @@
     display: flex;
   }
 
-  &--blue {
-    color: #0954b0;
+  &--upper {
     width: 87%;
     font-size: 1.6rem;
     display: flex;
@@ -77,9 +76,8 @@
     }
   }
 
-  &--red {
-    color: $mvp-red;
-    margin-left: 40%;
+  &--lower {
+    margin-left: 50%;
   }
 
   &__button-container {
