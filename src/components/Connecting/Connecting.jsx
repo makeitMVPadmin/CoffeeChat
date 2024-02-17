@@ -34,7 +34,7 @@ const Connecting = ({
           <div className="connections__box">
             <div className="connections__filters">
               {" "}
-              <p className="connections__titles">Expertise</p>
+              <p className="connections__titles">Discipline</p>
               <div className="connections__options">
                 <p
                   className={`connections__option-1 ${
@@ -56,7 +56,7 @@ const Connecting = ({
             </div>
             <div className="connections__filters">
               {" "}
-              <p className="connections__titles">Discipline</p>
+              <p className="connections__titles">Expertise</p>
               <div className="connections__options">
                 <p
                   className={`connections__option-2 ${
