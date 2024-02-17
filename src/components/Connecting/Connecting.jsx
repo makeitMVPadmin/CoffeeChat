@@ -24,8 +24,8 @@ const Connecting = ({
           </Link>
           <h3 className="connections--upper">
             Let's get you
-            <span className="connections--lower"> connected!</span>
           </h3>
+          <h3 className="connections--lower">connected!</h3>
           {/* <div className="connections__image">
             <img className="connections__image-img-1" src={girl} alt="" />
             <img className="connections__image-img-2" src={guy} alt="" />
