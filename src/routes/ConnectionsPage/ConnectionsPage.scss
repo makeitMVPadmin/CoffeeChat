@@ -13,6 +13,12 @@
   @include desktop {
     background-image: none;
   }
+  &__background_1 {
+    background-image: url(../../assets/background/ConnectingMobileBackground.svg);
+  }
+  &__background_2 {
+    background-image: url(../../assets/background/ConnectionOptionMobileBackground.svg);
+  }
   &__container {
     display: flex;
     height: 85%;

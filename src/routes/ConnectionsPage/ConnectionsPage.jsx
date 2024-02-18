@@ -117,7 +117,8 @@ const ConnectionsPage = ({ people }) => {
   console.log(filters);
   console.log(filteredPeople);
   return (
-    <section className="connections">
+    <section className={`connections ${showConnecting ?
+    "connections__background_1" : "connections__background_2"}`}>
       {showConnecting && (
         <Connecting
           handleClearFilters={handleClearFilters}
