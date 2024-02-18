@@ -5,7 +5,7 @@ import './ConnectionOption.scss';
 import placemarker from '../../assets/icons/connection/place_marker.svg';
 import bag from '../../assets/icons/connection/bag.svg';
 import cv from '../../assets/icons/connection/CV.svg';
-import mentor from '../../assets/icons/connection/fi-rr-hand-holding-heart.svg';
+import mentor from '../../assets/icons/connection/handshake.svg';
 import githubLogo from '../../assets/icons/connection/github logo.svg';
 import linkedinLogo from '../../assets/icons/connection/linkedin logo.svg';
 import { FaArrowLeftLong } from "react-icons/fa6";
