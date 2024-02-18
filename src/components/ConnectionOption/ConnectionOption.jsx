@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import './ConnectionOption.scss';
 import placemarker from '../../assets/icons/connection/place_marker.svg';
-import reviews from '../../assets/icons/connection/reviews_placeholder.svg';
 import bag from '../../assets/icons/connection/bag.svg';
 import cv from '../../assets/icons/connection/CV.svg';
 import mentor from '../../assets/icons/connection/fi-rr-hand-holding-heart.svg';
@@ -44,9 +43,6 @@ const ConnectionOption = () => {
             <img src={placemarker} alt='Location Icon' />
           </div>
           <p>{location}</p>
-        </div>
-        <div className='connect__column'>
-          <img className='connect__reviews-icon' src={reviews} alt='Reviews icon' />
         </div>
       </div>
       <div className='connect__outer-box'>
