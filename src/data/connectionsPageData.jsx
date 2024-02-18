@@ -8,7 +8,7 @@ const connectionsPageData = [
     profilePicture: RajDevPicture,
     bio: "I am a Software dev with over 2 years of experience. I believe in mentoring juniors and helping them reach their professional goals. When I am not coding, I like to stay home, have a nice cup of coffee and hang out with my cats.",
     location: "Toronto, ON",
-    skills: ["Java", "C++", "HTML5" ],
+    skills: ["Java", "C++", "HTML5"],
     profession: "Software Engineer",
     experience: "Mid Level - 2 years" ,
     mentoredSessionsAmt: 20,
