@@ -34,8 +34,16 @@ const ConnectionOption = () => {
       <div className='connect__row'>
         <img className='connect__profile-pic' src={profilePicture} alt='Connection Profile' />
       </div>
-      <div className='connect__row'>
+      <div className='connect__row--name'>
         <h3 className='connect__profile-name'>{name}</h3>
+        <div className='connect__logo-container'>
+          <a href='https://www.github.com'>
+              <img className='connect__logo' src={githubLogo} alt='GitHub' />
+          </a>
+          <a href='https://www.linkedin.com'>
+              <img className='connect__logo' src={linkedinLogo} alt='LinkedIn Logo' />
+          </a>
+        </div>
       </div>
       <div className='connect__row'>
         <div className='connect__column'>
@@ -62,11 +70,6 @@ const ConnectionOption = () => {
               </div>
               <p className='connect__info'>{profession}</p>
             </div>
-            <div className='connect__column'>
-              <a href='https://www.linkedin.com'>
-                <img className='connect__logo' src={linkedinLogo} alt='LinkedIn Logo' />
-              </a>
-            </div>
           </div>
           <div className='connect__row'>
             <div className='connect__column'>
@@ -74,11 +77,6 @@ const ConnectionOption = () => {
                 <img src={cv} alt='Experience Icon' />
               </div>
               <p className='connect__info'>{experience}</p>
-            </div>
-            <div className='connect__column'>
-              <a href='https://www.github.com'>
-                <img className='connect__logo' src={githubLogo} alt='GitHub' />
-              </a>
             </div>
           </div>
           <div className='connect__row'>
