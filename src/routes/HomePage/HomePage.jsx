@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import Navbar from "../../components/Navbar/Navbar";
 import { app, db } from "../../App";
 import { getAuth, signOut } from "firebase/auth";
-import userPhoto from "../../assets/images/NoUserPhoto.png";
+import userPhoto from "../HomePage/sample-user.svg";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 

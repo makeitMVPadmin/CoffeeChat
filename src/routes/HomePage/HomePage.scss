@@ -5,12 +5,9 @@
 
 .home {
   background-color: white;
-  height: 100vh;
-  background-image: url(../../assets/images/HomeBackgroundTablet.svg);
+  background:bottom url(./home-background.jpg) no-repeat;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 15%;
+  background-size: contain;
 
   @include tablet {
     padding-top: 16%;
@@ -61,18 +58,14 @@
   border-left: 1px solid #000;
   background: #F7F7F7;
   padding: 1rem;
-  width: 85%;
-  height: 11rem;
-  flex-shrink: 0;
-  margin: auto;
-  margin-bottom: 1.25rem;
+  margin: 1.25rem;
 }
 
 .homeSubHeader {
   color: #000;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Corben-bold;
-  font-size: 1.3125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 900;
   line-height: 2.5rem;
@@ -112,7 +105,6 @@
   margin-right: 2rem;
   background-position: center;
   background-size: cover;
-
   text-align: center;
 
   @include tablet {
