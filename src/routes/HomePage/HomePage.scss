@@ -61,7 +61,7 @@
   border-left: 1px solid #000;
   background: #F7F7F7;
   padding: 1rem;
-  width: 22.4375rem;
+  width: 85%;
   height: 11rem;
   flex-shrink: 0;
   margin: auto;
@@ -149,6 +149,7 @@
 
 .homeHeader {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10%;

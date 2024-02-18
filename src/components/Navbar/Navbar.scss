@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 .navbar {
-  position: fixed;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   margin-bottom: auto;
