@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     width: 93%;
-    margin: 2.5rem 0rem 4rem;
+    height: 90%;
     @include desktop {
       margin-top: 8rem;
     }
@@ -71,7 +71,7 @@
   }
 
   &__outer-box {
-    height: 70%;
+    height: 50%;
     width: 100%;
     border-radius: 10px;
     border: solid;
@@ -83,7 +83,7 @@
     text-align: left;
 
     &__inner-box {
-      height: 70%;
+      height: 100%;
       padding: 15px;
       border-radius: 20px;
       color: grey; /* Set your desired text color */
@@ -137,12 +137,15 @@
     background-color: $mvp-black;
     color: white;
     padding: 0.5rem 1rem;
+    width: 7.938rem;
+    height: 2.75rem;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     &--row {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-evenly;
     }
     &--container {
       padding-top: 0.5rem;
