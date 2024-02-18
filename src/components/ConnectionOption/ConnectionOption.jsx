@@ -95,7 +95,7 @@ const ConnectionOption = () => {
           </div>
           <div className='connect__button--container'>
             <div className='connect__button--row'>
-              <Link to='/chat/1'>
+              <Link to='/chat/'>
                 <div className='connect__button'>
                   <p className='connect__button__text'>
                     Chat
