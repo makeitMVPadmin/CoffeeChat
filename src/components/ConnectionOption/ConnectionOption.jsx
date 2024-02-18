@@ -9,12 +9,23 @@ import cv from '../../assets/icons/connection/CV.svg';
 import mentor from '../../assets/icons/connection/fi-rr-hand-holding-heart.svg';
 import githubLogo from '../../assets/icons/connection/github logo.svg';
 import linkedinLogo from '../../assets/icons/connection/linkedin logo.svg';
-import profilePicture from '../../assets/icons/connection/Teacher.svg';
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { HiOutlineChatBubbleLeftRight, HiOutlineCalendarDays } from "react-icons/hi2";
+import userData from "../../data/connectionsPageData.jsx"
 
 
 const ConnectionOption = () => {
+  const { name, profilePicture, bio, location, skills,
+  profession, experience, mentoredSessionsAmt } = userData[0];
+
+  const skillDisplay = skills.map(skill => {
+    return (
+      <div className='connect__outer-box__inner-box__expertise__skill' key={skill}>
+        <p>{skill}</p>
+      </div>
+    )
+  })
+
   return (
     <div className='connect__container'>
       <Link to="/home" relative="path" className="connect__back-arrow">
@@ -25,14 +36,14 @@ const ConnectionOption = () => {
         <img className='connect__profile-pic' src={profilePicture} alt='Connection Profile' />
       </div>
       <div className='connect__row'>
-        <h3 className='connect__profile-name'>Raj Dev</h3>
+        <h3 className='connect__profile-name'>{name}</h3>
       </div>
       <div className='connect__row'>
         <div className='connect__column'>
           <div className='connect__location-image'>
             <img src={placemarker} alt='Location Icon' />
           </div>
-          <p>Portland, OR</p>
+          <p>{location}</p>
         </div>
         <div className='connect__column'>
           <img className='connect__reviews-icon' src={reviews} alt='Reviews icon' />
@@ -42,29 +53,18 @@ const ConnectionOption = () => {
         <div className='connect__outer-box__inner-box'>
           <h4 className='connect__outer-box__inner-box__header'>About Me</h4>
           <p className='connect__outer-box__inner-box__bio'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+           {bio}
           </p>
           <div className='connect__outer-box__inner-box__expertise'>
             <p className='connect__outer-box__inner-box__expertise__header' >EXPERTISE</p>
-            <div className='connect__outer-box__inner-box__expertise__skill'>
-              <p>Java</p>
-            </div>
-            <div className='connect__outer-box__inner-box__expertise__skill'>
-              <p>C++</p>
-            </div>
-            <div className='connect__outer-box__inner-box__expertise__skill'>
-              <p>HTML5</p>
-            </div>
+            {skillDisplay}
           </div>
           <div className='connect__row'>
             <div className='connect__column'>
               <div className='connect__image'>
                 <img src={bag} alt='Job Icon' />
               </div>
-              <p className='connect__info'>Software Engineer</p>
+              <p className='connect__info'>{profession}</p>
             </div>
             <div className='connect__column'>
               <a href='https://www.linkedin.com'>
@@ -77,7 +77,7 @@ const ConnectionOption = () => {
               <div className='connect__image'>
                 <img src={cv} alt='Experience Icon' />
               </div>
-              <p className='connect__info'>Mid Level - 2 years</p>
+              <p className='connect__info'>{experience}</p>
             </div>
             <div className='connect__column'>
               <a href='https://www.github.com'>
@@ -90,7 +90,7 @@ const ConnectionOption = () => {
               <div className='connect__image'>
                 <img src={mentor} alt='Sessions Icon' />
               </div>
-              <p className='connect__info'>20 Mentored Sessions</p>
+              <p className='connect__info'>{mentoredSessionsAmt} Mentored Sessions</p>
             </div>
           </div>
           <div className='connect__button--container'>
