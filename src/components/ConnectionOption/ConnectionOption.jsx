@@ -9,7 +9,8 @@ import mentor from '../../assets/icons/connection/handshake.svg';
 import githubLogo from '../../assets/icons/connection/github logo.svg';
 import linkedinLogo from '../../assets/icons/connection/linkedin logo.svg';
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { HiOutlineChatBubbleLeftRight, HiOutlineCalendarDays } from "react-icons/hi2";
+import chatBubble from '../../assets/icons/connection/chat_bubble.svg'
+import calendar from '../../assets/icons/connection/calendar.svg'
 import userData from "../../data/connectionsPageData.jsx"
 
 
@@ -94,7 +95,7 @@ const ConnectionOption = () => {
                   <p className='connect__button__text'>
                     Chat
                   </p>
-                  <HiOutlineChatBubbleLeftRight size={25}/>
+                  <img className='connect__option-icon' src={chatBubble} alt='Chat bubble'/>
                 </div>
               </Link>
               <Link to='/scheduling/1'>
@@ -102,7 +103,7 @@ const ConnectionOption = () => {
                   <p className='connect__button__text'>
                     Meet
                   </p>
-                  <HiOutlineCalendarDays size={25}/>
+                  <img className='connect__option-icon' src={calendar} alt='Calendar'/>
                 </div>
               </Link>
             </div>
