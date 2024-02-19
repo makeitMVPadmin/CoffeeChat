@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     width: 93%;
-    height: 90%;
+    margin: 2.5rem 0rem 4rem;
     @include desktop {
       margin-top: 8rem;
     }
@@ -71,8 +71,8 @@
   }
 
   &__outer-box {
-    height: 50%;
     width: 100%;
+    height: 100%;
     border-radius: 10px;
     border: solid;
     border-color: $mvp-black;
