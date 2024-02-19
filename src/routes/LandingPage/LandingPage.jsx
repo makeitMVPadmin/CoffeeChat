@@ -11,13 +11,6 @@ const LandingPage = () => {
   return (
       <>
       <Header />
-      <Hero />
-      <About id="About"/>
-      <Partners />
-      <Features id="FAQs"/>
-      <Testimonials />
-      <Newsletter />
-      <Footer />
       </>
   );
 };
