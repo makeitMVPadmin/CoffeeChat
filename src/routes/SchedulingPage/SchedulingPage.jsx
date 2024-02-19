@@ -9,7 +9,13 @@ import bgShape from "../../assets/background/bg-accent-shapes-calendar-pg.png";
 import backArrow from "../../assets/icons/wayfinding/back-arrow.svg";
 import placeMarker from "../../assets/icons/extras/Place Marker.svg";
 import virtualMeeting from "../../assets/icons/extras/virtual-meeting.png";
-import confirmCalendar from "../../assets/icons/calendar/confirm_calender.png";
+import XButton from "../../assets/icons/extras/XButton.svg"
+import google from '../../assets/icons/links/google.svg'
+import blankUserImg from '../../assets/images/blankUserImg.png'
+import blueCalendar from '../../assets/icons/calendar/blueCalendar.svg'
+
+
+
 import Navbar from "../../components/Navbar/Navbar";
 Modal.setAppElement("#root");
 
@@ -60,56 +66,78 @@ const SchedulingPage = ({ people, db }) => {
             }
 
             try {
-            //     //Creates instance of current user to update their collections and add the meeting
-            //     const userId = await getCurrentUserId();
+                //     //Creates instance of current user to update their collections and add the meeting
+                //     const userId = await getCurrentUserId();
 
-            //     // Reference to the user's document in Firestore
-            //     const userDocRef = doc(db, "Users", userId);
+                //     // Reference to the user's document in Firestore
+                //     const userDocRef = doc(db, "Users", userId);
 
-            //     // Add the booking data to a subcollection named "bookings"
-            //     const bookingsCollectionRef = collection(
-            //         userDocRef,
-            //         "Meetings"
-            //     );
+                //     // Add the booking data to a subcollection named "bookings"
+                //     const bookingsCollectionRef = collection(
+                //         userDocRef,
+                //         "Meetings"
+                //     );
 
-            //     // Add the booking data to the "bookings" subcollection
-            //     await addDoc(bookingsCollectionRef, bookingData);
+                //     // Add the booking data to the "bookings" subcollection
+                //     await addDoc(bookingsCollectionRef, bookingData);
 
-            //     console.log("Booking saved to Firestore");
+                //     console.log("Booking saved to Firestore");
 
                 const confirmationMessage = (
                     <div className="schedule-modal-container">
                         {/* TODO: Add logged in user's name & meeting type */}
-                        <img
-                            className="schedule-modal-container__icon "
-                            src={confirmCalendar}
-                        />
-                        <p className="schedule-modal-container__confirm-msg">
-                            Your {selectedMeetingType} meeting with{" "}
-                            {person.name} at {meetingLocation} has been
-                            confirmed.
-                        </p>
-                        <h3 className="schedule-modal-container__time">
-                            {selectedDate &&
-                                selectedDate.toLocaleDateString("en-US", {
-                                    weekday: "long",
-                                    month: "long",
-                                    day: "numeric",
-                                })}
-                        </h3>
-                        <h3 className="schedule-modal-container__time">{`at ${
-                            selectedTime && selectedTime.toString()
-                        }`}</h3>
+                        <div className="schedule-modal-container__header ">
+                            <img
+                                className="schedule-modal-container__icon "
+                                src={XButton}
+                                onClick={closeModal}
+                            />
+                            <h1 className="schedule-modal-container__calendar ">Calendar</h1>
+                        </div>
+
+                        <div className="schedule-modal-container__bookedUser">
+                            <div>
+                                <img src={blankUserImg} alt="userImg" className="userImg" />
+                            </div>
+                            <div className="bookedUserInfo">
+                                <p className="bookedUserName">{person.name}</p>
+                                <br></br>
+                                <p className="bookedUserRole">software Engineer</p>
+                            </div>
+                            <img src={blueCalendar} alt="blueCalendar" className="blueCalendar" />
+
+                            <div className="bookedDay">
+                                <p className="bookedTime">
+                                    {selectedDate &&
+                                    selectedDate.toLocaleDateString("en-US", {
+                                        year: "numeric",
+                                        month: "numeric",
+                                        day: "numeric",
+                                    })}
+                                </p>
+                                <p className="bookedTime">{`${selectedTime && selectedTime.toString()
+                                    }`}</p>
+                            </div>
+                        </div>
 
                         <p className="schedule-modal-container__confirm-msg">
+                            {/* Your {selectedMeetingType} meeting with{" "}
+                            {person.name} at {meetingLocation} has been
+                            confirmed. */}
+                            You're Booked!
+                        </p>
+
+                        <p className="schedule-modal-container__confirm-msg2">
                             Get ready to brew some great connections!
                         </p>
                         <button
                             className="schedule-modal-container__button"
                             onClick={closeModal}
                         >
-                            Close
+                            <img src={google} alt="google" className="googleLink" />
+                            Add to Calendar
                         </button>
+                        <Navbar />
                     </div>
                 );
 
