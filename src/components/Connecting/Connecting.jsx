@@ -6,7 +6,7 @@ import girl from "../../assets/images/PinkGirlAnimation.png";
 import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import spiralArrow from "../../assets/icons/connection/spiral_arrow.svg"
-import backArrow from "../../assets/icons/wayfinding/ArrowLeft-2.svg"
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const Connecting = ({
   handleClearFilters,
@@ -20,7 +20,7 @@ const Connecting = ({
       <div className="connections__container">
         <div className="connections__top">
           <Link to="/home" relative="path" className="connections__back-arrow">
-            <img className="connections__arrow-left" src={backArrow} alt="Arrow left"/>
+            <FaArrowLeftLong size={35}/>
           </Link>
           <div className="connections__upper-container">
             <h3 className="connections--upper">
