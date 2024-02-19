@@ -2,9 +2,9 @@
 const connectionsData = [
   {
     id: 1,
-    name: "John Doe",
+    name: "Raj Dev",
     profilePicture: "john.jpg",
-    timePreferences: ["9:00am", "2:30pm", "4:00pm"],
+    timePreferences: ["9:00am", "2:30pm", "6:00pm"],
   },
   {
     id: 2,
