@@ -5,13 +5,10 @@
 
 .home {
   background-color: white;
-  height: 100vh;
-  background-image: url(../../assets/images/HomeBackgroundTablet.svg);
+  background:bottom url(./home-background.jpg) no-repeat;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 15%;
-
+  background-size: contain;
+  gap: 4.3rem; 
   @include tablet {
     padding-top: 16%;
     background-image: url(../../assets/images/HomeBackgroundTablet.svg);
@@ -61,18 +58,15 @@
   border-left: 1px solid #000;
   background: #F7F7F7;
   padding: 1rem;
-  width: 22.4375rem;
-  height: 11rem;
-  flex-shrink: 0;
-  margin: auto;
-  margin-bottom: 1.25rem;
+  width: 85%;
+  align-self: center;
 }
 
 .homeSubHeader {
   color: #000;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Corben-bold;
-  font-size: 1.3125rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 900;
   line-height: 2.5rem;
@@ -80,21 +74,12 @@
 }
 
 .connectionsBtn {
-  margin: auto;
   color: #FFF;
-  text-align: center;
   font-size: 1.25rem;
-  font-style: normal;
   font-weight: 800;
-  line-height: normal;
   background-color: #000;
-  display: flex;
-  height: 2.8125rem;
-  padding: 0.625rem 1.25rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-  flex-shrink: 0;
+  width: 80%;
+  align-self: center;
 }
 
 .homeList {
@@ -112,7 +97,6 @@
   margin-right: 2rem;
   background-position: center;
   background-size: cover;
-
   text-align: center;
 
   @include tablet {
@@ -149,9 +133,9 @@
 
 .homeHeader {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10%;
 
   @include tablet {
     justify-content: flex-start;
