@@ -14,7 +14,6 @@ import ConnectionsNext from "./routes/ConnectionsNext/ConnectionsNext";
 import SearchPage from "./routes/SearchPage/SearchPage";
 import SchedulingPage from "./routes/SchedulingPage/SchedulingPage";
 import { Bookings } from "./routes/Bookings/Bookings";
-import { Booked } from "./routes/Booked/Booked";
 import NotFoundPage from "./routes/NotFoundPage/NotFoundPage";
 import LandingPage from "./routes/LandingPage/LandingPage";
 import ChatPage from "./routes/ChatPage/ChatPage"
@@ -49,6 +48,16 @@ export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 
+// Dummy Data for People
+const connectionsData = [
+  {
+    id: 1,
+    name: "Raj Dev",
+    profilePicture: "john.jpg",
+    timePreferences: ["9:00am", "2:30pm", "4:00pm"],
+  },
+];
+
 function App() {
   const auth = getAuth();
 
@@ -80,7 +89,6 @@ function App() {
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/inbox" element={<ChatInbox />} />
           <Route path="/bookings" element={<Bookings/>}/>
-          <Route path="/Booked" element={<Booked/>}/>
           <Route path="/SchedulingPage" element={<SchedulingPage/>}/>
           <Route
             path="/scheduling/:id"
