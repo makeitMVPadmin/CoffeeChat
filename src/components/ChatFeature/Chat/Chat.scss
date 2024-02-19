@@ -2,13 +2,62 @@
     background-color: #FFF9F4 ;
     height: 100vh;
     
-    .chatInfo{
-        display: flex;
+    .chatHeader{
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    // padding: 10px;
+    // border-bottom: 1px solid #ccc;
+
+    display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        padding: 10px;
-        height:125px;
-                
+        justify-content: center;
+        height: 20vh;
+        
+    
+    .backIcon{
+        cursor: pointer;
+    }
+    .userInfo {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
+        // height: 20vh;
+        text-align: center;
+        
+        .userDetails{
+            display: flex;
+            flex-direction: column;
+            font-family: "Gilroy-ExtraBold";
+        }
+       
+
+        img{
+            height: 64px;
+            width: 64px;
+        }
+
+        .userDetails{
+            text-align: center;
+            font-family: "Gilroy-Extra-Bold";
+        }
+
+        .user-details h2 {
+            margin: 0;
+            font-size: 18px; 
+         /* Adjust font size of the user name */
+        }
+        
+        .user-details p {
+            margin: 0;
+            color: #777; /* Adjust color of user occupation */
+            font-size: 14px;  /* Adjust font size of user occupation */
+        }
+    }
+    
+
     }
 
    
