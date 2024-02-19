@@ -28,10 +28,12 @@ const ConnectionOption = () => {
 
   return (
     <div className='connect__container'>
-      <Link to="/home" relative="path" className="connect__back-arrow">
-          <FaArrowLeftLong size={35}/>
-      </Link>
-      <h2 className='connect__header'>Connections</h2>
+      <div className='connect__header-container'>
+        <Link to="/home" relative="path" className="connect__back-arrow">
+            <FaArrowLeftLong size={35}/>
+        </Link>
+        <h2 className='connect__header'>Connections</h2>
+      </div>
       <div className='connect__row'>
         <img className='connect__profile-pic' src={profilePicture} alt='Connection Profile' />
       </div>
