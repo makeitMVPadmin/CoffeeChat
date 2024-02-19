@@ -7,7 +7,7 @@ const Header = () => {
 
     const navigate=useNavigate()
 
-    const handleBackArrow = () => {
+    const handleBackArrowSidebar = () => {
         navigate('/home')
     }
      
@@ -15,7 +15,7 @@ const Header = () => {
     return (
         <div className="headerContainer">
             <div className="header">
-                <div><FaArrowLeftLong size={30} className="backArrow" onClick={handleBackArrow}/></div>
+                <div><FaArrowLeftLong size={30} className="backArrow" onClick={handleBackArrowSidebar}/></div>
                 <h2 className="inboxText">Inbox</h2>
                 {/* <div className="userInfo"> */}
                     <img src={User} alt="user" className="userImg"/>
