@@ -53,6 +53,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 0.2rem;
+    margin-bottom: -0.5rem;
   }
 
   &__column {
@@ -94,7 +95,7 @@
       }
 
       &__bio {
-        line-height: 1.5rem;
+        line-height: 1.8rem;
         margin-bottom: 0.3rem;
         color: $mvp-black;
       }
