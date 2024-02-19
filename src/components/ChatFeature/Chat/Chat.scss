@@ -1,3 +1,16 @@
-.backIcon{
-    cursor: pointer;
+.chat{
+    background-color: #FFF9F4 ;
+    height: 100vh;
+    
+    .chatInfo{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        height:125px;
+                
+    }
+
+   
+
 }

@@ -7,6 +7,7 @@ import Input from "../Input/Input"
 import "./Chat.scss"
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import User from "../SidebarHeader/User.svg";
 
 
 const Chat =() => {
@@ -24,7 +25,7 @@ const Chat =() => {
             <FaArrowLeftLong size={30} className="backIcon" onClick={handleBackArrowChat} />
             </div>
             <div className="userInfo">
-                <img src="#" alt="profile pic" />
+                <div className="userPic"><img src={User} alt="profile pic" /></div>
                 <span>Jane</span>
                 <span>Occupation</span>
             </div>
