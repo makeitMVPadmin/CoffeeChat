@@ -1,4 +1,4 @@
-import Header from "../../components/Landing/Header/Header";
+import Header from "../WelcomePage/WelcomeNavBar";
 import Hero from "../../components/Landing/Hero/Hero";
 import About from "../../components/Landing/About/About";
 import Features from "../../components/Landing/Features/Features";
