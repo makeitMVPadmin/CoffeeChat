@@ -5,13 +5,23 @@ import React from "react";
 import Messages from "../Messages/Messages"
 import Input from "../Input/Input"
 import "./Chat.scss"
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
+
 
 const Chat =() => {
+
+    const navigate=useNavigate()
+
+    const handleBackArrowChat = () => {
+        navigate('/inbox')
+    }
+
     return(
     <div className="chat">
         <div className="chatInfo">
-            <div className="backIcon">
-                <img src="#" alt="back icon" />
+             <div>
+            <FaArrowLeftLong size={30} className="backIcon" onClick={handleBackArrowChat} />
             </div>
             <div className="userInfo">
                 <img src="#" alt="profile pic" />
