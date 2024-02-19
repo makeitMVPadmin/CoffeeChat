@@ -48,15 +48,6 @@ export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 
-// Dummy Data for People
-const connectionsData = [
-  {
-    id: 1,
-    name: "Raj Dev",
-    profilePicture: "john.jpg",
-    timePreferences: ["9:00am", "2:30pm", "4:00pm"],
-  },
-];
 
 function App() {
   const auth = getAuth();
