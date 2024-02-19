@@ -14,10 +14,10 @@ function WelcomeNavBar() {
                 <h2 id="logo">Coffee Chat</h2>
             </div>
             <nav ref={navRef}>
-                <a href="/#">About</a>
-                <a href="/#">Features</a>
-                <a href="/#">FAQs</a>
-                <a href="/#">Testimonials</a>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#FAQs">FAQs</a>
+                <a href="#testimonials">Testimonials</a>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                     <FaTimes />
                 </button>
