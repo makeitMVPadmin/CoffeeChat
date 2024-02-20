@@ -21,15 +21,13 @@ const Chat =() => {
     return(
     <div className="chat">
         <div className="chatHeader">
-             <div>
+             <div className="colOne">
             <FaArrowLeftLong size={30} className="backIcon" onClick={handleBackArrowChat} />
             </div>
-            <div className="userInfo">
-               <img src={User} alt="profile pic" />
-                <div className="userDetails">
-                    <span>Jane</span>
-                    <span>Software Engineer</span>
-                </div>
+            <div className="colTwo">
+               <img className="userTwoImg" src={User} alt="profile pic" />
+                <span className="userName">Jane</span>
+                <span className="userOccupation">Software Engineer</span> 
             </div>
         </div>
     <Messages />
