@@ -1,6 +1,6 @@
 import "./Hero.scss";
 import cards from "../../../assets/images/cards.png";
-
+import hero from "./hero.svg";
 const Hero = () => {
   return (
     <>
@@ -26,6 +26,7 @@ const Hero = () => {
                     Sign Up
             </button>
           </div>
+          <img src={hero} />
         </div>
       </section>
     </>
