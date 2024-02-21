@@ -51,7 +51,7 @@
     }
 
     &--button {
-        padding: 4rem;
+        align-self: normal;
     }
   }
 
@@ -119,12 +119,21 @@
   }
 }
 
-
 .hero__title {
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 
 .heroContainerText {
   display: flex;
   flex-direction: column;
+}
+
+.hero-sign-btn {
+  border-width: 3px;
+  border-color: #000;
+  background-color: #FFF;
+  font-weight: 800;
+  border: 2px solid black;
+  padding: 1rem 3rem;
+  margin-right: 1rem;
 }

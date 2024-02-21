@@ -19,12 +19,12 @@ const Hero = () => {
             </div>
           </div>
           <div className="hero__container--button">
-            {/* TODO: Add in link to email notifications sign up */}
-            <button className="hero__button">
-              Sign Up for Email Notifications
+            <button className="hero-sign-btn">
+                    Sign In
             </button>
-          </div>
-          <div className="hero__container--background">
+            <button className="hero-sign-btn">
+                    Sign Up
+            </button>
           </div>
         </div>
       </section>
