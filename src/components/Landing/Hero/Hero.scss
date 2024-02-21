@@ -15,12 +15,6 @@
 
   &__container {
     &--content {
-      z-index: 2;
-      background-image: linear-gradient(
-        180deg,
-        rgba(0, 153, 255, 0.2049194677871149) 0%,
-        rgba(255, 255, 255, 1) 100%
-      );
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -76,7 +70,6 @@
         width: 11rem;
         height: 3%;
         margin-top: 2.5rem;
-        background-color: $mvp-yellow;
         z-index: -1;
       }
       @include tablet {
@@ -86,7 +79,6 @@
           width: 13rem;
           height: 3%;
           margin-top: 3.3rem;
-          background-color: $mvp-yellow;
           z-index: -1;
         }
       }
@@ -95,7 +87,6 @@
 
   &__button {
     border-radius: 2rem;
-    background-color: $mvp-yellow;
     font-weight: bolder;
     @include mobile-buttons;
 
@@ -126,4 +117,14 @@
       max-height: 60rem;
     }
   }
+}
+
+
+.hero__title {
+  font-size: 4rem;
+}
+
+.heroContainerText {
+  display: flex;
+  flex-direction: column;
 }
