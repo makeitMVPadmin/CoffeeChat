@@ -9,7 +9,7 @@ function WelcomeNavBar() {
     }
     return(
         <header>
-            <div>
+            <div className="logo">
                 <img src={Logo} />
                 <h2 id="logo">Coffee Chat</h2>
             </div>
