@@ -11,7 +11,7 @@ function WelcomeNavBar() {
         <header className="welcome-header">
             <div className="welcome-navbar-logo">
                 <img src={Logo} />
-                <h2 id="logo">Coffee Chat</h2>
+                <h2>Coffee Chat</h2>
             </div>
             <nav ref={navRef}>
                 <a href="#about">About</a>
