@@ -8,7 +8,7 @@ function WelcomeNavBar() {
         navRef.current.classList.toggle("responsive_nav");
     }
     return(
-        <header>
+        <header className="welcome-header">
             <div className="logo">
                 <img src={Logo} />
                 <h2 id="logo">Coffee Chat</h2>
