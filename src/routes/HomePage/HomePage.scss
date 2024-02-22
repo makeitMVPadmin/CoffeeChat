@@ -123,9 +123,7 @@
   }
 
   @include desktop {
-    margin-left: 50%;
-    width: 7vw;
-    height: 7vw;
+    display: none;
   }
 }
 
@@ -162,7 +160,7 @@
 
   @include desktop {
     justify-content: flex-start;
-    margin-bottom: 3%;
+    margin: 3rem 0;
   }
 }
 
