@@ -12,6 +12,7 @@ import virtualMeeting from "../../assets/icons/extras/virtual-meeting.png";
 import XButton from "../../assets/icons/extras/XButton.svg"
 import google from '../../assets/icons/links/google.svg'
 import blankUserImg from '../../assets/images/blankUserImg.png'
+import RajDev from '../../assets/images/RajDev.svg'
 import blueCalendar from '../../assets/icons/calendar/blueCalendar.svg'
 
 
@@ -97,7 +98,7 @@ const SchedulingPage = ({ people, db }) => {
 
                         <div className="schedule-modal-container__bookedUser">
                             <div>
-                                <img src={blankUserImg} alt="userImg" className="userImg" />
+                                <img src={RajDev} alt="userImg" className="userImg" />
                             </div>
                             <div className="bookedUserInfo">
                                 <p className="bookedUserName">{person.name}</p>
