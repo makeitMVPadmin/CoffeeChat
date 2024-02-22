@@ -1,0 +1,43 @@
+.chat{
+    background-color: #FFF9F4 ;
+    height: 100vh;
+    
+    .chatHeader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        height: 160px;
+
+        .colOne{
+            flex-basis: 40px;
+            margin-bottom: 50px;
+        }
+
+        .colTwo{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-basis: 382px;
+            font-family: "Gilroy-ExtraBold";
+            margin-right: 40px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid;
+            
+
+            .userTwoImg{
+                height: 64px;
+                width: 64px;
+                object-fit: cover;
+                margin-bottom: 10px;
+            }
+            .userName{
+                font-size: 25px;
+            }
+            .userOccupation{
+                font-size: 16px;
+            }
+        }
+    }
+
+}

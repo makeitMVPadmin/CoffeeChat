@@ -1,0 +1,37 @@
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    .columnOne{
+        flex-basis: 125px;
+        padding-bottom: 20px;
+    }
+
+    .columnTwo{
+        text-align: center;
+        flex-basis: 162px;
+        margin-top: 5px;
+    }
+
+    .columnThree{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-basis: 125px;
+
+        .userImg{
+            height: 43px;
+            width: 43px;
+            object-fit: cover;
+        }
+        .addButton{
+            margin-top: 10px;
+        }
+    }
+    }
+    
+        
+        
+    

@@ -1,0 +1,43 @@
+.input{
+
+    position: fixed;
+    bottom: 70px; /* Adjust according to your navbar height */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%; /* Adjust width as per your design */
+    max-width: 500px;
+   /* Adjust maximum width as per your design */
+
+   .input > button {
+        background-color: transparent;
+   }
+    
+
+    //html element
+    input{
+        // width:100%;
+        border:none;
+        outline: none;
+        color:#2f2f2f;
+        font-size: 18px;
+
+        &::placeholder{
+            color: black;
+            font-family: "Gilroy-ExtraBold";
+            font-size: 13px;
+        }
+    }
+
+    .sendButton{
+        margin-right: 10px;
+    }
+
+    
+}

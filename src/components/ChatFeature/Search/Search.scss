@@ -1,0 +1,63 @@
+
+.search{
+    // margin-top: 10px;
+
+    .searchForm {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+      height: 100px;
+
+      input{
+        position: relative;
+        width: 85vw;
+        height: 35px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px solid; 
+        font-family: "Gilroy-ExtraBold";
+        font-size: 14px;
+      }
+      .searchInput {
+        padding-left: 40px; 
+        width: 300px; 
+        }
+      
+      .searchIcon {
+        position: absolute;
+        left: 60px; /* Adjust the position of the icon */
+        top: 38%;
+        transform: translateY(-50%);
+        color: #0954b0;
+        cursor: pointer;
+        }
+
+      }
+
+      .messagesInfo{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        span{
+          font-family: "Gilroy-ExtraBold";
+                  
+          }
+          
+        .messagesText{
+           margin-left:20px;
+          }
+          
+        .requestsText{
+            margin-right: 20px;
+            color: grey;
+            }
+      }
+
+    
+
+
+
+      
+}

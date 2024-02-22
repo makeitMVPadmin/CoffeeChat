@@ -6,7 +6,7 @@ import Navbar from "../../components/Navbar/Navbar"
 
 const ChatPage = () => {
     return(
-        <div className="home">
+        <div className="chatPage">
             <div className="container">
                 <Chat />
                 <Navbar />

@@ -2,12 +2,14 @@
 
 import React from "react";
 import "./Message.scss"
+import User from "../SidebarHeader/User.svg";
 
 const Message =() => {
     return(
         <div className="message owner">
             <div className="messageInfo">
-                <img src="#" alt="user" />
+            <div className="userPic">
+                <img src={User} alt="profile pic" /></div>
             </div>
             <div className="messageContent">
                 <p>Hello</p>

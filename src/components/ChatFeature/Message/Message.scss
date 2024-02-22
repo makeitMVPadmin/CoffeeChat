@@ -1,0 +1,78 @@
+
+
+    .message{
+        display: flex;
+        gap: 25px;
+        margin-bottom: 20px ;
+        position: relative;
+    
+        .messageInfo{
+            display: flex;
+            flex-direction: column;
+            color: gray;
+            font-weight: 300;
+
+            img{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
+        .messageContent{
+            min-width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+
+            p{
+                background-color: white;
+                padding: 10px;
+                border-radius: 0px 10px 10px 10px ;
+                min-width: max-content;
+                border-bottom-width: 2px;
+                border-left-width: 2px;
+                border-color: #0954B0;
+            }
+            .userPic{
+                position: absolute;
+                bottom: -20px;
+                left: 5px ;
+                z-index: 1;
+            
+
+
+            }
+        }
+        //if message comes from owner then I want it to display opposite
+        &.owner{
+            flex-direction: row-reverse;
+
+            .userPic{
+                position: absolute;
+                bottom: -20px;
+                right: 5px ;
+                z-index: 1;
+            }
+
+            .messageContent{
+                align-items: flex-end;
+                position: relative;
+                flex-grow: 1;
+                margin-left: 10px;
+
+
+            p{
+                border-radius: 10px 0px 10px 10px;
+                border: 1px solid black;
+                border-bottom-width: 2px;
+                border-right-width: 2px;
+                border-color: #0099FF;
+                max-width: max-content;
+            }
+
+            }
+        }
+    }

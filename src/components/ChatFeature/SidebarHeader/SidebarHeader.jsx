@@ -1,82 +1,32 @@
 import React from "react"
-import "./Header.scss"
-import { FaArrowLeftLong } from "react-icons/fa6";
+import "../SidebarHeader/SidebarHeader.scss"
+import { FaArrowLeftLong, FaPlus } from "react-icons/fa6";
 import User from "../SidebarHeader/User.svg";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+
+    const navigate=useNavigate()
+
+    const handleBackArrowSidebar = () => {
+        navigate('/home')
+    }
+     
+
     return (
         <div className="headerContainer">
-            <div className="backButton">
-                {/* <img src="#" alt="back">Back</img> */}
-                <FaArrowLeftLong size={35}/>
+            <div className="columnOne">
+                <FaArrowLeftLong className="backArrow" size={30} onClick={handleBackArrowSidebar}/>
             </div>
-            <div className="header">
-            <h2>Inbox</h2>
-            <div className='sidebar'>
-                <ul className='sidebarList'>
-                    <img src={User} alt="user" />
-                    <div className="textSide">
-                        <h2 className="chaterName">Name</h2>
-                        <p className="chatContent">
-                        Lorem ipsum of characters 
-                        for text preview
-                        </p>
-                    </div>
-                    <p className="chatDate">
-                        date/time
-                    </p>
-                </ul>
-
-                <hr />
+            <div className="columnTwo">
+                <h2>Inbox</h2>
             </div>
-            <div className='sidebar'>
-                <ul className='sidebarList'>
-                    <img src={User} alt="user" />
-                    <div className="textSide">
-                        <h2 className="chaterName">Name</h2>
-                        <p className="chatContent">
-                        Lorem ipsum of characters 
-                        for text preview
-                        </p>
-                    </div>
-                    <p className="chatDate">
-                        date/time
-                    </p>
-                </ul>
-
-                <hr />
-            </div>
-            <div className='sidebar'>
-                <ul className='sidebarList'>
-                    <img src={User} alt="user" />
-                    <div className="textSide">
-                        <h2 className="chaterName">Name</h2>
-                        <p className="chatContent">
-                        Lorem ipsum of characters 
-                        for text preview
-                        </p>
-                    </div>
-                    <p className="chatDate">
-                        date/time
-                    </p>
-                </ul>
-
-                <hr />
-            </div>
-            <UsersOnline />
+            <div className="columnThree">
+                <img src={User} alt="user" className="userImg"/>
+                <div><FaPlus size={30} className="addButton"/></div>
             </div>
         </div>
     )
 }
 
-const UsersOnline = () => {
-    return(
-        <div className="userListContainer">
-            <div className="users">
-                <img src="#" alt="/"/>
-                <span></span> 
-            </div>
-        </div>
-    )
-}
 
-export default Header
+export default Header 
