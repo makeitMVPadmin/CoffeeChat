@@ -63,9 +63,9 @@ function App() {
   
   return (
     <Routes>
-      <Route path="/" element={<Navigate replace to="/onboarding" />} />
-      <Route path="/onboarding" element={<WelcomePage />} />
-      <Route path="/onboarding-page-2" element={<OnboardingPage />} />
+      <Route path="/" element={<Navigate replace to="/landing-page" />} />
+      {/* <Route path="/onboarding" element={<WelcomePage />} /> */}
+      {/* <Route path="/onboarding-page-2" element={<OnboardingPage />} /> */}
 
       {/* {user ? (
         <> */}
