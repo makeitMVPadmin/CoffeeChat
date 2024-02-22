@@ -36,7 +36,8 @@
   }
   &__container {
     display: flex;
-    height: 85%;
+    height: 95%;
+    width: 90%;
     flex-direction: column;
     justify-content: flex-start;
     gap: 10px;
@@ -58,14 +59,16 @@
     display: flex;
   }
 
-  &--blue {
-    color: #0954b0;
-    width: 87%;
-    font-size: 1.6rem;
+  &__upper-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  &--upper {
+    width: 87%;
+    font-size: 1.7rem;
+    text-align: left;
     @include tablet {
       width: 50%;
       max-width: 328px;
@@ -76,9 +79,19 @@
     }
   }
 
-  &--red {
-    color: $mvp-red;
-    margin-left: 40%;
+  &--lower {
+    width: 87%;
+    font-size: 1.7rem;
+    margin: -1rem 0px 0px 2.5rem;
+    text-align: right ;
+  }
+
+  &__spiral-arrow {
+    width: 5.5rem;
+    height: 7rem;
+    position: absolute;
+    margin-top: -3.5rem;
+    margin-left: 75%;
   }
 
   &__button-container {
@@ -86,14 +99,14 @@
   }
 
   &__button {
-    width: 50%;
+    width: 10.75rem;
+    height: 2.813rem;
     color: white;
     background-color: black;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 700;
     padding: 0.6rem 0.4rem;
     margin: 1rem 0.5rem;
-    // border-radius: 50px;
     @include tablet {
       width: 29%;
       color: white;
@@ -195,13 +208,15 @@
     }
   }
   &__box {
-    padding: 0 20px 20px;
+    padding: 0 20px 0;
     height: 95%;
-
-    border-radius: 15px;
+    margin-top: 5px;
+    border-radius: 5px;
     color: grey; /* Set your desired text color */
     background-color: $mvp-white;
-    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.25);
+    border: solid;
+    border-color: $mvp-black;
+    box-shadow: 2px 2px $mvp-black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -220,8 +235,8 @@
     align-items: flex-start;
   }
   &__titles {
-    color: $mvp-red;
-    font-size: 1.3rem;
+    color: $mvp-black;
+    font-size: 1.4rem;
     margin: 0.3rem 0rem;
     @include tablet {
       font-size: 1.5rem;
@@ -229,21 +244,17 @@
     }
   }
   &__option-2 {
-    background-color: rgba(0, 153, 255, 0.4);
     display: flex;
     align-items: center;
     padding: 0.3rem 0.4rem;
-    // border-radius: 50px;
     color: black;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     @include tablet {
       font-size: 1.1rem;
     }
   }
   &__option-1 {
-    background: rgba(9, 84, 176, 0.5);
-    padding: 0.3rem 0.4rem;
-    // border-radius: 50px;
+    padding: 0.3rem 0.9rem;
     color: black;
     font-size: 0.8rem;
     display: flex;
@@ -254,10 +265,8 @@
   }
   &__option-3 {
     padding: 0.3rem 0.4rem;
-    // border-radius: 50px;
     color: black;
-    background: rgba(255, 112, 112, 0.5);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     @include tablet {
@@ -266,12 +275,10 @@
   }
   &__option-4 {
     padding: 0.3rem 1.4rem;
-    // border-radius: 50px;
     color: black;
-    background: rgba(255, 210, 47, 0.5);
     display: flex;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     @include tablet {
       font-size: 1.1rem;
     }
@@ -301,7 +308,8 @@
   }
 }
 .selected {
-  border: 2px solid black;
+  background-color: $mvp-light-blue;
+  color: $mvp-white;
 }
 
 @keyframes circle-desktop {

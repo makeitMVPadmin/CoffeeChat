@@ -7,21 +7,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 90%;
+    width: 93%;
     margin: 2.5rem 0rem 4rem;
     @include desktop {
       margin-top: 8rem;
     }
   }
 
-  &__back-arrow {
+  &__header-container {
     display: flex;
+    align-items: center;
   }
 
   &__header {
-    margin-top: -1.563rem;
+    margin-left: 13%;
     margin-bottom: 0.5rem;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 
   &__profile-pic {
@@ -33,7 +34,7 @@
   }
 
   &__profile-name {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   &__location-image {
@@ -45,6 +46,15 @@
     display: flex;
     align-items: center;
     margin: 0.2rem;
+  }
+
+  &__row--name {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.2rem;
+    margin-bottom: -0.5rem;
   }
 
   &__column {
@@ -59,20 +69,23 @@
 
   &__info {
     text-wrap: nowrap;
+    color: $mvp-black;
   }
 
   &__outer-box {
-    height: 70%;
     width: 100%;
-    border-radius: 20px;
+    height: 100%;
+    border-radius: 10px;
     border: solid;
-    border-color: grey;
+    border-color: $mvp-black;
+    background-color: $mvp-white;
+    box-shadow: 2px 2px $mvp-black;
     display: flex;
     flex-direction: column;
     text-align: left;
 
     &__inner-box {
-      height: 70%;
+      height: 100%;
       padding: 15px;
       border-radius: 20px;
       color: grey; /* Set your desired text color */
@@ -83,8 +96,9 @@
       }
 
       &__bio {
-        line-height: 1.5rem;
+        line-height: 1.8rem;
         margin-bottom: 0.3rem;
+        color: $mvp-black;
       }
 
       &__expertise {
@@ -94,7 +108,7 @@
         padding: 0.5rem 1rem;
         margin-bottom: 0.3rem;
         color: $mvp-black;
-        font-size: small;
+        font-size: 0.7rem;
 
         &__header {
           margin-right: 1rem;
@@ -104,7 +118,8 @@
         &__skill {
           padding: 0.2rem 0.5rem;
           margin-left: 0.5rem;
-          background-color: $mvp-light-blue;
+          background-color: $mvp-yellow;
+          border: solid;
           border-radius: 2rem;
         }
       }
@@ -117,20 +132,22 @@
   }
 
   &__logo {
-    margin-left: 6.5rem;
+    margin-left: 0.5rem;
   }
 
   &__button {
     background-color: $mvp-black;
     color: white;
-    // border-radius: 1.5rem;
     padding: 0.5rem 1rem;
+    width: 7.938rem;
+    height: 2.75rem;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     &--row {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-evenly;
     }
     &--container {
       padding-top: 0.5rem;

@@ -5,13 +5,19 @@
 .connections {
   width: 100%;
   height: 135vh;
-
+  background-color: $mvp-cream;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
   @include desktop {
     background-image: none;
+  }
+  &__background_1 {
+    background-image: url(../../assets/background/ConnectingMobileBackground.svg);
+  }
+  &__background_2 {
+    background-image: url(../../assets/background/ConnectionOptionMobileBackground.svg);
   }
   &__container {
     display: flex;
@@ -57,7 +63,6 @@
     font-size: 0.8rem;
     padding: 0.6rem 0.4rem;
     margin: 1rem 0.5rem;
-    // border-radius: 50px;
     @include tablet {
       width: 29%;
       color: white;
@@ -158,7 +163,7 @@
     align-items: flex-start;
   }
   &__titles {
-    color: $mvp-red;
+    color: $mvp-black;
     margin: 0.3rem 0rem;
     @include tablet {
       font-size: 1.5rem;
@@ -166,22 +171,20 @@
     }
   }
   &__option-2 {
-    background-color: rgba(0, 153, 255, 0.4);
     display: flex;
     align-items: center;
     padding: 0.3rem 0.4rem;
-    // border-radius: 50px;
     color: black;
+    border: 2px solid black;
     font-size: 0.7rem;
     @include tablet {
       font-size: 1.1rem;
     }
   }
   &__option-1 {
-    background: rgba(9, 84, 176, 0.5);
     padding: 0.3rem 0.4rem;
-    // border-radius: 50px;
     color: black;
+    border: 2px solid black;
     font-size: 0.7rem;
     display: flex;
     align-items: center;
@@ -191,9 +194,8 @@
   }
   &__option-3 {
     padding: 0.3rem 0.4rem;
-    // border-radius: 50px;
     color: black;
-    background: rgba(255, 112, 112, 0.5);
+    border: 2px solid black;
     font-size: 0.7rem;
     display: flex;
     align-items: center;
@@ -203,9 +205,8 @@
   }
   &__option-4 {
     padding: 0.3rem 1.4rem;
-    // border-radius: 50px;
     color: black;
-    background: rgba(255, 210, 47, 0.5);
+    border: 2px solid black;
     display: flex;
     align-items: center;
     font-size: 0.7rem;
@@ -238,5 +239,6 @@
   }
 }
 .selected {
-  border: 2px solid black;
+  background-color: $mvp-light-blue;
+  color: $mvp-white;
 }
