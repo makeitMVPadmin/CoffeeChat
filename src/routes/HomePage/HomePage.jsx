@@ -79,7 +79,7 @@ const HomePage = () => {
 
       <div className="homeHeader">
         <h1 className="WelcomeTitle">
-          Hello, <br></br> Alexander {userInfo.fullName || userInfo.displayName}
+          Hello, Alexander {userInfo.fullName || userInfo.displayName}
         </h1>
         <Link to={"/profile"}>
           <img
