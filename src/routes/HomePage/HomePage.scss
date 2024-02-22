@@ -8,8 +8,7 @@
   height: 100vh;
   background:bottom url(./home-background.jpg) no-repeat;
   background-size: contain;
-  padding-top: 15%;
-  gap: 4.3rem;
+  padding: 1rem;
   @include tablet {
     padding-top: 16%;
     background-image: url(../../assets/images/HomeBackgroundTablet.svg);
@@ -59,11 +58,9 @@
   border-left: 1px solid #000;
   background: #F7F7F7;
   padding: 1rem;
-  width: 22.4375rem;
+  width: 90%;
   height: 11rem;
-  flex-shrink: 0;
-  margin: auto;
-  margin-bottom: 1.25rem;
+  margin: 1.25rem;
 }
 
 .homeSubHeader {
@@ -151,7 +148,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  // margin-bottom: 10%;
+  margin: 1.25rem 0;
 
   @include tablet {
     justify-content: flex-start;
