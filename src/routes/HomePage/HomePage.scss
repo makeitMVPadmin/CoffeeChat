@@ -10,13 +10,13 @@
   background-size: contain;
   padding: 1rem;
   @include tablet {
-    padding-top: 16%;
     background-image: url(../../assets/images/HomeBackgroundTablet.svg);
   }
 
   @include desktop {
     padding-top: 9%;
-    background-image: url(../../assets/images/HomeBackground.svg);
+    background:bottom url(./home-desktop.svg) no-repeat;
+    background-color: oldlace;
   }
 }
 
@@ -61,6 +61,11 @@
   width: 90%;
   height: 11rem;
   margin: 1.25rem;
+  @include desktop {
+    margin: 3rem;
+    padding: 2rem;
+    height: 12rem;
+  }
 }
 
 .homeSubHeader {
