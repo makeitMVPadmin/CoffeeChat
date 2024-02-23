@@ -4,10 +4,10 @@
 
 
 .home {
-  background-color: #fff9f4;
+  background-color: $mvp-cream;
   height: 100vh;
-  background:bottom url(./home-background.jpg) no-repeat;
-  background-size: contain;
+  background: url(./home-desktop.svg) no-repeat;
+  background-size: cover;
   padding: 1rem;
   @include tablet {
     background-image: url(../../assets/images/HomeBackgroundTablet.svg);
@@ -16,7 +16,7 @@
   @include desktop {
     padding-top: 9%;
     background:bottom url(./home-desktop.svg) no-repeat;
-    background-color: #fff9f4;
+    background-color: $mvp-cream;
   }
 }
 
