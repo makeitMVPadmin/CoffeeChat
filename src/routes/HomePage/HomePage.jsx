@@ -16,7 +16,11 @@ const HomePage = () => {
   const [userInfo, setUserInfo] = useState(false);
 
 
+  const navigate = useNavigate();
 
+  const handleFindConnections = () => {
+    navigate('/connections'); 
+  };
 
   
   useEffect(() => {
@@ -163,7 +167,7 @@ const HomePage = () => {
       </div>
 
       <div>
-        <button className="connectionsBtn">Find Connections</button>
+        <button className="connectionsBtn" onClick={handleFindConnections}>Find Connections</button>
       </div>
 
 
