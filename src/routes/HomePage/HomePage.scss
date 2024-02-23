@@ -4,7 +4,7 @@
 
 
 .home {
-  background-color: white;
+  background-color: #fff9f4;
   height: 100vh;
   background:bottom url(./home-background.jpg) no-repeat;
   background-size: contain;
@@ -16,7 +16,7 @@
   @include desktop {
     padding-top: 9%;
     background:bottom url(./home-desktop.svg) no-repeat;
-    background-color: oldlace;
+    background-color: #fff9f4;
   }
 }
 
