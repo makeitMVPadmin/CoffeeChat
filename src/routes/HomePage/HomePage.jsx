@@ -16,7 +16,11 @@ const HomePage = () => {
   const [userInfo, setUserInfo] = useState(false);
 
 
+  const navigate = useNavigate();
 
+  const handleFindConnections = () => {
+    navigate('/connections'); 
+  };
 
   
   useEffect(() => {
@@ -81,13 +85,11 @@ const HomePage = () => {
         <h1 className="WelcomeTitle">
           Hello, Alexander {userInfo.fullName || userInfo.displayName}
         </h1>
-        <Link to={"/profile"}>
           <img
             src={userInfo.profilePhoto || userPhoto}
             className="accountBtn"
             referrerpolicy="no-referrer"
           ></img>
-        </Link>
       </div>
 
       <div className="homeSection">
@@ -163,7 +165,7 @@ const HomePage = () => {
       </div>
 
       <div>
-        <button className="connectionsBtn">Find Connections</button>
+        <button className="connectionsBtn" onClick={handleFindConnections}>Find Connections</button>
       </div>
 
 
