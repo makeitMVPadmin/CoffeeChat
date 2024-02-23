@@ -63,7 +63,7 @@ function App() {
   
   return (
     <Routes>
-      <Route path="/" element={<Navigate replace to="/landing-page" />} />
+      <Route path="/" element={<Navigate replace to="/home" />} />
       {/* <Route path="/onboarding" element={<WelcomePage />} /> */}
       {/* <Route path="/onboarding-page-2" element={<OnboardingPage />} /> */}
 
