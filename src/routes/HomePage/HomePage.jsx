@@ -85,13 +85,11 @@ const HomePage = () => {
         <h1 className="WelcomeTitle">
           Hello, Alexander {userInfo.fullName || userInfo.displayName}
         </h1>
-        <Link to={"/profile"}>
           <img
             src={userInfo.profilePhoto || userPhoto}
             className="accountBtn"
             referrerpolicy="no-referrer"
           ></img>
-        </Link>
       </div>
 
       <div className="homeSection">
