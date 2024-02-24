@@ -12,31 +12,37 @@ const chatData = {
       id: "aanders",
       name: "Alexander Anders",
       avatar: AlexAndersPic,
+      occupation: "Software Engineer"
     },
     {
       id: "rdev",
       name: "Raj Dev",
       avatar: RajDevPicture,
+      occupation: "Software Engineer"
     },
     {
       id: "mwell",
       name: "Manny Well",
       avatar: MannyWellPic,
+      occupation: "Project Manager"
     },
     {
       id: "dyoung",
       name: "Drew Young",
       avatar: DrewYoungPic,
+      occupation: "Senior Software Engineer"
     },
     {
       id: "mjames",
       name: "Martin James",
       avatar: MartinJamesPic,
+      occupation: "Back-End Developer"
     },
     {
       id: "tcrew",
       name: "Tiffany Crew",
       avatar: TiffanyCrewPic,
+      occupation: "Data Analyst"
     },
   ],
   messages: [

@@ -8,10 +8,11 @@ import "./Chat.scss"
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import User from "../SidebarHeader/User.svg";
+import ChatData from "../../../data/chatData"
 
 
 const Chat =() => {
-    // const {messages} = chatData //extract messages from chat data
+    const {messages} = ChatData 
 
     const navigate=useNavigate()
 
@@ -26,12 +27,12 @@ const Chat =() => {
             <FaArrowLeftLong size={30} className="backIcon" onClick={handleBackArrowChat} />
             </div>
             <div className="colTwo">
-               <img className="userTwoImg" src={User} alt="profile pic" />
-                <span className="userName">Jane</span>
-                <span className="userOccupation">Software Engineer</span> 
+               <img className="userTwoImg" src={ChatData.users[1].avatar} alt="profile pic" />
+                <span className="userName">{ChatData.users[1].name}</span>
+                <span className="userOccupation">{ChatData.users[1].occupation}</span> 
             </div>
         </div>
-    <Messages {/*messages={messages}*/} /> {/*passing the messages prop to messages component*/}
+    <Messages messages={messages} /> {/*passing the messages prop to messages component*/}
     <Input />
     </div>
     )
