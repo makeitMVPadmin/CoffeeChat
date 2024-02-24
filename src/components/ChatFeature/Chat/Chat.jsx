@@ -12,7 +12,7 @@ import ChatData from "../../../data/chatData"
 
 
 const Chat =() => {
-    const {messages} = ChatData 
+    const {users, messages} = ChatData
 
     const navigate=useNavigate()
 
@@ -27,9 +27,9 @@ const Chat =() => {
             <FaArrowLeftLong size={30} className="backIcon" onClick={handleBackArrowChat} />
             </div>
             <div className="colTwo">
-               <img className="userTwoImg" src={ChatData.users[1].avatar} alt="profile pic" />
-                <span className="userName">{ChatData.users[1].name}</span>
-                <span className="userOccupation">{ChatData.users[1].occupation}</span> 
+               <img className="userTwoImg" src={users[1].avatar} alt="profile pic" />
+                <span className="userName">{users[1].name}</span>
+                <span className="userOccupation">{users[1].occupation}</span> 
             </div>
         </div>
     <Messages messages={messages} /> {/*passing the messages prop to messages component*/}
