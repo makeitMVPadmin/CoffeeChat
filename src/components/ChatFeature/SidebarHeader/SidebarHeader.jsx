@@ -1,11 +1,11 @@
 import React from "react"
 import "../SidebarHeader/SidebarHeader.scss"
 import { FaArrowLeftLong, FaPlus } from "react-icons/fa6";
-import User from "../SidebarHeader/User.svg";
+// import User from "../SidebarHeader/User.svg";
 import { useNavigate } from "react-router-dom";
-const Header = () => {
+const Header = ({ users }) => {
 
-    const navigate=useNavigate()
+    const navigate = useNavigate()
 
     const handleBackArrowSidebar = () => {
         navigate('/home')
@@ -21,7 +21,7 @@ const Header = () => {
                 <h2>Inbox</h2>
             </div>
             <div className="columnThree">
-                <img src={User} alt="user" className="userImg"/>
+                <img src={users[0].avatar} alt="user" className="userImg"/>
                 <div><FaPlus size={30} className="addButton"/></div>
             </div>
         </div>
