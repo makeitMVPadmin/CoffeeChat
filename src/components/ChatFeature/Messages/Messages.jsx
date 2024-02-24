@@ -5,17 +5,27 @@ import React from "react";
 import Message from "../Message/Message"
 import"./Messages.scss"
 
-const Messages =() => {
+
+
+const Messages =({messages}) => {
+    
+
+    const messagesList = messages.map((message) => {
+        return(
+            <Message 
+            key={message.id} 
+            content={message.content} 
+            sender={message.sender} 
+            userImg={message.avatar}
+            />
+            )
+    })
+        
+        
+
     return(
         <div className="messages">
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            <Message />
-            
-            
+            {messagesList}
         </div>
     )
 }

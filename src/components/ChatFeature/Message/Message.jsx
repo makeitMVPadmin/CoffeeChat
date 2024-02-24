@@ -4,17 +4,17 @@ import React from "react";
 import "./Message.scss"
 import User from "../SidebarHeader/User.svg";
 
-const Message =() => {
+const Message =({key, content, sender, userImg}) => {
     return(
-        <div className="message owner">
-            <div className="messageInfo">
+        // classname to determine style for classname. change once data is added
+        <div className={`message ${sender === 'aanders' ? 'owner' : ''}`}>
+         {/*<div className="message owner" key={key}>*/}
+         <div className="messageInfo">
             <div className="userPic">
-                <img src={User} alt="profile pic" /></div>
+                <img src={userImg} alt="profile pic" /></div>
             </div>
             <div className="messageContent">
-                <p>Hello</p>
-                {/* for photo attachment */}
-                {/* <img src="#" alt="image" /> */}
+                <p>{content}</p>
             </div>
         </div>  
     )
