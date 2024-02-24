@@ -77,7 +77,7 @@ function App() {
           />
           <Route path="/connections-next" element={<ConnectionsNext />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/chat/:id" element={<ChatPage />} />
           <Route path="/inbox" element={<ChatInbox />} />
           <Route path="/bookings" element={<Bookings/>}/>
           <Route path="/SchedulingPage" element={<SchedulingPage/>}/>
