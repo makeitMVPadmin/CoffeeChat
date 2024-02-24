@@ -11,9 +11,14 @@ const Chats = ({id, messages, users}) => {
         navigate(`/chat/${id}`)
     }
 
-    const convertDate = (date) => {
-        return
-    }
+    const dateFormatter = (date) => {
+        const truncatedDate = date.split("-")
+        const month = truncatedDate[1]
+        const day = truncatedDate[2].slice(0,2)
+        const year = truncatedDate[0]
+
+        return `${month}/${day}/${year}`
+      }
 
     return(
         <div className="chats" >
@@ -24,7 +29,7 @@ const Chats = ({id, messages, users}) => {
                         <p>{messages[messages.length-1].content}</p>
                     </div>
                     <div className="dateTime">
-                    <span>{messages[messages.length-1].timestamp}</span>
+                    <span>{dateFormatter(messages[messages.length-1].timestamp)}</span>
                     </div>
             </div>
         </div>
