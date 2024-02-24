@@ -103,7 +103,7 @@ const SchedulingPage = ({ people, db }) => {
                             <div className="bookedUserInfo">
                                 <p className="bookedUserName">{person.name}</p>
                                 <br></br>
-                                <p className="bookedUserRole">software Engineer</p>
+                                <p className="bookedUserRole">Software Engineer</p>
                             </div>
                             <img src={blueCalendar} alt="blueCalendar" className="blueCalendar" />
 
