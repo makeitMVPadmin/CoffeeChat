@@ -1,25 +1,30 @@
 import React from "react";
 import "./Chats.scss"
-import User from "../SidebarHeader/User.svg";
+// import User from "../SidebarHeader/User.svg";
 import { useNavigate } from "react-router-dom";
 
-const Chats =() => {
+const Chats = ({id, messages, users}) => {
 
     const navigate = useNavigate()
 
     const handleButtonClick = () => {
-        navigate('/chat')
+        navigate(`/chat/${id}`)
     }
+
+    const convertDate = (date) => {
+        return
+    }
+
     return(
         <div className="chats" >
             <div className="userChat" onClick={handleButtonClick}>
-                    <img src={User} alt="user" className="userImg" />
+                    <img src={users[1].avatar} alt="user" className="userImg" />
                     <div className="userChatInfo">
-                        <span>Jane</span>
-                        <p>Look forward to meeting you!</p>
+                        <span>{users[1].name}</span>
+                        <p>{messages[messages.length-1].content}</p>
                     </div>
                     <div className="dateTime">
-                    <span>12/2/24</span>
+                    <span>{messages[messages.length-1].timestamp}</span>
                     </div>
             </div>
         </div>
