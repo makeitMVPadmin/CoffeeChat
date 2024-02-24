@@ -11,10 +11,10 @@ import User from "../SidebarHeader/User.svg";
 import ChatData from "../../../data/chatData"
 
 
-const Chat =() => {
+const Chat = () => {
     const {users, messages} = ChatData
 
-    const [allMessages, setallMessages] = useState(messages);
+    const [allMessages, setAllMessages] = useState(messages);
 
     const navigate = useNavigate()
 
@@ -23,7 +23,7 @@ const Chat =() => {
     }
 
     const addMessage = (newMessage) => {
-        setallMessages([...allMessages, newMessage])
+        setAllMessages([...allMessages, newMessage])
     }
 
     return (
