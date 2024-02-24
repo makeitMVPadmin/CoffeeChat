@@ -5,15 +5,15 @@ import "./Sidebar.scss"
 import Search from "../Search/Search";
 
 const Sidebar = () => {
+    {/*const {chats} = chatData*/}
+    {/*this pulls the chat data to store in the inbox*/}
+
     return (
         <div className="sidebar">
             <SidebarHeader />
             <Search />
             <Chats />
-            <Chats />
-            <Chats />
-            <Chats />
-            <Chats />
+            
             
         </div>
     )

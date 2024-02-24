@@ -11,6 +11,7 @@ import User from "../SidebarHeader/User.svg";
 
 
 const Chat =() => {
+    // const {messages} = chatData //extract messages from chat data
 
     const navigate=useNavigate()
 
@@ -30,7 +31,7 @@ const Chat =() => {
                 <span className="userOccupation">Software Engineer</span> 
             </div>
         </div>
-    <Messages />
+    <Messages {/*messages={messages}*/} /> {/*passing the messages prop to messages component*/}
     <Input />
     </div>
     )
