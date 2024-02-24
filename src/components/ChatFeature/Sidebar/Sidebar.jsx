@@ -6,7 +6,7 @@ import Search from "../Search/Search";
 import chatData from "../../../data/chatData"
 
 const Sidebar = () => {
-    const {chatRooms} = chatData
+    const {chatRooms, users} = chatData
     {/*this pulls the chat data to store in the inbox*/}
 
     const chatsRoomsList = chatRooms.map(room => {
@@ -22,7 +22,7 @@ const Sidebar = () => {
 
     return (
         <div className="sidebar">
-            <SidebarHeader />
+            <SidebarHeader users={users} />
             <Search />
             {chatsRoomsList}
         </div>
