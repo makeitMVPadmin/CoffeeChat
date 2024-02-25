@@ -58,10 +58,10 @@ export const Bookings = () => {
             <div className="bookingSchedule">
               <p className="bookingDate">
                 <img src={calendarCheck} alt="calendarCheck" className="calendarCheck"/> 
-                Sun, Oct 08 </p>
+                Mon, Feb 26 </p>
               <p className="bookingTime">
                 <img src={clock} alt="clock" className="clock"/> 
-                3:30 PM</p>
+                2:30 PM</p>
             </div>
           </div>
       )}
