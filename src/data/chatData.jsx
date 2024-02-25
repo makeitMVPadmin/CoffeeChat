@@ -12,37 +12,44 @@ const chatData = {
       id: "aanders",
       name: "Alexander Anders",
       avatar: AlexAndersPic,
+      occupation: "Software Engineer"
     },
     {
       id: "rdev",
       name: "Raj Dev",
       avatar: RajDevPicture,
+      occupation: "Software Engineer"
     },
     {
       id: "mwell",
       name: "Manny Well",
       avatar: MannyWellPic,
+      occupation: "Project Manager"
     },
     {
       id: "dyoung",
       name: "Drew Young",
       avatar: DrewYoungPic,
+      occupation: "Senior Software Engineer"
     },
     {
       id: "mjames",
       name: "Martin James",
       avatar: MartinJamesPic,
+      occupation: "Back-End Developer"
     },
     {
       id: "tcrew",
       name: "Tiffany Crew",
       avatar: TiffanyCrewPic,
+      occupation: "Data Analyst"
     },
   ],
   messages: [
     {
       id: 1,
       sender: "aanders",
+      avatar: AlexAndersPic,
       receiver: "rdev",
       content: "Hi Raj, how are you?",
       timestamp: "2024-02-18T12:00:00",
@@ -51,12 +58,14 @@ const chatData = {
       id: 2,
       sender: "rdev",
       receiver: "aanders",
+      avatar: RajDevPicture,
       content: "Hi Alex! I'm doing well and you?",
       timestamp: "2024-02-18T12:05:00",
     },
     {
       id: 3,
       sender: "aanders",
+      avatar: AlexAndersPic,
       receiver: "rdev",
       content: "Doing great! Mind if I ask you a professional question?",
       timestamp: "2024-02-18T12:12:00",
@@ -65,12 +74,14 @@ const chatData = {
       id: 4,
       sender: "rdev",
       receiver: "aanders",
+      avatar: RajDevPicture,
       content: "Sure, no problem!",
       timestamp: "2024-02-18T12:15:00",
     },
     {
       id: 5,
       sender: "aanders",
+      avatar: AlexAndersPic,
       receiver: "rdev",
       content: "What inspired you to pursue a career in software engineering, and how did your journey unfold?",
       timestamp: "2024-02-18T12:19:00",
@@ -95,6 +106,7 @@ const chatData = {
         {
           id: 1,
           sender: "aanders",
+          avatar: AlexAndersPic,
           receiver: "rdev",
           content: "Hi Raj, how are you?",
           timestamp: "2024-02-18T12:00:00",
@@ -103,12 +115,14 @@ const chatData = {
           id: 2,
           sender: "rdev",
           receiver: "aanders",
+          avatar: RajDevPicture,
           content: "Hi Alex! I'm doing well and you?",
           timestamp: "2024-02-18T12:05:00",
         },
         {
           id: 3,
           sender: "aanders",
+          avatar: AlexAndersPic,
           receiver: "rdev",
           content: "Doing great! Mind if I ask you a professional question?",
           timestamp: "2024-02-18T12:12:00",
@@ -117,12 +131,14 @@ const chatData = {
           id: 4,
           sender: "rdev",
           receiver: "aanders",
+          avatar: RajDevPicture,
           content: "Sure, no problem!",
           timestamp: "2024-02-18T12:15:00",
         },
         {
           id: 5,
           sender: "aanders",
+          avatar: AlexAndersPic,
           receiver: "rdev",
           content: "What inspired you to pursue a career in software engineering, and how did your journey unfold?",
           timestamp: "2024-02-18T12:19:00",
