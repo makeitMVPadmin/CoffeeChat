@@ -54,14 +54,14 @@ export const Bookings = () => {
         <div className="bookings">
             {/* upcoming mapping list */}
             <p className="bookingsUser">Raj Dev</p>
-            <p className="userRole">software Engineer</p>
+            <p className="userRole">Software Engineer</p>
             <div className="bookingSchedule">
               <p className="bookingDate">
                 <img src={calendarCheck} alt="calendarCheck" className="calendarCheck"/> 
                 Sun, Oct 08 </p>
               <p className="bookingTime">
                 <img src={clock} alt="clock" className="clock"/> 
-                3.30 PM</p>
+                3:30 PM</p>
             </div>
           </div>
       )}
@@ -71,11 +71,11 @@ export const Bookings = () => {
         <div className="bookings">
             {/* History mapping list */}
             <p className="bookingsUser">History Dev</p>
-            <p className="userRole">software Engineer</p>
+            <p className="userRole">Software Engineer</p>
             <div className="bookingSchedule">
               <p className="bookingDate">
                 <img src={calendarCheck} alt="calendarCheck" className="calendarCheck"/> 
-                Sun, Oct 08 </p>
+                Fri, Oct 06 </p>
               <p className="bookingTime">
                 <img src={clock} alt="clock" className="clock"/> 
                 8:30 PM</p>
