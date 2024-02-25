@@ -71,7 +71,29 @@ To use the Coffee Chat app, follow the registration and login process. Create yo
 ...Work in Progress
 
 ## API Documentation
-...Work in Progress
+
+**THIS PORTION HAS NOT BEEN DONE YET**
+
+Attached are the docs for accessing the API. To start making calls, you'll need to follow these steps:
+
+1. Create a User with FireAuth: Before accessing the API, make sure you've created a user using Firebase Authentication (FireAuth). This step is crucial for authentication purposes.
+2. Retrieve JWT with currentUser.getIdToken(): After creating a user, use the currentUser.getIdToken() method provided by Firebase Authentication to obtain a JSON Web Token (JWT). This token will serve as your authentication credential for accessing the API.
+3. Include JWT in Bearer Header: Once you have the JWT, include it in the Authorization header of your Axios requests using the Bearer token format. This ensures that your requests are properly authenticated.
+4. Example:
+
+``` React
+axios.get('https://us-central1-communiti-630fc.cloudfunctions.net/api/users', {
+  headers: {
+    Authorization: `Bearer <your_jwt_here>`
+  }
+});
+```
+
+  - Base URL and Endpoints: The base URL for the API is https://us-central1-communiti-630fc.cloudfunctions.net/api. Simply append the desired endpoint to this base URL to make requests to specific resources.
+  - Example: GET https://us-central1-communiti-630fc.cloudfunctions.net/api/users
+Not using the proper token will end up giving you a 401 error saying "Unauthorized". If you are having trouble accessing the API or need to request an update to how the endpoints are structured, reach out to team Mergintegration.
+
+P.S. Not all endpoints are completed yet, and thus aren't included in the docs because they are updated as they are completed and available in the code. The docs will be updated as the endpoints are rolled out. 
 
 ## Contributing
 
